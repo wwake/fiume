@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "33EADA06-57C6-4388-8381-6909146147E9",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:fiume.xcodeproj",
+      "identifier" : "919EA1A32BD18BE5007FA010",
+      "name" : "fiume"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:fiume.xcodeproj",
+        "identifier" : "919EA1B42BD18BE8007FA010",
+        "name" : "fiumeTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:fiume.xcodeproj",
+        "identifier" : "919EA1BE2BD18BE8007FA010",
+        "name" : "fiumeUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
