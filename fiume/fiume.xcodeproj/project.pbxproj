@@ -34,6 +34,8 @@
 		919EA1B52BD18BE8007FA010 /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		919EA1B92BD18BE8007FA010 /* fiumeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeTests.swift; sourceTree = "<group>"; };
 		919EA1D22BD18E36007FA010 /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
+		91B4BC2A2BD1918600859208 /* _todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
+		91B4BC2B2BD191E000859208 /* fiume.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = fiume.key; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,8 @@
 		919EA19B2BD18BE5007FA010 = {
 			isa = PBXGroup;
 			children = (
+				91B4BC2B2BD191E000859208 /* fiume.key */,
+				91B4BC2A2BD1918600859208 /* _todo.txt */,
 				919EA1D22BD18E36007FA010 /* fiume.xctestplan */,
 				919EA1A62BD18BE5007FA010 /* fiume */,
 				919EA1B82BD18BE8007FA010 /* fiumeTests */,
