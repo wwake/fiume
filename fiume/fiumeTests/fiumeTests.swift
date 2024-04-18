@@ -1,10 +1,3 @@
-//
-//  fiumeTests.swift
-//  fiumeTests
-//
-//  Created by Bill Wake on 4/18/24.
-//
-
 import XCTest
 @testable import fiume
 
@@ -32,5 +25,4 @@ final class fiumeTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

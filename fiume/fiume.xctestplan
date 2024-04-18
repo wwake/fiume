@@ -23,15 +23,6 @@
         "identifier" : "919EA1B42BD18BE8007FA010",
         "name" : "fiumeTests"
       }
-    },
-    {
-      "enabled" : false,
-      "parallelizable" : true,
-      "target" : {
-        "containerPath" : "container:fiume.xcodeproj",
-        "identifier" : "919EA1BE2BD18BE8007FA010",
-        "name" : "fiumeUITests"
-      }
     }
   ],
   "version" : 1
