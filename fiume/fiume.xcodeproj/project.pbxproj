@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		919EA1A82BD18BE5007FA010 /* fiumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1A72BD18BE5007FA010 /* fiumeApp.swift */; };
+		919EA1AA2BD18BE5007FA010 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1A92BD18BE5007FA010 /* ContentView.swift */; };
+		919EA1AC2BD18BE7007FA010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919EA1AB2BD18BE7007FA010 /* Assets.xcassets */; };
+		919EA1AF2BD18BE7007FA010 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919EA1AE2BD18BE7007FA010 /* Preview Assets.xcassets */; };
+		919EA1BA2BD18BE8007FA010 /* fiumeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1B92BD18BE8007FA010 /* fiumeTests.swift */; };
+		919EA1C42BD18BE8007FA010 /* fiumeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1C32BD18BE8007FA010 /* fiumeUITests.swift */; };
+		919EA1C62BD18BE8007FA010 /* fiumeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1C52BD18BE8007FA010 /* fiumeUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		919EA1B62BD18BE8007FA010 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 919EA19C2BD18BE5007FA010 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 919EA1A32BD18BE5007FA010;
+			remoteInfo = fiume;
+		};
+		919EA1C02BD18BE8007FA010 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 919EA19C2BD18BE5007FA010 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 919EA1A32BD18BE5007FA010;
+			remoteInfo = fiume;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		919EA1A42BD18BE5007FA010 /* fiume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fiume.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		919EA1A72BD18BE5007FA010 /* fiumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeApp.swift; sourceTree = "<group>"; };
+		919EA1A92BD18BE5007FA010 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		919EA1AB2BD18BE7007FA010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		919EA1AE2BD18BE7007FA010 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		919EA1B02BD18BE7007FA010 /* fiume.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fiume.entitlements; sourceTree = "<group>"; };
+		919EA1B52BD18BE8007FA010 /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		919EA1B92BD18BE8007FA010 /* fiumeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeTests.swift; sourceTree = "<group>"; };
+		919EA1BF2BD18BE8007FA010 /* fiumeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		919EA1C32BD18BE8007FA010 /* fiumeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeUITests.swift; sourceTree = "<group>"; };
+		919EA1C52BD18BE8007FA010 /* fiumeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		919EA1A12BD18BE5007FA010 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		919EA1B22BD18BE8007FA010 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		919EA1BC2BD18BE8007FA010 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		919EA19B2BD18BE5007FA010 = {
+			isa = PBXGroup;
+			children = (
+				919EA1A62BD18BE5007FA010 /* fiume */,
+				919EA1B82BD18BE8007FA010 /* fiumeTests */,
+				919EA1C22BD18BE8007FA010 /* fiumeUITests */,
+				919EA1A52BD18BE5007FA010 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		919EA1A52BD18BE5007FA010 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				919EA1A42BD18BE5007FA010 /* fiume.app */,
+				919EA1B52BD18BE8007FA010 /* fiumeTests.xctest */,
+				919EA1BF2BD18BE8007FA010 /* fiumeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		919EA1A62BD18BE5007FA010 /* fiume */ = {
+			isa = PBXGroup;
+			children = (
+				919EA1A72BD18BE5007FA010 /* fiumeApp.swift */,
+				919EA1A92BD18BE5007FA010 /* ContentView.swift */,
+				919EA1AB2BD18BE7007FA010 /* Assets.xcassets */,
+				919EA1B02BD18BE7007FA010 /* fiume.entitlements */,
+				919EA1AD2BD18BE7007FA010 /* Preview Content */,
+			);
+			path = fiume;
+			sourceTree = "<group>";
+		};
+		919EA1AD2BD18BE7007FA010 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				919EA1AE2BD18BE7007FA010 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		919EA1B82BD18BE8007FA010 /* fiumeTests */ = {
+			isa = PBXGroup;
+			children = (
+				919EA1B92BD18BE8007FA010 /* fiumeTests.swift */,
+			);
+			path = fiumeTests;
+			sourceTree = "<group>";
+		};
+		919EA1C22BD18BE8007FA010 /* fiumeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				919EA1C32BD18BE8007FA010 /* fiumeUITests.swift */,
+				919EA1C52BD18BE8007FA010 /* fiumeUITestsLaunchTests.swift */,
+			);
+			path = fiumeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		919EA1A32BD18BE5007FA010 /* fiume */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 919EA1C92BD18BE8007FA010 /* Build configuration list for PBXNativeTarget "fiume" */;
+			buildPhases = (
+				919EA1A02BD18BE5007FA010 /* Sources */,
+				919EA1A12BD18BE5007FA010 /* Frameworks */,
+				919EA1A22BD18BE5007FA010 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = fiume;
+			productName = fiume;
+			productReference = 919EA1A42BD18BE5007FA010 /* fiume.app */;
+			productType = "com.apple.product-type.application";
+		};
+		919EA1B42BD18BE8007FA010 /* fiumeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 919EA1CC2BD18BE8007FA010 /* Build configuration list for PBXNativeTarget "fiumeTests" */;
+			buildPhases = (
+				919EA1B12BD18BE8007FA010 /* Sources */,
+				919EA1B22BD18BE8007FA010 /* Frameworks */,
+				919EA1B32BD18BE8007FA010 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				919EA1B72BD18BE8007FA010 /* PBXTargetDependency */,
+			);
+			name = fiumeTests;
+			productName = fiumeTests;
+			productReference = 919EA1B52BD18BE8007FA010 /* fiumeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		919EA1BE2BD18BE8007FA010 /* fiumeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 919EA1CF2BD18BE8007FA010 /* Build configuration list for PBXNativeTarget "fiumeUITests" */;
+			buildPhases = (
+				919EA1BB2BD18BE8007FA010 /* Sources */,
+				919EA1BC2BD18BE8007FA010 /* Frameworks */,
+				919EA1BD2BD18BE8007FA010 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				919EA1C12BD18BE8007FA010 /* PBXTargetDependency */,
+			);
+			name = fiumeUITests;
+			productName = fiumeUITests;
+			productReference = 919EA1BF2BD18BE8007FA010 /* fiumeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		919EA19C2BD18BE5007FA010 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					919EA1A32BD18BE5007FA010 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					919EA1B42BD18BE8007FA010 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 919EA1A32BD18BE5007FA010;
+					};
+					919EA1BE2BD18BE8007FA010 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 919EA1A32BD18BE5007FA010;
+					};
+				};
+			};
+			buildConfigurationList = 919EA19F2BD18BE5007FA010 /* Build configuration list for PBXProject "fiume" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 919EA19B2BD18BE5007FA010;
+			productRefGroup = 919EA1A52BD18BE5007FA010 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				919EA1A32BD18BE5007FA010 /* fiume */,
+				919EA1B42BD18BE8007FA010 /* fiumeTests */,
+				919EA1BE2BD18BE8007FA010 /* fiumeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		919EA1A22BD18BE5007FA010 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				919EA1AF2BD18BE7007FA010 /* Preview Assets.xcassets in Resources */,
+				919EA1AC2BD18BE7007FA010 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		919EA1B32BD18BE8007FA010 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		919EA1BD2BD18BE8007FA010 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		919EA1A02BD18BE5007FA010 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				919EA1AA2BD18BE5007FA010 /* ContentView.swift in Sources */,
+				919EA1A82BD18BE5007FA010 /* fiumeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		919EA1B12BD18BE8007FA010 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				919EA1BA2BD18BE8007FA010 /* fiumeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		919EA1BB2BD18BE8007FA010 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				919EA1C42BD18BE8007FA010 /* fiumeUITests.swift in Sources */,
+				919EA1C62BD18BE8007FA010 /* fiumeUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		919EA1B72BD18BE8007FA010 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 919EA1A32BD18BE5007FA010 /* fiume */;
+			targetProxy = 919EA1B62BD18BE8007FA010 /* PBXContainerItemProxy */;
+		};
+		919EA1C12BD18BE8007FA010 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 919EA1A32BD18BE5007FA010 /* fiume */;
+			targetProxy = 919EA1C02BD18BE8007FA010 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		919EA1C72BD18BE8007FA010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		919EA1C82BD18BE8007FA010 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		919EA1CA2BD18BE8007FA010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = fiume/fiume.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"fiume/Preview Content\"";
+				DEVELOPMENT_TEAM = 7B9VB3YTHK;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiume;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		919EA1CB2BD18BE8007FA010 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = fiume/fiume.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"fiume/Preview Content\"";
+				DEVELOPMENT_TEAM = 7B9VB3YTHK;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiume;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		919EA1CD2BD18BE8007FA010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7B9VB3YTHK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiumeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fiume.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/fiume";
+			};
+			name = Debug;
+		};
+		919EA1CE2BD18BE8007FA010 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7B9VB3YTHK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiumeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fiume.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/fiume";
+			};
+			name = Release;
+		};
+		919EA1D02BD18BE8007FA010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7B9VB3YTHK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiumeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = fiume;
+			};
+			name = Debug;
+		};
+		919EA1D12BD18BE8007FA010 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7B9VB3YTHK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiumeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = fiume;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		919EA19F2BD18BE5007FA010 /* Build configuration list for PBXProject "fiume" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				919EA1C72BD18BE8007FA010 /* Debug */,
+				919EA1C82BD18BE8007FA010 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		919EA1C92BD18BE8007FA010 /* Build configuration list for PBXNativeTarget "fiume" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				919EA1CA2BD18BE8007FA010 /* Debug */,
+				919EA1CB2BD18BE8007FA010 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		919EA1CC2BD18BE8007FA010 /* Build configuration list for PBXNativeTarget "fiumeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				919EA1CD2BD18BE8007FA010 /* Debug */,
+				919EA1CE2BD18BE8007FA010 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		919EA1CF2BD18BE8007FA010 /* Build configuration list for PBXNativeTarget "fiumeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				919EA1D02BD18BE8007FA010 /* Debug */,
+				919EA1D12BD18BE8007FA010 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 919EA19C2BD18BE5007FA010 /* Project object */;
+}
