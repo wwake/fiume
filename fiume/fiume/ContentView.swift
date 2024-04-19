@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  fiume
-//
-//  Created by Bill Wake on 4/18/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -13,6 +6,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
+				.accessibilityLabel("globe")
             Text("Hello, world!")
         }
         .padding()
