@@ -11,7 +11,7 @@
 		919EA1AA2BD18BE5007FA010 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1A92BD18BE5007FA010 /* ContentView.swift */; };
 		919EA1AC2BD18BE7007FA010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919EA1AB2BD18BE7007FA010 /* Assets.xcassets */; };
 		919EA1AF2BD18BE7007FA010 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919EA1AE2BD18BE7007FA010 /* Preview Assets.xcassets */; };
-		919EA1BA2BD18BE8007FA010 /* FiumeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1B92BD18BE8007FA010 /* FiumeTests.swift */; };
+		919EA1BA2BD18BE8007FA010 /* APlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1B92BD18BE8007FA010 /* APlan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +32,7 @@
 		919EA1AE2BD18BE7007FA010 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		919EA1B02BD18BE7007FA010 /* fiume.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fiume.entitlements; sourceTree = "<group>"; };
 		919EA1B52BD18BE8007FA010 /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		919EA1B92BD18BE8007FA010 /* FiumeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiumeTests.swift; sourceTree = "<group>"; };
+		919EA1B92BD18BE8007FA010 /* APlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APlan.swift; sourceTree = "<group>"; };
 		919EA1D22BD18E36007FA010 /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
 		91B4BC2A2BD1918600859208 /* _todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
 		91B4BC2B2BD191E000859208 /* fiume.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = fiume.key; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		919EA1B82BD18BE8007FA010 /* fiumeTests */ = {
 			isa = PBXGroup;
 			children = (
-				919EA1B92BD18BE8007FA010 /* FiumeTests.swift */,
+				919EA1B92BD18BE8007FA010 /* APlan.swift */,
 			);
 			path = fiumeTests;
 			sourceTree = "<group>";
@@ -239,7 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919EA1BA2BD18BE8007FA010 /* FiumeTests.swift in Sources */,
+				919EA1BA2BD18BE8007FA010 /* APlan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
