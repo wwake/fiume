@@ -2,7 +2,7 @@
 import XCTest
 
 final class AStream: XCTestCase {
-	func test_amountInValidDateRange() throws {
+	func test_amountInsideDateRange() throws {
 		let stream = Stream("Sample", Dollar(100), first: 1, last: 10)
 		XCTAssertEqual(stream.amount(month: 1), Dollar(100))
 		XCTAssertEqual(stream.amount(month: 10), Dollar(100))
