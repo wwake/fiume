@@ -17,8 +17,8 @@ final class APlan: XCTestCase {
 		plan.add(Stream("Salary", 1_000))
 		plan.add(Stream("Expenses", -900))
 
-		_ = plan.project(12)
+		let data = plan.project(12)
 
-		XCTAssertEqual(plan.netWorth, 1_200)
+		XCTAssertEqual(data.last!.amount, 1_200)
 	}
 }

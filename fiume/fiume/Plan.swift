@@ -5,7 +5,6 @@ struct NetWorthData {
 
 class Plan {
 	var streams = [Stream]()
-	var netWorth = Dollar(0)
 
 	func add(_ stream: Stream) {
 		streams.append(stream)
@@ -21,7 +20,6 @@ class Plan {
 			runningTotal += net
 			result.append(NetWorthData(month: month, amount: runningTotal))
 		}
-		netWorth = result.last!.amount
 		return result
 	}
 }
