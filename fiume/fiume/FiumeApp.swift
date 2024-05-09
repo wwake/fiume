@@ -1,17 +1,12 @@
-//
-//  FiumeApp.swift
-//  fiume
-//
-//  Created by Bill Wake on 4/18/24.
-//
-
 import SwiftUI
 
 @main
 struct FiumeApp: App {
+	@State var plan = Plan()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			ContentView(plan: plan)
         }
     }
 }

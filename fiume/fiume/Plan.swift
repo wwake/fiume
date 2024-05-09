@@ -1,8 +1,12 @@
-struct NetWorthData {
+import Foundation
+
+struct NetWorthData: Identifiable {
+	let id = UUID()
 	let month: Int
 	let amount: Dollar
 }
 
+@Observable
 class Plan {
 	var streams = [Stream]()
 

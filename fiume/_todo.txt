@@ -1,5 +1,8 @@
-
+Add start/stop dates to streams
+Add a new income/expense to a plan
+Add assets/liabilities
 
 
 2024-05-09: FI-24-01: Introducing Fiume
 [Offline: set up initial project]
+Create a plan, able to add streams to it
