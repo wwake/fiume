@@ -5,27 +5,33 @@ import XCTest
 typealias Dollar = Int
 
 class Stream {
-	init(_ name: String, _ monthlyAmount: Dollar) {
+	var name: String
+	var monthlyAmount: Dollar
 
+	init(_ name: String, _ monthlyAmount: Dollar) {
+		self.name = name
+		self.monthlyAmount = monthlyAmount
 	}
 }
 
 class Plan {
-	func add(_ stream: Stream) {
+	var income: Stream = Stream("", 0)
+	var netWorth = Dollar(0)
 
+	func add(_ stream: Stream) {
+		income = stream
 	}
 
 	func project(_ months: Int) {
-
-
+		(0..<months).forEach { _ in
+			netWorth += income.monthlyAmount
+		}
 	}
-
-	var netWorth: Dollar { 12_000 }
 }
 
 final class APlan: XCTestCase {
 	func test_salaryBuildsNetWorth() throws {
-		var plan = Plan()
+		let plan = Plan()
 		plan.add(Stream("Salary", 1_000))
 
 		plan.project(12)
