@@ -15,16 +15,18 @@ class Stream {
 }
 
 class Plan {
-	var income: Stream = Stream("", 0)
+	var streams = [Stream]()
 	var netWorth = Dollar(0)
 
 	func add(_ stream: Stream) {
-		income = stream
+		streams.append(stream)
 	}
 
 	func project(_ months: Int) {
 		(0..<months).forEach { _ in
-			netWorth += income.monthlyAmount
+			streams.forEach { stream in
+				netWorth += stream.monthlyAmount
+			}
 		}
 	}
 }
@@ -37,5 +39,15 @@ final class APlan: XCTestCase {
 		plan.project(12)
 
 		XCTAssertEqual(plan.netWorth, 12_000)
+	}
+
+	func test_salaryMinusExpensesCreatesNetWorth() throws {
+		let plan = Plan()
+		plan.add(Stream("Salary", 1_000))
+		plan.add(Stream("Expenses", -900))
+
+		plan.project(12)
+
+		XCTAssertEqual(plan.netWorth, 1_200)
 	}
 }
