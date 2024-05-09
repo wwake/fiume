@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911485B12BED51B8005B81E1 /* Dollar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911485B02BED51B7005B81E1 /* Dollar.swift */; };
+		911485B32BED51EB005B81E1 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911485B22BED51EB005B81E1 /* Stream.swift */; };
+		911485B52BED5204005B81E1 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911485B42BED5204005B81E1 /* Plan.swift */; };
 		919EA1A82BD18BE5007FA010 /* FiumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1A72BD18BE5007FA010 /* FiumeApp.swift */; };
 		919EA1AA2BD18BE5007FA010 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1A92BD18BE5007FA010 /* ContentView.swift */; };
 		919EA1AC2BD18BE7007FA010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919EA1AB2BD18BE7007FA010 /* Assets.xcassets */; };
@@ -25,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		911485B02BED51B7005B81E1 /* Dollar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dollar.swift; sourceTree = "<group>"; };
+		911485B22BED51EB005B81E1 /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
+		911485B42BED5204005B81E1 /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		919EA1A42BD18BE5007FA010 /* fiume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fiume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		919EA1A72BD18BE5007FA010 /* FiumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiumeApp.swift; sourceTree = "<group>"; };
 		919EA1A92BD18BE5007FA010 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +93,9 @@
 				919EA1AB2BD18BE7007FA010 /* Assets.xcassets */,
 				919EA1B02BD18BE7007FA010 /* fiume.entitlements */,
 				919EA1AD2BD18BE7007FA010 /* Preview Content */,
+				911485B02BED51B7005B81E1 /* Dollar.swift */,
+				911485B22BED51EB005B81E1 /* Stream.swift */,
+				911485B42BED5204005B81E1 /* Plan.swift */,
 			);
 			path = fiume;
 			sourceTree = "<group>";
@@ -231,7 +240,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				919EA1AA2BD18BE5007FA010 /* ContentView.swift in Sources */,
+				911485B12BED51B8005B81E1 /* Dollar.swift in Sources */,
 				919EA1A82BD18BE5007FA010 /* FiumeApp.swift in Sources */,
+				911485B32BED51EB005B81E1 /* Stream.swift in Sources */,
+				911485B52BED5204005B81E1 /* Plan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
