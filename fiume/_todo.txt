@@ -1,11 +1,11 @@
-View all info for stream
 Edit stream
+Start/end date editor - just extract for now
 Validate new stream name not empty; number is valid; month is valid
-Start/end date editor
 
 Calendar view (with RuleMark)
 Add people
 Add assets/liabilities
+Scenario alternatives
 Add flows
 Should we segregate streams by income/expense (two columns)
 
@@ -14,6 +14,7 @@ Make app able to run on ipad
 Reorder streams
 Delete stream
 Add new stream to a plan
+View all info for stream
 
 FI-24-01: 2024-05-09 - Introducing Fiume
 [Offline: set up initial project]

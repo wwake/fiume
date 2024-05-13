@@ -18,6 +18,7 @@ struct ContentView: View {
 			List {
 				ForEach(plan.streams.reversed()) {
 					StreamView(stream: $0)
+						.listRowBackground($0.monthlyAmount < 0 ? Color.red : Color.green)
 				}
 				.onMove { indexSet, offset in
 					plan.streams.move(fromOffsets: indexSet, toOffset: offset)

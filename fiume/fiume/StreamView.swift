@@ -3,8 +3,19 @@ import SwiftUI
 struct StreamView: View {
 	var stream: Stream
 
-	var body: some View {
-		Text("\(stream.name) \(stream.monthlyAmount)")
-			.listRowBackground(stream.monthlyAmount < 0 ? Color.red : Color.green)
+	func formatMonth(_ month: MonthNumber?) -> String {
+		if let month = month {
+			return "\(month)"
+		}
+		return "?"
 	}
+
+	var body: some View {
+		Text("\(stream.name)   $\(stream.monthlyAmount)/mo   Months: \(formatMonth(stream.first))-\(formatMonth(stream.last))")
+	}
+}
+
+#Preview {
+	let stream = Stream("Salary", 1_000, last: 60)
+	return StreamView(stream: stream)
 }
