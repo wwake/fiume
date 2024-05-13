@@ -19,7 +19,7 @@ class Plan {
 		var runningTotal = Dollar(0)
 		(1...months).forEach { month in
 			let net = streams.reduce(Dollar(0)) { result, item in
-				result + item.monthlyAmount
+				result + item.amount(month: month)
 			}
 			runningTotal += net
 			result.append(NetWorthData(month: month, amount: runningTotal))

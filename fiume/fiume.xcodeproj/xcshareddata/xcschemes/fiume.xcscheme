@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "919EA1A32BD18BE5007FA010"
+               BlueprintIdentifier = "91DA64F82BF291F6004ADB9B"
                BuildableName = "fiume.app"
                BlueprintName = "fiume"
                ReferencedContainer = "container:fiume.xcodeproj">
@@ -40,18 +40,18 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "919EA1B42BD18BE8007FA010"
+               BlueprintIdentifier = "91DA65082BF291F8004ADB9B"
                BuildableName = "fiumeTests.xctest"
                BlueprintName = "fiumeTests"
                ReferencedContainer = "container:fiume.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "YES"
+            skipped = "NO"
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "919EA1BE2BD18BE8007FA010"
+               BlueprintIdentifier = "91DA65122BF291F8004ADB9B"
                BuildableName = "fiumeUITests.xctest"
                BlueprintName = "fiumeUITests"
                ReferencedContainer = "container:fiume.xcodeproj">
@@ -73,7 +73,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "919EA1A32BD18BE5007FA010"
+            BlueprintIdentifier = "91DA64F82BF291F6004ADB9B"
             BuildableName = "fiume.app"
             BlueprintName = "fiume"
             ReferencedContainer = "container:fiume.xcodeproj">
@@ -90,7 +90,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "919EA1A32BD18BE5007FA010"
+            BlueprintIdentifier = "91DA64F82BF291F6004ADB9B"
             BuildableName = "fiume.app"
             BlueprintName = "fiume"
             ReferencedContainer = "container:fiume.xcodeproj">

@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "33EADA06-57C6-4388-8381-6909146147E9",
+      "id" : "BE39A22E-E63A-4918-89C2-7A41AB078C90",
       "name" : "Test Scheme Action",
       "options" : {
 
@@ -11,7 +11,7 @@
   "defaultOptions" : {
     "targetForVariableExpansion" : {
       "containerPath" : "container:fiume.xcodeproj",
-      "identifier" : "919EA1A32BD18BE5007FA010",
+      "identifier" : "91DA64F82BF291F6004ADB9B",
       "name" : "fiume"
     }
   },
@@ -20,7 +20,7 @@
       "parallelizable" : true,
       "target" : {
         "containerPath" : "container:fiume.xcodeproj",
-        "identifier" : "919EA1B42BD18BE8007FA010",
+        "identifier" : "91DA65082BF291F8004ADB9B",
         "name" : "fiumeTests"
       }
     }

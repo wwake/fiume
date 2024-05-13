@@ -7,55 +7,57 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		911485B12BED51B8005B81E1 /* Dollar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911485B02BED51B7005B81E1 /* Dollar.swift */; };
-		911485B32BED51EB005B81E1 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911485B22BED51EB005B81E1 /* Stream.swift */; };
-		911485B52BED5204005B81E1 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911485B42BED5204005B81E1 /* Plan.swift */; };
-		911485B72BED6093005B81E1 /* AStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911485B62BED6093005B81E1 /* AStream.swift */; };
-		919EA1A82BD18BE5007FA010 /* FiumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1A72BD18BE5007FA010 /* FiumeApp.swift */; };
-		919EA1AA2BD18BE5007FA010 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1A92BD18BE5007FA010 /* ContentView.swift */; };
-		919EA1AC2BD18BE7007FA010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919EA1AB2BD18BE7007FA010 /* Assets.xcassets */; };
-		919EA1AF2BD18BE7007FA010 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919EA1AE2BD18BE7007FA010 /* Preview Assets.xcassets */; };
-		919EA1BA2BD18BE8007FA010 /* APlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EA1B92BD18BE8007FA010 /* APlan.swift */; };
+		914FEFA32BF292FE003D858E /* Dollar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA22BF292FE003D858E /* Dollar.swift */; };
+		914FEFA52BF2930E003D858E /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA42BF2930E003D858E /* Plan.swift */; };
+		914FEFA72BF29317003D858E /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA62BF29317003D858E /* Stream.swift */; };
+		914FEFAA2BF29399003D858E /* APlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA82BF29399003D858E /* APlan.swift */; };
+		914FEFAB2BF29399003D858E /* AStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA92BF29399003D858E /* AStream.swift */; };
+		914FEFAD2BF29413003D858E /* fiume.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 914FEFAC2BF29413003D858E /* fiume.xctestplan */; };
+		914FEFAF2BF2941F003D858E /* _todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 914FEFAE2BF2941F003D858E /* _todo.txt */; };
+		914FEFB12BF29427003D858E /* fiume.key in Resources */ = {isa = PBXBuildFile; fileRef = 914FEFB02BF29427003D858E /* fiume.key */; };
+		91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */; };
+		91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FE2BF291F6004ADB9B /* ContentView.swift */; };
+		91DA65012BF291F7004ADB9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65002BF291F7004ADB9B /* Assets.xcassets */; };
+		91DA65042BF291F7004ADB9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		919EA1B62BD18BE8007FA010 /* PBXContainerItemProxy */ = {
+		91DA650A2BF291F8004ADB9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 919EA19C2BD18BE5007FA010 /* Project object */;
+			containerPortal = 91DA64F12BF291F6004ADB9B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 919EA1A32BD18BE5007FA010;
+			remoteGlobalIDString = 91DA64F82BF291F6004ADB9B;
 			remoteInfo = fiume;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		911485B02BED51B7005B81E1 /* Dollar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dollar.swift; sourceTree = "<group>"; };
-		911485B22BED51EB005B81E1 /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
-		911485B42BED5204005B81E1 /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
-		911485B62BED6093005B81E1 /* AStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStream.swift; sourceTree = "<group>"; };
-		919EA1A42BD18BE5007FA010 /* fiume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fiume.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		919EA1A72BD18BE5007FA010 /* FiumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiumeApp.swift; sourceTree = "<group>"; };
-		919EA1A92BD18BE5007FA010 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		919EA1AB2BD18BE7007FA010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		919EA1AE2BD18BE7007FA010 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		919EA1B02BD18BE7007FA010 /* fiume.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fiume.entitlements; sourceTree = "<group>"; };
-		919EA1B52BD18BE8007FA010 /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		919EA1B92BD18BE8007FA010 /* APlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APlan.swift; sourceTree = "<group>"; };
-		919EA1D22BD18E36007FA010 /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
-		91B4BC2A2BD1918600859208 /* _todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
-		91B4BC2B2BD191E000859208 /* fiume.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = fiume.key; sourceTree = "<group>"; };
-		91B4BC2E2BD1EF7000859208 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		914FEFA22BF292FE003D858E /* Dollar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dollar.swift; sourceTree = "<group>"; };
+		914FEFA42BF2930E003D858E /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		914FEFA62BF29317003D858E /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
+		914FEFA82BF29399003D858E /* APlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APlan.swift; sourceTree = "<group>"; };
+		914FEFA92BF29399003D858E /* AStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AStream.swift; sourceTree = "<group>"; };
+		914FEFAC2BF29413003D858E /* fiume.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
+		914FEFAE2BF2941F003D858E /* _todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
+		914FEFB02BF29427003D858E /* fiume.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = fiume.key; sourceTree = "<group>"; };
+		914FEFB22BF29556003D858E /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
+		91DA64F92BF291F6004ADB9B /* fiume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fiume.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeApp.swift; sourceTree = "<group>"; };
+		91DA64FE2BF291F6004ADB9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		91DA65002BF291F7004ADB9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		91DA65092BF291F8004ADB9B /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		919EA1A12BD18BE5007FA010 /* Frameworks */ = {
+		91DA64F62BF291F6004ADB9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		919EA1B22BD18BE8007FA010 /* Frameworks */ = {
+		91DA65062BF291F8004ADB9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -65,56 +67,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		919EA19B2BD18BE5007FA010 = {
+		91DA64F02BF291F6004ADB9B = {
 			isa = PBXGroup;
 			children = (
-				91B4BC2A2BD1918600859208 /* _todo.txt */,
-				91B4BC2B2BD191E000859208 /* fiume.key */,
-				91B4BC2E2BD1EF7000859208 /* .swiftlint.yml */,
-				919EA1D22BD18E36007FA010 /* fiume.xctestplan */,
-				919EA1A62BD18BE5007FA010 /* fiume */,
-				919EA1B82BD18BE8007FA010 /* fiumeTests */,
-				919EA1A52BD18BE5007FA010 /* Products */,
+				914FEFB22BF29556003D858E /* fiume.xctestplan */,
+				914FEFAE2BF2941F003D858E /* _todo.txt */,
+				914FEFB02BF29427003D858E /* fiume.key */,
+				914FEFAC2BF29413003D858E /* fiume.xctestplan */,
+				91DA64FB2BF291F6004ADB9B /* fiume */,
+				91DA650C2BF291F8004ADB9B /* fiumeTests */,
+				91DA64FA2BF291F6004ADB9B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		919EA1A52BD18BE5007FA010 /* Products */ = {
+		91DA64FA2BF291F6004ADB9B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				919EA1A42BD18BE5007FA010 /* fiume.app */,
-				919EA1B52BD18BE8007FA010 /* fiumeTests.xctest */,
+				91DA64F92BF291F6004ADB9B /* fiume.app */,
+				91DA65092BF291F8004ADB9B /* fiumeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		919EA1A62BD18BE5007FA010 /* fiume */ = {
+		91DA64FB2BF291F6004ADB9B /* fiume */ = {
 			isa = PBXGroup;
 			children = (
-				919EA1A72BD18BE5007FA010 /* FiumeApp.swift */,
-				919EA1A92BD18BE5007FA010 /* ContentView.swift */,
-				919EA1AB2BD18BE7007FA010 /* Assets.xcassets */,
-				919EA1B02BD18BE7007FA010 /* fiume.entitlements */,
-				919EA1AD2BD18BE7007FA010 /* Preview Content */,
-				911485B02BED51B7005B81E1 /* Dollar.swift */,
-				911485B22BED51EB005B81E1 /* Stream.swift */,
-				911485B42BED5204005B81E1 /* Plan.swift */,
+				914FEFA62BF29317003D858E /* Stream.swift */,
+				914FEFA42BF2930E003D858E /* Plan.swift */,
+				914FEFA22BF292FE003D858E /* Dollar.swift */,
+				91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */,
+				91DA64FE2BF291F6004ADB9B /* ContentView.swift */,
+				91DA65002BF291F7004ADB9B /* Assets.xcassets */,
+				91DA65022BF291F7004ADB9B /* Preview Content */,
 			);
 			path = fiume;
 			sourceTree = "<group>";
 		};
-		919EA1AD2BD18BE7007FA010 /* Preview Content */ = {
+		91DA65022BF291F7004ADB9B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				919EA1AE2BD18BE7007FA010 /* Preview Assets.xcassets */,
+				91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		919EA1B82BD18BE8007FA010 /* fiumeTests */ = {
+		91DA650C2BF291F8004ADB9B /* fiumeTests */ = {
 			isa = PBXGroup;
 			children = (
-				919EA1B92BD18BE8007FA010 /* APlan.swift */,
-				911485B62BED6093005B81E1 /* AStream.swift */,
+				914FEFA82BF29399003D858E /* APlan.swift */,
+				914FEFA92BF29399003D858E /* AStream.swift */,
 			);
 			path = fiumeTests;
 			sourceTree = "<group>";
@@ -122,14 +123,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		919EA1A32BD18BE5007FA010 /* fiume */ = {
+		91DA64F82BF291F6004ADB9B /* fiume */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 919EA1C92BD18BE8007FA010 /* Build configuration list for PBXNativeTarget "fiume" */;
+			buildConfigurationList = 91DA651D2BF291F8004ADB9B /* Build configuration list for PBXNativeTarget "fiume" */;
 			buildPhases = (
-				91B4BC2C2BD194D300859208 /* SwiftLint */,
-				919EA1A02BD18BE5007FA010 /* Sources */,
-				919EA1A12BD18BE5007FA010 /* Frameworks */,
-				919EA1A22BD18BE5007FA010 /* Resources */,
+				91DA64F52BF291F6004ADB9B /* Sources */,
+				91DA64F62BF291F6004ADB9B /* Frameworks */,
+				91DA64F72BF291F6004ADB9B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -137,47 +137,48 @@
 			);
 			name = fiume;
 			productName = fiume;
-			productReference = 919EA1A42BD18BE5007FA010 /* fiume.app */;
+			productReference = 91DA64F92BF291F6004ADB9B /* fiume.app */;
 			productType = "com.apple.product-type.application";
 		};
-		919EA1B42BD18BE8007FA010 /* fiumeTests */ = {
+		91DA65082BF291F8004ADB9B /* fiumeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 919EA1CC2BD18BE8007FA010 /* Build configuration list for PBXNativeTarget "fiumeTests" */;
+			buildConfigurationList = 91DA65202BF291F8004ADB9B /* Build configuration list for PBXNativeTarget "fiumeTests" */;
 			buildPhases = (
-				919EA1B12BD18BE8007FA010 /* Sources */,
-				919EA1B22BD18BE8007FA010 /* Frameworks */,
-				919EA1B32BD18BE8007FA010 /* Resources */,
+				91DA65052BF291F8004ADB9B /* Sources */,
+				91DA65062BF291F8004ADB9B /* Frameworks */,
+				91DA65072BF291F8004ADB9B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				919EA1B72BD18BE8007FA010 /* PBXTargetDependency */,
+				91DA650B2BF291F8004ADB9B /* PBXTargetDependency */,
 			);
 			name = fiumeTests;
 			productName = fiumeTests;
-			productReference = 919EA1B52BD18BE8007FA010 /* fiumeTests.xctest */;
+			productReference = 91DA65092BF291F8004ADB9B /* fiumeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		919EA19C2BD18BE5007FA010 /* Project object */ = {
+		91DA64F12BF291F6004ADB9B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
-					919EA1A32BD18BE5007FA010 = {
+					91DA64F82BF291F6004ADB9B = {
 						CreatedOnToolsVersion = 15.3;
 					};
-					919EA1B42BD18BE8007FA010 = {
+					91DA65082BF291F8004ADB9B = {
 						CreatedOnToolsVersion = 15.3;
-						TestTargetID = 919EA1A32BD18BE5007FA010;
+						LastSwiftMigration = 1530;
+						TestTargetID = 91DA64F82BF291F6004ADB9B;
 					};
 				};
 			};
-			buildConfigurationList = 919EA19F2BD18BE5007FA010 /* Build configuration list for PBXProject "fiume" */;
+			buildConfigurationList = 91DA64F42BF291F6004ADB9B /* Build configuration list for PBXProject "fiume" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -185,92 +186,73 @@
 				en,
 				Base,
 			);
-			mainGroup = 919EA19B2BD18BE5007FA010;
-			productRefGroup = 919EA1A52BD18BE5007FA010 /* Products */;
+			mainGroup = 91DA64F02BF291F6004ADB9B;
+			productRefGroup = 91DA64FA2BF291F6004ADB9B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				919EA1A32BD18BE5007FA010 /* fiume */,
-				919EA1B42BD18BE8007FA010 /* fiumeTests */,
+				91DA64F82BF291F6004ADB9B /* fiume */,
+				91DA65082BF291F8004ADB9B /* fiumeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		919EA1A22BD18BE5007FA010 /* Resources */ = {
+		91DA64F72BF291F6004ADB9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919EA1AF2BD18BE7007FA010 /* Preview Assets.xcassets in Resources */,
-				919EA1AC2BD18BE7007FA010 /* Assets.xcassets in Resources */,
+				91DA65042BF291F7004ADB9B /* Preview Assets.xcassets in Resources */,
+				91DA65012BF291F7004ADB9B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		919EA1B32BD18BE8007FA010 /* Resources */ = {
+		91DA65072BF291F8004ADB9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				914FEFB12BF29427003D858E /* fiume.key in Resources */,
+				914FEFAF2BF2941F003D858E /* _todo.txt in Resources */,
+				914FEFAD2BF29413003D858E /* fiume.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		91B4BC2C2BD194D300859208 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >>/dev/null; then\n  swiftlint\nelse\n  echo \"warning: swiftlint not installed\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		919EA1A02BD18BE5007FA010 /* Sources */ = {
+		91DA64F52BF291F6004ADB9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919EA1AA2BD18BE5007FA010 /* ContentView.swift in Sources */,
-				911485B12BED51B8005B81E1 /* Dollar.swift in Sources */,
-				919EA1A82BD18BE5007FA010 /* FiumeApp.swift in Sources */,
-				911485B32BED51EB005B81E1 /* Stream.swift in Sources */,
-				911485B52BED5204005B81E1 /* Plan.swift in Sources */,
+				914FEFA52BF2930E003D858E /* Plan.swift in Sources */,
+				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
+				914FEFA32BF292FE003D858E /* Dollar.swift in Sources */,
+				91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */,
+				914FEFA72BF29317003D858E /* Stream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		919EA1B12BD18BE8007FA010 /* Sources */ = {
+		91DA65052BF291F8004ADB9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919EA1BA2BD18BE8007FA010 /* APlan.swift in Sources */,
-				911485B72BED6093005B81E1 /* AStream.swift in Sources */,
+				914FEFAA2BF29399003D858E /* APlan.swift in Sources */,
+				914FEFAB2BF29399003D858E /* AStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		919EA1B72BD18BE8007FA010 /* PBXTargetDependency */ = {
+		91DA650B2BF291F8004ADB9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 919EA1A32BD18BE5007FA010 /* fiume */;
-			targetProxy = 919EA1B62BD18BE8007FA010 /* PBXContainerItemProxy */;
+			target = 91DA64F82BF291F6004ADB9B /* fiume */;
+			targetProxy = 91DA650A2BF291F8004ADB9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		919EA1C72BD18BE8007FA010 /* Debug */ = {
+		91DA651B2BF291F8004ADB9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -307,7 +289,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -322,18 +304,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		919EA1C82BD18BE8007FA010 /* Release */ = {
+		91DA651C2BF291F8004ADB9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -370,7 +352,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -379,109 +361,113 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		919EA1CA2BD18BE8007FA010 /* Debug */ = {
+		91DA651E2BF291F8004ADB9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = fiume/fiume.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"fiume/Preview Content\"";
 				DEVELOPMENT_TEAM = 7B9VB3YTHK;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiume;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		919EA1CB2BD18BE8007FA010 /* Release */ = {
+		91DA651F2BF291F8004ADB9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = fiume/fiume.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"fiume/Preview Content\"";
 				DEVELOPMENT_TEAM = 7B9VB3YTHK;
-				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/../Frameworks",
+					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiume;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		919EA1CD2BD18BE8007FA010 /* Debug */ = {
+		91DA65212BF291F8004ADB9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7B9VB3YTHK;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiumeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fiume.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/fiume";
 			};
 			name = Debug;
 		};
-		919EA1CE2BD18BE8007FA010 /* Release */ = {
+		91DA65222BF291F8004ADB9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7B9VB3YTHK;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiumeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fiume.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/fiume";
 			};
 			name = Release;
@@ -489,34 +475,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		919EA19F2BD18BE5007FA010 /* Build configuration list for PBXProject "fiume" */ = {
+		91DA64F42BF291F6004ADB9B /* Build configuration list for PBXProject "fiume" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				919EA1C72BD18BE8007FA010 /* Debug */,
-				919EA1C82BD18BE8007FA010 /* Release */,
+				91DA651B2BF291F8004ADB9B /* Debug */,
+				91DA651C2BF291F8004ADB9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		919EA1C92BD18BE8007FA010 /* Build configuration list for PBXNativeTarget "fiume" */ = {
+		91DA651D2BF291F8004ADB9B /* Build configuration list for PBXNativeTarget "fiume" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				919EA1CA2BD18BE8007FA010 /* Debug */,
-				919EA1CB2BD18BE8007FA010 /* Release */,
+				91DA651E2BF291F8004ADB9B /* Debug */,
+				91DA651F2BF291F8004ADB9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		919EA1CC2BD18BE8007FA010 /* Build configuration list for PBXNativeTarget "fiumeTests" */ = {
+		91DA65202BF291F8004ADB9B /* Build configuration list for PBXNativeTarget "fiumeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				919EA1CD2BD18BE8007FA010 /* Debug */,
-				919EA1CE2BD18BE8007FA010 /* Release */,
+				91DA65212BF291F8004ADB9B /* Debug */,
+				91DA65222BF291F8004ADB9B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 919EA19C2BD18BE5007FA010 /* Project object */;
+	rootObject = 91DA64F12BF291F6004ADB9B /* Project object */;
 }

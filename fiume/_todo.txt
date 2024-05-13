@@ -1,8 +1,15 @@
-Add start/stop dates to streams
-Add a new income/expense to a plan
+Make app able to run on ipad
+Add new stream to a plan
+Calendar view (with RuleMark)
+Add people
 Add assets/liabilities
+Add flows
+Should we segregate streams by income/expense (two columns)
+
+FI-24-02: 2024-05-13 - CRUDdy Streams
 
 
-2024-05-09: FI-24-01: Introducing Fiume
+FI-24-01: 2024-05-09 - Introducing Fiume
 [Offline: set up initial project]
 Create a plan, able to add streams to it
+Add start and stop dates to streams
