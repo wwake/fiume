@@ -7,15 +7,51 @@ struct CreateStreamView: View {
 	@Bindable var plan: Plan
 
 	@State private var name = ""
+	@State private var amount: Int?
+	@State private var startMonth: Int?
+	@State private var endMonth: Int?
+
+	private static let formatter: NumberFormatter = {
+		let formatter = NumberFormatter()
+		formatter.numberStyle = .decimal
+		return formatter
+	}()
 
 	var body: some View {
 		Form {
-			TextField("Name", text: $name)
+			LabeledContent {
+				TextField("Name", text: $name)
+			} label: {
+				Text("Name")
+			}
+			
+			LabeledContent {
+				TextField("Amount", value: $amount, format: .number)
+					.keyboardType(.decimalPad)
+			} label: {
+				Text("Amount")
+			}
+			
+			LabeledContent {
+				TextField("Start Month", value: $startMonth, format: .number)
+					.keyboardType(.decimalPad)
+			} label: {
+				Text("Start Month")
+			}
+
+			LabeledContent {
+				TextField("End Month", value: $endMonth, format: .number)
+					.keyboardType(.decimalPad)
+			} label: {
+				Text("End Month")
+			}
 
 			Button("Create") {
 				plan.add(Stream(
 					name,
-					Dollar(1)))
+					Dollar(amount ?? 0),
+					first: startMonth ?? 1,
+					last: endMonth))
 				dismiss()
 			}
 		}
