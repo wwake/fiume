@@ -11,6 +11,8 @@ struct CreateStreamView: View {
 	@State private var endMonth: Int?
 
 	var body: some View {
+		Text("Create a New Stream").font(.title)
+
 		Form {
 			LabeledContent {
 				TextField("Name", text: $name)

@@ -5,12 +5,12 @@ struct ContentView: View {
 	@Bindable var plan: Plan
 	@State var isPresentingSheet = false
 
-    var body: some View {
+	var body: some View {
 		NavigationStack {
 			Chart(plan.project(120)) {
 				LineMark(
-				x: .value("Month", $0.month),
-				y: .value("Net Worth", $0.amount)
+					x: .value("Month", $0.month),
+					y: .value("Net Worth", $0.amount)
 				)
 			}
 			.padding()
@@ -32,7 +32,7 @@ struct ContentView: View {
 						"Add",
 						systemImage: "plus") {
 							isPresentingSheet.toggle()
-					}
+						}
 						.sheet(isPresented: $isPresentingSheet) {
 							CreateStreamView(plan: plan)
 						}
@@ -41,7 +41,7 @@ struct ContentView: View {
 			}
 			.padding()
 		}
-    }
+	}
 }
 
 #Preview {
