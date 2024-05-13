@@ -6,7 +6,7 @@ struct ContentView: View {
 	@State var isEditing = false
 
     var body: some View {
-		VStack {
+		NavigationStack {
 			Chart(plan.project(120)) {
 				LineMark(
 				x: .value("Month", $0.month),
@@ -28,11 +28,22 @@ struct ContentView: View {
 				}
 			}
 			.toolbar {
-				EditButton()
+				ToolbarItemGroup {
+					Button(
+						"Add",
+						systemImage: "plus",
+						action: onAdd
+					)
+					EditButton()
+				}
 			}
 			.padding()
 		}
     }
+
+	private func onAdd() {
+		plan.add(Stream("(unknown)", Dollar(1)))
+	}
 }
 
 #Preview {
