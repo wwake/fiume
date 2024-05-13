@@ -1,7 +1,7 @@
-Add new stream to a plan
+View all info for stream
+Edit stream
 Validate new stream name not empty; number is valid; month is valid
 Start/end date editor
-Edit stream
 
 Calendar view (with RuleMark)
 Add people
@@ -13,7 +13,7 @@ FI-24-02: 2024-05-13 - CRUDdy Streams
 Make app able to run on ipad
 Reorder streams
 Delete stream
-
+Add new stream to a plan
 
 FI-24-01: 2024-05-09 - Introducing Fiume
 [Offline: set up initial project]

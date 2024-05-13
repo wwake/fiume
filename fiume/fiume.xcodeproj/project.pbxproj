@@ -15,6 +15,8 @@
 		914FEFAD2BF29413003D858E /* fiume.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 914FEFAC2BF29413003D858E /* fiume.xctestplan */; };
 		914FEFAF2BF2941F003D858E /* _todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 914FEFAE2BF2941F003D858E /* _todo.txt */; };
 		914FEFB12BF29427003D858E /* fiume.key in Resources */ = {isa = PBXBuildFile; fileRef = 914FEFB02BF29427003D858E /* fiume.key */; };
+		914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB42BF2AD09003D858E /* FormFields.swift */; };
+		914FEFB72BF2AD6B003D858E /* CreateStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */; };
 		91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */; };
 		91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FE2BF291F6004ADB9B /* ContentView.swift */; };
 		91DA65012BF291F7004ADB9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65002BF291F7004ADB9B /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		914FEFAE2BF2941F003D858E /* _todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
 		914FEFB02BF29427003D858E /* fiume.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = fiume.key; sourceTree = "<group>"; };
 		914FEFB22BF29556003D858E /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
+		914FEFB42BF2AD09003D858E /* FormFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFields.swift; sourceTree = "<group>"; };
+		914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStreamView.swift; sourceTree = "<group>"; };
 		91DA64F92BF291F6004ADB9B /* fiume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fiume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeApp.swift; sourceTree = "<group>"; };
 		91DA64FE2BF291F6004ADB9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		914FEFB32BF2ACE9003D858E /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				914FEFB42BF2AD09003D858E /* FormFields.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
 		91DA64F02BF291F6004ADB9B = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +104,7 @@
 		91DA64FB2BF291F6004ADB9B /* fiume */ = {
 			isa = PBXGroup;
 			children = (
+				914FEFB32BF2ACE9003D858E /* helper */,
 				914FEFA62BF29317003D858E /* Stream.swift */,
 				914FEFA42BF2930E003D858E /* Plan.swift */,
 				914FEFA22BF292FE003D858E /* Dollar.swift */,
@@ -99,6 +112,7 @@
 				91DA64FE2BF291F6004ADB9B /* ContentView.swift */,
 				91DA65002BF291F7004ADB9B /* Assets.xcassets */,
 				91DA65022BF291F7004ADB9B /* Preview Content */,
+				914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */,
 			);
 			path = fiume;
 			sourceTree = "<group>";
@@ -224,11 +238,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				914FEFB72BF2AD6B003D858E /* CreateStreamView.swift in Sources */,
 				914FEFA52BF2930E003D858E /* Plan.swift in Sources */,
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
 				914FEFA32BF292FE003D858E /* Dollar.swift in Sources */,
 				91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */,
 				914FEFA72BF29317003D858E /* Stream.swift in Sources */,
+				914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
