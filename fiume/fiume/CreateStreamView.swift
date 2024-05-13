@@ -18,7 +18,7 @@ struct CreateStreamView: View {
 				Text("Name")
 			}
 
-			NumberField(label: "Amount", value: $amount)
+			NumberField(label: "Amount $", value: $amount)
 
 			NumberField(label: "Start Month", value: $startMonth)
 

@@ -17,8 +17,7 @@ struct ContentView: View {
 
 			List {
 				ForEach(plan.streams.reversed()) {
-					Text("\($0.name) \($0.monthlyAmount)")
-						.listRowBackground($0.monthlyAmount < 0 ? Color.red : Color.green)
+					StreamView(stream: $0)
 				}
 				.onMove { indexSet, offset in
 					plan.streams.move(fromOffsets: indexSet, toOffset: offset)
@@ -50,4 +49,13 @@ struct ContentView: View {
 	plan.add(Stream("Salary", 1_000, last: 60))
 	plan.add(Stream("Expenses", -800))
 	return ContentView(plan: plan)
+}
+
+struct StreamView: View {
+	var stream: Stream
+
+	var body: some View {
+		Text("\(stream.name) \(stream.monthlyAmount)")
+			.listRowBackground(stream.monthlyAmount < 0 ? Color.red : Color.green)
+	}
 }
