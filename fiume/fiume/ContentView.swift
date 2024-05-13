@@ -15,11 +15,20 @@ struct ContentView: View {
 			}
 			.padding()
 
-			List(plan.streams.reversed()) {
-				Text("\($0.name) \($0.monthlyAmount)")
-					.listRowBackground($0.monthlyAmount < 0 ? Color.red : Color.green)
+			List {
+				ForEach(plan.streams.reversed()) {
+					Text("\($0.name) \($0.monthlyAmount)")
+						.listRowBackground($0.monthlyAmount < 0 ? Color.red : Color.green)
+				}
+				.onMove { indexSet, offset in
+					plan.streams.move(fromOffsets: indexSet, toOffset: offset)
+				}
+				.onDelete { offsets in
+					plan.streams.remove(atOffsets: offsets)
+				}
 			}
 			.toolbar {
+				EditButton()
 			}
 			.padding()
 		}

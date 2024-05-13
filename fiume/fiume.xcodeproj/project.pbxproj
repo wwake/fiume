@@ -70,9 +70,9 @@
 		91DA64F02BF291F6004ADB9B = {
 			isa = PBXGroup;
 			children = (
-				914FEFB22BF29556003D858E /* fiume.xctestplan */,
 				914FEFAE2BF2941F003D858E /* _todo.txt */,
 				914FEFB02BF29427003D858E /* fiume.key */,
+				914FEFB22BF29556003D858E /* fiume.xctestplan */,
 				914FEFAC2BF29413003D858E /* fiume.xctestplan */,
 				91DA64FB2BF291F6004ADB9B /* fiume */,
 				91DA650C2BF291F8004ADB9B /* fiumeTests */,
