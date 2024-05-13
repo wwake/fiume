@@ -1,9 +1,30 @@
 import Charts
 import SwiftUI
 
+struct CreateStreamView: View {
+	@Environment(\.dismiss) var dismiss
+
+	@Bindable var plan: Plan
+
+	@State private var name = ""
+
+	var body: some View {
+		Form {
+			TextField("Name", text: $name)
+
+			Button("Create") {
+				plan.add(Stream(
+					name,
+					Dollar(1)))
+				dismiss()
+			}
+		}
+	}
+}
+
 struct ContentView: View {
 	@Bindable var plan: Plan
-	@State var isEditing = false
+	@State var isPresentingSheet = false
 
     var body: some View {
 		NavigationStack {
@@ -31,19 +52,18 @@ struct ContentView: View {
 				ToolbarItemGroup {
 					Button(
 						"Add",
-						systemImage: "plus",
-						action: onAdd
-					)
+						systemImage: "plus") {
+							isPresentingSheet.toggle()
+					}
+						.sheet(isPresented: $isPresentingSheet) {
+							CreateStreamView(plan: plan)
+						}
 					EditButton()
 				}
 			}
 			.padding()
 		}
     }
-
-	private func onAdd() {
-		plan.add(Stream("(unknown)", Dollar(1)))
-	}
 }
 
 #Preview {
