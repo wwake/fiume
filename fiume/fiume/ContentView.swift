@@ -1,6 +1,20 @@
 import Charts
 import SwiftUI
 
+struct NumberField: View {
+	var label: String
+	@Binding var value: Int?
+
+	var body: some View {
+		LabeledContent {
+			TextField(label, value: $value, format: .number)
+				.keyboardType(.decimalPad)
+		} label: {
+			Text(label)
+		}
+	}
+}
+
 struct CreateStreamView: View {
 	@Environment(\.dismiss) var dismiss
 
@@ -11,12 +25,6 @@ struct CreateStreamView: View {
 	@State private var startMonth: Int?
 	@State private var endMonth: Int?
 
-	private static let formatter: NumberFormatter = {
-		let formatter = NumberFormatter()
-		formatter.numberStyle = .decimal
-		return formatter
-	}()
-
 	var body: some View {
 		Form {
 			LabeledContent {
@@ -25,26 +33,11 @@ struct CreateStreamView: View {
 				Text("Name")
 			}
 			
-			LabeledContent {
-				TextField("Amount", value: $amount, format: .number)
-					.keyboardType(.decimalPad)
-			} label: {
-				Text("Amount")
-			}
-			
-			LabeledContent {
-				TextField("Start Month", value: $startMonth, format: .number)
-					.keyboardType(.decimalPad)
-			} label: {
-				Text("Start Month")
-			}
+			NumberField(label: "Amount", value: $amount)
 
-			LabeledContent {
-				TextField("End Month", value: $endMonth, format: .number)
-					.keyboardType(.decimalPad)
-			} label: {
-				Text("End Month")
-			}
+			NumberField(label: "Start Month", value: $startMonth)
+
+			NumberField(label: "End Month", value: $endMonth)
 
 			Button("Create") {
 				plan.add(Stream(
