@@ -55,6 +55,7 @@ struct CreateStreamView: View {
 				dismiss()
 			}
 		}
+		.autocorrectionDisabled()
 	}
 }
 
