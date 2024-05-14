@@ -1,34 +1,54 @@
 import SwiftUI
 
-struct Tree<Value: Hashable>: Hashable {
-	let value: Value
-	var children: [Tree]? = nil
+public indirect enum Tree<String> {
+	case leaf(String)
+	case tree(String, [Tree]?)
+
+	var value: String {
+		switch self {
+		case .leaf(let value):
+			return value
+
+		case .tree(let value, _):
+			return value
+		}
+	}
+
+	var children: [Tree]? {
+		switch self {
+		case .leaf(_):
+			return []
+
+		case .tree(_, let children):
+			return children
+		}
+	}
 }
 
 var categories: [Tree<String>] = [
-	.init(
-		value: "Clothing",
-		children: [
-			.init(value: "Hoodies"),
-			.init(value: "Jackets"),
-			.init(value: "Joggers"),
-			.init(value: "Jumpers"),
-			.init(
-				value: "Jeans",
-				children: [
-					.init(value: "Regular"),
-					.init(value: "Slim")
+	.tree(
+		"Clothing",
+		[
+			Tree.leaf("Hoodies"),
+			.leaf("Jackets"),
+			.leaf("Joggers"),
+			.leaf("Jumpers"),
+			.tree(
+				"Jeans",
+				[
+					.leaf("Regular"),
+					.leaf("Slim")
 				]
 			),
 		]
 	),
-	.init(
-		value: "Shoes",
-		children: [
-			.init(value: "Boots"),
-			.init(value: "Sliders"),
-			.init(value: "Sandals"),
-			.init(value: "Trainers"),
+	.tree(
+		"Shoes",
+		[
+			.leaf("Boots"),
+			.leaf("Sliders"),
+			.leaf("Sandals"),
+			.leaf("Trainers"),
 		]
 	)
 ]
@@ -40,8 +60,9 @@ struct SpikeView: View {
 	var body: some View {
 	  NavigationStack {
 			List {
-				ForEach(categories, id: \.self) { section in
-					Section(header: HStack { Text(section.value)
+				ForEach(categories, id: \.value) { section in
+					Section(header: HStack {
+						Text(section.value)
 						  Spacer()
 						Button(
 							" ",
