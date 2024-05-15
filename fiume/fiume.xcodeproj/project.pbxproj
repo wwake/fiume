@@ -18,6 +18,7 @@
 		914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB42BF2AD09003D858E /* FormFields.swift */; };
 		914FEFB72BF2AD6B003D858E /* CreateStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */; };
 		914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB82BF2AF08003D858E /* StreamView.swift */; };
+		919CED492BF5492800ACCE2E /* PlanTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED482BF5492800ACCE2E /* PlanTree.swift */; };
 		91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D867882BF3E116001B4A3D /* SpikeView.swift */; };
 		91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */; };
 		91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FE2BF291F6004ADB9B /* ContentView.swift */; };
@@ -48,6 +49,7 @@
 		914FEFB42BF2AD09003D858E /* FormFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFields.swift; sourceTree = "<group>"; };
 		914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStreamView.swift; sourceTree = "<group>"; };
 		914FEFB82BF2AF08003D858E /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		919CED482BF5492800ACCE2E /* PlanTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTree.swift; sourceTree = "<group>"; };
 		91D867882BF3E116001B4A3D /* SpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeView.swift; sourceTree = "<group>"; };
 		91DA64F92BF291F6004ADB9B /* fiume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fiume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeApp.swift; sourceTree = "<group>"; };
@@ -117,15 +119,16 @@
 		91DA64FB2BF291F6004ADB9B /* fiume */ = {
 			isa = PBXGroup;
 			children = (
-				914FEFB32BF2ACE9003D858E /* helper */,
-				914FEFA62BF29317003D858E /* Stream.swift */,
-				914FEFA42BF2930E003D858E /* Plan.swift */,
+				91DA65002BF291F7004ADB9B /* Assets.xcassets */,
+				91DA64FE2BF291F6004ADB9B /* ContentView.swift */,
+				914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */,
 				914FEFA22BF292FE003D858E /* Dollar.swift */,
 				91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */,
-				91DA64FE2BF291F6004ADB9B /* ContentView.swift */,
-				91DA65002BF291F7004ADB9B /* Assets.xcassets */,
+				914FEFB32BF2ACE9003D858E /* helper */,
+				914FEFA42BF2930E003D858E /* Plan.swift */,
+				919CED482BF5492800ACCE2E /* PlanTree.swift */,
 				91DA65022BF291F7004ADB9B /* Preview Content */,
-				914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */,
+				914FEFA62BF29317003D858E /* Stream.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
 			);
 			path = fiume;
@@ -258,6 +261,7 @@
 				91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */,
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
 				914FEFA32BF292FE003D858E /* Dollar.swift in Sources */,
+				919CED492BF5492800ACCE2E /* PlanTree.swift in Sources */,
 				91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */,
 				914FEFA72BF29317003D858E /* Stream.swift in Sources */,
 				914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */,
