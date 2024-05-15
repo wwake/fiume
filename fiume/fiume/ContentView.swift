@@ -3,7 +3,7 @@ import SwiftUI
 
 struct ContentView: View {
 	@Bindable var plan: Plan
-
+	
 	var body: some View {
 		NavigationStack {
 			Chart(plan.project(120)) {
@@ -13,7 +13,7 @@ struct ContentView: View {
 				)
 			}
 			.padding()
-
+			
 			PlanListView(plan: plan)
 			StreamListViewOriginal(plan: plan)
 		}
@@ -30,7 +30,7 @@ struct ContentView: View {
 struct PlanListView: View {
 	@Bindable var plan: Plan
 	@State var isPresentingSheet = false
-
+	
 	var body: some View {
 		List {
 			ForEach(plan.contents, id: \.name) { plan in
@@ -43,18 +43,14 @@ struct PlanListView: View {
 							print("clicked")
 						}
 				}) {
-						OutlineGroup(
-							plan.children ?? [],
-							id: \.name,
-							children: \.children
-						) { tree in
-							Text(tree.name)
-								.font(.subheadline)
-						}
+					OutlineGroup(
+						plan.children ?? [],
+						id: \.name,
+						children: \.children
+					) { tree in
+						PlanTreeView(plan: tree)
 					}
-
-				//				StreamView(stream: $0)
-				//					.listRowBackground($0.monthlyAmount < 0 ? Color.red : Color.green)
+				}
 			}
 		}
 		.listStyle(.grouped)
@@ -77,7 +73,7 @@ struct PlanListView: View {
 struct StreamListViewOriginal: View {
 	@Bindable var plan: Plan
 	@State var isPresentingSheet = false
-
+	
 	var body: some View {
 		List {
 			ForEach(plan.streams.reversed()) {
