@@ -1,99 +1,69 @@
 import SwiftUI
 
-public indirect enum Tree<String> {
-	case leaf(String)
-	case tree(String, [Tree]?)
-
-	var value: String {
-		switch self {
-		case .leaf(let value):
-			return value
-
-		case .tree(let value, _):
-			return value
-		}
-	}
-
-	var children: [Tree]? {
-		switch self {
-		case .leaf(_):
-			return []
-
-		case .tree(_, let children):
-			return children
-		}
-	}
+struct Tree<Value: Hashable>: Hashable {
+	let value: Value
+	var children: [Tree]? = nil
 }
 
 var categories: [Tree<String>] = [
-	.tree(
-		"Clothing",
-		[
-			Tree.leaf("Hoodies"),
-			.leaf("Jackets"),
-			.leaf("Joggers"),
-			.leaf("Jumpers"),
-			.tree(
-				"Jeans",
-				[
-					.leaf("Regular"),
-					.leaf("Slim")
+	.init(
+		value: "Clothing",
+		children: [
+			.init(value: "Hoodies"),
+			.init(value: "Jackets"),
+			.init(value: "Joggers"),
+			.init(value: "Jumpers"),
+			.init(
+				value: "Jeans",
+				children: [
+					.init(value: "Regular"),
+					.init(value: "Slim")
 				]
 			),
 		]
 	),
-	.tree(
-		"Shoes",
-		[
-			.leaf("Boots"),
-			.leaf("Sliders"),
-			.leaf("Sandals"),
-			.leaf("Trainers"),
+	.init(
+		value: "Shoes",
+		children: [
+			.init(value: "Boots"),
+			.init(value: "Sliders"),
+			.init(value: "Sandals"),
+			.init(value: "Trainers"),
 		]
 	)
 ]
 
+func makeCategories() -> [Tree<String>] {
+	let newLeaf = Tree(value: "Old T-Shirts")
+	let newTree = Tree(value: "new tree", children: [])
+	
+	categories[0].children!.insert(newTree, at: 0)
+	categories[0].children![0].children!.append(newLeaf)
 
+	return categories
+}
 
 struct SpikeView: View {
+	@State private var categories = makeCategories()
 
 	var body: some View {
-	  NavigationStack {
-			List {
-				ForEach(categories, id: \.value) { section in
-					Section(header: HStack {
-						Text(section.value)
-						  Spacer()
-						Button(
-							" ",
-							systemImage: "plus") {
-								print("clicked")
-							}
-					}.foregroundStyle(.blue)) {
-						OutlineGroup(
-							section.children ?? [],
-							id: \.value,
-							children: \.children
-						) { tree in
-							Text(tree.value)
-								.font(.subheadline)
-						}
+		List {
+			ForEach(categories, id: \.self) { section in
+				Section(header: Text(section.value)) {
+					OutlineGroup(
+						section.children ?? [],
+						id: \.value,
+						children: \.children
+					) { tree in
+						Text(tree.value)
+							.font(.subheadline)
 					}
 				}
-				.onMove { indexSet, offset in
-					categories.move(fromOffsets: indexSet, toOffset: offset)
-				}
-				.onDelete { offsets in
-					categories.remove(atOffsets: offsets)
-				}
-
-			}.listStyle(.grouped)
-				.toolbar {
-					EditButton()
-				}
-		}
+			}
+		}.listStyle(SidebarListStyle())
 	}
 }
+
 
 #Preview {
 	SpikeView()

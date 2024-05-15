@@ -10,6 +10,26 @@ indirect enum Plan2 {
 	case stream(Stream)
 	case required(String, [Plan2]?)
 
+	var name: String {
+		switch self {
+		case .stream(let stream):
+			return stream.name
+
+		case .required(let name, _):
+			return name
+		}
+	}
+
+	var children: [Plan2]? {
+		switch self {
+		case .stream:
+			return []
+
+		case .required(_, let children):
+			return children
+		}
+	}
+
 	mutating func add(_ stream: Stream) {
 		switch self {
 		case .stream(_):
@@ -21,10 +41,14 @@ indirect enum Plan2 {
 		}
 	}
 
+	fileprivate func extractedFunc(_ stream: (Stream), _ month: Int) -> Dollar {
+		return stream.amount(month: month)
+	}
+	
 	func net(_ month: Int) -> Dollar {
 		switch self {
 		case .stream(let stream):
-			return stream.amount(month: month)
+			return extractedFunc(stream, month)
 
 		case .required(_, let contents):
 			guard let contents = contents else {
@@ -40,7 +64,12 @@ indirect enum Plan2 {
 @Observable
 class Plan {
 	var streams = [Stream]()
-	var planContents = Plan2.required("??", [])
+	var planContents = Plan2.required("Your Finances", [])
+	var contents = [Plan2]()
+
+	init() {
+		contents.append(planContents)
+	}
 
 	func add(_ stream: Stream) {
 		streams.append(stream)
@@ -52,9 +81,6 @@ class Plan {
 		var result = [NetWorthData]()
 		var runningTotal = Dollar(0)
 		(1...months).forEach { month in
-//			let net = streams.reduce(Dollar(0)) { result, item in
-//				result + item.amount(month: month)
-//			}
 			let net = planContents.net(month)
 			runningTotal += net
 			result.append(NetWorthData(month: month, amount: runningTotal))

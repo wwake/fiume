@@ -1,3 +1,5 @@
+
+Make StreamView work for Plan2
 Scenario alternatives
 
 Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
@@ -10,6 +12,15 @@ Add people
 Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
+
+FI-24-04: 2024-05-16 - Tree Structure
+* [Offline] Give each view its own sheet flag
+
+
+FI-24-03: 2024-05-14 - Edit Streams
+* Did a spike for display and editing of tree
+* Did a parallel change to support a new Plan2 that's an enum (rather than an array of Streams). This sets us up for AND/OR trees of streams (or other things).
+* Started a parallel view change to display the plan as a tree
 
 FI-24-02: 2024-05-13 - CRUDdy Streams
 Make app able to run on ipad

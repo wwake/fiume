@@ -3,7 +3,7 @@ import SwiftUI
 @main
 struct FiumeApp: App {
 	@State var plan = Plan()
-	var spiking = false
+	var spiking = true
 
 	var body: some Scene {
 		WindowGroup {
