@@ -57,12 +57,6 @@ struct PlanListView: View {
 				//				StreamView(stream: $0)
 				//					.listRowBackground($0.monthlyAmount < 0 ? Color.red : Color.green)
 			}
-			.onMove { indexSet, offset in
-				plan.contents.move(fromOffsets: indexSet, toOffset: offset)
-			}
-			.onDelete { offsets in
-				plan.contents.remove(atOffsets: offsets)
-			}
 		}
 		.listStyle(.grouped)
 		.toolbar {
@@ -75,7 +69,6 @@ struct PlanListView: View {
 					.sheet(isPresented: $isPresentingSheet) {
 						CreateStreamView(plan: plan)
 					}
-				EditButton()
 			}
 		}
 		.padding()
