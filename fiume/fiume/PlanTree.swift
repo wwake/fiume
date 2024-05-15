@@ -36,7 +36,7 @@ class PlanComposite: PlanTree {
 		get { myChildren }
 	}
 
-	init(name: String) {
+	init(_ name: String) {
 		self.name = name
 	}
 

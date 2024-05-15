@@ -9,7 +9,7 @@ struct NetWorthData: Identifiable {
 @Observable
 class Plan {
 	var streams = [Stream]()
-	var planContents = PlanComposite(name: "My Finances")
+	var planContents = PlanComposite("My Finances")
 	var contents = [PlanTree]()
 
 	init() {
