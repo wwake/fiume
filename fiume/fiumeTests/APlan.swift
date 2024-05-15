@@ -21,4 +21,8 @@ final class APlan: XCTestCase {
 
 		XCTAssertEqual(data.last!.amount, Dollar(1_200))
 	}
+
+	func test_plan3() {
+		
+	}
 }
