@@ -19,7 +19,7 @@ class Plan {
 	func add(_ stream: Stream) {
 		streams.append(stream)
 
-		planContents.append(PlanLeaf(stream: stream))
+		planContents.append(PlanLeaf(stream))
 	}
 
 	func project(_ months: Int) -> [NetWorthData] {

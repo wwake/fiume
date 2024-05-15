@@ -11,7 +11,7 @@ protocol PlanTree {
 class PlanLeaf: PlanTree {
 	let stream: Stream
 
-	init(stream: Stream) {
+	init(_ stream: Stream) {
 		self.stream = stream
 	}
 
