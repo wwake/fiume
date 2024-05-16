@@ -1,11 +1,13 @@
-
-Make StreamView work for Plan2
 Scenario alternatives
+Add multiple sections
 
-Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
+Should net return an array of values? (since there are alternatives)
 Edit stream
+Move streams
+Delete streams
+Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 Start/end date editor - just extract for now
-Validate new stream name not empty; number is valid; month is valid
+Validate new stream name not empty; number is valid; month is valid; end-date >= start-date
 
 Calendar view (with RuleMark)
 Add people
@@ -13,8 +15,16 @@ Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
 
-FI-24-04: 2024-05-16 - Tree Structure
+FI-24-05: 2024-05-16 - Alternative Scenarios
+
+
+FI-24-04: 2024-05-15 - Tree Structure
 * [Offline] Give each view its own sheet flag
+* Tested our enum-based tree and found it didn't propagate info properly
+* Spiked a struct version that didn't handle leaf types different from the interior nodes
+* Removed the unsuccessful enum interface
+* Developed PlanTree, a class-based tree (including backfilled tests)
+* Made UI work with PlanTree
 
 
 FI-24-03: 2024-05-14 - Edit Streams

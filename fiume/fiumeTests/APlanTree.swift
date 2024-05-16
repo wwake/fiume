@@ -2,9 +2,13 @@
 import XCTest
 
 final class APlanTree: XCTestCase {
+	func makeLeaf(_ name: String, _ amount: Int) -> PlanLeaf {
+		let stream = Stream(name, Dollar(amount))
+		return PlanLeaf(stream)
+	}
+
 	func test_plan_leaf() throws {
-		let stream = Stream("Income", Dollar(100))
-		let leaf = PlanLeaf(stream)
+		let leaf = makeLeaf("Income", 100)
 
 		XCTAssertEqual(leaf.name, "Income")
 		XCTAssertNil(leaf.children)
@@ -12,20 +16,33 @@ final class APlanTree: XCTestCase {
 	}
 
 	func test_plan_composite() {
-		let tree1 = PlanLeaf(Stream("Income1", Dollar(1)))
-		let tree2 = PlanLeaf(Stream("Income2", Dollar(2)))
-		let tree3 = PlanLeaf(Stream("Income3", Dollar(3)))
+		let leaf1 = makeLeaf("Income1", 1)
+		let leaf2 = makeLeaf("Income2", 2)
+		let leaf3 = makeLeaf("Income3", 3)
 
-		var parent = PlanComposite("parent")
-		parent.append(tree1)
-		parent.append(tree2)
-		var grandparent = PlanComposite("gp")
+		let parent = PlanComposite("parent")
+		parent.append(leaf1)
+		parent.append(leaf2)
+		let grandparent = PlanComposite("gp")
 		grandparent.append(parent)
-		grandparent.append(tree3)
+		grandparent.append(leaf3)
 
 		XCTAssertEqual(grandparent.name, "gp")
 		XCTAssertEqual(grandparent.children?.count, 2)
 		XCTAssertEqual(parent.children?.count, 2)
 		XCTAssertEqual(grandparent.net(10), 6)
+	}
+
+	func test_plan_alternatives_net_is_max() {
+		let leaf1 = makeLeaf("Income1", 1)
+		let leaf2 = makeLeaf("Income2", 2)
+
+		let parent = PlanAlternatives("alts")
+		parent.append(leaf1)
+		parent.append(leaf2)
+
+		XCTAssertEqual(parent.name, "alts")
+		XCTAssertEqual(parent.children?.count, 2)
+		XCTAssertEqual(parent.net(10), 2)
 	}
 }

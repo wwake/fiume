@@ -57,3 +57,15 @@ class PlanComposite: PlanTree {
 		}
 	}
 }
+
+@Observable
+class PlanAlternatives: PlanComposite {
+	override func net(_ month: Int) -> Dollar {
+		guard let children = children else {
+			return Dollar(0)
+		}
+		return children.reduce(Dollar(0)) { result, item in
+			max(result, item.net(month))
+		}
+	}
+}
