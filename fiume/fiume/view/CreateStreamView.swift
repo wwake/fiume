@@ -24,14 +24,18 @@ struct CreateStreamView: View {
 
 			NumberField(label: "End Month", value: $endMonth)
 
-			Button("Create") {
-				let stream = Stream(
-					name,
-					Money(amount ?? 0),
-					first: startMonth ?? 1,
-					last: endMonth)
-				plan.append(PlanLeaf(stream))
-				dismiss()
+			HStack {
+				Spacer()
+				Button("Create") {
+					let stream = Stream(
+						name,
+						Money(amount ?? 0),
+						first: startMonth ?? 1,
+						last: endMonth)
+					plan.append(PlanLeaf(stream))
+					dismiss()
+				}
+				Spacer()
 			}
 		}
 		.autocorrectionDisabled()

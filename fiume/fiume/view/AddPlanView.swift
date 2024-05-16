@@ -22,11 +22,12 @@ struct AddPlanView: View {
 		}
 		.pickerStyle(.segmented)
 
-		if addType == .stream {
+		switch addType {
+		case .stream:
 			CreateStreamView(plan: plan)
-		} else if addType == .group {
+		case .group:
 			CreateGroupView(plan: plan)
-		} else if addType == .scenarios {
+		case .scenarios:
 			CreateScenariosView(plan: plan)
 		}
 
