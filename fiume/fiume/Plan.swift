@@ -3,7 +3,7 @@ import Foundation
 struct NetWorthData: Identifiable {
 	let id = UUID()
 	let month: Int
-	let amount: Dollar
+	let amount: Money
 }
 
 @Observable
@@ -24,7 +24,7 @@ class Plan {
 
 	func project(_ months: Int) -> [NetWorthData] {
 		var result = [NetWorthData]()
-		var runningTotal = Dollar(0)
+		var runningTotal = Money(0)
 		(1...months).forEach { month in
 			let net = planContents.net(month)
 			runningTotal += net

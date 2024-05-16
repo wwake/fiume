@@ -3,7 +3,7 @@ import XCTest
 
 final class APlanTree: XCTestCase {
 	func makeLeaf(_ name: String, _ amount: Int) -> PlanLeaf {
-		let stream = Stream(name, Dollar(amount))
+		let stream = Stream(name, Money(amount))
 		return PlanLeaf(stream)
 	}
 
@@ -28,7 +28,7 @@ final class APlanTree: XCTestCase {
 
 		XCTAssertEqual(leaf.name, "Income")
 		XCTAssertNil(leaf.children)
-		XCTAssertEqual(leaf.net(3), Dollar(100))
+		XCTAssertEqual(leaf.net(3), Money(100))
 	}
 
 	func test_plan_composite() {

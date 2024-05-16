@@ -29,7 +29,7 @@ struct CreateStreamView: View {
 			Button("Create") {
 				plan.add(Stream(
 					name,
-					Dollar(amount ?? 0),
+					Money(amount ?? 0),
 					first: startMonth ?? 1,
 					last: endMonth))
 				dismiss()

@@ -44,8 +44,8 @@ struct PlanListView: View {
 }
 
 #Preview {
-	var plan = Plan()
-	let stream = Stream("Annuity", Dollar(1000))
+let plan = Plan()
+	let stream = Stream("Annuity", Money(1000))
 	plan.add(stream)
 	return PlanListView(plan: plan)
 }

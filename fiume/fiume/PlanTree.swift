@@ -4,7 +4,7 @@ protocol PlanTree {
 	var name: String { get }
 	var children: [PlanTree]? { get }
 	func append(_: PlanTree)
-	func net(_ month: Int) -> Dollar
+	func net(_ month: Int) -> Money
 }
 
 @Observable
@@ -19,7 +19,7 @@ class PlanLeaf: PlanTree {
 
 	var children: [PlanTree]? { nil }
 
-	func net(_ month: Int) -> Dollar {
+	func net(_ month: Int) -> Money {
 		stream.monthlyAmount
 	}
 
@@ -48,11 +48,11 @@ class PlanComposite: PlanTree {
 		}
 	}
 
-	func net(_ month: Int) -> Dollar {
+	func net(_ month: Int) -> Money {
 		guard let children = children else {
-			return Dollar(0)
+			return Money(0)
 		}
-		return children.reduce(Dollar(0)) { result, item in
+		return children.reduce(Money(0)) { result, item in
 			result + item.net(month)
 		}
 	}
@@ -60,11 +60,11 @@ class PlanComposite: PlanTree {
 
 @Observable
 class PlanAlternatives: PlanComposite {
-	override func net(_ month: Int) -> Dollar {
+	override func net(_ month: Int) -> Money {
 		guard let children = children else {
-			return Dollar(0)
+			return Money(0)
 		}
-		return children.reduce(Dollar(0)) { result, item in
+		return children.reduce(Money(0)) { result, item in
 			max(result, item.net(month))
 		}
 	}
