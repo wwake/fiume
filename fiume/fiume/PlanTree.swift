@@ -28,6 +28,14 @@ class PlanLeaf: PlanTree {
 
 @Observable
 class PlanComposite: PlanTree {
+	static func makeAndTree(_ name: String) -> PlanComposite {
+		PlanComposite(name, +)
+	}
+
+	static func makeOrTree(_ name: String) -> PlanComposite {
+		PlanComposite(name, max)
+	}
+
 	var name: String
 	var combiningOperator: (Money, Money) -> Money
 
@@ -57,19 +65,5 @@ class PlanComposite: PlanTree {
 		return children.reduce(Money(0)) { result, item in
 			combiningOperator(result, item.net(month))
 		}
-	}
-}
-
-@Observable
-class PlanAndTree: PlanComposite {
-	init(_ name: String) {
-		super.init(name, +)
-	}
-}
-
-@Observable
-class PlanOrTree: PlanComposite {
-	init(_ name: String) {
-		super.init(name, max)
 	}
 }
