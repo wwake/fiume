@@ -10,8 +10,6 @@ struct AddPlanView: View {
 
 struct PlanListView: View {
 	@Bindable var plan: Plan
-	@State var isPresentingSheet = false
-	@State var isPresentingAddView = false
 
 	var body: some View {
 		List {
@@ -29,18 +27,6 @@ struct PlanListView: View {
 			}
 		}
 		.listStyle(.grouped)
-		.toolbar {
-			ToolbarItemGroup {
-				Button(
-					"Add",
-					systemImage: "plus") {
-						isPresentingSheet.toggle()
-					}
-//					.sheet(isPresented: $isPresentingSheet) {
-//						CreateStreamView(plan: plan)
-//					}
-			}
-		}
 		.padding()
 	}
 }
