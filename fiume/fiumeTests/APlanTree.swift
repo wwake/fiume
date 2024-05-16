@@ -7,6 +7,22 @@ final class APlanTree: XCTestCase {
 		return PlanLeaf(stream)
 	}
 
+	func makeAndTree(_ name: String, _ children: [PlanTree]) -> PlanComposite {
+		let result = PlanComposite(name)
+		children.forEach {
+			result.append($0)
+		}
+		return result
+	}
+
+	func makeOrTree(_ name: String, _ children: [PlanTree]) -> PlanAlternatives {
+		let result = PlanAlternatives(name)
+		children.forEach {
+			result.append($0)
+		}
+		return result
+	}
+
 	func test_plan_leaf() throws {
 		let leaf = makeLeaf("Income", 100)
 
@@ -20,12 +36,8 @@ final class APlanTree: XCTestCase {
 		let leaf2 = makeLeaf("Income2", 2)
 		let leaf3 = makeLeaf("Income3", 3)
 
-		let parent = PlanComposite("parent")
-		parent.append(leaf1)
-		parent.append(leaf2)
-		let grandparent = PlanComposite("gp")
-		grandparent.append(parent)
-		grandparent.append(leaf3)
+		let parent = makeAndTree("parent", [leaf1, leaf2])
+		let grandparent = makeAndTree("gp", [parent, leaf3])
 
 		XCTAssertEqual(grandparent.name, "gp")
 		XCTAssertEqual(grandparent.children?.count, 2)
@@ -37,9 +49,7 @@ final class APlanTree: XCTestCase {
 		let leaf1 = makeLeaf("Income1", 1)
 		let leaf2 = makeLeaf("Income2", 2)
 
-		let parent = PlanAlternatives("alts")
-		parent.append(leaf1)
-		parent.append(leaf2)
+		let parent = makeOrTree("alts", [leaf1, leaf2])
 
 		XCTAssertEqual(parent.name, "alts")
 		XCTAssertEqual(parent.children?.count, 2)
