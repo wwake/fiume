@@ -1,13 +1,5 @@
 import SwiftUI
 
-struct AddPlanView: View {
-	@Bindable var plan: PlanComposite
-
-	var body: some View {
-		CreateStreamView(plan: plan)
-	}
-}
-
 struct PlanListView: View {
 	@Bindable var plan: Plan
 

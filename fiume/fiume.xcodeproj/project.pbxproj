@@ -22,6 +22,9 @@
 		919CED4B2BF5499F00ACCE2E /* APlanTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4A2BF5499F00ACCE2E /* APlanTree.swift */; };
 		919CED4D2BF54D8C00ACCE2E /* PlanTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */; };
 		919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4E2BF550E300ACCE2E /* PlanListView.swift */; };
+		919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED512BF699E900ACCE2E /* AddPlanView.swift */; };
+		919CED542BF69C5C00ACCE2E /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */; };
+		919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */; };
 		91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D867882BF3E116001B4A3D /* SpikeView.swift */; };
 		91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */; };
 		91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FE2BF291F6004ADB9B /* ContentView.swift */; };
@@ -56,6 +59,9 @@
 		919CED4A2BF5499F00ACCE2E /* APlanTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APlanTree.swift; sourceTree = "<group>"; };
 		919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTreeView.swift; sourceTree = "<group>"; };
 		919CED4E2BF550E300ACCE2E /* PlanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanListView.swift; sourceTree = "<group>"; };
+		919CED512BF699E900ACCE2E /* AddPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlanView.swift; sourceTree = "<group>"; };
+		919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
+		919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScenariosView.swift; sourceTree = "<group>"; };
 		91D867882BF3E116001B4A3D /* SpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeView.swift; sourceTree = "<group>"; };
 		91DA64F92BF291F6004ADB9B /* fiume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fiume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeApp.swift; sourceTree = "<group>"; };
@@ -99,6 +105,9 @@
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
+				919CED512BF699E900ACCE2E /* AddPlanView.swift */,
+				919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */,
+				919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -274,7 +283,10 @@
 			files = (
 				914FEFB72BF2AD6B003D858E /* CreateStreamView.swift in Sources */,
 				914FEFA52BF2930E003D858E /* Plan.swift in Sources */,
+				919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */,
 				914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */,
+				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
+				919CED542BF69C5C00ACCE2E /* CreateGroupView.swift in Sources */,
 				91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */,
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
 				914FEFA32BF292FE003D858E /* Money.swift in Sources */,
