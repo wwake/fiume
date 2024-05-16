@@ -29,6 +29,7 @@ class PlanLeaf: PlanTree {
 @Observable
 class PlanComposite: PlanTree {
 	var name: String
+	var combiningOperator: (Money, Money) -> Money
 
 	private var myChildren: [PlanTree]?
 
@@ -36,8 +37,9 @@ class PlanComposite: PlanTree {
 		get { myChildren }
 	}
 
-	init(_ name: String) {
+	internal init(_ name: String, _ combiningOperator: @escaping (Money, Money) -> Money) {
 		self.name = name
+		self.combiningOperator = combiningOperator
 	}
 
 	func append(_ plan: PlanTree) {
@@ -53,24 +55,21 @@ class PlanComposite: PlanTree {
 			return Money(0)
 		}
 		return children.reduce(Money(0)) { result, item in
-			result + item.net(month)
+			combiningOperator(result, item.net(month))
 		}
 	}
 }
 
 @Observable
 class PlanAndTree: PlanComposite {
-
+	init(_ name: String) {
+		super.init(name, +)
+	}
 }
 
 @Observable
 class PlanOrTree: PlanComposite {
-	override func net(_ month: Int) -> Money {
-		guard let children = children else {
-			return Money(0)
-		}
-		return children.reduce(Money(0)) { result, item in
-			max(result, item.net(month))
-		}
+	init(_ name: String) {
+		super.init(name, max)
 	}
 }
