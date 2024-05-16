@@ -1,15 +1,33 @@
 import SwiftUI
 
 struct CreateGroupView: View {
+	@Environment(\.dismiss) var dismiss
+
 	@Bindable var plan: PlanComposite
+	@State private var name = ""
 
 	var body: some View {
-		Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		Form {
+			LabeledContent {
+				TextField("Name", text: $name)
+			} label: {
+				Text("Name")
+			}
+
+			HStack {
+				Spacer()
+				Button("Create") {
+					plan.append(PlanComposite.makeAndTree(name))
+					dismiss()
+				}
+				Spacer()
+			}
+		}
 	}
 }
 
 #Preview {
-	var tree = PlanComposite.makeAndTree("accounts")
+	let tree = PlanComposite.makeAndTree("accounts")
 	tree.append(PlanLeaf(Stream("income", Money(100))))
 	return CreateGroupView(plan: tree)
 }

@@ -36,7 +36,7 @@ struct AddPlanView: View {
 }
 
 #Preview {
-	var tree = PlanComposite.makeAndTree("accounts")
+	let tree = PlanComposite.makeAndTree("accounts")
 	tree.append(PlanLeaf(Stream("income", Money(100))))
 	return AddPlanView(plan: tree)
 }

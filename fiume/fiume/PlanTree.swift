@@ -62,8 +62,9 @@ class PlanComposite: PlanTree {
 		guard let children = children else {
 			return Money(0)
 		}
-		return children.reduce(Money(0)) { result, item in
+		let result = children.reduce(Money(0)) { result, item in
 			combiningOperator(result, item.net(month))
 		}
+		return result
 	}
 }
