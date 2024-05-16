@@ -7,16 +7,16 @@ final class APlanTree: XCTestCase {
 		return PlanLeaf(stream)
 	}
 
-	func makeAndTree(_ name: String, _ children: [PlanTree]) -> PlanComposite {
-		let result = PlanComposite(name)
+	func makeAndTree(_ name: String, _ children: [PlanTree]) -> PlanAndTree {
+		let result = PlanAndTree(name)
 		children.forEach {
 			result.append($0)
 		}
 		return result
 	}
 
-	func makeOrTree(_ name: String, _ children: [PlanTree]) -> PlanAlternatives {
-		let result = PlanAlternatives(name)
+	func makeOrTree(_ name: String, _ children: [PlanTree]) -> PlanOrTree {
+		let result = PlanOrTree(name)
 		children.forEach {
 			result.append($0)
 		}

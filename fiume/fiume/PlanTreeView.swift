@@ -7,7 +7,7 @@ struct PlanTreeView: View {
 		if plan is PlanLeaf {
 			PlanLeafView(plan: plan as! PlanLeaf)
 		} else {
-			PlanCompositeView(plan: plan as! PlanComposite)
+			PlanCompositeView(plan: plan as! PlanAndTree)
 		}
 	}
 }
@@ -21,7 +21,7 @@ struct PlanLeafView: View {
 }
 
 struct PlanCompositeView: View {
-	var plan: PlanComposite
+	var plan: PlanAndTree
 
 	var body: some View {
 		Text(plan.name)
@@ -30,7 +30,7 @@ struct PlanCompositeView: View {
 
 #Preview {
 	let planLeaf = PlanLeaf(Stream("demo", Money(100)))
-	let planTree = PlanComposite("tree")
+	let planTree = PlanAndTree("tree")
 	planTree.append(planLeaf)
 
 	return PlanTreeView(plan: planTree)

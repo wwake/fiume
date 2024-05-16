@@ -59,7 +59,12 @@ class PlanComposite: PlanTree {
 }
 
 @Observable
-class PlanAlternatives: PlanComposite {
+class PlanAndTree: PlanComposite {
+
+}
+
+@Observable
+class PlanOrTree: PlanComposite {
 	override func net(_ month: Int) -> Money {
 		guard let children = children else {
 			return Money(0)
