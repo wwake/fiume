@@ -1,23 +1,25 @@
 import SwiftUI
 
+struct AddPlanView: View {
+	@Bindable var plan: PlanComposite
+
+	var body: some View {
+		CreateStreamView(plan: plan)
+	}
+}
+
 struct PlanListView: View {
 	@Bindable var plan: Plan
 	@State var isPresentingSheet = false
+	@State var isPresentingAddView = false
 
 	var body: some View {
 		List {
-			ForEach(plan.contents, id: \.name) { plan in
-				Section(header: HStack {
-					Text(plan.name)
-					Spacer()
-					Button(
-						" ",
-						systemImage: "plus") {
-							print("clicked")
-						}
-				}) {
+			ForEach(plan.sections, id: \.name) { planTree in
+				Section(header: PlanTreeView(plan: planTree)
+				) {
 					OutlineGroup(
-						plan.children ?? [],
+						planTree.children ?? [],
 						id: \.name,
 						children: \.children
 					) { tree in
@@ -34,9 +36,9 @@ struct PlanListView: View {
 					systemImage: "plus") {
 						isPresentingSheet.toggle()
 					}
-					.sheet(isPresented: $isPresentingSheet) {
-						CreateStreamView(plan: plan)
-					}
+//					.sheet(isPresented: $isPresentingSheet) {
+//						CreateStreamView(plan: plan)
+//					}
 			}
 		}
 		.padding()

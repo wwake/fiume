@@ -9,11 +9,11 @@ struct NetWorthData: Identifiable {
 @Observable
 class Plan {
 	var streams = [Stream]()
-	var planContents = PlanAndTree("My Finances")
-	var contents = [PlanTree]()
+	var planContents = PlanComposite.makeAndTree("My Finances")
+	var sections = [PlanTree]()
 
 	init() {
-		contents.append(planContents)
+		sections.append(planContents)
 	}
 
 	func add(_ stream: Stream) {

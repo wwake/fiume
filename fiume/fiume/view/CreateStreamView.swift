@@ -3,7 +3,7 @@ import SwiftUI
 struct CreateStreamView: View {
 	@Environment(\.dismiss) var dismiss
 
-	@Bindable var plan: Plan
+	@Bindable var plan: PlanComposite
 
 	@State private var name = ""
 	@State private var amount: Int?
@@ -27,11 +27,12 @@ struct CreateStreamView: View {
 			NumberField(label: "End Month", value: $endMonth)
 
 			Button("Create") {
-				plan.add(Stream(
+				let stream = Stream(
 					name,
 					Money(amount ?? 0),
 					first: startMonth ?? 1,
-					last: endMonth))
+					last: endMonth)
+				plan.append(PlanLeaf(stream))
 				dismiss()
 			}
 		}

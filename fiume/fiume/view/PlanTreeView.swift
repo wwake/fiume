@@ -7,7 +7,7 @@ struct PlanTreeView: View {
 		if plan is PlanLeaf {
 			PlanLeafView(plan: plan as! PlanLeaf)
 		} else {
-			PlanCompositeView(plan: plan as! PlanAndTree)
+			PlanCompositeView(plan: plan as! PlanComposite)
 		}
 	}
 }
@@ -21,16 +21,27 @@ struct PlanLeafView: View {
 }
 
 struct PlanCompositeView: View {
-	var plan: PlanAndTree
+	var plan: PlanComposite
+	@State private var isAddPresented = false
 
 	var body: some View {
-		Text(plan.name)
+		HStack {
+			Text(plan.name)
+			Spacer()
+			Button(
+				" ",
+				systemImage: "plus") {
+					isAddPresented = true
+				}
+		}.sheet(isPresented: $isAddPresented) {
+			AddPlanView(plan: plan)
+		}
 	}
 }
 
 #Preview {
 	let planLeaf = PlanLeaf(Stream("demo", Money(100)))
-	let planTree = PlanAndTree("tree")
+	let planTree = PlanComposite.makeAndTree("tree")
 	planTree.append(planLeaf)
 
 	return PlanTreeView(plan: planTree)

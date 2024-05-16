@@ -91,6 +91,18 @@
 			path = helper;
 			sourceTree = "<group>";
 		};
+		919CED502BF6979A00ACCE2E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				91DA64FE2BF291F6004ADB9B /* ContentView.swift */,
+				914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */,
+				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
+				919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */,
+				914FEFB82BF2AF08003D858E /* StreamView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		91D867872BF3E100001B4A3D /* spike */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,18 +138,14 @@
 			isa = PBXGroup;
 			children = (
 				91DA65002BF291F7004ADB9B /* Assets.xcassets */,
-				91DA64FE2BF291F6004ADB9B /* ContentView.swift */,
-				914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */,
 				914FEFA22BF292FE003D858E /* Money.swift */,
 				91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */,
 				914FEFB32BF2ACE9003D858E /* helper */,
 				914FEFA42BF2930E003D858E /* Plan.swift */,
-				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED482BF5492800ACCE2E /* PlanTree.swift */,
-				919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */,
 				91DA65022BF291F7004ADB9B /* Preview Content */,
 				914FEFA62BF29317003D858E /* Stream.swift */,
-				914FEFB82BF2AF08003D858E /* StreamView.swift */,
+				919CED502BF6979A00ACCE2E /* view */,
 			);
 			path = fiume;
 			sourceTree = "<group>";
