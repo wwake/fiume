@@ -62,7 +62,7 @@ final class APlanTree: XCTestCase {
 	func test_concrete_plans_for_stream() {
 		let leaf = makeLeaf("Income1", 1000, 1, 12)
 		let result = leaf.concretePlans([ConcretePlan(), ConcretePlan()])
-		
+
 		let array = Array(result)
 
 		XCTAssertEqual(array.count, 2)
@@ -70,5 +70,24 @@ final class APlanTree: XCTestCase {
 		XCTAssertEqual(array[0].net(13), Money(0))
 		XCTAssertEqual(array[1].net(12), Money(1000))
 		XCTAssertEqual(array[1].net(13), Money(0))
+	}
+
+	func test_concrete_plans_for_and_tree() {
+		let leaf1 = makeLeaf("Income1", 1000, 1, 12)
+		let leaf2 = makeLeaf("Income2", 2000, 6, 18)
+
+		let parent = makeAndTree("parent", [leaf1, leaf2])
+
+		let result = parent.concretePlans([ConcretePlan(), ConcretePlan()])
+
+		let array = Array(result)
+
+		XCTAssertEqual(array.count, 2)
+		XCTAssertEqual(array[0].net(1), Money(1000))
+		XCTAssertEqual(array[1].net(1), Money(1000))
+		XCTAssertEqual(array[0].net(6), Money(3000))
+		XCTAssertEqual(array[1].net(6), Money(3000))
+		XCTAssertEqual(array[0].net(13), Money(2000))
+		XCTAssertEqual(array[1].net(13), Money(2000))
 	}
 }

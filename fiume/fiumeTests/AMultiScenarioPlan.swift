@@ -22,12 +22,12 @@ final class AMultiScenarioPlan: XCTestCase {
 		XCTAssertEqual(data.last!.amount, Money(1_200))
 	}
 
-	func test_concretePlansWithNoScenarios() {
+	func test_concretePlans_with_only_groups() {
 		let plan = MultiScenarioPlan()
 		plan.add(Stream("Salary", Money(1_000)))
 		plan.add(Stream("Expenses", Money(-900)))
 		let concretePlans = plan.concretePlans()
 		XCTAssertEqual(concretePlans.count, 1)
-		XCTAssertEqual(concretePlans.first!.net(1), Money(0))
+		XCTAssertEqual(concretePlans.first!.net(1), Money(100))
 	}
 }

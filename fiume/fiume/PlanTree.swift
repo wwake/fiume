@@ -79,7 +79,11 @@ class PlanComposite: PlanTree, Identifiable {
 		}
 	}
 
-	func concretePlans(_ original: Set<ConcretePlan>) -> Set<ConcretePlan> {
-		[ ConcretePlan() ]
+	func concretePlans(_ plans: Set<ConcretePlan>) -> Set<ConcretePlan> {
+		guard let children = myChildren else { return plans }
+		children.forEach {
+			$0.concretePlans(plans)
+		}
+		return plans
 	}
 }
