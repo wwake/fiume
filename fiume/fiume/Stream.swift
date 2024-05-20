@@ -2,11 +2,7 @@ import Foundation
 
 typealias MonthNumber = Int
 
-class Stream: Identifiable, Equatable {
-	static func == (lhs: Stream, rhs: Stream) -> Bool {
-		lhs.name == rhs.name && lhs.monthlyAmount == rhs.monthlyAmount && lhs.first == rhs.first && lhs.last == rhs.last
-	}
-
+class Stream: Identifiable {
 	let id = UUID()
 	var name: String
 	var monthlyAmount: Money
@@ -31,6 +27,12 @@ class Stream: Identifiable, Equatable {
 
 		let newLast = other.last == nil ? self.last : other.last
 		return Stream(other.name, other.monthlyAmount, first: other.first, last: newLast)
+	}
+}
+
+extension Stream: Equatable {
+	static func == (lhs: Stream, rhs: Stream) -> Bool {
+		lhs.name == rhs.name && lhs.monthlyAmount == rhs.monthlyAmount && lhs.first == rhs.first && lhs.last == rhs.last
 	}
 }
 
