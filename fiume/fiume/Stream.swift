@@ -27,6 +27,8 @@ class Stream: Identifiable, Equatable {
 	}
 
 	func merge(_ other: Stream) -> Stream {
+		if self.name != other.name { return self }
+
 		let newLast = other.last == nil ? self.last : other.last
 		return Stream(other.name, other.monthlyAmount, first: other.first, last: newLast)
 	}

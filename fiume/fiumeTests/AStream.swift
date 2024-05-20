@@ -27,4 +27,11 @@ final class AStream: XCTestCase {
 		let merged = stream1.merge(stream2)
 		XCTAssertEqual(merged, Stream("Sample", Money(500), first: 5, last: 12))
 	}
+
+	func test_dontMergeWhenNamesDiffer() {
+		let stream1 = Stream("Salary", Money(500), first: 1, last: 12)
+		let stream2 = Stream("Different", Money(1500), first: 5, last: 24)
+		let merged = stream1.merge(stream2)
+		XCTAssertEqual(merged, Stream("Salary", Money(500), first: 1, last: 12))
+	}
 }
