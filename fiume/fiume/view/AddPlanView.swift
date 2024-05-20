@@ -14,7 +14,7 @@ struct AddPlanView: View {
 		Text("Add to Plan")
 			.font(.title)
 			.padding(8)
-		
+
 		Picker("Add New", selection: $addType) {
 				ForEach(AddType.allCases) { addType in
 						Text(addType.rawValue.capitalized)

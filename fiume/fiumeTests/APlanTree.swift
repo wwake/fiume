@@ -2,8 +2,8 @@
 import XCTest
 
 final class APlanTree: XCTestCase {
-	func makeLeaf(_ name: String, _ amount: Int) -> PlanLeaf {
-		let stream = Stream(name, Money(amount))
+	func makeLeaf(_ name: String, _ amount: Int, _ first: MonthNumber = 1, _ last: MonthNumber = 120) -> PlanLeaf {
+		let stream = Stream(name, Money(amount), first: first, last: last)
 		return PlanLeaf(stream)
 	}
 
@@ -24,11 +24,14 @@ final class APlanTree: XCTestCase {
 	}
 
 	func test_plan_leaf() throws {
-		let leaf = makeLeaf("Income", 100)
+		let leaf = makeLeaf("Income", 100, 3, 12)
 
 		XCTAssertEqual(leaf.name, "Income")
 		XCTAssertNil(leaf.children)
+		
+		XCTAssertEqual(leaf.net(2), Money(0))
 		XCTAssertEqual(leaf.net(3), Money(100))
+		XCTAssertEqual(leaf.net(13), Money(0))
 	}
 
 	func test_plan_composite() {

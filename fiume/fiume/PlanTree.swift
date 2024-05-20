@@ -20,7 +20,7 @@ class PlanLeaf: PlanTree {
 	var children: [PlanTree]? { nil }
 
 	func net(_ month: Int) -> Money {
-		stream.monthlyAmount
+		stream.amount(month: month)
 	}
 
 	func append(_: PlanTree) { }
@@ -62,9 +62,8 @@ class PlanComposite: PlanTree {
 		guard let children = children else {
 			return Money(0)
 		}
-		let result = children.reduce(Money(0)) { result, item in
+		return children.reduce(Money(0)) { result, item in
 			combiningOperator(result, item.net(month))
 		}
-		return result
 	}
 }
