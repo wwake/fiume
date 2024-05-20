@@ -28,6 +28,6 @@ final class AMultiScenarioPlan: XCTestCase {
 		plan.add(Stream("Expenses", Money(-900)))
 		let concretePlans = plan.concretePlans()
 		XCTAssertEqual(concretePlans.count, 1)
-		// more asserts
+		XCTAssertEqual(concretePlans.first!.net(1), Money(0))
 	}
 }

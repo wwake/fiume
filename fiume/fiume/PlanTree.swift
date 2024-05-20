@@ -6,7 +6,7 @@ protocol PlanTree {
 	var children: [PlanTree]? { get }
 	func append(_: PlanTree)
 	func net(_ month: Int) -> Money
-	func concretePlans() -> Set<ConcretePlan>
+	func concretePlans(_ original: Set<ConcretePlan>) -> Set<ConcretePlan>
 }
 
 @Observable
@@ -29,7 +29,7 @@ class PlanLeaf: PlanTree, Identifiable {
 
 	func append(_: PlanTree) { }
 
-	func concretePlans() -> Set<ConcretePlan> {
+	func concretePlans(_ original: Set<ConcretePlan>) -> Set<ConcretePlan> {
 		[]
 	}
 }
@@ -76,7 +76,7 @@ class PlanComposite: PlanTree, Identifiable {
 		}
 	}
 
-	func concretePlans() -> Set<ConcretePlan> {
+	func concretePlans(_ original: Set<ConcretePlan>) -> Set<ConcretePlan> {
 		[ ConcretePlan() ]
 	}
 }

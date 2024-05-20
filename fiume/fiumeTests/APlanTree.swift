@@ -61,7 +61,7 @@ final class APlanTree: XCTestCase {
 
 	func ignore_test_concrete_plans_for_stream() {
 		let leaf = makeLeaf("Income1", 1000, 1, 12)
-		let result = leaf.concretePlans()
+		let result = leaf.concretePlans([ConcretePlan()])
 		XCTAssertEqual(result.count, 1)
 		XCTAssertEqual(result.first!.net(12), Money(1000))
 		XCTAssertEqual(result.first!.net(13), Money(0))
