@@ -30,7 +30,10 @@ class PlanLeaf: PlanTree, Identifiable {
 	func append(_: PlanTree) { }
 
 	func concretePlans(_ original: Set<ConcretePlan>) -> Set<ConcretePlan> {
-		[]
+		original.forEach {
+			$0.add(stream)
+		}
+		return original
 	}
 }
 
