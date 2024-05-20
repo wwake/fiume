@@ -6,6 +6,7 @@ protocol PlanTree {
 	var children: [PlanTree]? { get }
 	func append(_: PlanTree)
 	func net(_ month: Int) -> Money
+	func concretePlans() -> Set<ConcretePlan>
 }
 
 @Observable
@@ -27,6 +28,10 @@ class PlanLeaf: PlanTree, Identifiable {
 	}
 
 	func append(_: PlanTree) { }
+
+	func concretePlans() -> Set<ConcretePlan> {
+		[]
+	}
 }
 
 @Observable
@@ -69,5 +74,9 @@ class PlanComposite: PlanTree, Identifiable {
 		return children.reduce(Money(0)) { result, item in
 			combiningOperator(result, item.net(month))
 		}
+	}
+
+	func concretePlans() -> Set<ConcretePlan> {
+		[ ConcretePlan() ]
 	}
 }
