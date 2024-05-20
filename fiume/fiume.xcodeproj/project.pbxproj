@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		914B54C52BFBDB74005A9090 /* ConcretePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B54C42BFBDB74005A9090 /* ConcretePlan.swift */; };
 		914FEFA32BF292FE003D858E /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA22BF292FE003D858E /* Money.swift */; };
 		914FEFA52BF2930E003D858E /* MultiScenarioPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA42BF2930E003D858E /* MultiScenarioPlan.swift */; };
 		914FEFA72BF29317003D858E /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA62BF29317003D858E /* Stream.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		914B54C42BFBDB74005A9090 /* ConcretePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcretePlan.swift; sourceTree = "<group>"; };
 		914FEFA22BF292FE003D858E /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		914FEFA42BF2930E003D858E /* MultiScenarioPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiScenarioPlan.swift; sourceTree = "<group>"; };
 		914FEFA62BF29317003D858E /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				91DA65022BF291F7004ADB9B /* Preview Content */,
 				914FEFA62BF29317003D858E /* Stream.swift */,
 				919CED502BF6979A00ACCE2E /* view */,
+				914B54C42BFBDB74005A9090 /* ConcretePlan.swift */,
 			);
 			path = fiume;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				914FEFA32BF292FE003D858E /* Money.swift in Sources */,
 				919CED492BF5492800ACCE2E /* PlanTree.swift in Sources */,
 				91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */,
+				914B54C52BFBDB74005A9090 /* ConcretePlan.swift in Sources */,
 				914FEFA72BF29317003D858E /* Stream.swift in Sources */,
 				914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */,
 				919CED4D2BF54D8C00ACCE2E /* PlanTreeView.swift in Sources */,

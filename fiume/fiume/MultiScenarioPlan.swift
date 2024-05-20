@@ -29,4 +29,8 @@ class MultiScenarioPlan {
 		}
 		return result
 	}
+
+	func concretePlans() -> Set<ConcretePlan> {
+		[ConcretePlan()]
+	}
 }
