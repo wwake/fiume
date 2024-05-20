@@ -4,7 +4,7 @@ import XCTest
 
 final class APlan: XCTestCase {
 	func test_salaryBuildsNetWorth() throws {
-		let plan = Plan()
+		let plan = MultiScenarioPlan()
 		plan.add(Stream("Salary", Money(1_000)))
 
 		let data = plan.project(12)
@@ -13,7 +13,7 @@ final class APlan: XCTestCase {
 	}
 
 	func test_salaryMinusExpensesCreatesNetWorth() throws {
-		let plan = Plan()
+		let plan = MultiScenarioPlan()
 		plan.add(Stream("Salary", Money(1_000)))
 		plan.add(Stream("Expenses", Money(-900)))
 

@@ -7,7 +7,7 @@ struct NetWorthData: Identifiable {
 }
 
 @Observable
-class Plan {
+class MultiScenarioPlan {
 	var streams = [Stream]()
 	var planContents = PlanComposite.makeAndTree("My Finances")
 	var sections = [PlanTree]()

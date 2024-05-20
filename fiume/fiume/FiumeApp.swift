@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct FiumeApp: App {
-	@State var plan = Plan()
+	@State var plan = MultiScenarioPlan()
 	var spiking = false
 
 	var body: some Scene {

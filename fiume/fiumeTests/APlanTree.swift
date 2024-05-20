@@ -28,7 +28,7 @@ final class APlanTree: XCTestCase {
 
 		XCTAssertEqual(leaf.name, "Income")
 		XCTAssertNil(leaf.children)
-		
+
 		XCTAssertEqual(leaf.net(2), Money(0))
 		XCTAssertEqual(leaf.net(3), Money(100))
 		XCTAssertEqual(leaf.net(13), Money(0))

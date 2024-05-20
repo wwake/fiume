@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PlanListView: View {
-	@Bindable var plan: Plan
+	@Bindable var plan: MultiScenarioPlan
 
 	var body: some View {
 		List {
@@ -24,7 +24,7 @@ struct PlanListView: View {
 }
 
 #Preview {
-let plan = Plan()
+let plan = MultiScenarioPlan()
 	let stream = Stream("Annuity", Money(1000))
 	plan.add(stream)
 	return PlanListView(plan: plan)

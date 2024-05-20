@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		914FEFA32BF292FE003D858E /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA22BF292FE003D858E /* Money.swift */; };
-		914FEFA52BF2930E003D858E /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA42BF2930E003D858E /* Plan.swift */; };
+		914FEFA52BF2930E003D858E /* MultiScenarioPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA42BF2930E003D858E /* MultiScenarioPlan.swift */; };
 		914FEFA72BF29317003D858E /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA62BF29317003D858E /* Stream.swift */; };
 		914FEFAA2BF29399003D858E /* APlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA82BF29399003D858E /* APlan.swift */; };
 		914FEFAB2BF29399003D858E /* AStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA92BF29399003D858E /* AStream.swift */; };
@@ -44,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		914FEFA22BF292FE003D858E /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
-		914FEFA42BF2930E003D858E /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		914FEFA42BF2930E003D858E /* MultiScenarioPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiScenarioPlan.swift; sourceTree = "<group>"; };
 		914FEFA62BF29317003D858E /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		914FEFA82BF29399003D858E /* APlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APlan.swift; sourceTree = "<group>"; };
 		914FEFA92BF29399003D858E /* AStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AStream.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				914FEFA22BF292FE003D858E /* Money.swift */,
 				91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */,
 				914FEFB32BF2ACE9003D858E /* helper */,
-				914FEFA42BF2930E003D858E /* Plan.swift */,
+				914FEFA42BF2930E003D858E /* MultiScenarioPlan.swift */,
 				919CED482BF5492800ACCE2E /* PlanTree.swift */,
 				91DA65022BF291F7004ADB9B /* Preview Content */,
 				914FEFA62BF29317003D858E /* Stream.swift */,
@@ -282,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				914FEFB72BF2AD6B003D858E /* CreateStreamView.swift in Sources */,
-				914FEFA52BF2930E003D858E /* Plan.swift in Sources */,
+				914FEFA52BF2930E003D858E /* MultiScenarioPlan.swift in Sources */,
 				919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */,
 				914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */,
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
