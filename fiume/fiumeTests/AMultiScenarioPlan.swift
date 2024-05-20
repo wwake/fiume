@@ -2,7 +2,7 @@
 
 import XCTest
 
-final class APlan: XCTestCase {
+final class AMultiScenarioPlan: XCTestCase {
 	func test_salaryBuildsNetWorth() throws {
 		let plan = MultiScenarioPlan()
 		plan.add(Stream("Salary", Money(1_000)))

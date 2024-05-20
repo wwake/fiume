@@ -10,7 +10,7 @@
 		914FEFA32BF292FE003D858E /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA22BF292FE003D858E /* Money.swift */; };
 		914FEFA52BF2930E003D858E /* MultiScenarioPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA42BF2930E003D858E /* MultiScenarioPlan.swift */; };
 		914FEFA72BF29317003D858E /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA62BF29317003D858E /* Stream.swift */; };
-		914FEFAA2BF29399003D858E /* APlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA82BF29399003D858E /* APlan.swift */; };
+		914FEFAA2BF29399003D858E /* AMultiScenarioPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA82BF29399003D858E /* AMultiScenarioPlan.swift */; };
 		914FEFAB2BF29399003D858E /* AStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA92BF29399003D858E /* AStream.swift */; };
 		914FEFAD2BF29413003D858E /* fiume.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 914FEFAC2BF29413003D858E /* fiume.xctestplan */; };
 		914FEFAF2BF2941F003D858E /* _todo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 914FEFAE2BF2941F003D858E /* _todo.txt */; };
@@ -46,7 +46,7 @@
 		914FEFA22BF292FE003D858E /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		914FEFA42BF2930E003D858E /* MultiScenarioPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiScenarioPlan.swift; sourceTree = "<group>"; };
 		914FEFA62BF29317003D858E /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
-		914FEFA82BF29399003D858E /* APlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APlan.swift; sourceTree = "<group>"; };
+		914FEFA82BF29399003D858E /* AMultiScenarioPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMultiScenarioPlan.swift; sourceTree = "<group>"; };
 		914FEFA92BF29399003D858E /* AStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AStream.swift; sourceTree = "<group>"; };
 		914FEFAC2BF29413003D858E /* fiume.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
 		914FEFAE2BF2941F003D858E /* _todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		91DA650C2BF291F8004ADB9B /* fiumeTests */ = {
 			isa = PBXGroup;
 			children = (
-				914FEFA82BF29399003D858E /* APlan.swift */,
+				914FEFA82BF29399003D858E /* AMultiScenarioPlan.swift */,
 				914FEFA92BF29399003D858E /* AStream.swift */,
 				919CED4A2BF5499F00ACCE2E /* APlanTree.swift */,
 			);
@@ -304,7 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				919CED4B2BF5499F00ACCE2E /* APlanTree.swift in Sources */,
-				914FEFAA2BF29399003D858E /* APlan.swift in Sources */,
+				914FEFAA2BF29399003D858E /* AMultiScenarioPlan.swift in Sources */,
 				914FEFAB2BF29399003D858E /* AStream.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
