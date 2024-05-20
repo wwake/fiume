@@ -8,7 +8,6 @@ struct NetWorthData: Identifiable {
 
 @Observable
 class MultiScenarioPlan {
-	var streams = [Stream]()
 	var planContents = PlanComposite.makeAndTree("My Finances")
 	var sections = [PlanTree]()
 
@@ -17,8 +16,6 @@ class MultiScenarioPlan {
 	}
 
 	func add(_ stream: Stream) {
-		streams.append(stream)
-
 		planContents.append(PlanLeaf(stream))
 	}
 

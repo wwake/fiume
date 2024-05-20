@@ -147,9 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				91DA65002BF291F7004ADB9B /* Assets.xcassets */,
-				914FEFA22BF292FE003D858E /* Money.swift */,
 				91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */,
 				914FEFB32BF2ACE9003D858E /* helper */,
+				914FEFA22BF292FE003D858E /* Money.swift */,
 				914FEFA42BF2930E003D858E /* MultiScenarioPlan.swift */,
 				919CED482BF5492800ACCE2E /* PlanTree.swift */,
 				91DA65022BF291F7004ADB9B /* Preview Content */,

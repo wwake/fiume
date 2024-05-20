@@ -1,6 +1,6 @@
+Remove "streams" from MultiScenarioPlan
 Turn a plan with alternatives into a set of plans that don't use alternatives
 Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
-Remove "streams" from Plan
 Give nodes a unique id and make tree use that
 Add multiple sections
 
@@ -20,7 +20,8 @@ Should we segregate streams by income/expense? (two columns)
 
 FI-24-06: 2024-05-20 - Graphs & Combinatorics
 * Bug in graph: Make sure net for stream only takes streams that are active that month (fixed PlanLeaf)
-* Make Stream able to merge with identically-named streams
+* Make Stream able to merge with identically-named streams [but not using it yet]
+* Make Stream a struct
 
 FI-24-05: 2024-05-16 - Alternative Scenarios
 * Made PlanTree be an And-Or tree

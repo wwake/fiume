@@ -1,6 +1,7 @@
 import Foundation
 
 protocol PlanTree {
+	var id: UUID { get }
 	var name: String { get }
 	var children: [PlanTree]? { get }
 	func append(_: PlanTree)
@@ -8,7 +9,9 @@ protocol PlanTree {
 }
 
 @Observable
-class PlanLeaf: PlanTree {
+class PlanLeaf: PlanTree, Identifiable {
+	let id = UUID()
+
 	let stream: Stream
 
 	init(_ stream: Stream) {
@@ -27,7 +30,7 @@ class PlanLeaf: PlanTree {
 }
 
 @Observable
-class PlanComposite: PlanTree {
+class PlanComposite: PlanTree, Identifiable {
 	static func makeAndTree(_ name: String) -> PlanComposite {
 		PlanComposite(name, +)
 	}
@@ -36,6 +39,7 @@ class PlanComposite: PlanTree {
 		PlanComposite(name, max)
 	}
 
+	let id = UUID()
 	var name: String
 	var combiningOperator: (Money, Money) -> Money
 

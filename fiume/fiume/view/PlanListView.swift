@@ -10,7 +10,7 @@ struct PlanListView: View {
 				) {
 					OutlineGroup(
 						planTree.children ?? [],
-						id: \.name,
+						id: \.id,
 						children: \.children
 					) { tree in
 						PlanTreeView(plan: tree)
