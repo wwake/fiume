@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		914B54C52BFBDB74005A9090 /* ConcretePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B54C42BFBDB74005A9090 /* ConcretePlan.swift */; };
+		914B54C72BFBDF34005A9090 /* AConcretePlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B54C62BFBDF34005A9090 /* AConcretePlan.swift */; };
 		914FEFA32BF292FE003D858E /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA22BF292FE003D858E /* Money.swift */; };
 		914FEFA52BF2930E003D858E /* MultiScenarioPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA42BF2930E003D858E /* MultiScenarioPlan.swift */; };
 		914FEFA72BF29317003D858E /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA62BF29317003D858E /* Stream.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		914B54C42BFBDB74005A9090 /* ConcretePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcretePlan.swift; sourceTree = "<group>"; };
+		914B54C62BFBDF34005A9090 /* AConcretePlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AConcretePlan.swift; sourceTree = "<group>"; };
 		914FEFA22BF292FE003D858E /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		914FEFA42BF2930E003D858E /* MultiScenarioPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiScenarioPlan.swift; sourceTree = "<group>"; };
 		914FEFA62BF29317003D858E /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				914FEFA82BF29399003D858E /* AMultiScenarioPlan.swift */,
 				914FEFA92BF29399003D858E /* AStream.swift */,
 				919CED4A2BF5499F00ACCE2E /* APlanTree.swift */,
+				914B54C62BFBDF34005A9090 /* AConcretePlan.swift */,
 			);
 			path = fiumeTests;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				919CED4B2BF5499F00ACCE2E /* APlanTree.swift in Sources */,
+				914B54C72BFBDF34005A9090 /* AConcretePlan.swift in Sources */,
 				914FEFAA2BF29399003D858E /* AMultiScenarioPlan.swift in Sources */,
 				914FEFAB2BF29399003D858E /* AStream.swift in Sources */,
 			);
