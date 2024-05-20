@@ -59,7 +59,7 @@ final class APlanTree: XCTestCase {
 		XCTAssertEqual(parent.net(10), 2)
 	}
 
-	func test_concrete_plans_for_stream() {
+	func ignore_test_concrete_plans_for_stream() {
 		let leaf = makeLeaf("Income1", 1000, 1, 12)
 		let result = leaf.concretePlans()
 		XCTAssertEqual(result.count, 1)

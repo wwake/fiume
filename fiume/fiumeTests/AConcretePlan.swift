@@ -25,4 +25,18 @@ final class AConcretePlan: XCTestCase {
 		XCTAssertEqual(plan.net(12), Money(1500))
 		XCTAssertEqual(plan.net(13), Money(500))
 	}
+
+	func test_concrete_plans_for_merged_streams() {
+		let plan = ConcretePlan()
+		let stream1 = Stream("Income1", 1000, first: 1, last: 12)
+		let stream2 = Stream("Income1", 500, first: 10, last: nil)
+
+		plan.add(stream1)
+		plan.add(stream2)
+
+		XCTAssertEqual(plan.net(1), Money(0))
+		XCTAssertEqual(plan.net(10), Money(500))
+		XCTAssertEqual(plan.net(12), Money(500))
+		XCTAssertEqual(plan.net(13), Money(0))
+	}
 }

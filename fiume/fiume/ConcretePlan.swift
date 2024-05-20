@@ -5,7 +5,13 @@ class ConcretePlan: Identifiable {
 	var items = Dictionary<String, Stream>()
 
 	func add(_ stream: Stream) {
-		items[stream.name] = stream
+		if items[stream.name] == nil {
+			items[stream.name] = stream
+		} else {
+			let original = items[stream.name]!
+			let revised = original.merge(stream)
+			items[stream.name] = revised
+		}
 	}
 
 	func net(_ month: MonthNumber) -> Money {
