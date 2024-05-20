@@ -2,7 +2,7 @@ import Foundation
 
 typealias MonthNumber = Int
 
-class Stream: Identifiable {
+struct Stream: Identifiable {
 	let id = UUID()
 	var name: String
 	var monthlyAmount: Money
