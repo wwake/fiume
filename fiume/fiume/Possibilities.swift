@@ -31,6 +31,6 @@ class Possibilities {
 	}
 
 	func scenarios() -> Set<Scenario> {
-		plan.concretePlans([Scenario()])
+		plan.scenarios([Scenario()])
 	}
 }

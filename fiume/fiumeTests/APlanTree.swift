@@ -23,47 +23,47 @@ final class APlanTree: XCTestCase {
 		return result
 	}
 
-	func test_plan_leaf() throws {
-		let leaf = makeLeaf("Income", 100, 3, 12)
+	func test_makes_a_leaf() throws {
+		let sut = makeLeaf("Income", 100, 3, 12)
 
-		XCTAssertEqual(leaf.name, "Income")
-		XCTAssertNil(leaf.children)
+		XCTAssertEqual(sut.name, "Income")
+		XCTAssertNil(sut.children)
 
-		XCTAssertEqual(leaf.net(2), Money(0))
-		XCTAssertEqual(leaf.net(3), Money(100))
-		XCTAssertEqual(leaf.net(13), Money(0))
+		XCTAssertEqual(sut.net(2), Money(0))
+		XCTAssertEqual(sut.net(3), Money(100))
+		XCTAssertEqual(sut.net(13), Money(0))
 	}
 
-	func test_plan_composite() {
+	func test_makes_a_composite() {
 		let leaf1 = makeLeaf("Income1", 1)
 		let leaf2 = makeLeaf("Income2", 2)
 		let leaf3 = makeLeaf("Income3", 3)
 
 		let parent = makeAndTree("parent", [leaf1, leaf2])
-		let grandparent = makeAndTree("gp", [parent, leaf3])
+		let sut = makeAndTree("grandparent", [parent, leaf3])
 
-		XCTAssertEqual(grandparent.name, "gp")
-		XCTAssertEqual(grandparent.children?.count, 2)
+		XCTAssertEqual(sut.name, "grandparent")
+		XCTAssertEqual(sut.children?.count, 2)
 		XCTAssertEqual(parent.children?.count, 2)
-		XCTAssertEqual(grandparent.net(10), 6)
+		XCTAssertEqual(sut.net(10), 6)
 	}
 
-	func test_plan_alternatives_net_is_max() {
+	func test_net_of_alternatives_is_max() {
 		let leaf1 = makeLeaf("Income1", 1)
 		let leaf2 = makeLeaf("Income2", 2)
 
-		let parent = makeOrTree("alts", [leaf1, leaf2])
+		let sut = makeOrTree("alts", [leaf1, leaf2])
 
-		XCTAssertEqual(parent.name, "alts")
-		XCTAssertEqual(parent.children?.count, 2)
-		XCTAssertEqual(parent.net(10), 2)
+		XCTAssertEqual(sut.name, "alts")
+		XCTAssertEqual(sut.children?.count, 2)
+		XCTAssertEqual(sut.net(10), 2)
 	}
 
-	func test_concrete_plans_for_stream() {
+	func test_scenarios_for_stream() {
 		let leaf = makeLeaf("Income1", 1000, 1, 12)
-		let result = leaf.concretePlans([Scenario(), Scenario()])
+		let sut = leaf.scenarios([Scenario(), Scenario()])
 
-		let array = Array(result)
+		let array = Array(sut)
 
 		XCTAssertEqual(array.count, 2)
 		XCTAssertEqual(array[0].net(12), Money(1000))
@@ -72,15 +72,15 @@ final class APlanTree: XCTestCase {
 		XCTAssertEqual(array[1].net(13), Money(0))
 	}
 
-	func test_concrete_plans_for_and_tree() {
+	func test_scenarios_for_and_tree() {
 		let leaf1 = makeLeaf("Income1", 1000, 1, 12)
 		let leaf2 = makeLeaf("Income2", 2000, 6, 18)
 
 		let parent = makeAndTree("parent", [leaf1, leaf2])
 
-		let result = parent.concretePlans([Scenario(), Scenario()])
+		let sut = parent.scenarios([Scenario(), Scenario()])
 
-		let array = Array(result)
+		let array = Array(sut)
 
 		XCTAssertEqual(array.count, 2)
 		XCTAssertEqual(array[0].net(1), Money(1000))

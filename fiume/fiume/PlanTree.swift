@@ -6,7 +6,7 @@ protocol PlanTree {
 	var children: [PlanTree]? { get }
 	func append(_: PlanTree)
 	func net(_ month: Int) -> Money
-	func concretePlans(_ original: Set<Scenario>) -> Set<Scenario>
+	func scenarios(_ original: Set<Scenario>) -> Set<Scenario>
 }
 
 @Observable
@@ -29,7 +29,7 @@ class PlanLeaf: PlanTree, Identifiable {
 
 	func append(_: PlanTree) { }
 
-	func concretePlans(_ original: Set<Scenario>) -> Set<Scenario> {
+	func scenarios(_ original: Set<Scenario>) -> Set<Scenario> {
 		original.forEach {
 			$0.add(stream)
 		}
@@ -79,10 +79,10 @@ class PlanComposite: PlanTree, Identifiable {
 		}
 	}
 
-	func concretePlans(_ plans: Set<Scenario>) -> Set<Scenario> {
+	func scenarios(_ plans: Set<Scenario>) -> Set<Scenario> {
 		guard let children = myChildren else { return plans }
 		children.forEach {
-			_ = $0.concretePlans(plans)
+			_ = $0.scenarios(plans)
 		}
 		return plans
 	}
