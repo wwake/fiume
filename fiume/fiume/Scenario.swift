@@ -4,6 +4,14 @@ class Scenario: Identifiable {
 	let id = UUID()
 	var items = Dictionary<String, Stream>()
 
+	init() { }
+
+	convenience init(_ other: Scenario) {
+		self.init()
+		let copy = other.items
+		self.items = copy
+	}
+
 	func add(_ stream: Stream) {
 		if items[stream.name] == nil {
 			items[stream.name] = stream
@@ -18,6 +26,13 @@ class Scenario: Identifiable {
 		items.values.reduce(Money(0)) { soFar, stream in
 			soFar + stream.amount(month: month)
 		}
+	}
+
+	func copies(_ count: Int) -> Set<Scenario> {
+		let result = (1...count).map { _ in
+			Scenario(self)
+		}
+		return Set(result)
 	}
 }
 

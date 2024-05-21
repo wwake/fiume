@@ -51,7 +51,7 @@ class PlanComposite: PlanTree, Identifiable {
 	var name: String
 	var combiningOperator: (Money, Money) -> Money
 
-	private var myChildren: [PlanTree]?
+	internal var myChildren: [PlanTree]?
 
 	var children: [PlanTree]? {
 		get { myChildren }
@@ -93,5 +93,16 @@ class AndTree: PlanComposite {
 }
 
 class OrTree: PlanComposite {
+	override func scenarios(_ scenarios: Set<Scenario>) -> Set<Scenario> {
+		guard let children = myChildren else { return scenarios }
 
+		let result = scenarios.map { scenario in
+			let independentScenarios = children.map { _ in
+				let copy = scenario
+				return copy
+			}
+		//	return child.scenarios(independentScenarios)
+		}.flatMap { $0 }
+		return Set()
+	}
 }

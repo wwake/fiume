@@ -61,7 +61,7 @@ final class APlanTree: XCTestCase {
 
 	func test_scenarios_for_stream() {
 		let sut = makeLeaf("Income1", 1000, 1, 12)
-		
+
 		let result = sut.scenarios([Scenario(), Scenario()])
 		let array = Array(result)
 
@@ -88,5 +88,26 @@ final class APlanTree: XCTestCase {
 		XCTAssertEqual(array[1].net(6), Money(3000))
 		XCTAssertEqual(array[0].net(13), Money(2000))
 		XCTAssertEqual(array[1].net(13), Money(2000))
+	}
+
+	func ignore_test_scenarios_for_or_tree() {
+		let leaf1 = makeLeaf("Income1", 1000, 1, 12)
+		let leaf2 = makeLeaf("Income2", 2000, 6, 18)
+
+		let sut = makeOrTree("parent", [leaf1, leaf2])
+
+		let result = sut.scenarios([Scenario()])
+		let array = Array(result)
+
+		XCTAssertEqual(array.count, 2)
+		let (x,y) = array[0].net(1) != 0 ? (array[0], array[1]) : (array[1], array[0])
+		XCTAssertEqual(
+			[x.net(1), x.net(6), x.net(13)],
+			[Money(1000), Money(1000), Money(0)]
+		)
+		XCTAssertEqual(
+			[y.net(1), y.net(6), y.net(13)],
+			[Money(0), Money(2000), Money(2000)]
+		)
 	}
 }

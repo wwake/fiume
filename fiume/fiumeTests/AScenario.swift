@@ -2,6 +2,19 @@
 import XCTest
 
 final class AScenario: XCTestCase {
+	func test_makes_independent_copies() {
+		let sut = Scenario()
+		let stream = Stream("Income1", 1000, first: 1, last: 12)
+		sut.add(stream)
+
+		let result = sut.copies(1).first!
+		let stream2 = Stream("Income2", 2000, first: 1, last: 12)
+		result.add(stream2)
+
+		XCTAssertEqual(sut.net(1), Money(1000))
+		XCTAssertEqual(result.net(1), Money(3000))
+	}
+
 	func test_built_for_one_stream() {
 		let sut = Scenario()
 		let stream = Stream("Income1", 1000, first: 1, last: 12)
