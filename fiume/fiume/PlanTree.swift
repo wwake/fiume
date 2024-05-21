@@ -40,11 +40,11 @@ class PlanLeaf: PlanTree, Identifiable {
 @Observable
 class PlanComposite: PlanTree, Identifiable {
 	static func makeAndTree(_ name: String) -> PlanComposite {
-		PlanComposite(name, +)
+		AndTree(name, +)
 	}
 
 	static func makeOrTree(_ name: String) -> PlanComposite {
-		PlanComposite(name, max)
+		OrTree(name, max)
 	}
 
 	let id = UUID()
@@ -86,4 +86,12 @@ class PlanComposite: PlanTree, Identifiable {
 		}
 		return plans
 	}
+}
+
+class AndTree: PlanComposite {
+
+}
+
+class OrTree: PlanComposite {
+
 }

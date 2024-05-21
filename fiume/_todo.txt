@@ -1,4 +1,3 @@
-
   * Distinguish "and" nodes from "or" nodes
   * Build a concrete plan from a multi-scenario plan with "or" nodes
 * Turn a plan with alternatives into a set of plans that don't use alternatives
@@ -19,6 +18,12 @@ Add people
 Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
+
+FI-24-07: 2024-05-21 - Handling Alternatives
+* Rename to Possibilities and Scenarios
+* Improve test naming
+* Turn a plan with alternatives into a set of plans that don't use alternatives
+
 
 FI-24-06: 2024-05-20 - Graphs & Combinatorics
 * Bug in graph: Make sure net for stream only takes streams that are active that month (fixed PlanLeaf)
