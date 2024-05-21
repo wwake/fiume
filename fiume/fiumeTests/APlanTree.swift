@@ -90,7 +90,7 @@ final class APlanTree: XCTestCase {
 		XCTAssertEqual(array[1].net(13), Money(2000))
 	}
 
-	func ignore_test_scenarios_for_or_tree() {
+	func test_scenarios_for_or_tree() {
 		let leaf1 = makeLeaf("Income1", 1000, 1, 12)
 		let leaf2 = makeLeaf("Income2", 2000, 6, 18)
 

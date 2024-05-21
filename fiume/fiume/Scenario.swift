@@ -28,11 +28,10 @@ class Scenario: Identifiable {
 		}
 	}
 
-	func copies(_ count: Int) -> Set<Scenario> {
-		let result = (1...count).map { _ in
+	func copies(_ count: Int) -> [Scenario] {
+		(1...count).map { _ in
 			Scenario(self)
 		}
-		return Set(result)
 	}
 }
 
