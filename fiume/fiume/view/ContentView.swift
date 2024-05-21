@@ -2,7 +2,7 @@ import Charts
 import SwiftUI
 
 struct ContentView: View {
-	@Bindable var plan: MultiScenarioPlan
+	@Bindable var plan: Possibilities
 
 	var body: some View {
 		NavigationStack {
@@ -20,7 +20,7 @@ struct ContentView: View {
 }
 
 #Preview {
-	let plan = MultiScenarioPlan()
+	let plan = Possibilities()
 	plan.add(Stream("Salary", 1_000, last: 60))
 	plan.add(Stream("Expenses", -800))
 	return ContentView(plan: plan)

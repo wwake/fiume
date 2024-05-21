@@ -7,30 +7,30 @@ struct NetWorthData: Identifiable {
 }
 
 @Observable
-class MultiScenarioPlan {
-	var planContents = PlanComposite.makeAndTree("My Finances")
+class Possibilities {
+	var plan = PlanComposite.makeAndTree("My Finances")
 	var sections = [PlanTree]()
 
 	init() {
-		sections.append(planContents)
+		sections.append(plan)
 	}
 
 	func add(_ stream: Stream) {
-		planContents.append(PlanLeaf(stream))
+		plan.append(PlanLeaf(stream))
 	}
 
 	func project(_ months: Int) -> [NetWorthData] {
 		var result = [NetWorthData]()
 		var runningTotal = Money(0)
 		(1...months).forEach { month in
-			let net = planContents.net(month)
+			let net = plan.net(month)
 			runningTotal += net
 			result.append(NetWorthData(month: month, amount: runningTotal))
 		}
 		return result
 	}
 
-	func concretePlans() -> Set<Scenario> {
-		planContents.concretePlans([Scenario()])
+	func scenarios() -> Set<Scenario> {
+		plan.concretePlans([Scenario()])
 	}
 }
