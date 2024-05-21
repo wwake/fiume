@@ -10,7 +10,7 @@ struct FiumeApp: App {
 			if spiking {
 				SpikeView()
 			} else {
-				ContentView(plan: plan)
+				ContentView(possibilities: plan)
 			}
 		}
 	}

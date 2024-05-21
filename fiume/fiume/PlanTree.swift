@@ -6,7 +6,7 @@ protocol PlanTree {
 	var children: [PlanTree]? { get }
 	func append(_: PlanTree)
 	func net(_ month: Int) -> Money
-	func scenarios(_ original: Set<Scenario>) -> Set<Scenario>
+	func scenarios(_ original: ScenarioSet) -> Set<Scenario>
 }
 
 @Observable
@@ -29,11 +29,11 @@ class PlanLeaf: PlanTree, Identifiable {
 
 	func append(_: PlanTree) { }
 
-	func scenarios(_ original: Set<Scenario>) -> Set<Scenario> {
-		original.forEach {
+	func scenarios(_ original: ScenarioSet) -> Set<Scenario> {
+		original.scenarios.forEach {
 			$0.add(stream)
 		}
-		return original
+		return original.scenarios
 	}
 }
 
@@ -79,12 +79,12 @@ class PlanComposite: PlanTree, Identifiable {
 		}
 	}
 
-	func scenarios(_ plans: Set<Scenario>) -> Set<Scenario> {
-		guard let children = myChildren else { return plans }
+	func scenarios(_ scenarios: ScenarioSet) -> Set<Scenario> {
+		guard let children = myChildren else { return scenarios.scenarios }
 		children.forEach {
-			_ = $0.scenarios(plans)
+			_ = $0.scenarios(scenarios)
 		}
-		return plans
+		return scenarios.scenarios
 	}
 }
 
@@ -93,14 +93,14 @@ class AndTree: PlanComposite {
 }
 
 class OrTree: PlanComposite {
-	override func scenarios(_ scenarios: Set<Scenario>) -> Set<Scenario> {
-		guard let children = myChildren else { return scenarios }
+	override func scenarios(_ scenarios: ScenarioSet) -> Set<Scenario> {
+		guard let children = myChildren else { return scenarios.scenarios }
 
-		let result = scenarios.map { aScenario in
+		let result = scenarios.scenarios.map { aScenario in
 			let independentScenarios = aScenario.copies(children.count)
 			let scenariosForChildren = zip(children, independentScenarios)
 				.map { child, scenario in
-					child.scenarios([scenario])
+					child.scenarios(ScenarioSet([scenario]))
 				}
 				.flatMap { $0 }
 			return scenariosForChildren
