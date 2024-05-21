@@ -61,7 +61,7 @@ final class APlanTree: XCTestCase {
 
 	func test_concrete_plans_for_stream() {
 		let leaf = makeLeaf("Income1", 1000, 1, 12)
-		let result = leaf.concretePlans([ConcretePlan(), ConcretePlan()])
+		let result = leaf.concretePlans([Scenario(), Scenario()])
 
 		let array = Array(result)
 
@@ -78,7 +78,7 @@ final class APlanTree: XCTestCase {
 
 		let parent = makeAndTree("parent", [leaf1, leaf2])
 
-		let result = parent.concretePlans([ConcretePlan(), ConcretePlan()])
+		let result = parent.concretePlans([Scenario(), Scenario()])
 
 		let array = Array(result)
 

@@ -1,9 +1,10 @@
-* Build a concrete plan from a multi-scenario plan with only "and" nodes
-* Build a concrete plan from a multi-scenario plan with "or" nodes
+
+  * Distinguish "and" nodes from "or" nodes
+  * Build a concrete plan from a multi-scenario plan with "or" nodes
 * Turn a plan with alternatives into a set of plans that don't use alternatives
-Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
-Give nodes a unique id and make tree use that
-Add multiple sections
+* Graph scenarios from the concrete plans
+* Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
+* Add multiple sections
 
 Should net return an array of values? (since there are alternatives)
 Edit stream
@@ -24,7 +25,10 @@ FI-24-06: 2024-05-20 - Graphs & Combinatorics
 * Make Stream able to merge with identically-named streams [but not using it yet]
 * Make Stream a struct
 * Remove dead code "streams" from MultiScenarioPlan
-* Build a concrete plan from a multi-scenario plan with only "leaf" nodes
+* Turn a plan with alternatives into a set of plans that don't use alternatives
+  * Give nodes a unique id and make tree use that
+  * Build a concrete plan from a multi-scenario plan with only "leaf" nodes
+  * Build a concrete plan from a multi-scenario plan with only "and" nodes
 
 FI-24-05: 2024-05-16 - Alternative Scenarios
 * Made PlanTree be an And-Or tree

@@ -30,7 +30,7 @@ class MultiScenarioPlan {
 		return result
 	}
 
-	func concretePlans() -> Set<ConcretePlan> {
-		planContents.concretePlans([ConcretePlan()])
+	func concretePlans() -> Set<Scenario> {
+		planContents.concretePlans([Scenario()])
 	}
 }
