@@ -110,4 +110,23 @@ final class APlanTree: XCTestCase {
 			[Money(0), Money(2000), Money(2000)]
 		)
 	}
+
+	func test_multiple_scenarios_for_or_tree() {
+		let scenario1 = Scenario()
+		let scenario2 = Scenario()
+		scenario2.add(Stream("annuity", 500))
+
+		let leaf1 = makeLeaf("Income1", 1000)
+		let leaf2 = makeLeaf("Income2", 2000)
+
+		let sut = makeOrTree("parent", [leaf1, leaf2])
+
+		let result = sut.scenarios([scenario1, scenario2])
+
+		XCTAssertEqual(result.count, 4)
+		XCTAssertTrue(result.contains { $0.net(1) == Money(1000)})
+		XCTAssertTrue(result.contains { $0.net(1) == Money(2000)})
+		XCTAssertTrue(result.contains { $0.net(1) == Money(1500)})
+		XCTAssertTrue(result.contains { $0.net(1) == Money(2500)})
+	}
 }

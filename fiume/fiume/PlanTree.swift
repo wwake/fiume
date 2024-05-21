@@ -96,14 +96,17 @@ class OrTree: PlanComposite {
 	override func scenarios(_ scenarios: Set<Scenario>) -> Set<Scenario> {
 		guard let children = myChildren else { return scenarios }
 
-		let scenario = scenarios.first!
+		let result = scenarios.map { aScenario in
+			let independentScenarios = aScenario.copies(children.count)
+			let scenariosForChildren = zip(children, independentScenarios)
+				.map { child, scenario in
+					child.scenarios([scenario])
+				}
+				.flatMap { $0 }
+			return scenariosForChildren
+		}
+		.flatMap { $0 }
 
-		let independentScenarios = scenario.copies(children.count)
-		let result = zip(children, independentScenarios)
-			.map { child, scenario in
-				child.scenarios([scenario])
-			}
-			.flatMap { $0 }
 		return Set(result)
 	}
 }
