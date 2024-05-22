@@ -1,6 +1,7 @@
-  * Distinguish "and" nodes from "or" nodes
-  * Build a concrete plan from a multi-scenario plan with "or" nodes
-* Turn a plan with alternatives into a set of plans that don't use alternatives
+
+Change return values Set<Scenario> to ScenarioSet
+Eliminate external access to ScenarioSet.scenarios (with new methods on ScenarioSet)
+
 * Graph scenarios from the concrete plans
 * Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
 * Add multiple sections
@@ -23,7 +24,9 @@ FI-24-07: 2024-05-21 - Handling Alternatives
 * Rename to Possibilities and Scenarios
 * Improve test naming
 * Turn a plan with alternatives into a set of plans that don't use alternatives
-
+  * Distinguish "and" nodes from "or" nodes
+  * Build a concrete plan from a multi-scenario plan with "or" nodes
+* Introduce ScenarioSet for Set<Scenario> arguments - might not need a set internally
 
 FI-24-06: 2024-05-20 - Graphs & Combinatorics
 * Bug in graph: Make sure net for stream only takes streams that are active that month (fixed PlanLeaf)
