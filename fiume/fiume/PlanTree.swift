@@ -97,17 +97,12 @@ class OrTree: PlanComposite {
     }
 
     let result = Scenarios()
-    scenarios.forEach { scenario in
-      addChildScenarios(result, scenario, children)
+    children.forEach { child in
+      scenarios.forEach { scenario in
+        let newScenarios = child.scenarios(Scenarios([scenario.copy()]))
+        result.add(newScenarios)
+      }
     }
     return result
 	}
-
-  func addChildScenarios(_ accumulator: Scenarios, _ aScenario: Scenario, _ children: [PlanTree]) {
-    children
-    .forEach { child in
-      let newScenarios = child.scenarios(Scenarios([aScenario.copy()]))
-      accumulator.add(newScenarios)
-    }
-  }
 }
