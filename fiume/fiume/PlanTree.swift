@@ -93,7 +93,7 @@ class AndTree: PlanComposite {
 class OrTree: PlanComposite {
 	override func scenarios(_ scenarios: Scenarios) -> Scenarios {
 		guard let children = myChildren else {
-      return Scenarios(Array(scenarios.scenarios))
+      return scenarios
     }
 
     let result = Scenarios()
