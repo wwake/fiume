@@ -22,12 +22,14 @@ final class SomePossibilities: XCTestCase {
 		XCTAssertEqual(data.last!.amount, Money(1_200))
 	}
 
-	func test_concretePlans_with_only_groups() {
+	func test_scenarios_with_only_groups() {
 		let sut = Possibilities()
 		sut.add(Stream("Salary", Money(1_000)))
 		sut.add(Stream("Expenses", Money(-900)))
-		let concretePlans = sut.scenarios()
-		XCTAssertEqual(concretePlans.count, 1)
-		XCTAssertEqual(concretePlans.first!.net(1), Money(100))
+
+		let result = sut.scenarios()
+		
+		XCTAssertEqual(result.count, 1)
+		XCTAssertEqual(result.first!.net(1), Money(100))
 	}
 }
