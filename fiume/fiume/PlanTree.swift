@@ -102,10 +102,12 @@ class OrTree: PlanComposite {
 				.map { child, scenario in
 					child.scenarios(Scenarios([scenario]))
 				}
-				.flatMap { $0 }
+        .reduce(Scenarios()) { soFar, scenarios in
+          soFar.add(scenarios)
+        }
 			return scenariosForChildren
 		}
-		.flatMap { $0 }
+//		.flatMap { $0 }
 
     let scenarioList = result
       .map { Array($0.scenarios) }

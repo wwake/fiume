@@ -12,4 +12,9 @@ class Scenarios {
     }
     return result
   }
+
+  func add(_ other: Scenarios) -> Scenarios {
+    let merged = scenarios.union(other.scenarios)
+    return Scenarios(Array(merged))
+  }
 }
