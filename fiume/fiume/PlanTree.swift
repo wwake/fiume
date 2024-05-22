@@ -54,7 +54,7 @@ class PlanComposite: PlanTree, Identifiable {
 	internal var myChildren: [PlanTree]?
 
 	var children: [PlanTree]? {
-		get { myChildren }
+		myChildren
 	}
 
 	internal init(_ name: String, _ combiningOperator: @escaping (Money, Money) -> Money) {
@@ -89,7 +89,6 @@ class PlanComposite: PlanTree, Identifiable {
 }
 
 class AndTree: PlanComposite {
-
 }
 
 class OrTree: PlanComposite {

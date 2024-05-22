@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct CreateGroupView: View {
-	@Environment(\.dismiss) var dismiss
+	@Environment(\.dismiss) 
+	var dismiss
 
 	@Bindable var plan: PlanComposite
 	@State private var name = ""

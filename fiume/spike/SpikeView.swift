@@ -2,7 +2,7 @@ import SwiftUI
 
 struct Tree<Value: Hashable>: Hashable {
 	let value: Value
-	var children: [Tree]? = nil
+	var children: [Tree]?
 }
 
 var categories: [Tree<String>] = [
@@ -17,7 +17,7 @@ var categories: [Tree<String>] = [
 				value: "Jeans",
 				children: [
 					.init(value: "Regular"),
-					.init(value: "Slim")
+					.init(value: "Slim"),
 				]
 			),
 		]

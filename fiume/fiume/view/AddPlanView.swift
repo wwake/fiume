@@ -25,8 +25,10 @@ struct AddPlanView: View {
 		switch addType {
 		case .stream:
 			CreateStreamView(plan: plan)
+
 		case .group:
 			CreateGroupView(plan: plan)
+
 		case .scenarios:
 			CreateScenariosView(plan: plan)
 		}

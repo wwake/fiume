@@ -16,9 +16,9 @@ final class AStream: XCTestCase {
 
 	func test_merge_when_values_change() {
 		let stream1 = Stream("Sample", Money(500), first: 1, last: 10)
-		let stream2 = Stream("Sample", Money(1000), first: 5, last: 20)
+		let stream2 = Stream("Sample", Money(1_000), first: 5, last: 20)
 		let sut = stream1.merge(stream2)
-		XCTAssertEqual(sut, Stream("Sample", Money(1000), first: 5, last: 20))
+		XCTAssertEqual(sut, Stream("Sample", Money(1_000), first: 5, last: 20))
 	}
 
 	func test_merge_when_values_are_omitted() {
@@ -26,13 +26,13 @@ final class AStream: XCTestCase {
 		let stream2 = Stream("Sample", Money(500), first: 5, last: nil)
 
 		let sut = stream1.merge(stream2)
-		
+
 		XCTAssertEqual(sut, Stream("Sample", Money(500), first: 5, last: 12))
 	}
 
 	func test_dontMergeWhenNamesDiffer() {
 		let stream1 = Stream("Salary", Money(500), first: 1, last: 12)
-		let stream2 = Stream("Different", Money(1500), first: 5, last: 24)
+		let stream2 = Stream("Different", Money(1_500), first: 5, last: 24)
 		let merged = stream1.merge(stream2)
 		XCTAssertEqual(merged, Stream("Salary", Money(500), first: 1, last: 12))
 	}

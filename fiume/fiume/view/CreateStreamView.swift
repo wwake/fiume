@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct CreateStreamView: View {
-	@Environment(\.dismiss) var dismiss
+	@Environment(\.dismiss) 
+	var dismiss
 
 	@Bindable var plan: PlanComposite
 

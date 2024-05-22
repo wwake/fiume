@@ -53,7 +53,6 @@
 		914FEFA92BF29399003D858E /* AStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AStream.swift; sourceTree = "<group>"; };
 		914FEFAE2BF2941F003D858E /* _todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
 		914FEFB02BF29427003D858E /* fiume.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = fiume.key; sourceTree = "<group>"; };
-		914FEFB22BF29556003D858E /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
 		914FEFB42BF2AD09003D858E /* FormFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFields.swift; sourceTree = "<group>"; };
 		914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStreamView.swift; sourceTree = "<group>"; };
 		914FEFB82BF2AF08003D858E /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
 		919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScenariosView.swift; sourceTree = "<group>"; };
 		91A8C2962BFD773100DF5AC0 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		91A8C2982BFD7C5400DF5AC0 /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
 		91D867882BF3E116001B4A3D /* SpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeView.swift; sourceTree = "<group>"; };
 		91DA64F92BF291F6004ADB9B /* fiume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fiume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeApp.swift; sourceTree = "<group>"; };
@@ -126,9 +126,9 @@
 		91DA64F02BF291F6004ADB9B = {
 			isa = PBXGroup;
 			children = (
+				91A8C2982BFD7C5400DF5AC0 /* fiume.xctestplan */,
 				914FEFAE2BF2941F003D858E /* _todo.txt */,
 				914FEFB02BF29427003D858E /* fiume.key */,
-				914FEFB22BF29556003D858E /* fiume.xctestplan */,
 				91A8C2962BFD773100DF5AC0 /* .swiftlint.yml */,
 				91DA64FB2BF291F6004ADB9B /* fiume */,
 				91D867872BF3E100001B4A3D /* spike */,
@@ -284,7 +284,8 @@
 /* Begin PBXShellScriptBuildPhase section */
 		91A8C2972BFD77B000DF5AC0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (

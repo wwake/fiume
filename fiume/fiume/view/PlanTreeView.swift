@@ -32,7 +32,7 @@ struct PlanCompositeView: View {
 				" ",
 				systemImage: "plus") {
 					isAddPresented = true
-				}
+			}
 		}.sheet(isPresented: $isAddPresented) {
 			AddPlanView(plan: plan)
 		}

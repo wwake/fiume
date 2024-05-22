@@ -2,12 +2,12 @@
 import XCTest
 
 final class APlanTree: XCTestCase {
-	func makeLeaf(_ name: String, _ amount: Int, _ first: MonthNumber = 1, _ last: MonthNumber = 120) -> PlanLeaf {
+	private func makeLeaf(_ name: String, _ amount: Int, _ first: MonthNumber = 1, _ last: MonthNumber = 120) -> PlanLeaf {
 		let stream = Stream(name, Money(amount), first: first, last: last)
 		return PlanLeaf(stream)
 	}
 
-	func makeAndTree(_ name: String, _ children: [PlanTree]) -> PlanComposite {
+	private func makeAndTree(_ name: String, _ children: [PlanTree]) -> PlanComposite {
 		let result = PlanComposite.makeAndTree(name)
 		children.forEach {
 			result.append($0)
@@ -15,7 +15,7 @@ final class APlanTree: XCTestCase {
 		return result
 	}
 
-	func makeOrTree(_ name: String, _ children: [PlanTree]) -> PlanComposite {
+	private func makeOrTree(_ name: String, _ children: [PlanTree]) -> PlanComposite {
 		let result = PlanComposite.makeOrTree(name)
 		children.forEach {
 			result.append($0)

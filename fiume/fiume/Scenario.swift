@@ -2,7 +2,7 @@ import Foundation
 
 class Scenario: Identifiable {
 	let id = UUID()
-	var items = Dictionary<String, Stream>()
+	var items = [String: Stream]()
 
 	init() { }
 

@@ -28,7 +28,7 @@ final class SomePossibilities: XCTestCase {
 		sut.add(Stream("Expenses", Money(-900)))
 
 		let result = sut.scenarios()
-		
+
 		XCTAssertEqual(result.count, 1)
 		XCTAssertEqual(result.first!.net(1), Money(100))
 	}

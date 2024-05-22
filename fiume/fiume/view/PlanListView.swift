@@ -6,8 +6,7 @@ struct PlanListView: View {
 	var body: some View {
 		List {
 			ForEach(plan.sections, id: \.name) { planTree in
-				Section(header: PlanTreeView(plan: planTree)
-				) {
+				Section(header: PlanTreeView(plan: planTree)) {
 					OutlineGroup(
 						planTree.children ?? [],
 						id: \.id,
@@ -25,7 +24,7 @@ struct PlanListView: View {
 
 #Preview {
 let plan = Possibilities()
-	let stream = Stream("Annuity", Money(1000))
+	let stream = Stream("Annuity", Money(1_000))
 	plan.add(stream)
 	return PlanListView(plan: plan)
 }
