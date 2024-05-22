@@ -63,7 +63,7 @@ final class APlanTree: XCTestCase {
 		let sut = makeLeaf("Income1", 1_000, 1, 12)
 
 		let result = sut.scenarios(Scenarios([Scenario(), Scenario()]))
-    let array = Array(result.scenarios)
+    let array = Array(result)
 
 		XCTAssertEqual(array.count, 2)
 		XCTAssertEqual(array[0].net(12), Money(1_000))

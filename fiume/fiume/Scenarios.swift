@@ -1,4 +1,4 @@
-class Scenarios {
+class Scenarios: Sequence {
   var scenarios = Set<Scenario>()
 
   init(_ scenarios: [Scenario] = []) {
@@ -15,5 +15,9 @@ class Scenarios {
 
   func add(_ other: Scenarios) {
     scenarios.formUnion(other.scenarios)
+  }
+
+  func makeIterator() -> Set<Scenario>.Iterator {
+    scenarios.makeIterator()
   }
 }
