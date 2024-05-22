@@ -96,7 +96,7 @@ class OrTree: PlanComposite {
       return Scenarios(Array(scenarios.scenarios))
     }
 
-		let result = scenarios.scenarios.map { aScenario in
+		let result = scenarios.scenarios.reduce(Scenarios()) { scenariosSoFar, aScenario in
 			let independentScenarios = aScenario.copies(children.count)
 			let scenariosForChildren = zip(children, independentScenarios)
 				.map { child, scenario in
@@ -105,13 +105,13 @@ class OrTree: PlanComposite {
         .reduce(Scenarios()) { soFar, scenarios in
           soFar.add(scenarios)
         }
-			return scenariosForChildren
+      return scenariosSoFar.add(scenariosForChildren)
 		}
-//		.flatMap { $0 }
 
-    let scenarioList = result
-      .map { Array($0.scenarios) }
-      .flatMap { $0 }
-    return Scenarios(scenarioList)
+    return result
+//    let scenarioList = result
+//      .map { Array($0.scenarios) }
+//      .flatMap { $0 }
+//    return Scenarios(scenarioList)
 	}
 }
