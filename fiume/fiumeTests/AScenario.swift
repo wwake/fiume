@@ -7,7 +7,7 @@ final class AScenario: XCTestCase {
 		let stream = Stream("Income1", 1_000, first: 1, last: 12)
 		sut.add(stream)
 
-		let result = sut.copies(1).first!
+		let result = sut.copy()
 		let stream2 = Stream("Income2", 2_000, first: 1, last: 12)
 		result.add(stream2)
 
