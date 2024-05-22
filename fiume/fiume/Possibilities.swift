@@ -19,7 +19,7 @@ class Possibilities {
 		plan.append(PlanLeaf(stream))
 	}
 
-	func project(_ months: Int) -> [NetWorthData] {
+  func project(_ months: Int) -> [(name: String, data: [NetWorthData])] {
 		var result = [NetWorthData]()
 		var runningTotal = Money(0)
 		(1...months).forEach { month in
@@ -27,7 +27,7 @@ class Possibilities {
 			runningTotal += net
 			result.append(NetWorthData(month: month, amount: runningTotal))
 		}
-		return result
+    return [(name: "data", data: result)]
 	}
 
 	func scenarios() -> Scenarios {

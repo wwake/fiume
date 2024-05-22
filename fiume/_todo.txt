@@ -1,6 +1,3 @@
-* Change return values Set<Scenario> to Scenarios
-* Eliminate external access to Scenarios.scenarios (with new methods on Scenarios)
-
 * Graph scenarios from the concrete plans
 * Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
 * Add multiple sections
@@ -21,6 +18,8 @@ Should we segregate streams by income/expense? (two columns)
 
 FI-24-08: 2024-05-22 - Scenarios Class
 * Rename ScenarioSet to Scenarios
+* Change return values Set<Scenario> to Scenarios
+* Encapsulate to Scenarios.scenarios (with new methods on Scenarios)
 
 
 FI-24-07: 2024-05-21 - Handling Alternatives

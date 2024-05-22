@@ -6,7 +6,7 @@ struct ContentView: View {
 
 	var body: some View {
 		NavigationStack {
-			Chart(possibilities.project(120)) {
+      Chart(possibilities.project(120)[0].data) {
 				LineMark(
 					x: .value("Month", $0.month),
 					y: .value("Net Worth", $0.amount)
