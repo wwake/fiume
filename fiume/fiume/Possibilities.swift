@@ -30,7 +30,7 @@ class Possibilities {
 		return result
 	}
 
-	func scenarios() -> Set<Scenario> {
+	func scenarios() -> Scenarios {
 		plan.scenarios(Scenarios([Scenario()]))
 	}
 }

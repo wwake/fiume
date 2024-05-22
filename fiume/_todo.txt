@@ -1,5 +1,3 @@
-
-* Rename ScenarioSet to Scenarios
 * Change return values Set<Scenario> to Scenarios
 * Eliminate external access to Scenarios.scenarios (with new methods on Scenarios)
 
@@ -22,6 +20,7 @@ Add flows
 Should we segregate streams by income/expense? (two columns)
 
 FI-24-08: 2024-05-22 - Scenarios Class
+* Rename ScenarioSet to Scenarios
 
 
 FI-24-07: 2024-05-21 - Handling Alternatives

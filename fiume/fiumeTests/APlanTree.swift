@@ -63,12 +63,12 @@ final class APlanTree: XCTestCase {
 		let sut = makeLeaf("Income1", 1_000, 1, 12)
 
 		let result = sut.scenarios(Scenarios([Scenario(), Scenario()]))
-		let array = Array(result)
+    let array = Array(result.scenarios)
 
 		XCTAssertEqual(array.count, 2)
 		XCTAssertEqual(array[0].net(12), Money(1_000))
-		XCTAssertEqual(array[0].net(13), Money(0))
-		XCTAssertEqual(array[1].net(12), Money(1_000))
+    XCTAssertEqual(array[1].net(12), Money(1_000))
+    XCTAssertEqual(array[0].net(13), Money(0))
 		XCTAssertEqual(array[1].net(13), Money(0))
 	}
 
@@ -79,7 +79,7 @@ final class APlanTree: XCTestCase {
 		let sut = makeAndTree("parent", [leaf1, leaf2])
 
 		let result = sut.scenarios(Scenarios([Scenario(), Scenario()]))
-		let array = Array(result)
+    let array = Array(result.scenarios)
 
 		XCTAssertEqual(array.count, 2)
 		XCTAssertEqual(array[0].net(1), Money(1_000))
@@ -97,7 +97,7 @@ final class APlanTree: XCTestCase {
 		let sut = makeOrTree("parent", [leaf1, leaf2])
 
 		let result = sut.scenarios(Scenarios([Scenario()]))
-		let array = Array(result)
+    let array = Array(result.scenarios)
 
 		XCTAssertEqual(array.count, 2)
 		let (x, y) = array[0].net(1) != 0 ? (array[0], array[1]) : (array[1], array[0])
@@ -121,7 +121,8 @@ final class APlanTree: XCTestCase {
 
 		let sut = makeOrTree("parent", [leaf1, leaf2])
 
-		let result = sut.scenarios(Scenarios([scenario1, scenario2]))
+		let scenarios = sut.scenarios(Scenarios([scenario1, scenario2]))
+    let result = Array(scenarios.scenarios)
 
 		XCTAssertEqual(result.count, 4)
 		XCTAssertTrue(result.contains { $0.net(1) == Money(1_000) })
