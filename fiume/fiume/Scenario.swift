@@ -1,38 +1,38 @@
 import Foundation
 
 class Scenario: Identifiable {
-	let id = UUID()
-	var items = [String: Stream]()
+  let id = UUID()
+  var items = [String: Stream]()
 
-	init() { }
+  init() { }
 
-	convenience init(_ other: Scenario) {
-		self.init()
-		let copy = other.items
-		self.items = copy
-	}
+  convenience init(_ other: Scenario) {
+    self.init()
+    let copy = other.items
+    self.items = copy
+  }
 
-	func add(_ stream: Stream) {
-		if items[stream.name] == nil {
-			items[stream.name] = stream
-		} else {
-			let original = items[stream.name]!
-			let revised = original.merge(stream)
-			items[stream.name] = revised
-		}
-	}
+  func add(_ stream: Stream) {
+    if items[stream.name] == nil {
+      items[stream.name] = stream
+    } else {
+      let original = items[stream.name]!
+      let revised = original.merge(stream)
+      items[stream.name] = revised
+    }
+  }
 
-	func net(_ month: MonthNumber) -> Money {
-		items.values.reduce(Money(0)) { soFar, stream in
-			soFar + stream.amount(month: month)
-		}
-	}
+  func net(_ month: MonthNumber) -> Money {
+    items.values.reduce(Money(0)) { soFar, stream in
+      soFar + stream.amount(month: month)
+    }
+  }
 
-	func copies(_ count: Int) -> [Scenario] {
-		(1...count).map { _ in
-			Scenario(self)
-		}
-	}
+  func copies(_ count: Int) -> [Scenario] {
+    (1...count).map { _ in
+      Scenario(self)
+    }
+  }
 }
 
 extension Scenario: Hashable {

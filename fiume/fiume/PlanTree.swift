@@ -78,7 +78,7 @@ class PlanComposite: PlanTree, Identifiable {
 
 	func scenarios(_ scenarios: Scenarios) -> Scenarios {
     guard let children = myChildren else {
-      return Scenarios(Array(scenarios.scenarios))
+      return scenarios
     }
 		children.forEach {
 			_ = $0.scenarios(scenarios)
