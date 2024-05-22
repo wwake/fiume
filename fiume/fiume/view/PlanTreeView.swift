@@ -30,7 +30,8 @@ struct PlanCompositeView: View {
 			Spacer()
 			Button(
 				" ",
-				systemImage: "plus") {
+				systemImage: "plus"
+      ) {
 					isAddPresented = true
 			}
 		}.sheet(isPresented: $isAddPresented) {

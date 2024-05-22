@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CreateStreamView: View {
-	@Environment(\.dismiss) 
+	@Environment(\.dismiss)
 	var dismiss
 
 	@Bindable var plan: PlanComposite
@@ -32,7 +32,8 @@ struct CreateStreamView: View {
 						name,
 						Money(amount ?? 0),
 						first: startMonth ?? 1,
-						last: endMonth)
+						last: endMonth
+          )
 					plan.append(PlanLeaf(stream))
 					dismiss()
 				}

@@ -30,13 +30,13 @@ var categories: [Tree<String>] = [
 			.init(value: "Sandals"),
 			.init(value: "Trainers"),
 		]
-	)
+	),
 ]
 
 func makeCategories() -> [Tree<String>] {
 	let newLeaf = Tree(value: "Old T-Shirts")
 	let newTree = Tree(value: "new tree", children: [])
-	
+
 	categories[0].children!.insert(newTree, at: 0)
 	categories[0].children![0].children!.append(newLeaf)
 
@@ -63,7 +63,6 @@ struct SpikeView: View {
 		}.listStyle(SidebarListStyle())
 	}
 }
-
 
 #Preview {
 	SpikeView()
