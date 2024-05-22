@@ -62,7 +62,7 @@ final class APlanTree: XCTestCase {
 	func test_scenarios_for_stream() {
 		let sut = makeLeaf("Income1", 1_000, 1, 12)
 
-		let result = sut.scenarios(ScenarioSet([Scenario(), Scenario()]))
+		let result = sut.scenarios(Scenarios([Scenario(), Scenario()]))
 		let array = Array(result)
 
 		XCTAssertEqual(array.count, 2)
@@ -78,7 +78,7 @@ final class APlanTree: XCTestCase {
 
 		let sut = makeAndTree("parent", [leaf1, leaf2])
 
-		let result = sut.scenarios(ScenarioSet([Scenario(), Scenario()]))
+		let result = sut.scenarios(Scenarios([Scenario(), Scenario()]))
 		let array = Array(result)
 
 		XCTAssertEqual(array.count, 2)
@@ -96,7 +96,7 @@ final class APlanTree: XCTestCase {
 
 		let sut = makeOrTree("parent", [leaf1, leaf2])
 
-		let result = sut.scenarios(ScenarioSet([Scenario()]))
+		let result = sut.scenarios(Scenarios([Scenario()]))
 		let array = Array(result)
 
 		XCTAssertEqual(array.count, 2)
@@ -121,7 +121,7 @@ final class APlanTree: XCTestCase {
 
 		let sut = makeOrTree("parent", [leaf1, leaf2])
 
-		let result = sut.scenarios(ScenarioSet([scenario1, scenario2]))
+		let result = sut.scenarios(Scenarios([scenario1, scenario2]))
 
 		XCTAssertEqual(result.count, 4)
 		XCTAssertTrue(result.contains { $0.net(1) == Money(1_000) })

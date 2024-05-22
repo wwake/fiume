@@ -1,4 +1,4 @@
-class ScenarioSet {
+class Scenarios {
   var scenarios = Set<Scenario>()
 
   init(_ scenarios: [Scenario] = []) {

@@ -6,7 +6,7 @@ protocol PlanTree {
 	var children: [PlanTree]? { get }
 	func append(_: PlanTree)
 	func net(_ month: Int) -> Money
-	func scenarios(_ original: ScenarioSet) -> Set<Scenario>
+	func scenarios(_ original: Scenarios) -> Set<Scenario>
 }
 
 @Observable
@@ -29,7 +29,7 @@ class PlanLeaf: PlanTree, Identifiable {
 
 	func append(_: PlanTree) { }
 
-	func scenarios(_ original: ScenarioSet) -> Set<Scenario> {
+	func scenarios(_ original: Scenarios) -> Set<Scenario> {
 		original.scenarios.forEach {
 			$0.add(stream)
 		}
@@ -79,7 +79,7 @@ class PlanComposite: PlanTree, Identifiable {
 		}
 	}
 
-	func scenarios(_ scenarios: ScenarioSet) -> Set<Scenario> {
+	func scenarios(_ scenarios: Scenarios) -> Set<Scenario> {
 		guard let children = myChildren else { return scenarios.scenarios }
 		children.forEach {
 			_ = $0.scenarios(scenarios)
@@ -92,14 +92,14 @@ class AndTree: PlanComposite {
 }
 
 class OrTree: PlanComposite {
-	override func scenarios(_ scenarios: ScenarioSet) -> Set<Scenario> {
+	override func scenarios(_ scenarios: Scenarios) -> Set<Scenario> {
 		guard let children = myChildren else { return scenarios.scenarios }
 
 		let result = scenarios.scenarios.map { aScenario in
 			let independentScenarios = aScenario.copies(children.count)
 			let scenariosForChildren = zip(children, independentScenarios)
 				.map { child, scenario in
-					child.scenarios(ScenarioSet([scenario]))
+					child.scenarios(Scenarios([scenario]))
 				}
 				.flatMap { $0 }
 			return scenariosForChildren
