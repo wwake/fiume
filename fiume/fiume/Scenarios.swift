@@ -1,5 +1,5 @@
 class Scenarios: Sequence {
-  var scenarios = Set<Scenario>()
+  private var scenarios = Set<Scenario>()
 
   init(_ scenarios: [Scenario] = []) {
     self.scenarios = Set(scenarios)

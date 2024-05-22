@@ -97,7 +97,7 @@ class OrTree: PlanComposite {
     }
 
     let result = Scenarios()
-    scenarios.scenarios.forEach { scenario in
+    scenarios.forEach { scenario in
       addChildScenarios(result, scenario, children)
     }
     return result
