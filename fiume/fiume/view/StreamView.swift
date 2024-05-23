@@ -11,8 +11,13 @@ struct StreamView: View {
 	}
 
 	var body: some View {
-		Text("\(stream.name)   $\(stream.monthlyAmount)/mo" +
-         "   Months: \(formatMonth(stream.first))-\(formatMonth(stream.last))")
+    HStack {
+      Image(systemName: "plus.circle")
+        .accessibilityLabel("Stream")
+      
+      Text("\(stream.name)   $\(stream.monthlyAmount)/mo" +
+           "   Months: \(formatMonth(stream.first))-\(formatMonth(stream.last))")
+    }
 	}
 }
 
