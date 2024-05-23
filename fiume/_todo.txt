@@ -1,9 +1,8 @@
-* Graph scenarios from the concrete plans
+* Add icons to tree nodes
 * Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
 * Add multiple sections
+* Distinguish incomes from outgoes
 
-
-Should net return an array of values? (since there are alternatives)
 Edit stream
 Move streams
 Delete streams
@@ -16,6 +15,9 @@ Add people
 Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
+
+FI-24-09: 2024-05-23 - Graphs for Alternatives
+* Graph scenarios from the concrete plans
 
 FI-24-08: 2024-05-22 - Scenarios Class
 * Rename ScenarioSet to Scenarios

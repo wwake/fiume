@@ -105,14 +105,14 @@
 		919CED502BF6979A00ACCE2E /* view */ = {
 			isa = PBXGroup;
 			children = (
+				919CED512BF699E900ACCE2E /* AddPlanView.swift */,
 				91DA64FE2BF291F6004ADB9B /* ContentView.swift */,
+				919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */,
+				919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */,
 				914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */,
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
-				919CED512BF699E900ACCE2E /* AddPlanView.swift */,
-				919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */,
-				919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";

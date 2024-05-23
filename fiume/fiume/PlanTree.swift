@@ -55,6 +55,7 @@ class PlanComposite: PlanTree, Identifiable {
 	}
 
 	internal init(_ name: String, _ combiningOperator: @escaping (Money, Money) -> Money) {
+    self.myChildren = []
 		self.name = name
 		self.combiningOperator = combiningOperator
 	}
