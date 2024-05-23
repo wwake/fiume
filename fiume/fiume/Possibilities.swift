@@ -27,16 +27,15 @@ class Possibilities {
 		plan.append(PlanLeaf(stream))
 	}
 
+  func add(_ tree: PlanTree) {
+    plan.append(tree)
+  }
+
   func project(_ months: Int) -> PossibilitiesNetWorth {
-		var result = [MonthlyNetWorth]()
-		var runningTotal = Money(0)
-		(1...months).forEach { month in
-			let net = plan.net(month)
-			runningTotal += net
-			result.append(MonthlyNetWorth(month: month, amount: runningTotal))
-		}
-    let scenarioNetWorth = ScenarioNetWorth(name: "My Finances", netWorthByMonth: result)
-    return PossibilitiesNetWorth([scenarioNetWorth])
+    scenarios()
+      .map {
+        $0.project(1...months)
+      }
 	}
 
 	func scenarios() -> Scenarios {

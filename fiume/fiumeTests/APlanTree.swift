@@ -90,6 +90,21 @@ final class APlanTree: XCTestCase {
 		XCTAssertEqual(array[1].net(13), Money(2_000))
 	}
 
+  func test_scenarios_for_and_tree_with_or_child() {
+    let leaf1a = makeLeaf("Income1a", 1_000)
+    let leaf1b = makeLeaf("Income1b", 1_500)
+    let leaf2 = makeLeaf("Income2", 2_000)
+    let orTree = makeOrTree( "scenarios", [leaf1a, leaf1b])
+    let sut = makeAndTree("parent", [orTree, leaf2])
+
+    let result = sut.scenarios(Scenarios([Scenario()]))
+    let array = Array(result)
+
+    XCTAssertEqual(array.count, 2)
+    XCTAssertEqual(array[0].net(1), Money(3_000))
+    XCTAssertEqual(array[1].net(1), Money(3_500))
+  }
+
 	func test_scenarios_for_or_tree() {
 		let leaf1 = makeLeaf("Income1", 1_000, 1, 12)
 		let leaf2 = makeLeaf("Income2", 2_000, 6, 18)

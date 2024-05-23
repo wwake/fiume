@@ -2,6 +2,12 @@
 * Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
 * Add multiple sections
 
+     and
+      stream
+      and
+    or   or
+  1   2  3  4
+
 Should net return an array of values? (since there are alternatives)
 Edit stream
 Move streams

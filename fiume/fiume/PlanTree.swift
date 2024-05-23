@@ -80,10 +80,11 @@ class PlanComposite: PlanTree, Identifiable {
     guard let children = myChildren else {
       return scenarios
     }
+    var result = scenarios
 		children.forEach { child in
-			_ = child.scenarios(scenarios)
+			result = child.scenarios(result)
 		}
-		return scenarios
+		return result
 	}
 }
 
