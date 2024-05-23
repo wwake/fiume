@@ -1,9 +1,20 @@
 import Foundation
 
-struct NetWorthData: Identifiable {
+struct MonthlyNetWorth: Identifiable {
 	let id = UUID()
 	let month: Int
 	let amount: Money
+}
+
+//(name: String, data: [NetWorthData])
+struct ScenarioNetWorth: Identifiable {
+  let id = UUID()
+  let name: String
+  let netWorthByMonth: [MonthlyNetWorth]
+}
+
+struct PossibilitiesNetWorth {
+  var data: [ScenarioNetWorth]
 }
 
 @Observable
@@ -19,13 +30,13 @@ class Possibilities {
 		plan.append(PlanLeaf(stream))
 	}
 
-  func project(_ months: Int) -> [(name: String, data: [NetWorthData])] {
-		var result = [NetWorthData]()
+  func project(_ months: Int) -> [(name: String, data: [MonthlyNetWorth])] {
+		var result = [MonthlyNetWorth]()
 		var runningTotal = Money(0)
 		(1...months).forEach { month in
 			let net = plan.net(month)
 			runningTotal += net
-			result.append(NetWorthData(month: month, amount: runningTotal))
+			result.append(MonthlyNetWorth(month: month, amount: runningTotal))
 		}
     return [(name: "data", data: result)]
 	}
