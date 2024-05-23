@@ -12,9 +12,14 @@ struct StreamView: View {
 
 	var body: some View {
     HStack {
-      Image(systemName: "plus.circle")
-        .accessibilityLabel("Stream")
-      
+      if stream.isNonNegative {
+        Image(systemName: "plus.circle")
+          .accessibilityLabel("income stream")
+      } else {
+        Image(systemName: "minus.circle")
+          .accessibilityLabel("expense stream")
+      }
+
       Text("\(stream.name)   $\(stream.monthlyAmount)/mo" +
            "   Months: \(formatMonth(stream.first))-\(formatMonth(stream.last))")
     }
