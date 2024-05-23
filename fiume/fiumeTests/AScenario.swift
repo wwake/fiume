@@ -52,4 +52,14 @@ final class AScenario: XCTestCase {
 		XCTAssertEqual(sut.net(12), Money(500))
 		XCTAssertEqual(sut.net(13), Money(0))
 	}
+
+  func test_salary_minus_expenses_creates_net_worth() throws {
+    let sut = Scenario()
+    sut.add(Stream("Salary", Money(1_000)))
+    sut.add(Stream("Expenses", Money(-900)))
+
+    let result = sut.project(1...12)
+
+    XCTAssertEqual(result.netWorthByMonth.last!.amount, Money(1_200))
+  }
 }

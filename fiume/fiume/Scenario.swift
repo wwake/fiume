@@ -31,6 +31,16 @@ class Scenario: Identifiable {
   func copy() -> Scenario {
       Scenario(self)
   }
+
+  func project(_ months: ClosedRange<Int>) -> ScenarioNetWorth {
+    var result = [MonthlyNetWorth]()
+    var runningTotal = Money(0)
+    months.forEach { month in
+      runningTotal += net(month)
+      result.append(MonthlyNetWorth(month: month, amount: runningTotal))
+    }
+    return ScenarioNetWorth(name: "A Scenario", netWorthByMonth: result)
+  }
 }
 
 extension Scenario: Hashable {
