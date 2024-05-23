@@ -16,7 +16,11 @@ struct Stream: Identifiable {
 		self.last = last
 	}
 
-	func amount(month: MonthNumber) -> Money {
+  var isNonNegative: Bool {
+    monthlyAmount >= 0
+  }
+
+  func amount(month: MonthNumber) -> Money {
 		if month < first { return Money(0) }
 		if last != nil && month > last! { return Money(0) }
 		return self.monthlyAmount
