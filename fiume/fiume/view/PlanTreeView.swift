@@ -6,10 +6,12 @@ struct PlanTreeView: View {
 	var body: some View {
 		if plan is PlanLeaf {
 			PlanLeafView(plan: plan as! PlanLeaf)
-		} else {
-			PlanCompositeView(plan: plan as! PlanComposite)
-		}
-	}
+    } else if plan is AndTree {
+      PlanAndTreeView(plan: plan as! PlanComposite)
+    } else if plan is OrTree {
+      PlanOrTreeView(plan: plan as! PlanComposite)
+    }
+  }
 }
 
 struct PlanLeafView: View {
@@ -20,12 +22,34 @@ struct PlanLeafView: View {
 	}
 }
 
+struct PlanAndTreeView: View {
+  var plan: PlanComposite
+
+  var body: some View {
+    PlanCompositeView(plan: plan, icon: "list.bullet.clipboard", label: "Group")
+  }
+}
+
+struct PlanOrTreeView: View {
+  var plan: PlanComposite
+
+  var body: some View {
+    PlanCompositeView(plan: plan, icon: "arrow.left.arrow.right", label: "Alternatives")
+  }
+}
+
 struct PlanCompositeView: View {
 	var plan: PlanComposite
+  let icon: String
+  let label: String
+
 	@State private var isAddPresented = false
 
 	var body: some View {
 		HStack {
+      Image(systemName: icon)
+        .accessibilityLabel(label)
+
 			Text(plan.name)
 			Spacer()
 			Button(
