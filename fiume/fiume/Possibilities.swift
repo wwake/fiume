@@ -6,16 +6,13 @@ struct MonthlyNetWorth: Identifiable {
 	let amount: Money
 }
 
-//(name: String, data: [NetWorthData])
 struct ScenarioNetWorth: Identifiable {
   let id = UUID()
   let name: String
   let netWorthByMonth: [MonthlyNetWorth]
 }
 
-struct PossibilitiesNetWorth {
-  var data: [ScenarioNetWorth]
-}
+typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 
 @Observable
 class Possibilities {
@@ -30,7 +27,7 @@ class Possibilities {
 		plan.append(PlanLeaf(stream))
 	}
 
-  func project(_ months: Int) -> [(name: String, data: [MonthlyNetWorth])] {
+  func project(_ months: Int) -> PossibilitiesNetWorth {
 		var result = [MonthlyNetWorth]()
 		var runningTotal = Money(0)
 		(1...months).forEach { month in
@@ -38,7 +35,8 @@ class Possibilities {
 			runningTotal += net
 			result.append(MonthlyNetWorth(month: month, amount: runningTotal))
 		}
-    return [(name: "data", data: result)]
+    let scenarioNetWorth = ScenarioNetWorth(name: "My Finances", netWorthByMonth: result)
+    return PossibilitiesNetWorth([scenarioNetWorth])
 	}
 
 	func scenarios() -> Scenarios {

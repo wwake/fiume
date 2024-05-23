@@ -7,7 +7,7 @@ struct ContentView: View {
   var body: some View {
     NavigationStack {
       Chart(possibilities.project(360), id: \.name) { dataSeries in
-        ForEach(dataSeries.data) {
+        ForEach(dataSeries.netWorthByMonth) {
           LineMark(
             x: .value("Month", $0.month),
             y: .value("Net Worth", $0.amount)
