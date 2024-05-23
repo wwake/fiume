@@ -9,7 +9,7 @@ final class SomePossibilities: XCTestCase {
 
 		let data = sut.project(12)
 
-    XCTAssertEqual(data[0].data.last!.amount, Money(12_000))
+    XCTAssertEqual(data[0].netWorthByMonth.last!.amount, Money(12_000))
 	}
 
 	func test_salary_minus_expenses_creates_net_worth() throws {
@@ -19,7 +19,7 @@ final class SomePossibilities: XCTestCase {
 
 		let data = sut.project(12)
 
-    XCTAssertEqual(data[0].data.last!.amount, Money(1_200))
+    XCTAssertEqual(data[0].netWorthByMonth.last!.amount, Money(1_200))
 	}
 
 	func test_scenarios_with_only_groups() {
