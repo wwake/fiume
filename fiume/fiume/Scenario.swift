@@ -39,7 +39,7 @@ class Scenario: Identifiable {
       runningTotal += net(month)
       result.append(MonthlyNetWorth(month: month, amount: runningTotal))
     }
-    return ScenarioNetWorth(name: "A Scenario", netWorthByMonth: result)
+    return ScenarioNetWorth(name: "Scenario \(UUID())", netWorthByMonth: result)
   }
 }
 

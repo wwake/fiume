@@ -47,16 +47,18 @@ final class SomePossibilities: XCTestCase {
     XCTAssertEqual(result.count, 2)
   }
 
-  func ignore_test_computes_net_worth_for_multiple_scenarios() {
+  func test_computes_net_worth_for_multiple_scenarios() {
     let sut = Possibilities()
     let orTree = PlanComposite.makeOrTree("jobs")
     orTree.append(PlanLeaf(Stream("Salary1", Money(1_000))))
     orTree.append(PlanLeaf(Stream("Salary2", Money(2_000))))
     sut.add(orTree)
 
-    let data = sut.project(3)
-
-    XCTAssertEqual(data[0].netWorthByMonth.last!.amount, Money(3_000))
-    XCTAssertEqual(data[1].netWorthByMonth.last!.amount, Money(6_000))
+    let result = sut.project(3)
+    let resultSet = Set([
+      result[0].netWorthByMonth.last!.amount,
+      result[1].netWorthByMonth.last!.amount,
+    ])
+    XCTAssertEqual(resultSet, [3_000, 6_000])
   }
 }
