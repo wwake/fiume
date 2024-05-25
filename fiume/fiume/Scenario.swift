@@ -4,12 +4,16 @@ class Scenario: Identifiable {
   let id = UUID()
   var items = [String: Stream]()
 
-  init() { }
+  init() {}
 
   convenience init(_ other: Scenario) {
     self.init()
     let copy = other.items
     self.items = copy
+  }
+
+  func copy() -> Scenario {
+    Scenario(self)
   }
 
   func add(_ stream: Stream) {
@@ -22,16 +26,6 @@ class Scenario: Identifiable {
     }
   }
 
-  func net(_ month: MonthNumber) -> Money {
-    items.values.reduce(Money(0)) { soFar, stream in
-      soFar + stream.amount(month: month)
-    }
-  }
-
-  func copy() -> Scenario {
-      Scenario(self)
-  }
-
   func project(_ months: ClosedRange<Int>) -> ScenarioNetWorth {
     var result = [MonthlyNetWorth]()
     var runningTotal = Money(0)
@@ -40,6 +34,12 @@ class Scenario: Identifiable {
       result.append(MonthlyNetWorth(month: month, amount: runningTotal))
     }
     return ScenarioNetWorth(name: "Scenario \(UUID())", netWorthByMonth: result)
+  }
+
+  func net(_ month: MonthNumber) -> Money {
+    items.values.reduce(Money(0)) { soFar, stream in
+      soFar + stream.amount(month: month)
+    }
   }
 }
 

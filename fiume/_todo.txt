@@ -1,4 +1,5 @@
 
+* Remove net() from PlanTree - no longer used
 * Enter stream as income or expense
 * Color streams based on their flow
 * Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
