@@ -1,13 +1,14 @@
-* Add icons to tree nodes
-* Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
-* Add multiple sections
-* Distinguish incomes from outgoes
 
+* Enter stream as income or expense
+* Color streams based on their flow
+* Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
+* Start/end date editor - just extract for now
+* Add multiple sections
+
+Delete streams
 Edit stream
 Move streams
-Delete streams
 Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
-Start/end date editor - just extract for now
 Validate new stream name not empty; number is valid; month is valid; end-date >= start-date
 
 Calendar view (with RuleMark)
@@ -15,15 +16,17 @@ Add people
 Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
+Persistence
 
 FI-24-09: 2024-05-23 - Graphs for Alternatives
 * Graph scenarios from the concrete plans
+* Fix defect where "group" nodes didn't feed results to children left to right
+* Add icons to tree nodes
 
 FI-24-08: 2024-05-22 - Scenarios Class
 * Rename ScenarioSet to Scenarios
 * Change return values Set<Scenario> to Scenarios
 * Encapsulate to Scenarios.scenarios (with new methods on Scenarios)
-
 
 FI-24-07: 2024-05-21 - Handling Alternatives
 * Rename to Possibilities and Scenarios

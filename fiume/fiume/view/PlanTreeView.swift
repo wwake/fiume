@@ -26,7 +26,11 @@ struct PlanAndTreeView: View {
   var plan: PlanComposite
 
   var body: some View {
-    PlanCompositeView(plan: plan, icon: "list.bullet.clipboard", label: "Group")
+    PlanCompositeView(
+      plan: plan,
+      icon: "list.bullet.clipboard",
+      label: "Group"
+    )
   }
 }
 
@@ -34,7 +38,11 @@ struct PlanOrTreeView: View {
   var plan: PlanComposite
 
   var body: some View {
-    PlanCompositeView(plan: plan, icon: "arrow.left.arrow.right", label: "Alternatives")
+    PlanCompositeView(
+      plan: plan,
+      icon: "arrow.left.arrow.right",
+      label: "Alternatives"
+    )
   }
 }
 

@@ -78,18 +78,22 @@ class PlanComposite: PlanTree, Identifiable {
 	}
 
 	func scenarios(_ scenarios: Scenarios) -> Scenarios {
-    guard let children = myChildren else {
-      return scenarios
-    }
-    var result = scenarios
-		children.forEach { child in
-			result = child.scenarios(result)
-		}
-		return result
+    assertionFailure("PlanComposite.scenarios - subclass responsibility")
+    return Scenarios()
 	}
 }
 
 class AndTree: PlanComposite {
+  override func scenarios(_ scenarios: Scenarios) -> Scenarios {
+    guard let children = myChildren else {
+      return scenarios
+    }
+    var result = scenarios
+    children.forEach { child in
+      result = child.scenarios(result)
+    }
+    return result
+  }
 }
 
 class OrTree: PlanComposite {
