@@ -11,8 +11,8 @@ struct CreateStreamView: View {
   @State private var name = ""
 
   @State private var amount: Int?
-  @State private var startMonth: Int?
-  @State private var endMonth: Int?
+  @State private var startMonth = DateSpecifier.unspecified
+  @State private var endMonth = DateSpecifier.unspecified
 
   fileprivate func createdAmount() -> Int {
     guard let amount = amount else { return 0 }
@@ -59,9 +59,9 @@ struct CreateStreamView: View {
         }
       }
 
-      DateSpecifierView(label: "Start Month", month: $startMonth)
+      DateSpecifierView(label: "Start Month", dateSpec: $startMonth)
 
-      DateSpecifierView(label: "End Month", month: $endMonth)
+      DateSpecifierView(label: "End Month", dateSpec: $endMonth)
 
       HStack {
         Spacer()
@@ -69,8 +69,8 @@ struct CreateStreamView: View {
           let stream = Stream(
             name,
             Money(createdAmount()),
-            first: startMonth ?? 1,
-            last: endMonth
+            first: startMonth.asOptionalInt() ?? 1,
+            last: endMonth.asOptionalInt()
           )
           plan.append(PlanLeaf(stream))
           dismiss()
