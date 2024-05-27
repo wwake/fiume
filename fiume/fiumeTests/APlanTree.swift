@@ -45,7 +45,6 @@ final class APlanTree: XCTestCase {
 		XCTAssertEqual(sut.name, "grandparent")
 		XCTAssertEqual(sut.children?.count, 2)
 		XCTAssertEqual(parent.children?.count, 2)
-		XCTAssertEqual(sut.net(10), 6)
 	}
 
 	func test_net_of_alternatives_is_max() {
@@ -56,7 +55,6 @@ final class APlanTree: XCTestCase {
 
 		XCTAssertEqual(sut.name, "alts")
 		XCTAssertEqual(sut.children?.count, 2)
-		XCTAssertEqual(sut.net(10), 2)
 	}
 
 	func test_scenarios_for_stream() {

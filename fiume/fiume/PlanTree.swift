@@ -5,7 +5,6 @@ protocol PlanTree {
 	var name: String { get }
 	var children: [PlanTree]? { get }
 	func append(_: PlanTree)
-	func net(_ month: Int) -> Money
 	func scenarios(_ original: Scenarios) -> Scenarios
 }
 
@@ -65,15 +64,6 @@ class PlanComposite: PlanTree, Identifiable {
 			myChildren = [plan]
 		} else {
 			myChildren!.append(plan)
-		}
-	}
-
-	func net(_ month: Int) -> Money {
-		guard let children = children else {
-			return Money(0)
-		}
-		return children.reduce(Money(0)) { result, item in
-			combiningOperator(result, item.net(month))
 		}
 	}
 
