@@ -1,30 +1,36 @@
 import SwiftUI
 
 struct CreateStreamView: View {
-	@Environment(\.dismiss)
-	var dismiss
+  @Environment(\.dismiss)
+  var dismiss
 
-	@Bindable var plan: PlanComposite
+  @Bindable var plan: PlanComposite
 
   @State private var isIncome = true
 
   @State private var name = ""
 
   @State private var amount: Int?
-	@State private var startMonth: Int?
-	@State private var endMonth: Int?
+  @State private var startMonth: Int?
+  @State private var endMonth: Int?
+
+  fileprivate func createdAmount() -> Int {
+    guard let amount = amount else { return 0 }
+    let sign = isIncome ? 1 : -1
+    return sign * amount
+  }
 
   var body: some View {
-		Form {
-			LabeledContent {
-				TextField("Name", text: $name)
-			} label: {
-				Text("Name")
-			}
+    Form {
+      LabeledContent {
+        TextField("Name", text: $name)
+      } label: {
+        Text("Name")
+      }
 
       Picker(selection: $isIncome, label: Text("Type:")) {
-          Text("Income").tag(true)
-          Text("Expense").tag(false)
+        Text("Income").tag(true)
+        Text("Expense").tag(false)
       }
 
       VStack {
@@ -37,25 +43,26 @@ struct CreateStreamView: View {
         }
       }
 
-			NumberField(label: "Start Month", value: $startMonth)
+      NumberField(label: "Start Month", value: $startMonth)
 
-			NumberField(label: "End Month", value: $endMonth)
+      NumberField(label: "End Month", value: $endMonth)
 
-			HStack {
-				Spacer()
-				Button("Create") {
-					let stream = Stream(
-						name,
-						Money(amount ?? 0),
-						first: startMonth ?? 1,
-						last: endMonth
+      HStack {
+        Spacer()
+        Button("Create") {
+          let stream = Stream(
+            name,
+            Money(createdAmount()),
+            first: startMonth ?? 1,
+            last: endMonth
           )
-					plan.append(PlanLeaf(stream))
-					dismiss()
-				}
-				Spacer()
-			}
-		}
-		.autocorrectionDisabled()
-	}
+          plan.append(PlanLeaf(stream))
+          dismiss()
+        }
+        .disabled(amount != nil && amount! < 0)
+        Spacer()
+      }
+    }
+    .autocorrectionDisabled()
+  }
 }
