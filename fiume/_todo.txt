@@ -1,8 +1,8 @@
-* Remove net() from PlanTree - no longer used
-* Enter stream as income or expense
 * Color streams based on their flow
+* Enter stream as income or expense
 * Refine the notion of start or end date to include unspecified, specified [+ year, age, ...]
 * Start/end date editor - just extract for now
+
 * Add multiple sections
 
 Delete streams
@@ -17,6 +17,9 @@ Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
 Persistence
+
+FI-24-10: 2024-05-27 - Income and Expenses
+* Remove net() from PlanTree - no longer used
 
 FI-24-09: 2024-05-23 - Graphs for Alternatives
 * Graph scenarios from the concrete plans
