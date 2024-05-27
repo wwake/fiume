@@ -26,7 +26,6 @@ struct StreamView: View {
     }
     .padding(4)
     .background(stream.isNonNegative ? Color("Income") : Color("Expense"))
-
 	}
 }
 

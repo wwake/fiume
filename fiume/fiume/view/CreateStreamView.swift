@@ -59,9 +59,9 @@ struct CreateStreamView: View {
         }
       }
 
-      NumberField(label: "Start Month", value: $startMonth)
+      DateSpecifierView(label: "Start Month", month: $startMonth)
 
-      NumberField(label: "End Month", value: $endMonth)
+      DateSpecifierView(label: "End Month", month: $endMonth)
 
       HStack {
         Spacer()
