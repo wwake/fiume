@@ -6,12 +6,15 @@ struct CreateStreamView: View {
 
 	@Bindable var plan: PlanComposite
 
-	@State private var name = ""
-	@State private var amount: Int?
+  @State private var isIncome = true
+
+  @State private var name = ""
+
+  @State private var amount: Int?
 	@State private var startMonth: Int?
 	@State private var endMonth: Int?
 
-	var body: some View {
+  var body: some View {
 		Form {
 			LabeledContent {
 				TextField("Name", text: $name)
@@ -19,7 +22,20 @@ struct CreateStreamView: View {
 				Text("Name")
 			}
 
-			NumberField(label: "Amount $", value: $amount)
+      Picker(selection: $isIncome, label: Text("Type:")) {
+          Text("Income").tag(true)
+          Text("Expense").tag(false)
+      }
+
+      VStack {
+        NumberField(label: "Amount $", value: $amount)
+          .padding(2)
+          .background(isIncome ? Color("Income") : Color("Expense"))
+        if amount != nil && amount! < 0 {
+          Text("Amount may not be negative; choose correct Type instead.")
+            .foregroundStyle(Color.red)
+        }
+      }
 
 			NumberField(label: "Start Month", value: $startMonth)
 
