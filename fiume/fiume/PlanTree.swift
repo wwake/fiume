@@ -34,18 +34,17 @@ class PlanLeaf: PlanTree, Identifiable {
 }
 
 @Observable
-class PlanComposite: PlanTree, Identifiable {
+internal class PlanComposite: PlanTree, Identifiable {
 	static func makeAndTree(_ name: String) -> PlanComposite {
-		AndTree(name, +)
+		AndTree(name)
 	}
 
 	static func makeOrTree(_ name: String) -> PlanComposite {
-		OrTree(name, max)
+		OrTree(name)
 	}
 
 	let id = UUID()
 	var name: String
-	var combiningOperator: (Money, Money) -> Money
 
 	internal var myChildren: [PlanTree]?
 
@@ -53,10 +52,9 @@ class PlanComposite: PlanTree, Identifiable {
 		myChildren
 	}
 
-	internal init(_ name: String, _ combiningOperator: @escaping (Money, Money) -> Money) {
+	internal init(_ name: String) {
     self.myChildren = []
 		self.name = name
-		self.combiningOperator = combiningOperator
 	}
 
 	func append(_ plan: PlanTree) {
