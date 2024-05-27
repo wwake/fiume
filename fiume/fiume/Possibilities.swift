@@ -16,7 +16,7 @@ typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 
 @Observable
 class Possibilities {
-	var plan = PlanComposite.makeAndTree("My Finances")
+	var plan = AndTree("My Finances")
 	var sections = [PlanTree]()
 
 	init() {

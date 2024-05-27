@@ -18,7 +18,7 @@ struct CreateScenariosView: View {
 			HStack {
 				Spacer()
 				Button("Create") {
-					plan.append(PlanComposite.makeOrTree(name))
+					plan.append(OrTree(name))
 					dismiss()
 				}
 				Spacer()
@@ -28,7 +28,7 @@ struct CreateScenariosView: View {
 }
 
 #Preview {
-	let tree = PlanComposite.makeAndTree("accounts")
+	let tree = AndTree("accounts")
 	tree.append(PlanLeaf(Stream("income", Money(100))))
 	return CreateScenariosView(plan: tree)
 }

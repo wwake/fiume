@@ -74,7 +74,7 @@ struct PlanCompositeView: View {
 
 #Preview {
 	let planLeaf = PlanLeaf(Stream("demo", Money(100)))
-	let planTree = PlanComposite.makeAndTree("tree")
+	let planTree = AndTree("tree")
 	planTree.append(planLeaf)
 
 	return PlanTreeView(plan: planTree)

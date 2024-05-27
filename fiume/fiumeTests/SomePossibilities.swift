@@ -35,7 +35,7 @@ final class SomePossibilities: XCTestCase {
 
   func test_adds_scenarios() {
     let sut = Possibilities()
-    let orTree = PlanComposite.makeOrTree("jobs")
+    let orTree = OrTree("jobs")
     orTree.append(PlanLeaf(Stream("Salary1", Money(1_000))))
     orTree.append(PlanLeaf(Stream("Salary2", Money(2_000))))
     sut.add(orTree)
@@ -49,7 +49,7 @@ final class SomePossibilities: XCTestCase {
 
   func test_computes_net_worth_for_multiple_scenarios() {
     let sut = Possibilities()
-    let orTree = PlanComposite.makeOrTree("jobs")
+    let orTree = OrTree("jobs")
     orTree.append(PlanLeaf(Stream("Salary1", Money(1_000))))
     orTree.append(PlanLeaf(Stream("Salary2", Money(2_000))))
     sut.add(orTree)

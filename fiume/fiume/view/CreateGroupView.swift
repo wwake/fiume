@@ -18,7 +18,7 @@ struct CreateGroupView: View {
 			HStack {
 				Spacer()
 				Button("Create") {
-					plan.append(PlanComposite.makeAndTree(name))
+					plan.append(AndTree(name))
 					dismiss()
 				}
 				Spacer()
@@ -28,7 +28,7 @@ struct CreateGroupView: View {
 }
 
 #Preview {
-	let tree = PlanComposite.makeAndTree("accounts")
+	let tree = AndTree("accounts")
 	tree.append(PlanLeaf(Stream("income", Money(100))))
 	return CreateGroupView(plan: tree)
 }

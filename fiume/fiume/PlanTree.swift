@@ -35,14 +35,6 @@ class PlanLeaf: PlanTree, Identifiable {
 
 @Observable
 internal class PlanComposite: PlanTree, Identifiable {
-	static func makeAndTree(_ name: String) -> PlanComposite {
-		AndTree(name)
-	}
-
-	static func makeOrTree(_ name: String) -> PlanComposite {
-		OrTree(name)
-	}
-
 	let id = UUID()
 	var name: String
 

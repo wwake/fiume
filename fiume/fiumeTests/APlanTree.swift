@@ -8,7 +8,7 @@ final class APlanTree: XCTestCase {
 	}
 
 	private func makeAndTree(_ name: String, _ children: [PlanTree]) -> PlanComposite {
-		let result = PlanComposite.makeAndTree(name)
+		let result = AndTree(name)
 		children.forEach {
 			result.append($0)
 		}
@@ -16,7 +16,7 @@ final class APlanTree: XCTestCase {
 	}
 
 	private func makeOrTree(_ name: String, _ children: [PlanTree]) -> PlanComposite {
-		let result = PlanComposite.makeOrTree(name)
+		let result = OrTree(name)
 		children.forEach {
 			result.append($0)
 		}
