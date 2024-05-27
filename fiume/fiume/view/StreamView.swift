@@ -22,6 +22,7 @@ struct StreamView: View {
 
       Text("\(stream.name)   $\(stream.monthlyAmount)/mo" +
            "   Months: \(formatMonth(stream.first))-\(formatMonth(stream.last))")
+      Spacer()
     }
     .padding(4)
     .background(stream.isNonNegative ? Color("Income") : Color("Expense"))

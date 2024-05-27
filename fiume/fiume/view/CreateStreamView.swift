@@ -20,12 +20,28 @@ struct CreateStreamView: View {
     return sign * amount
   }
 
+  fileprivate func valid() -> Bool {
+    if amount != nil && amount! < 0 {
+      return false
+    }
+    if name.isEmpty {
+      return false
+    }
+    return true
+  }
+
   var body: some View {
     Form {
-      LabeledContent {
-        TextField("Name", text: $name)
-      } label: {
-        Text("Name")
+      VStack {
+        LabeledContent {
+          TextField("Name", text: $name)
+        } label: {
+          Text("Name")
+        }
+        if name.isEmpty {
+          Text("Name is required.")
+            .foregroundStyle(Color.red)
+        }
       }
 
       Picker(selection: $isIncome, label: Text("Type:")) {
@@ -59,7 +75,7 @@ struct CreateStreamView: View {
           plan.append(PlanLeaf(stream))
           dismiss()
         }
-        .disabled(amount != nil && amount! < 0)
+        .disabled(!valid())
         Spacer()
       }
     }
