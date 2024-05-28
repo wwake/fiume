@@ -9,18 +9,6 @@ struct Stream: Identifiable {
 	var first: MonthNumber
 	var last: DateSpecifier
 
-//  init(
-//    _ name: String,
-//    _ monthlyAmount: Money,
-//    first: MonthNumber,
-//    last: DateSpecifier
-//  ) {
-//		self.name = name
-//		self.monthlyAmount = monthlyAmount
-//		self.first = first
-//		self.last = last
-//	}
-
   init(
     _ name: String,
     _ monthlyAmount: Money,
