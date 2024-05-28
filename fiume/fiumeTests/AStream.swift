@@ -27,8 +27,8 @@ final class AStream: XCTestCase {
   }
 
   func test_merge_when_values_are_omitted() {
-    let stream1 = Stream("Salary", 500, first: 1, last: 12)
-    let stream2 = Stream("Salary", 500, first: 5, last: nil)
+    let stream1 = makeStream(name: "Salary", 500, first: 1, last: 12)
+    let stream2 = makeStream(name: "Salary", 500, first: 5, last: nil)
 
     let sut = stream1.merge(stream2)
 

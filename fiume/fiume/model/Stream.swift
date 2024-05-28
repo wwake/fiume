@@ -77,6 +77,6 @@ extension Stream: Equatable {
 
 extension Stream: CustomDebugStringConvertible {
 	var debugDescription: String {
-    return "Stream \(self.name) $\(self.monthlyAmount), months \(self.first):\(self.last)"
+    "Stream \(self.name) $\(self.monthlyAmount), months \(self.first):\(self.last)"
 	}
 }

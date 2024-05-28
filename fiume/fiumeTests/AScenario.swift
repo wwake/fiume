@@ -2,13 +2,22 @@
 import XCTest
 
 final class AScenario: XCTestCase {
+  private func makeStream(_ name: String, _ amount: Int, first: MonthNumber = 1, last: MonthNumber? = nil) -> fiume.Stream {
+    let dateSpec = last == nil ? DateSpecifier.unspecified : .month(last!)
+    return Stream(name, Money(amount), first: first, last: dateSpec)
+  }
+
+  private func makeScenario() -> Scenario {
+    Scenario()
+  }
+
 	func test_makes_independent_copies() {
-		let sut = Scenario()
-		let stream = Stream("Income1", 1_000, first: 1, last: 12)
+		let sut = makeScenario()
+		let stream = makeStream("Income1", 1_000, first: 1, last: 12)
 		sut.add(stream)
 
 		let result = sut.copy()
-		let stream2 = Stream("Income2", 2_000, first: 1, last: 12)
+		let stream2 = makeStream("Income2", 2_000, first: 1, last: 12)
 		result.add(stream2)
 
 		XCTAssertEqual(sut.net(1), Money(1_000))
@@ -16,8 +25,8 @@ final class AScenario: XCTestCase {
 	}
 
 	func test_built_for_one_stream() {
-		let sut = Scenario()
-		let stream = Stream("Income1", 1_000, first: 1, last: 12)
+		let sut = makeScenario()
+		let stream = makeStream("Income1", 1_000, first: 1, last: 12)
 
 		sut.add(stream)
 
@@ -26,9 +35,9 @@ final class AScenario: XCTestCase {
 	}
 
 	func test_built_for_multiple_streams() {
-		let sut = Scenario()
-		let stream1 = Stream("Income1", 1_000, first: 1, last: 12)
-		let stream2 = Stream("Income2", 500, first: 10, last: nil)
+		let sut = makeScenario()
+		let stream1 = makeStream("Income1", 1_000, first: 1, last: 12)
+		let stream2 = makeStream("Income2", 500, first: 10, last: nil)
 
 		sut.add(stream1)
 		sut.add(stream2)
@@ -40,9 +49,9 @@ final class AScenario: XCTestCase {
 	}
 
 	func test_built_for_merged_streams() {
-		let sut = Scenario()
-		let stream1 = Stream("Income1", 1_000, first: 1, last: 12)
-		let stream2 = Stream("Income1", 500, first: 10, last: nil)
+		let sut = makeScenario()
+		let stream1 = makeStream("Income1", 1_000, first: 1, last: 12)
+		let stream2 = makeStream("Income1", 500, first: 10, last: nil)
 
 		sut.add(stream1)
 		sut.add(stream2)
@@ -54,9 +63,9 @@ final class AScenario: XCTestCase {
 	}
 
   func test_salary_minus_expenses_creates_net_worth() throws {
-    let sut = Scenario()
-    sut.add(Stream("Salary", Money(1_000)))
-    sut.add(Stream("Expenses", Money(-900)))
+    let sut = makeScenario()
+    sut.add(makeStream("Salary", Money(1_000)))
+    sut.add(makeStream("Expenses", Money(-900)))
 
     let result = sut.project(1...12)
 

@@ -2,6 +2,10 @@
 import XCTest
 
 final class APlanTree: XCTestCase {
+  private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
+    Stream(name, Money(amount), first: 1)
+  }
+
 	private func makeLeaf(_ name: String, _ amount: Int, _ first: MonthNumber = 1, _ last: MonthNumber = 120) -> PlanLeaf {
 		let stream = Stream(name, Money(amount), first: first, last: last)
 		return PlanLeaf(stream)
@@ -126,7 +130,7 @@ final class APlanTree: XCTestCase {
 	func test_multiple_scenarios_for_or_tree() {
 		let scenario1 = Scenario()
 		let scenario2 = Scenario()
-		scenario2.add(Stream("annuity", 500))
+    scenario2.add(makeStream("annuity", 500))
 
 		let leaf1 = makeLeaf("Income1", 1_000)
 		let leaf2 = makeLeaf("Income2", 2_000)
