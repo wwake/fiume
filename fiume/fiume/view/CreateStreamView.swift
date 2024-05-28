@@ -70,7 +70,7 @@ struct CreateStreamView: View {
             name,
             Money(createdAmount()),
             first: startMonth.asOptionalInt() ?? 1,
-            last: endMonth.asOptionalInt()
+            last: endMonth
           )
           plan.append(PlanLeaf(stream))
           dismiss()

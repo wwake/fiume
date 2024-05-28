@@ -10,6 +10,16 @@ struct StreamView: View {
 		return "?"
 	}
 
+  func formatMonth(_ dateSpec: DateSpecifier) -> String {
+    switch dateSpec {
+    case .unspecified:
+      return "?"
+
+    case .month(let month):
+      return "\(month)"
+    }
+  }
+
 	var body: some View {
     HStack {
       if stream.isNonNegative {
@@ -30,6 +40,6 @@ struct StreamView: View {
 }
 
 #Preview {
-	let stream = Stream("Salary", 1_000, last: 60)
+  let stream = Stream("Salary", 1_000, last: .month(60))
 	return StreamView(stream: stream)
 }
