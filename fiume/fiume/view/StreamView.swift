@@ -31,7 +31,7 @@ struct StreamView: View {
       }
 
       Text("\(stream.name)   $\(stream.monthlyAmount)/mo" +
-           "   Months: \(formatMonth(stream.first))-\(formatMonth(stream.last))")
+           "   Months: \(formatMonth(stream.first2))-\(formatMonth(stream.last))")
       Spacer()
     }
     .padding(4)

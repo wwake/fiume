@@ -3,10 +3,10 @@ import Foundation
 typealias MonthNumber = Int
 
 struct Stream: Identifiable {
-	let id = UUID()
-	var name: String
-	var monthlyAmount: Money
-	var first2: DateSpecifier
+  let id = UUID()
+  var name: String
+  var monthlyAmount: Money
+  var first2: DateSpecifier
   var first: Int {
     switch first2 {
     case .unspecified:
@@ -17,7 +17,7 @@ struct Stream: Identifiable {
     }
   }
 
-	var last: DateSpecifier
+  var last: DateSpecifier
 
   init(
     _ name: String,
@@ -38,7 +38,9 @@ struct Stream: Identifiable {
   }
 
   func amount(month: MonthNumber) -> Money {
-		if month < first { return Money(0) }
+    if case let .month(streamFirstMonth) = first2, month < streamFirstMonth {
+      return Money(0)
+    }
 
     switch last {
     case .unspecified:
@@ -51,10 +53,10 @@ struct Stream: Identifiable {
         return self.monthlyAmount
       }
     }
-	}
+  }
 
-	func merge(_ newer: Stream) -> Stream {
-		if self.name != newer.name { return self }
+  func merge(_ newer: Stream) -> Stream {
+    if self.name != newer.name { return self }
 
     let newFirst: DateSpecifier
     switch newer.first2 {
@@ -75,5 +77,5 @@ struct Stream: Identifiable {
     }
 
     return Stream(newer.name, newer.monthlyAmount, first: newFirst, last: newLast)
-	}
+  }
 }

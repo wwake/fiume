@@ -5,11 +5,12 @@ final class AStream: XCTestCase {
   private func makeStream(
     name: String = "Sample",
     _ amount: Int,
-    first: MonthNumber,
+    first: MonthNumber?,
     last: MonthNumber?
   ) -> fiume.Stream {
-    let dateSpec = last == nil ? DateSpecifier.unspecified : .month(last!)
-    return Stream(name, Money(amount), first: .month(first), last: dateSpec)
+    let firstDateSpec = first == nil ? DateSpecifier.unspecified : .month(first!)
+    let lastDateSpec = last == nil ? DateSpecifier.unspecified : .month(last!)
+    return Stream(name, Money(amount), first: firstDateSpec, last: lastDateSpec)
   }
 
   func test_determines_amount_inside_date_range() throws {
@@ -22,6 +23,11 @@ final class AStream: XCTestCase {
     let sut = makeStream(100, first: 1, last: 10)
     XCTAssertEqual(sut.amount(month: 0), Money(0))
     XCTAssertEqual(sut.amount(month: 12), Money(0))
+  }
+
+  func test_month_starts_at_1_when_unspecified() {
+    let sut = makeStream(100, first: nil, last: 10)
+    XCTAssertEqual(sut.amount(month: 1), Money(100))
   }
 
   func test_merge_when_values_change() {

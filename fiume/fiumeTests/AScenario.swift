@@ -3,7 +3,7 @@ import XCTest
 
 extension fiume.Stream: Equatable {
   public static func == (lhs: fiume.Stream, rhs: fiume.Stream) -> Bool {
-    lhs.name == rhs.name && lhs.monthlyAmount == rhs.monthlyAmount && lhs.first == rhs.first && lhs.last == rhs.last
+    lhs.name == rhs.name && lhs.monthlyAmount == rhs.monthlyAmount && lhs.first2 == rhs.first2 && lhs.last == rhs.last
   }
 }
 
