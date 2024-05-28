@@ -6,17 +6,7 @@ struct Stream: Identifiable {
   let id = UUID()
   var name: String
   var monthlyAmount: Money
-  var first2: DateSpecifier
-  var first: Int {
-    switch first2 {
-    case .unspecified:
-      return 1
-
-    case .month(let month):
-      return month
-    }
-  }
-
+  var first: DateSpecifier
   var last: DateSpecifier
 
   init(
@@ -28,7 +18,7 @@ struct Stream: Identifiable {
     self.name = name
     self.monthlyAmount = monthlyAmount
 
-    self.first2 = first
+    self.first = first
 
     self.last = last
   }
@@ -38,7 +28,7 @@ struct Stream: Identifiable {
   }
 
   func amount(month: MonthNumber) -> Money {
-    if case let .month(streamFirstMonth) = first2, month < streamFirstMonth {
+    if case let .month(streamFirstMonth) = first, month < streamFirstMonth {
       return Money(0)
     }
 
@@ -59,12 +49,12 @@ struct Stream: Identifiable {
     if self.name != newer.name { return self }
 
     let newFirst: DateSpecifier
-    switch newer.first2 {
+    switch newer.first {
     case .unspecified:
-      newFirst = self.first2
+      newFirst = self.first
 
     case .month:
-      newFirst = newer.first2
+      newFirst = newer.first
     }
 
     let newLast: DateSpecifier
