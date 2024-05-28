@@ -1,4 +1,8 @@
-* Add names to generated scenarios
+
+* Generate names for nested scenarios
+* Show the names in the graph
+* Enforce "scenarios" name required and unique
+
 * Make amount an overrideable value on stream
 * Validate month is valid; end-date >= start-date
 
@@ -17,10 +21,14 @@ Add flows
 Should we segregate streams by income/expense? (two columns)
 Persistence
 
+FI-24-12: 2024-05-29 - Named Scenarios
+
+
 FI-24-11: 2024-05-28 - Enhanced Dates
 * Make Stream's last date be a DateDescription, not an optional Int
 * Make start date be a DateSpecifier
 * Allow first month to be unspecified for stream
+* Add names to generated scenarios
 
 FI-24-10: 2024-05-27 - Income and Expenses
 * Remove net() from PlanTree - no longer used
