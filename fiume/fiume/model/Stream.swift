@@ -6,7 +6,17 @@ struct Stream: Identifiable {
 	let id = UUID()
 	var name: String
 	var monthlyAmount: Money
-	var first: MonthNumber
+	var first2: DateSpecifier
+  var first: Int {
+    switch first2 {
+    case .unspecified:
+      return 1
+
+    case .month(let month):
+      return month
+    }
+  }
+
 	var last: DateSpecifier
 
   init(
@@ -18,13 +28,7 @@ struct Stream: Identifiable {
     self.name = name
     self.monthlyAmount = monthlyAmount
 
-    switch first {
-    case .unspecified:
-      self.first = 1
-
-    case .month(let month):
-      self.first = month
-    }
+    self.first2 = first
 
     self.last = last
   }
@@ -52,6 +56,15 @@ struct Stream: Identifiable {
 	func merge(_ newer: Stream) -> Stream {
 		if self.name != newer.name { return self }
 
+    let newFirst: DateSpecifier
+    switch newer.first2 {
+    case .unspecified:
+      newFirst = self.first2
+
+    case .month:
+      newFirst = newer.first2
+    }
+
     let newLast: DateSpecifier
     switch newer.last {
     case .unspecified:
@@ -61,6 +74,6 @@ struct Stream: Identifiable {
       newLast = newer.last
     }
 
-    return Stream(newer.name, newer.monthlyAmount, first: .month(newer.first), last: newLast)
+    return Stream(newer.name, newer.monthlyAmount, first: newFirst, last: newLast)
 	}
 }

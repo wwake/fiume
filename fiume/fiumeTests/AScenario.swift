@@ -11,11 +11,12 @@ final class AScenario: XCTestCase {
   private func makeStream(
     _ name: String,
     _ amount: Int,
-    first: MonthNumber = 1,
+    first: MonthNumber? = 1,
     last: MonthNumber? = nil
   ) -> fiume.Stream {
-    let dateSpec = last == nil ? DateSpecifier.unspecified : .month(last!)
-    return Stream(name, Money(amount), first: .month(first), last: dateSpec)
+    let firstDate = first == nil ? DateSpecifier.unspecified : .month(first!)
+    let lastDate = last == nil ? DateSpecifier.unspecified : .month(last!)
+    return Stream(name, Money(amount), first: firstDate, last: lastDate)
   }
 
   private func makeScenario(_ streams: fiume.Stream...) -> Scenario {
@@ -44,7 +45,7 @@ final class AScenario: XCTestCase {
     XCTAssertEqual(sut.net(13), Money(0))
   }
 
-  func test_built_for_distinct_streams() {
+  func test_scenario_for_distinct_streams() {
     let sut = makeScenario(
       makeStream("Income1", 1_000, first: 1, last: 12),
       makeStream("Income2", 500, first: 10, last: nil)
@@ -56,7 +57,7 @@ final class AScenario: XCTestCase {
     XCTAssertEqual(sut.net(13), Money(500))
   }
 
-  func test_built_for_merged_streams() {
+  func test_scenario_for_merged_streams_with_last_date_unspecified() {
     let sut = makeScenario(
       makeStream("Income1", 1_000, first: 1, last: 12),
       makeStream("Income1", 500, first: 10, last: nil)
@@ -66,6 +67,20 @@ final class AScenario: XCTestCase {
     XCTAssertEqual(sut.net(10), Money(500))
     XCTAssertEqual(sut.net(12), Money(500))
     XCTAssertEqual(sut.net(13), Money(0))
+  }
+
+  func test_scenario_for_merged_streams_with_first_date_unspecified() {
+    let sut = makeScenario(
+      makeStream("Income1", 1_000, first: 2, last: 12),
+      makeStream("Income1", 500, first: nil, last: 25)
+    )
+
+    XCTAssertEqual(sut.net(1), Money(0))
+    XCTAssertEqual(sut.net(2), Money(500))
+    XCTAssertEqual(sut.net(12), Money(500))
+    XCTAssertEqual(sut.net(13), Money(500))
+    XCTAssertEqual(sut.net(25), Money(500))
+    XCTAssertEqual(sut.net(26), Money(0))
   }
 
   func test_salary_minus_expenses_creates_net_worth() throws {
