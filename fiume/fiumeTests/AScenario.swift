@@ -20,7 +20,7 @@ final class AScenario: XCTestCase {
   }
 
   private func makeScenario(_ streams: fiume.Stream...) -> Scenario {
-    let result = Scenario()
+    let result = Scenario("")
     streams.forEach {
       result.add($0)
     }
@@ -30,12 +30,13 @@ final class AScenario: XCTestCase {
   func test_makes_independent_copies() {
     let sut = makeScenario(makeStream("Income1", 1_000, first: 1, last: 12))
 
-    let result = sut.copy()
+    let result = sut.copy("altered name")
     let stream2 = makeStream("Income2", 2_000, first: 1, last: 12)
     result.add(stream2)
 
     XCTAssertEqual(sut.net(1), Money(1_000))
     XCTAssertEqual(result.net(1), Money(3_000))
+    XCTAssertEqual(result.name, "altered name")
   }
 
   func test_built_for_one_stream() {

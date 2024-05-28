@@ -64,7 +64,7 @@ final class APlanTree: XCTestCase {
 	func test_scenarios_for_stream() {
 		let sut = makeLeaf("Income1", 1_000, 1, 12)
 
-		let result = sut.scenarios(Scenarios([Scenario(), Scenario()]))
+		let result = sut.scenarios(Scenarios([Scenario(""), Scenario("")]))
     let array = Array(result)
 
 		XCTAssertEqual(array.count, 2)
@@ -80,7 +80,7 @@ final class APlanTree: XCTestCase {
 
 		let sut = makeAndTree("parent", [leaf1, leaf2])
 
-		let result = sut.scenarios(Scenarios([Scenario(), Scenario()]))
+		let result = sut.scenarios(Scenarios([Scenario(""), Scenario("")]))
     let array = Array(result)
 
 		XCTAssertEqual(array.count, 2)
@@ -99,7 +99,7 @@ final class APlanTree: XCTestCase {
     let orTree = makeOrTree( "scenarios", [leaf1a, leaf1b])
     let sut = makeAndTree("parent", [orTree, leaf2])
 
-    let result = sut.scenarios(Scenarios([Scenario()]))
+    let result = sut.scenarios(Scenarios([Scenario("")]))
     let resultSet = Set(result.map { $0.net(1) })
 
     XCTAssertEqual(resultSet.count, 2)
@@ -112,7 +112,7 @@ final class APlanTree: XCTestCase {
 
 		let sut = makeOrTree("parent", [leaf1, leaf2])
 
-		let result = sut.scenarios(Scenarios([Scenario()]))
+		let result = sut.scenarios(Scenarios([Scenario("")]))
     let array = Array(result)
 
 		XCTAssertEqual(array.count, 2)
@@ -128,8 +128,8 @@ final class APlanTree: XCTestCase {
 	}
 
 	func test_multiple_scenarios_for_or_tree() {
-		let scenario1 = Scenario()
-		let scenario2 = Scenario()
+		let scenario1 = Scenario("")
+		let scenario2 = Scenario("")
     scenario2.add(makeStream("annuity", 500))
 
 		let leaf1 = makeLeaf("Income1", 1_000)
@@ -146,4 +146,18 @@ final class APlanTree: XCTestCase {
 		XCTAssertTrue(result.contains { $0.net(1) == Money(1_500) })
 		XCTAssertTrue(result.contains { $0.net(1) == Money(2_500) })
 	}
+
+  func test_scenarios_for_or_tree_get_names_from_starting_scenario() {
+    let leaf1 = makeLeaf("Income1", 1_000)
+    let leaf2 = makeLeaf("Income2", 2_000)
+
+    let sut = makeOrTree("Job", [leaf1, leaf2])
+
+    let result = sut.scenarios(Scenarios([Scenario("")]))
+    let array = Array(result)
+
+    XCTAssertEqual(array.count, 2)
+    let names = array.map { $0.name }
+    XCTAssertEqual(Set(names), ["Job 1", "Job 2"])
+  }
 }

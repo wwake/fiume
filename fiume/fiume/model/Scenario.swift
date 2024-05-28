@@ -5,18 +5,18 @@ class Scenario: Identifiable {
   let name: String
   var items = [String: Stream]()
 
-  init(_ name: String = "") {
+  init(_ name: String) {
     self.name = name
   }
 
-  convenience init(_ other: Scenario) {
-    self.init()
+  private convenience init(_ other: Scenario, _ newName: String) {
+    self.init(newName)
     let copy = other.items
     self.items = copy
   }
 
-  func copy() -> Scenario {
-    Scenario(self)
+  func copy(_ newName: String) -> Scenario {
+    Scenario(self, newName)
   }
 
   func add(_ stream: Stream) {

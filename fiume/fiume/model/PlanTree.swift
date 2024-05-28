@@ -83,9 +83,10 @@ class OrTree: PlanComposite {
     }
 
     let result = Scenarios()
-    children.forEach { child in
+    children.enumerated().forEach { index, child in
       scenarios.forEach { scenario in
-        let newScenarios = child.scenarios(Scenarios([scenario.copy()]))
+        let childName = "\(name) \(index + 1)"
+        let newScenarios = child.scenarios(Scenarios([scenario.copy(childName)]))
         result.add(newScenarios)
       }
     }

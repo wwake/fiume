@@ -7,6 +7,10 @@ final class SomePossibilities: XCTestCase {
     Stream(name, Money(amount), first: .month(1), last: .unspecified)
   }
 
+  private func makePossibilities() -> Possibilities {
+    Possibilities()
+  }
+
 	func test_salary_builds_net_worth() throws {
 		let sut = Possibilities()
 		sut.add(makeStream("Salary", Money(1_000)))
@@ -26,7 +30,15 @@ final class SomePossibilities: XCTestCase {
     XCTAssertEqual(data[0].netWorthByMonth.last!.amount, Money(1_200))
 	}
 
-	func test_scenarios_with_only_groups() {
+  func test_scenarios_start_with_empty_name() {
+    let sut = makePossibilities()
+    let scenarios = sut.scenarios()
+    scenarios.forEach {
+      XCTAssertEqual($0.name, "")
+    }
+  }
+
+  func test_scenarios_with_only_groups() {
 		let sut = Possibilities()
 		sut.add(makeStream("Salary", Money(1_000)))
 		sut.add(makeStream("Expenses", Money(-900)))

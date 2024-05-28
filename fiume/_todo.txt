@@ -1,4 +1,4 @@
-
+* Add names to generated scenarios
 * Make amount an overrideable value on stream
 * Validate month is valid; end-date >= start-date
 
