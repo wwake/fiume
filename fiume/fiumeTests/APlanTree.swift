@@ -64,7 +64,7 @@ final class APlanTree: XCTestCase {
 	func test_scenarios_for_stream() {
 		let sut = makeLeaf("Income1", 1_000, 1, 12)
 
-		let result = sut.scenarios(Scenarios([Scenario(""), Scenario("")]))
+		let result = sut.scenarios(Scenarios([Scenario("A"), Scenario("B")]))
     let array = Array(result)
 
 		XCTAssertEqual(array.count, 2)
