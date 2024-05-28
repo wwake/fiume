@@ -15,7 +15,7 @@ final class AScenario: XCTestCase {
     last: MonthNumber? = nil
   ) -> fiume.Stream {
     let dateSpec = last == nil ? DateSpecifier.unspecified : .month(last!)
-    return Stream(name, Money(amount), first: first, last: dateSpec)
+    return Stream(name, Money(amount), first: .month(first), last: dateSpec)
   }
 
   private func makeScenario(_ streams: fiume.Stream...) -> Scenario {

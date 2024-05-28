@@ -3,11 +3,11 @@ import XCTest
 
 final class APlanTree: XCTestCase {
   private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
-    Stream(name, Money(amount), first: 1)
+    Stream(name, Money(amount), first: .month(1), last: .unspecified)
   }
 
 	private func makeLeaf(_ name: String, _ amount: Int, _ first: MonthNumber = 1, _ last: MonthNumber = 120) -> PlanLeaf {
-    let stream = Stream(name, Money(amount), first: first, last: .month(last))
+    let stream = Stream(name, Money(amount), first: .month(first), last: .month(last))
 		return PlanLeaf(stream)
 	}
 

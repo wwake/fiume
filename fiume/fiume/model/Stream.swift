@@ -13,13 +13,33 @@ struct Stream: Identifiable {
     _ name: String,
     _ monthlyAmount: Money,
     first: MonthNumber,
-    last: DateSpecifier = DateSpecifier.unspecified
+    last: DateSpecifier
   ) {
 		self.name = name
 		self.monthlyAmount = monthlyAmount
 		self.first = first
 		self.last = last
 	}
+
+  init(
+    _ name: String,
+    _ monthlyAmount: Money,
+    first: DateSpecifier,
+    last: DateSpecifier
+  ) {
+    self.name = name
+    self.monthlyAmount = monthlyAmount
+
+    switch first {
+    case .unspecified:
+      self.first = 1
+
+    case .month(let month):
+      self.first = month
+    }
+
+    self.last = last
+  }
 
   var isNonNegative: Bool {
     monthlyAmount >= 0
@@ -53,6 +73,6 @@ struct Stream: Identifiable {
       newLast = newer.last
     }
 
-		return Stream(newer.name, newer.monthlyAmount, first: newer.first, last: newLast)
+    return Stream(newer.name, newer.monthlyAmount, first: .month(newer.first), last: newLast)
 	}
 }

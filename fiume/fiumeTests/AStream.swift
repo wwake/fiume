@@ -9,7 +9,7 @@ final class AStream: XCTestCase {
     last: MonthNumber?
   ) -> fiume.Stream {
     let dateSpec = last == nil ? DateSpecifier.unspecified : .month(last!)
-    return Stream(name, Money(amount), first: first, last: dateSpec)
+    return Stream(name, Money(amount), first: .month(first), last: dateSpec)
   }
 
   func test_determines_amount_inside_date_range() throws {

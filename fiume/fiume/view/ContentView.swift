@@ -26,7 +26,7 @@ struct ContentView: View {
 
 #Preview {
   let possibilities = Possibilities()
-  possibilities.add(Stream("Salary", 1_000, first: 1, last: .month(60)))
-  possibilities.add(Stream("Expenses", -800, first: 1))
+  possibilities.add(Stream("Salary", 1_000, first: .month(1), last: .month(60)))
+  possibilities.add(Stream("Expenses", -800, first: .month(1), last: .unspecified))
   return ContentView(possibilities: possibilities)
 }
