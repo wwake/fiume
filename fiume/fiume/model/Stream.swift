@@ -27,7 +27,7 @@ struct Stream: Identifiable {
 
   func amount(month: MonthNumber) -> Money {
 		if month < first { return Money(0) }
-		// if last != nil && month > last! { return Money(0) }
+
     switch last {
     case .unspecified:
       return self.monthlyAmount
@@ -44,22 +44,16 @@ struct Stream: Identifiable {
 	func merge(_ newer: Stream) -> Stream {
 		if self.name != newer.name { return self }
 
-		// let newLast = newer.last == nil ? self.last : newer.last
     let newLast: DateSpecifier
     switch newer.last {
     case .unspecified:
       newLast = self.last
 
-    case .month(let otherMonth):
+    case .month:
       newLast = newer.last
     }
-		return Stream(newer.name, newer.monthlyAmount, first: newer.first, last: newLast)
-	}
-}
 
-extension Stream: Equatable {
-	static func == (lhs: Stream, rhs: Stream) -> Bool {
-		lhs.name == rhs.name && lhs.monthlyAmount == rhs.monthlyAmount && lhs.first == rhs.first && lhs.last == rhs.last
+		return Stream(newer.name, newer.monthlyAmount, first: newer.first, last: newLast)
 	}
 }
 

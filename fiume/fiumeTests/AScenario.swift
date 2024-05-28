@@ -1,6 +1,12 @@
 @testable import fiume
 import XCTest
 
+extension fiume.Stream: Equatable {
+  public static func == (lhs: fiume.Stream, rhs: fiume.Stream) -> Bool {
+    lhs.name == rhs.name && lhs.monthlyAmount == rhs.monthlyAmount && lhs.first == rhs.first && lhs.last == rhs.last
+  }
+}
+
 final class AScenario: XCTestCase {
   private func makeStream(
     _ name: String,
