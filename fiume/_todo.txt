@@ -1,5 +1,5 @@
-* Allow first month to be unspecified for stream
-* What if scenario has unspecified first month
+
+* Make amount an overrideable value on stream
 * Validate month is valid; end-date >= start-date
 
 * Add multiple sections
@@ -20,6 +20,7 @@ Persistence
 FI-24-11: 2024-05-28 - Enhanced Dates
 * Make Stream's last date be a DateDescription, not an optional Int
 * Make start date be a DateSpecifier
+* Allow first month to be unspecified for stream
 
 FI-24-10: 2024-05-27 - Income and Expenses
 * Remove net() from PlanTree - no longer used

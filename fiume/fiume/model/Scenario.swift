@@ -2,9 +2,12 @@ import Foundation
 
 class Scenario: Identifiable {
   let id = UUID()
+  let name: String
   var items = [String: Stream]()
 
-  init() {}
+  init(_ name: String = "") {
+    self.name = name
+  }
 
   convenience init(_ other: Scenario) {
     self.init()
