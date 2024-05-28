@@ -3,13 +3,6 @@ import SwiftUI
 struct StreamView: View {
 	var stream: Stream
 
-	func formatMonth(_ month: MonthNumber?) -> String {
-		if let month = month {
-			return "\(month)"
-		}
-		return "?"
-	}
-
   func formatMonth(_ dateSpec: DateSpecifier) -> String {
     switch dateSpec {
     case .unspecified:
