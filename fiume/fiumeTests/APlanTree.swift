@@ -7,7 +7,7 @@ final class APlanTree: XCTestCase {
   }
 
 	private func makeLeaf(_ name: String, _ amount: Int, _ first: MonthNumber = 1, _ last: MonthNumber = 120) -> PlanLeaf {
-		let stream = Stream(name, Money(amount), first: first, last: last)
+    let stream = Stream(name, Money(amount), first: first, last: .month(last))
 		return PlanLeaf(stream)
 	}
 

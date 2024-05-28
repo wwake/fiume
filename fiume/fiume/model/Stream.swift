@@ -12,7 +12,7 @@ struct Stream: Identifiable {
   init(
     _ name: String,
     _ monthlyAmount: Money,
-    first: MonthNumber = 1,
+    first: MonthNumber,
     last: DateSpecifier = DateSpecifier.unspecified
   ) {
 		self.name = name
@@ -20,18 +20,6 @@ struct Stream: Identifiable {
 		self.first = first
 		self.last = last
 	}
-
-  init(
-    _ name: String,
-    _ monthlyAmount: Money,
-    first: MonthNumber = 1,
-    last: Int?
-  ) {
-    self.name = name
-    self.monthlyAmount = monthlyAmount
-    self.first = first
-    self.last = last == nil ? .unspecified : .month(last!)
-  }
 
   var isNonNegative: Bool {
     monthlyAmount >= 0

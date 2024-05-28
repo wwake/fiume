@@ -2,7 +2,12 @@
 import XCTest
 
 final class AStream: XCTestCase {
-  private func makeStream(name: String = "Sample", _ amount: Int, first: MonthNumber, last: MonthNumber?) -> fiume.Stream {
+  private func makeStream(
+    name: String = "Sample",
+    _ amount: Int,
+    first: MonthNumber,
+    last: MonthNumber?
+  ) -> fiume.Stream {
     let dateSpec = last == nil ? DateSpecifier.unspecified : .month(last!)
     return Stream(name, Money(amount), first: first, last: dateSpec)
   }

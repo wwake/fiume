@@ -3,9 +3,13 @@
 import XCTest
 
 final class SomePossibilities: XCTestCase {
+  private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
+    Stream(name, Money(amount), first: 1, last: .unspecified)
+  }
+
 	func test_salary_builds_net_worth() throws {
 		let sut = Possibilities()
-		sut.add(Stream("Salary", Money(1_000)))
+		sut.add(makeStream("Salary", Money(1_000)))
 
 		let data = sut.project(12)
 
@@ -14,8 +18,8 @@ final class SomePossibilities: XCTestCase {
 
 	func test_salary_minus_expenses_creates_net_worth() throws {
 		let sut = Possibilities()
-		sut.add(Stream("Salary", Money(1_000)))
-		sut.add(Stream("Expenses", Money(-900)))
+		sut.add(makeStream("Salary", Money(1_000)))
+		sut.add(makeStream("Expenses", Money(-900)))
 
 		let data = sut.project(12)
 
@@ -24,8 +28,8 @@ final class SomePossibilities: XCTestCase {
 
 	func test_scenarios_with_only_groups() {
 		let sut = Possibilities()
-		sut.add(Stream("Salary", Money(1_000)))
-		sut.add(Stream("Expenses", Money(-900)))
+		sut.add(makeStream("Salary", Money(1_000)))
+		sut.add(makeStream("Expenses", Money(-900)))
 
     let result = Array(sut.scenarios())
 
@@ -36,8 +40,8 @@ final class SomePossibilities: XCTestCase {
   func test_adds_scenarios() {
     let sut = Possibilities()
     let orTree = OrTree("jobs")
-    orTree.append(PlanLeaf(Stream("Salary1", Money(1_000))))
-    orTree.append(PlanLeaf(Stream("Salary2", Money(2_000))))
+    orTree.append(PlanLeaf(makeStream("Salary1", Money(1_000))))
+    orTree.append(PlanLeaf(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)
 
     print(sut.plan)
@@ -50,8 +54,8 @@ final class SomePossibilities: XCTestCase {
   func test_computes_net_worth_for_multiple_scenarios() {
     let sut = Possibilities()
     let orTree = OrTree("jobs")
-    orTree.append(PlanLeaf(Stream("Salary1", Money(1_000))))
-    orTree.append(PlanLeaf(Stream("Salary2", Money(2_000))))
+    orTree.append(PlanLeaf(makeStream("Salary1", Money(1_000))))
+    orTree.append(PlanLeaf(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)
 
     let result = sut.project(3)
