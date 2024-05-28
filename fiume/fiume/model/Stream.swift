@@ -56,9 +56,3 @@ struct Stream: Identifiable {
 		return Stream(newer.name, newer.monthlyAmount, first: newer.first, last: newLast)
 	}
 }
-
-extension Stream: CustomDebugStringConvertible {
-	var debugDescription: String {
-    "Stream \(self.name) $\(self.monthlyAmount), months \(self.first):\(self.last)"
-	}
-}
