@@ -14,7 +14,6 @@ struct ContentView: View {
           )
         }
         .foregroundStyle(by: .value("Scenario Name", dataSeries.name))
-      //  .symbol(by: .value("Scenario Name", dataSeries.name))
       }
       .chartXScale(domain: 1...360)
       .padding()

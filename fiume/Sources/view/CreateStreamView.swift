@@ -1,5 +1,25 @@
 import SwiftUI
 
+struct RequiredTextField: View {
+  var name: String
+  @Binding var field: String
+  var message: String
+
+  var body: some View {
+    VStack {
+      LabeledContent {
+        TextField(name, text: $field)
+      } label: {
+        Text(name)
+      }
+      if field.isEmpty {
+        Text(message)
+          .foregroundStyle(Color.red)
+      }
+    }
+  }
+}
+
 struct CreateStreamView: View {
   @Environment(\.dismiss)
   var dismiss
@@ -32,17 +52,7 @@ struct CreateStreamView: View {
 
   var body: some View {
     Form {
-      VStack {
-        LabeledContent {
-          TextField("Name", text: $name)
-        } label: {
-          Text("Name")
-        }
-        if name.isEmpty {
-          Text("Name is required.")
-            .foregroundStyle(Color.red)
-        }
-      }
+      RequiredTextField(name: "Name", field: $name, message: "Name is required.")
 
       Picker(selection: $isIncome, label: Text("Type:")) {
         Text("Income").tag(true)
