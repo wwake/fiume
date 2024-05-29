@@ -158,6 +158,6 @@ final class APlanTree: XCTestCase {
 
     XCTAssertEqual(array.count, 2)
     let names = array.map { $0.name }
-    XCTAssertEqual(Set(names), ["• Job 1 - Income1", "• Job 2 - Income2"])
+    XCTAssertEqual(Set(names), [" • Job 1 - Income1", " • Job 2 - Income2"])
   }
 }

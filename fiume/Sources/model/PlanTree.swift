@@ -78,7 +78,7 @@ class AndTree: PlanComposite {
 
 class OrTree: PlanComposite {
   func name(_ name: String, _ child: PlanTree, _ index: Int) -> String {
-    "• \(name) \(index + 1) - \(child.name)"
+    " • \(name) \(index + 1) - \(child.name)"
   }
 
 	override func scenarios(_ scenarios: Scenarios) -> Scenarios {
