@@ -1,4 +1,8 @@
+
+* Define a MonthYear picker
+* Define a People creator
 * Add people
+* Allow dates to depend on birth/death day
 * Manage by month/year
 
 * Make amount an overrideable value on stream
