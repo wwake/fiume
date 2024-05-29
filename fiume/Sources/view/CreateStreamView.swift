@@ -1,25 +1,5 @@
 import SwiftUI
 
-struct RequiredTextField: View {
-  var name: String
-  @Binding var field: String
-  var message: String
-
-  var body: some View {
-    VStack {
-      LabeledContent {
-        TextField(name, text: $field)
-      } label: {
-        Text(name)
-      }
-      if field.isEmpty {
-        Text(message)
-          .foregroundStyle(Color.red)
-      }
-    }
-  }
-}
-
 struct CreateStreamView: View {
   @Environment(\.dismiss)
   var dismiss

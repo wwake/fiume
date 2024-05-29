@@ -7,13 +7,13 @@ struct CreateGroupView: View {
 	@Bindable var plan: PlanComposite
 	@State private var name = ""
 
+  func valid() -> Bool {
+    !name.isEmpty
+  }
+
 	var body: some View {
 		Form {
-			LabeledContent {
-				TextField("Name", text: $name)
-			} label: {
-				Text("Name")
-			}
+      RequiredTextField(name: "Name", field: $name, message: "Name is required.")
 
 			HStack {
 				Spacer()
@@ -21,6 +21,7 @@ struct CreateGroupView: View {
 					plan.append(AndTree(name))
 					dismiss()
 				}
+        .disabled(!valid())
 				Spacer()
 			}
 		}

@@ -7,13 +7,13 @@ struct CreateScenariosView: View {
 	@Bindable var plan: PlanComposite
 	@State private var name = ""
 
+  func valid() -> Bool {
+    !name.isEmpty
+  }
+
 	var body: some View {
 		Form {
-			LabeledContent {
-				TextField("Name", text: $name)
-			} label: {
-				Text("Name")
-			}
+      RequiredTextField(name: "Name", field: $name, message: "Name is required.")
 
 			HStack {
 				Spacer()
@@ -21,6 +21,7 @@ struct CreateScenariosView: View {
 					plan.append(OrTree(name))
 					dismiss()
 				}
+        .disabled(!valid())
 				Spacer()
 			}
 		}
