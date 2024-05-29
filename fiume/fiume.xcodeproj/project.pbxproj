@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91206E282C07BD2300D4C1CB /* CreatePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91206E272C07BD2300D4C1CB /* CreatePersonView.swift */; };
+		91206E2A2C07BE6B00D4C1CB /* MonthYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91206E292C07BE6B00D4C1CB /* MonthYearView.swift */; };
+		91206E2B2C07C16100D4C1CB /* MonthYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F950822C07B860006822AF /* MonthYear.swift */; };
+		91206E2C2C07C21300D4C1CB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F950842C07B8AB006822AF /* Person.swift */; };
 		914B54C52BFBDB74005A9090 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B54C42BFBDB74005A9090 /* Scenario.swift */; };
 		914B54C72BFBDF34005A9090 /* AScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B54C62BFBDF34005A9090 /* AScenario.swift */; };
 		914FEFA32BF292FE003D858E /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA22BF292FE003D858E /* Money.swift */; };
@@ -38,8 +42,6 @@
 		91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FE2BF291F6004ADB9B /* ContentView.swift */; };
 		91DA65012BF291F7004ADB9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65002BF291F7004ADB9B /* Assets.xcassets */; };
 		91DA65042BF291F7004ADB9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */; };
-		91F950832C07B860006822AF /* MonthYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F950822C07B860006822AF /* MonthYear.swift */; };
-		91F950852C07B8AB006822AF /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F950842C07B8AB006822AF /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		91206E272C07BD2300D4C1CB /* CreatePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonView.swift; sourceTree = "<group>"; };
+		91206E292C07BE6B00D4C1CB /* MonthYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearView.swift; sourceTree = "<group>"; };
 		914B54C42BFBDB74005A9090 /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		914B54C62BFBDF34005A9090 /* AScenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AScenario.swift; sourceTree = "<group>"; };
 		914FEFA22BF292FE003D858E /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
+				91206E272C07BD2300D4C1CB /* CreatePersonView.swift */,
+				91206E292C07BE6B00D4C1CB /* MonthYearView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -133,12 +139,12 @@
 			children = (
 				91D543992C051B5700AD3592 /* DateSpecifier.swift */,
 				914FEFA22BF292FE003D858E /* Money.swift */,
+				91F950822C07B860006822AF /* MonthYear.swift */,
 				919CED482BF5492800ACCE2E /* PlanTree.swift */,
 				914FEFA42BF2930E003D858E /* Possibilities.swift */,
 				914B54C42BFBDB74005A9090 /* Scenario.swift */,
 				91CDFD162BFE6AE700695E65 /* Scenarios.swift */,
 				914FEFA62BF29317003D858E /* Stream.swift */,
-				91F950822C07B860006822AF /* MonthYear.swift */,
 				91F950842C07B8AB006822AF /* Person.swift */,
 			);
 			path = model;
@@ -344,20 +350,24 @@
 				914FEFB72BF2AD6B003D858E /* CreateStreamView.swift in Sources */,
 				914FEFA52BF2930E003D858E /* Possibilities.swift in Sources */,
 				919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */,
+				91206E2B2C07C16100D4C1CB /* MonthYear.swift in Sources */,
 				914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */,
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
 				919CED542BF69C5C00ACCE2E /* CreateGroupView.swift in Sources */,
 				91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */,
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
+				91206E2C2C07C21300D4C1CB /* Person.swift in Sources */,
 				914FEFA32BF292FE003D858E /* Money.swift in Sources */,
 				919CED492BF5492800ACCE2E /* PlanTree.swift in Sources */,
 				91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */,
+				91206E282C07BD2300D4C1CB /* CreatePersonView.swift in Sources */,
 				91D5439A2C051B5700AD3592 /* DateSpecifier.swift in Sources */,
 				91D543982C051A3800AD3592 /* DateSpecifierView.swift in Sources */,
 				914B54C52BFBDB74005A9090 /* Scenario.swift in Sources */,
 				91CDFD172BFE6AE700695E65 /* Scenarios.swift in Sources */,
 				914FEFA72BF29317003D858E /* Stream.swift in Sources */,
 				914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */,
+				91206E2A2C07BE6B00D4C1CB /* MonthYearView.swift in Sources */,
 				919CED4D2BF54D8C00ACCE2E /* PlanTreeView.swift in Sources */,
 				919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */,
 			);
@@ -368,12 +378,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				919CED4B2BF5499F00ACCE2E /* APlanTree.swift in Sources */,
-				91F950832C07B860006822AF /* MonthYear.swift in Sources */,
 				91D5439C2C0523D900AD3592 /* ADateSpecifier.swift in Sources */,
 				914B54C72BFBDF34005A9090 /* AScenario.swift in Sources */,
 				914FEFAA2BF29399003D858E /* SomePossibilities.swift in Sources */,
 				91D543A52C075BC800AD3592 /* ASwiftTestingTest.swift in Sources */,
-				91F950852C07B8AB006822AF /* Person.swift in Sources */,
 				91D543A32C06DE2A00AD3592 /* Scaffolding.swift in Sources */,
 				914FEFAB2BF29399003D858E /* AStream.swift in Sources */,
 			);
