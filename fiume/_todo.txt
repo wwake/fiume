@@ -1,18 +1,18 @@
-* Group or scenario name is required
+* Add people
+* Manage by month/year
 
 * Make amount an overrideable value on stream
 * Validate month is valid; end-date >= start-date
 
+
 * Add multiple sections
 
-* Validate number is valid
 Delete streams
 Edit stream
 Move streams
 Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
 Calendar view (with RuleMark)
-Add people
 Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
@@ -22,6 +22,7 @@ FI-24-12: 2024-05-29 - Named Scenarios
 * Demo SwiftTesting framework
 * Generate names for nested scenarios
 * Show the names in the graph
+* Group or scenario name is required
 
 FI-24-11: 2024-05-28 - Enhanced Dates
 * Make Stream's last date be a DateDescription, not an optional Int

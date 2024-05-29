@@ -38,6 +38,8 @@
 		91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FE2BF291F6004ADB9B /* ContentView.swift */; };
 		91DA65012BF291F7004ADB9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65002BF291F7004ADB9B /* Assets.xcassets */; };
 		91DA65042BF291F7004ADB9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */; };
+		91F950832C07B860006822AF /* MonthYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F950822C07B860006822AF /* MonthYear.swift */; };
+		91F950852C07B8AB006822AF /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F950842C07B8AB006822AF /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,8 @@
 		91DA65002BF291F7004ADB9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		91DA65092BF291F8004ADB9B /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91F950822C07B860006822AF /* MonthYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYear.swift; sourceTree = "<group>"; };
+		91F950842C07B8AB006822AF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 				914B54C42BFBDB74005A9090 /* Scenario.swift */,
 				91CDFD162BFE6AE700695E65 /* Scenarios.swift */,
 				914FEFA62BF29317003D858E /* Stream.swift */,
+				91F950822C07B860006822AF /* MonthYear.swift */,
+				91F950842C07B8AB006822AF /* Person.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -362,10 +368,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				919CED4B2BF5499F00ACCE2E /* APlanTree.swift in Sources */,
+				91F950832C07B860006822AF /* MonthYear.swift in Sources */,
 				91D5439C2C0523D900AD3592 /* ADateSpecifier.swift in Sources */,
 				914B54C72BFBDF34005A9090 /* AScenario.swift in Sources */,
 				914FEFAA2BF29399003D858E /* SomePossibilities.swift in Sources */,
 				91D543A52C075BC800AD3592 /* ASwiftTestingTest.swift in Sources */,
+				91F950852C07B8AB006822AF /* Person.swift in Sources */,
 				91D543A32C06DE2A00AD3592 /* Scaffolding.swift in Sources */,
 				914FEFAB2BF29399003D858E /* AStream.swift in Sources */,
 			);
