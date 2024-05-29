@@ -1,7 +1,7 @@
 excluded:
   - .idea
   - Pods
-  - fiumeTests/.build
+  - Tests/.build
 
 disabled_rules: # house style - turn these off
   - force_cast # I only tend to use them when really needed

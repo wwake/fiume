@@ -1,6 +1,6 @@
 import Testing
 
-struct ASwiftTestTest {
+struct ASwiftTestingTest {
   @Test
   func failMe() {
     #expect(Bool(true))
