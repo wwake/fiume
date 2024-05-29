@@ -15,7 +15,7 @@ let package = Package(
 
   targets: [
     .testTarget(
-      name: "fiumeTests",
+      name: "Tests",
       dependencies: [
         "fiume",
         .product(name: "Testing", package: "swift-testing"),

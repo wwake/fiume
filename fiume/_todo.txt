@@ -1,7 +1,5 @@
-
 * Generate names for nested scenarios
 * Show the names in the graph
-* Enforce "scenarios" name required and unique
 
 * Make amount an overrideable value on stream
 * Validate month is valid; end-date >= start-date
@@ -22,7 +20,7 @@ Should we segregate streams by income/expense? (two columns)
 Persistence
 
 FI-24-12: 2024-05-29 - Named Scenarios
-
+* Demo SwiftTesting framework
 
 FI-24-11: 2024-05-28 - Enhanced Dates
 * Make Stream's last date be a DateDescription, not an optional Int

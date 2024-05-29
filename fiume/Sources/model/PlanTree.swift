@@ -77,6 +77,10 @@ class AndTree: PlanComposite {
 }
 
 class OrTree: PlanComposite {
+  func name(_ name: String, _ child: PlanTree, _ index: Int) -> String {
+    "• \(name) \(index + 1) - \(child.name)"
+  }
+
 	override func scenarios(_ scenarios: Scenarios) -> Scenarios {
 		guard let children = myChildren else {
       return scenarios
@@ -85,7 +89,7 @@ class OrTree: PlanComposite {
     let result = Scenarios()
     children.enumerated().forEach { index, child in
       scenarios.forEach { scenario in
-        let childName = "\(name) \(index + 1)"
+        let childName = name(name, child, index)
         let newScenarios = child.scenarios(Scenarios([scenario.copy(childName)]))
         result.add(newScenarios)
       }
