@@ -20,7 +20,7 @@ final class AScenario: XCTestCase {
   }
 
   private func makeScenario(_ streams: fiume.Stream...) -> Scenario {
-    let result = Scenario("")
+    let result = Scenario("Scenario Name")
     streams.forEach {
       result.add($0)
     }
@@ -92,6 +92,7 @@ final class AScenario: XCTestCase {
 
     let result = sut.project(1...12)
 
+    XCTAssertEqual(result.name, "Scenario Name")
     XCTAssertEqual(result.netWorthByMonth.last!.amount, Money(1_200))
   }
 }

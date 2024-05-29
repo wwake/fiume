@@ -36,7 +36,7 @@ class Scenario: Identifiable {
       runningTotal += net(month)
       result.append(MonthlyNetWorth(month: month, amount: runningTotal))
     }
-    return ScenarioNetWorth(name: "Scenario \(UUID())", netWorthByMonth: result)
+    return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }
 
   func net(_ month: MonthNumber) -> Money {
