@@ -34,7 +34,7 @@ final class SomePossibilities: XCTestCase {
     let sut = makePossibilities()
     let scenarios = sut.scenarios()
     scenarios.forEach {
-      XCTAssertEqual($0.name, "")
+      XCTAssertEqual($0.name, "Scenario")
     }
   }
 
