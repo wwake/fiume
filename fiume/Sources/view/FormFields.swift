@@ -17,7 +17,6 @@ struct NumberField: View {
 struct RequiredTextField: View {
   var name: String
   @Binding var field: String
-  var message: String
 
   var body: some View {
     VStack {
@@ -27,7 +26,7 @@ struct RequiredTextField: View {
         Text(name)
       }
       if field.isEmpty {
-        Text(message)
+        Text("\(name) is required.")
           .foregroundStyle(Color.red)
       }
     }

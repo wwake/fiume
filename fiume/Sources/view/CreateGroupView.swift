@@ -13,7 +13,7 @@ struct CreateGroupView: View {
 
 	var body: some View {
 		Form {
-      RequiredTextField(name: "Name", field: $name, message: "Name is required.")
+      RequiredTextField(name: "Name", field: $name)
 
 			HStack {
 				Spacer()

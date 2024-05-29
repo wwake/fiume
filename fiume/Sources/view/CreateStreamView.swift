@@ -32,7 +32,7 @@ struct CreateStreamView: View {
 
   var body: some View {
     Form {
-      RequiredTextField(name: "Name", field: $name, message: "Name is required.")
+      RequiredTextField(name: "Name", field: $name)
 
       Picker(selection: $isIncome, label: Text("Type:")) {
         Text("Income").tag(true)
