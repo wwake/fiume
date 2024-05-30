@@ -26,7 +26,12 @@ struct FamilyView: View {
     List {
       Section(header: header) {
         ForEach(family.people) { person in
-          Text(person.name)
+          HStack {
+            Text(person.name)
+            Text("  b. \(person.birth == nil ? "?" : "\(person.birth!)")")
+
+            Text("  d. \(person.death == nil ? "?" : "\(person.death!)")")
+          }
         }
       }
     }
@@ -34,5 +39,10 @@ struct FamilyView: View {
 }
 
 #Preview {
-  FamilyView(family: Family())
+  let person1 = Person(name: "Bob", birth: MonthYear(month: 2, year: 1970), death: nil)
+  let person2 = Person(name: "Chris", birth: MonthYear(month: 11, year: 1980), death: MonthYear(month: 3, year: 2025))
+  let family = Family()
+  family.add(person1)
+  family.add(person2)
+  return FamilyView(family: family)
 }
