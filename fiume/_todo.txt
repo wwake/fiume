@@ -1,6 +1,7 @@
 
 * Define a MonthYear picker
-* Define a People creator
+* Make it allow null ("known"?)
+* Define a Person creator
 * Add people
 * Allow dates to depend on birth/death day
 * Manage by month/year

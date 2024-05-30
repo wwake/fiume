@@ -1,8 +1,26 @@
 import SwiftUI
 
+struct HalfSized: ViewModifier {
+  var size: CGSize
+
+  func body(content: Content) -> some View {
+    content
+      .pickerStyle(WheelPickerStyle())
+      .frame(width: size.width / 2, height: size.height)
+      .clipped()
+  }
+}
+
+extension View {
+    func halfSize(_ size: CGSize) -> some View {
+      modifier(HalfSized(size: size))
+    }
+}
+
 struct MonthYearView: View {
   @Binding var monthYear: MonthYear?
 
+  @State private var isKnown = true
   @State private var monthNumber = 0
   @State private var yearNumber = 2000
 
@@ -13,29 +31,53 @@ struct MonthYearView: View {
     self._monthYear = monthYear
   }
 
-  var body: some View {
-    GeometryReader { geometry in
-      HStack {
-        Picker("Year", selection: self.$yearNumber) {
-          ForEach(years, id: \.self) { year in
-            Text(verbatim: "\(year)")
-              .tag(year)
-          }
-        }
-        .pickerStyle(WheelPickerStyle())
-        .frame(width: geometry.size.width / 2, height: geometry.size.height)
-        .clipped()
+  func updateValues() {
+    if isKnown {
+      monthYear = MonthYear(month: monthNumber, year: yearNumber)
+    } else {
+      monthYear = nil
+    }
+  }
 
-        Picker("Month", selection: self.$monthNumber) {
-          ForEach(0..<months.count, id: \.self) { monthIndex in
-            Text(verbatim: "\(months[monthIndex])")
-              .tag(monthIndex)
+  var body: some View {
+    HStack {
+      VStack {
+        Text("Known?")
+      Toggle("Known?", isOn: $isKnown)
+        .labelsHidden()
+      }
+      .padding(16)
+      .onChange(of: isKnown) {
+        updateValues()
+      }
+
+      GeometryReader { geometry in
+        HStack {
+          Picker("Year", selection: self.$yearNumber) {
+            ForEach(years, id: \.self) { year in
+              Text(verbatim: "\(year)")
+                .tag(year)
+            }
+          }
+          .halfSize(geometry.size)
+          .onChange(of: yearNumber) {
+            updateValues()
+          }
+
+          Picker("Month", selection: self.$monthNumber) {
+            ForEach(0..<months.count, id: \.self) { monthIndex in
+              Text(verbatim: "\(months[monthIndex])")
+                .tag(monthIndex)
+            }
+          }
+          .halfSize(geometry.size)
+          .onChange(of: monthNumber) {
+            updateValues()
           }
         }
-        .pickerStyle(WheelPickerStyle())
-        .frame(width: geometry.size.width / 2, height: geometry.size.height)
-        .clipped()
       }
+      .disabled(!isKnown)
+      .opacity(isKnown ? 1.0 : 0.25)
     }
   }
 }
