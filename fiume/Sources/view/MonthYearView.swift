@@ -20,15 +20,20 @@ extension View {
 struct MonthYearView: View {
   @Binding var monthYear: MonthYear?
 
-  @State private var isKnown = true
-  @State private var monthNumber = 0
-  @State private var yearNumber = 2000
+  @State private var isKnown: Bool
+  @State private var monthNumber: Int
+  @State private var yearNumber: Int
 
   private var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   private var years = 1920..<2101
 
   init(monthYear: Binding<MonthYear?>) {
     self._monthYear = monthYear
+    let wrapped = monthYear.wrappedValue
+    let alreadyKnown = wrapped != nil
+    isKnown = alreadyKnown
+    monthNumber = alreadyKnown ? wrapped!.month : 0
+    yearNumber = alreadyKnown ? wrapped!.year : 2000
   }
 
   func updateValues() {

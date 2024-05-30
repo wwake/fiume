@@ -1,6 +1,4 @@
 
-* Define a MonthYear picker
-* Make it allow null ("known"?)
 * Define a Person creator
 * Add people
 * Allow dates to depend on birth/death day
@@ -22,6 +20,10 @@ Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
 Persistence
+
+FI-24-13: 2024-05-30 - MonthYear Picker
+* Define a MonthYear picker
+* Make it allow null ("known"?)
 
 FI-24-12: 2024-05-29 - Named Scenarios
 * Demo SwiftTesting framework

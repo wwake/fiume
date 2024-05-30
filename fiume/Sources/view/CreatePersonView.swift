@@ -17,14 +17,24 @@ struct CreatePersonView: View {
     Form {
       RequiredTextField(name: "Name", field: $name)
 
-      MonthYearView(monthYear: $born)
+      LabeledContent {
+        MonthYearView(monthYear: $born)
+      } label: {
+        Text("Born")
+          .padding(.trailing, 50)
+      }
 
-      MonthYearView(monthYear: $died)
+      LabeledContent {
+        MonthYearView(monthYear: $died)
+      } label: {
+        Text("Died")
+          .padding(.trailing, 50)
+      }
 
       HStack {
         Spacer()
         Button("Create") {
-       //   plan.append(AndTree(name))
+          print("TBD")
           dismiss()
         }
         .disabled(!valid())
@@ -36,6 +46,5 @@ struct CreatePersonView: View {
 
 #Preview {
   let tree = AndTree("accounts")
-  tree.append(PlanLeaf(Stream("income", Money(100), first: .month(1), last: .unspecified)))
   return CreatePersonView(plan: tree)
 }
