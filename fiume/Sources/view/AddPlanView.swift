@@ -3,12 +3,12 @@ import SwiftUI
 enum AddType: String, CaseIterable, Identifiable {
   var id: Self { self }
 
-  case person, stream, group, scenarios
+  case stream, group, scenarios
 }
 
 struct AddPlanView: View {
   @Bindable var plan: PlanComposite
-  @State private var addType = AddType.person
+  @State private var addType = AddType.stream
 
   var body: some View {
     Text("Add to Plan")
@@ -23,9 +23,6 @@ struct AddPlanView: View {
     .pickerStyle(.segmented)
 
     switch addType {
-    case .person:
-      CreatePersonView(plan: plan)
-
     case .stream:
       CreateStreamView(plan: plan)
 

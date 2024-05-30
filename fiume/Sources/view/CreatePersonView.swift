@@ -4,13 +4,21 @@ struct CreatePersonView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  @Bindable var plan: PlanComposite
+  @Bindable var family: Family
+
   @State private var name = ""
   @State private var born: MonthYear?
   @State private var died: MonthYear?
 
+  func validDates() -> Bool {
+    born == nil
+      || died == nil
+      || born! <= died!
+  }
+
   func valid() -> Bool {
     !name.isEmpty
+    && validDates()
   }
 
   var body: some View {
@@ -31,10 +39,15 @@ struct CreatePersonView: View {
           .padding(.trailing, 50)
       }
 
+      Text("Date born must precede date died.")
+        .foregroundStyle(Color.red)
+        .opacity(validDates() ? 0.0 : 1.0)
+
       HStack {
         Spacer()
         Button("Create") {
-          print("TBD")
+          let person = Person(name: name, birth: born, death: died)
+          family.people.append(person)
           dismiss()
         }
         .disabled(!valid())
@@ -45,6 +58,6 @@ struct CreatePersonView: View {
 }
 
 #Preview {
-  let tree = AndTree("accounts")
-  return CreatePersonView(plan: tree)
+  let family = Family()
+  return CreatePersonView(family: family)
 }
