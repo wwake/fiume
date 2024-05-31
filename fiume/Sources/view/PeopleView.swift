@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FamilyView: View {
+struct PeopleView: View {
   @Bindable var family: Family
   @State var isShowingCreateView = false
 
@@ -8,7 +8,7 @@ struct FamilyView: View {
     HStack {
       Image(systemName: "person.2.fill")
         .accessibilityLabel(Text("Family"))
-      Text("Family")
+      Text("People")
       Spacer()
       Button {
         isShowingCreateView.toggle()
@@ -44,5 +44,5 @@ struct FamilyView: View {
   let family = Family()
   family.add(person1)
   family.add(person2)
-  return FamilyView(family: family)
+  return PeopleView(family: family)
 }

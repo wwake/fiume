@@ -1,9 +1,9 @@
+
 * Allow dates to depend on birth/death day
 * Manage by month/year
 
 * Make amount an overrideable value on stream
 * Validate month is valid; end-date >= start-date
-
 
 * Add multiple sections
 

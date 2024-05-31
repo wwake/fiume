@@ -22,7 +22,7 @@ struct ContentView: View {
       .padding()
 
       HStack {
-        Button("Family") {
+        Button("People") {
           isShowingFamily.toggle()
         }
         .padding(12)
@@ -37,7 +37,7 @@ struct ContentView: View {
       PlanListView(plan: possibilities)
     }
     .sheet(isPresented: $isShowingFamily) {
-      FamilyView(family: family)
+      PeopleView(family: family)
     }
   }
 }
