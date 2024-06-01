@@ -4,7 +4,7 @@ struct CreatePersonView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  @Bindable var family: Family
+  @Bindable var people: People
 
   @State private var name = ""
   @State private var born: MonthYear?
@@ -47,7 +47,7 @@ struct CreatePersonView: View {
         Spacer()
         Button("Create") {
           let person = Person(name: name, birth: born, death: died)
-          family.people.append(person)
+          people.people.append(person)
           dismiss()
         }
         .disabled(!valid())
@@ -58,6 +58,6 @@ struct CreatePersonView: View {
 }
 
 #Preview {
-  let family = Family()
-  return CreatePersonView(family: family)
+  let people = People()
+  return CreatePersonView(people: people)
 }

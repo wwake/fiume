@@ -2,7 +2,7 @@ import SwiftUI
 
 @main
 struct FiumeApp: App {
-  @State var family = Family()
+  @State var people = People()
 	@State var plan = Possibilities()
 	var spiking = false
 
@@ -11,7 +11,7 @@ struct FiumeApp: App {
 			if spiking {
 				SpikeView()
 			} else {
-        ContentView(family: family, possibilities: plan)
+        ContentView(people: people, possibilities: plan)
 			}
 		}
 	}

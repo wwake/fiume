@@ -1,7 +1,7 @@
 import SwiftUI
 
 @Observable
-class Family {
+class People {
   var people = [Person]()
 
   func add(_ person: Person) {

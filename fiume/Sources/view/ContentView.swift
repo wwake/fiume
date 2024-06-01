@@ -2,10 +2,10 @@ import Charts
 import SwiftUI
 
 struct ContentView: View {
-  @Bindable var family: Family
+  @Bindable var people: People
   @Bindable var possibilities: Possibilities
 
-  @State var isShowingFamily = false
+  @State var isShowingPeople = false
 
   var body: some View {
     NavigationStack {
@@ -23,7 +23,7 @@ struct ContentView: View {
 
       HStack {
         Button("People") {
-          isShowingFamily.toggle()
+          isShowingPeople.toggle()
         }
         .padding(12)
         .background(Color("ThemeDark"))
@@ -36,16 +36,16 @@ struct ContentView: View {
       }
       PlanListView(plan: possibilities)
     }
-    .sheet(isPresented: $isShowingFamily) {
-      PeopleView(family: family)
+    .sheet(isPresented: $isShowingPeople) {
+      PeopleView(people: people)
     }
   }
 }
 
 #Preview {
-  let family = Family()
+  let people = People()
   let possibilities = Possibilities()
   possibilities.add(Stream("Salary", 1_000, first: .month(1), last: .month(60)))
   possibilities.add(Stream("Expenses", -800, first: .month(1), last: .unspecified))
-  return ContentView(family: family, possibilities: possibilities)
+  return ContentView(people: people, possibilities: possibilities)
 }
