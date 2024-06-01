@@ -75,6 +75,7 @@
 		914FEFB42BF2AD09003D858E /* FormFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFields.swift; sourceTree = "<group>"; };
 		914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStreamView.swift; sourceTree = "<group>"; };
 		914FEFB82BF2AF08003D858E /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		9152FC512C0AB46A000D5001 /* fiume-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "fiume-Info.plist"; sourceTree = "<group>"; };
 		919CED482BF5492800ACCE2E /* PlanTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTree.swift; sourceTree = "<group>"; };
 		919CED4A2BF5499F00ACCE2E /* APlanTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APlanTree.swift; sourceTree = "<group>"; };
 		919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTreeView.swift; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 				914FEFB02BF29427003D858E /* fiume.key */,
 				91A8C2982BFD7C5400DF5AC0 /* fiume.xctestplan */,
 				91A8C2962BFD773100DF5AC0 /* .swiftlint.yml */,
+				9152FC512C0AB46A000D5001 /* fiume-Info.plist */,
 				91DA64FB2BF291F6004ADB9B /* Sources */,
 				91D867872BF3E100001B4A3D /* spike */,
 				91DA650C2BF291F8004ADB9B /* Tests */,
@@ -535,11 +537,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				DEVELOPMENT_TEAM = 7B9VB3YTHK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "fiume-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FiumePlanner;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -550,12 +553,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiume;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -565,11 +570,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				DEVELOPMENT_TEAM = 7B9VB3YTHK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "fiume-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = FiumePlanner;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -580,12 +586,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xp123.fiume;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

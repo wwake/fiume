@@ -21,7 +21,7 @@ Persistence
 FI-24-14: 2024-06-03 - People
 * [offline] Changed stream color to white when amount = 0
 * [offline] Changed "Family" to "People"
-
+* [offline] Added colors for dark mode
 
 FI-24-13: 2024-05-30 - MonthYear Picker
 * Define a MonthYear picker
