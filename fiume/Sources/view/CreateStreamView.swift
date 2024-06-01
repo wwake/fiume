@@ -30,6 +30,11 @@ struct CreateStreamView: View {
     return true
   }
 
+  fileprivate var backgroundColor: Color {
+    if amount == nil || amount! <= 0 { return Color("Neutral") }
+    return isIncome ? Color("Income") : Color("Expense")
+  }
+
   var body: some View {
     Form {
       RequiredTextField(name: "Name", field: $name)
@@ -42,9 +47,9 @@ struct CreateStreamView: View {
       VStack {
         NumberField(label: "Amount $", value: $amount)
           .padding(2)
-          .background(isIncome ? Color("Income") : Color("Expense"))
+          .background(backgroundColor)
         if amount != nil && amount! < 0 {
-          Text("Amount may not be negative; choose correct Type instead.")
+          Text("Amount may not be negative; choose Income or Expense instead.")
             .foregroundStyle(Color.red)
         }
       }
