@@ -19,7 +19,7 @@ Should we segregate streams by income/expense? (two columns)
 Persistence
 
 FI-24-14: 2024-06-03 - People
-* [offline] Changed stream color to white when amount = 0
+* [offline] Changed stream color to transparent when amount = 0
 * [offline] Changed "Family" to "People"
 * [offline] Added colors for dark mode
 

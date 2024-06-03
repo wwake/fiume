@@ -23,6 +23,10 @@ struct CreatePersonView: View {
 
   var body: some View {
     Form {
+        Text("Add Person")
+          .font(.title)
+      .padding([.bottom], 4)
+
       RequiredTextField(name: "Name", field: $name)
 
       LabeledContent {
