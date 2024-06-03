@@ -37,10 +37,6 @@ final class APlanTree: XCTestCase {
 
     XCTAssertEqual(sut.name, "Income")
     XCTAssertNil(sut.children)
-
-    XCTAssertEqual(sut.net(2), Money(0))
-    XCTAssertEqual(sut.net(3), Money(100))
-    XCTAssertEqual(sut.net(13), Money(0))
   }
 
   func test_makes_a_composite() {

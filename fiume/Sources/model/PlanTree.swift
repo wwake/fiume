@@ -22,10 +22,6 @@ class PlanLeaf: PlanTree, Identifiable {
 
 	var children: [PlanTree]? { nil }
 
-	func net(_ month: Int) -> Money {
-		stream.amount(month: month)
-	}
-
 	func append(_: PlanTree) { }
 
 	func scenarios(_ original: Scenarios) -> Scenarios {
