@@ -27,7 +27,7 @@ struct Stream: Identifiable {
     monthlyAmount >= 0
   }
 
-  func amount(month: MonthNumber) -> Money {
+  func amount(for: MonthYear, month: MonthNumber) -> Money {
     if case let .month(streamFirstMonth) = first, month < streamFirstMonth {
       return Money(0)
     }
