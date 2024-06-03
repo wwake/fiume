@@ -3,19 +3,6 @@ import SwiftUI
 struct StreamView: View {
 	var stream: Stream
 
-  func formatMonth(_ dateSpec: DateSpecifier) -> String {
-    switch dateSpec {
-    case .unchanged:
-      return "?"
-
-    case .month(let month):
-      return "\(month)"
-
-    case .age:
-      return "AGE TBD"
-    }
-  }
-
 	var body: some View {
     HStack {
       if stream.isNonNegative {
@@ -27,7 +14,7 @@ struct StreamView: View {
       }
 
       Text("\(stream.name)   $\(stream.monthlyAmount)/mo" +
-           "   Months: \(formatMonth(stream.first))-\(formatMonth(stream.last))")
+           "   Months: \(stream.first)-\(stream.last)")
       Spacer()
     }
     .padding(4)

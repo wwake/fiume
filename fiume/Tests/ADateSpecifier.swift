@@ -35,4 +35,11 @@ struct ADateSpecifier {
     let sut = value1.update(using: value2)
     #expect(sut == DateSpecifier.age("Tina", 70))
   }
+
+  @Test
+  func description() {
+    #expect(DateSpecifier.unchanged.description == "(unchanged)")
+    #expect(DateSpecifier.month(3).description == "3")
+    #expect(DateSpecifier.age("Bob", 72).description == "Bob@72")
+  }
 }

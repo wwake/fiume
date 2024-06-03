@@ -1,7 +1,8 @@
-* Age - equatable, update
+* Test DateSpecifier.description
 * Age - Stream
 * Age - StreamView
 * Manage by month/year
+* Make StreamView use Date picker
 * Allow dates to depend on age or death day
 
 * Make amount an overrideable value on stream
@@ -25,7 +26,9 @@ FI-24-14: 2024-06-03 - People
 * [offline] Added colors for dark mode
 * [offline] Changed stream color to transparent when amount = 0
 * Introduced update(using:) to DateSpecifier to simplify Stream
-* Changed "unspecified" to "unchanged"
+* Add start date to Possibilities
+* Changed "DateDescription.unspecified" to "unchanged"
+* Add Age to DateSpecifier - equatable, update
 
 FI-24-13: 2024-05-30 - MonthYear Picker
 * Define a MonthYear picker
