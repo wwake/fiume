@@ -33,7 +33,7 @@ struct Stream: Identifiable {
     }
 
     switch last {
-    case .unspecified:
+    case .unchanged:
       return self.monthlyAmount
 
     case .month(let lastMonth):

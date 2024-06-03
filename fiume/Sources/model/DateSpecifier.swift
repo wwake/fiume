@@ -1,10 +1,10 @@
 enum DateSpecifier: Equatable {
-  case unspecified
+  case unchanged
   case month(Int)
 
   func update(using: DateSpecifier) -> DateSpecifier {
     switch using {
-    case .unspecified:
+    case .unchanged:
       return self
 
     case .month:

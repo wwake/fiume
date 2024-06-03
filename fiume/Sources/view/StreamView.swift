@@ -5,7 +5,7 @@ struct StreamView: View {
 
   func formatMonth(_ dateSpec: DateSpecifier) -> String {
     switch dateSpec {
-    case .unspecified:
+    case .unchanged:
       return "?"
 
     case .month(let month):

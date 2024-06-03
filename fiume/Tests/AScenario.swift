@@ -14,8 +14,8 @@ final class AScenario: XCTestCase {
     first: MonthNumber? = 1,
     last: MonthNumber? = nil
   ) -> fiume.Stream {
-    let firstDate = first == nil ? DateSpecifier.unspecified : .month(first!)
-    let lastDate = last == nil ? DateSpecifier.unspecified : .month(last!)
+    let firstDate = first == nil ? DateSpecifier.unchanged : .month(first!)
+    let lastDate = last == nil ? DateSpecifier.unchanged : .month(last!)
     return Stream(name, Money(amount), first: firstDate, last: lastDate)
   }
 
@@ -58,7 +58,7 @@ final class AScenario: XCTestCase {
     XCTAssertEqual(sut.net(13), Money(500))
   }
 
-  func test_scenario_for_merged_streams_with_last_date_unspecified() {
+  func test_scenario_for_merged_streams_with_last_date_unchanged() {
     let sut = makeScenario(
       makeStream("Income1", 1_000, first: 1, last: 12),
       makeStream("Income1", 500, first: 10, last: nil)
@@ -70,7 +70,7 @@ final class AScenario: XCTestCase {
     XCTAssertEqual(sut.net(13), Money(0))
   }
 
-  func test_scenario_for_merged_streams_with_first_date_unspecified() {
+  func test_scenario_for_merged_streams_with_first_date_unchanged() {
     let sut = makeScenario(
       makeStream("Income1", 1_000, first: 2, last: 12),
       makeStream("Income1", 500, first: nil, last: 25)

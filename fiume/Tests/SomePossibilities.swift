@@ -4,7 +4,7 @@ import XCTest
 
 final class SomePossibilities: XCTestCase {
   private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
-    Stream(name, Money(amount), first: .month(1), last: .unspecified)
+    Stream(name, Money(amount), first: .month(1), last: .unchanged)
   }
 
   private func makePossibilities() -> Possibilities {

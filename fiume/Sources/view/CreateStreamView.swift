@@ -11,8 +11,8 @@ struct CreateStreamView: View {
   @State private var name = ""
 
   @State private var amount: Int?
-  @State private var startMonth = DateSpecifier.unspecified
-  @State private var endMonth = DateSpecifier.unspecified
+  @State private var startMonth = DateSpecifier.unchanged
+  @State private var endMonth = DateSpecifier.unchanged
 
   fileprivate func createdAmount() -> Int {
     guard let amount = amount else { return 0 }

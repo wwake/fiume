@@ -10,7 +10,7 @@ struct DateSpecifierView: View {
     NumberField(label: label, value: $month)
       .onChange(of: month) { _, new in
         if new == nil {
-          dateSpec = DateSpecifier.unspecified
+          dateSpec = DateSpecifier.unchanged
         } else {
           dateSpec = DateSpecifier.month(new!)
         }
