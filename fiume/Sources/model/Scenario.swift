@@ -24,7 +24,7 @@ class Scenario: Identifiable {
       items[stream.name] = stream
     } else {
       let original = items[stream.name]!
-      let revised = original.merge(stream)
+      let revised = original.update(overriddenBy: stream)
       items[stream.name] = revised
     }
   }

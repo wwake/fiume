@@ -1,5 +1,5 @@
 
-* Allow dates to depend on birth/death day
+* Allow dates to depend on age or death day
 * Manage by month/year
 
 * Make amount an overrideable value on stream
@@ -19,9 +19,9 @@ Should we segregate streams by income/expense? (two columns)
 Persistence
 
 FI-24-14: 2024-06-03 - People
-* [offline] Changed stream color to transparent when amount = 0
 * [offline] Changed "Family" to "People"
 * [offline] Added colors for dark mode
+* [offline] Changed stream color to transparent when amount = 0
 
 FI-24-13: 2024-05-30 - MonthYear Picker
 * Define a MonthYear picker

@@ -33,7 +33,7 @@ final class AStream: XCTestCase {
   func test_merge_when_values_change() {
     let stream1 = makeStream(500, first: 1, last: 10)
     let stream2 = makeStream(1_000, first: 5, last: 20)
-    let sut = stream1.merge(stream2)
+    let sut = stream1.update(overriddenBy: stream2)
     XCTAssertEqual(sut, makeStream(1_000, first: 5, last: 20))
   }
 
@@ -41,7 +41,7 @@ final class AStream: XCTestCase {
     let stream1 = makeStream(name: "Salary", 500, first: 1, last: 12)
     let stream2 = makeStream(name: "Salary", 500, first: 5, last: nil)
 
-    let sut = stream1.merge(stream2)
+    let sut = stream1.update(overriddenBy: stream2)
 
     XCTAssertEqual(sut, makeStream(name: "Salary", 500, first: 5, last: 12))
   }
@@ -49,7 +49,7 @@ final class AStream: XCTestCase {
   func test_dontMergeWhenNamesDiffer() {
     let stream1 = makeStream(name: "Salary", 500, first: 1, last: 12)
     let stream2 = makeStream(name: "Different", 1_500, first: 5, last: 24)
-    let merged = stream1.merge(stream2)
+    let merged = stream1.update(overriddenBy: stream2)
     XCTAssertEqual(merged, makeStream(name: "Salary", 500, first: 1, last: 12))
   }
 

@@ -45,27 +45,12 @@ struct Stream: Identifiable {
     }
   }
 
-  func merge(_ newer: Stream) -> Stream {
-    if self.name != newer.name { return self }
+  func update(overriddenBy stream: Stream) -> Stream {
+    if self.name != stream.name { return self }
 
-    let newFirst: DateSpecifier
-    switch newer.first {
-    case .unspecified:
-      newFirst = self.first
+    let newFirst = self.first.update(using: stream.first)
+    let newLast = self.last.update(using: stream.last)
 
-    case .month:
-      newFirst = newer.first
-    }
-
-    let newLast: DateSpecifier
-    switch newer.last {
-    case .unspecified:
-      newLast = self.last
-
-    case .month:
-      newLast = newer.last
-    }
-
-    return Stream(newer.name, newer.monthlyAmount, first: newFirst, last: newLast)
+    return Stream(stream.name, stream.monthlyAmount, first: newFirst, last: newLast)
   }
 }
