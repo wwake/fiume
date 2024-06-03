@@ -1,6 +1,8 @@
+import Foundation
+
 struct MonthYear {
-  let month: Int
-  let year: Int
+  let month: Int  // 0-based
+  let year: Int   // 1-based
 
   let months = [
     "January", "February", "March",
@@ -8,6 +10,17 @@ struct MonthYear {
     "July", "August", "September",
     "October", "November", "December",
   ]
+
+  init(month: Int, year: Int) {
+    self.month = month
+    self.year = year
+  }
+
+  init(date: Date) {
+    let calendar = Calendar.current
+    self.year = calendar.component(.year, from: date)
+    self.month = calendar.component(.month, from: date) - 1
+  }
 }
 
 extension MonthYear: Comparable {

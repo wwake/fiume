@@ -1,4 +1,5 @@
 @testable import fiume
+import Foundation
 import Testing
 
 struct AMonthYear {
@@ -24,5 +25,17 @@ struct AMonthYear {
     let b = MonthYear(month: 5, year: 2020)
     #expect((a) == a)
     #expect(a != b)
+  }
+
+  @Test
+  func initializes_from_date() {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM"
+    dateFormatter.locale = Locale(identifier: "en_US")
+
+    let date = dateFormatter.date(from: "2016-10")
+    let sut = MonthYear(date: date!)
+    #expect(sut.year == 2016)
+    #expect(sut.month == 9)
   }
 }
