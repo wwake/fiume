@@ -33,10 +33,10 @@ class Possibilities {
     plan.append(tree)
   }
 
-  func project(_ months: Int) -> PossibilitiesNetWorth {
+  func project(_ maxMonth: MonthNumber) -> PossibilitiesNetWorth {
     scenarios()
       .map {
-        $0.project(1...months)
+        $0.project(1...maxMonth)
       }
 	}
 
