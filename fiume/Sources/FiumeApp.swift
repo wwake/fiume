@@ -3,7 +3,7 @@ import SwiftUI
 @main
 struct FiumeApp: App {
   @State var people = People()
-	@State var plan = Possibilities()
+  @State var plan = Possibilities(startDate: MonthYear(date: Date()))
 	var spiking = false
 
 	var body: some Scene {

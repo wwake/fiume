@@ -10,6 +10,9 @@ struct StreamView: View {
 
     case .month(let month):
       return "\(month)"
+
+    case .age:
+      return "AGE TBD"
     }
   }
 

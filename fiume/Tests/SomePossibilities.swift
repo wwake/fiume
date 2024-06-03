@@ -8,11 +8,11 @@ final class SomePossibilities: XCTestCase {
   }
 
   private func makePossibilities() -> Possibilities {
-    Possibilities()
+    Possibilities(startDate: MonthYear(date: Date()))
   }
 
 	func test_salary_builds_net_worth() throws {
-		let sut = Possibilities()
+		let sut = makePossibilities()
 		sut.add(makeStream("Salary", Money(1_000)))
 
 		let data = sut.project(12)
@@ -21,7 +21,7 @@ final class SomePossibilities: XCTestCase {
 	}
 
 	func test_salary_minus_expenses_creates_net_worth() throws {
-		let sut = Possibilities()
+		let sut = makePossibilities()
 		sut.add(makeStream("Salary", Money(1_000)))
 		sut.add(makeStream("Expenses", Money(-900)))
 
@@ -39,7 +39,7 @@ final class SomePossibilities: XCTestCase {
   }
 
   func test_scenarios_with_only_groups() {
-		let sut = Possibilities()
+		let sut = makePossibilities()
 		sut.add(makeStream("Salary", Money(1_000)))
 		sut.add(makeStream("Expenses", Money(-900)))
 
@@ -50,7 +50,7 @@ final class SomePossibilities: XCTestCase {
 	}
 
   func test_adds_scenarios() {
-    let sut = Possibilities()
+    let sut = makePossibilities()
     let orTree = OrTree("jobs")
     orTree.append(PlanLeaf(makeStream("Salary1", Money(1_000))))
     orTree.append(PlanLeaf(makeStream("Salary2", Money(2_000))))
@@ -64,7 +64,7 @@ final class SomePossibilities: XCTestCase {
   }
 
   func test_computes_net_worth_for_multiple_scenarios() {
-    let sut = Possibilities()
+    let sut = makePossibilities()
     let orTree = OrTree("jobs")
     orTree.append(PlanLeaf(makeStream("Salary1", Money(1_000))))
     orTree.append(PlanLeaf(makeStream("Salary2", Money(2_000))))

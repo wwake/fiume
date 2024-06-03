@@ -9,6 +9,7 @@ struct ADateSpecifier {
     #expect(DateSpecifier.unchanged != DateSpecifier.month(3))
     #expect((DateSpecifier.month(3)) == DateSpecifier.month(3))
     #expect(DateSpecifier.month(3) != DateSpecifier.month(4))
+    #expect(DateSpecifier.month(3) != DateSpecifier.age("Bob", 67))
   }
 
   @Test
@@ -25,5 +26,13 @@ struct ADateSpecifier {
     let value2 = DateSpecifier.unchanged
     let sut = value1.update(using: value2)
     #expect(sut == DateSpecifier.month(10))
+  }
+
+  @Test
+  func update_age_changes() {
+    let value1 = DateSpecifier.month(10)
+    let value2 = DateSpecifier.age("Tina", 70)
+    let sut = value1.update(using: value2)
+    #expect(sut == DateSpecifier.age("Tina", 70))
   }
 }

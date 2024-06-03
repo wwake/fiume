@@ -1,3 +1,6 @@
+* Age - equatable, update
+* Age - Stream
+* Age - StreamView
 * Manage by month/year
 * Allow dates to depend on age or death day
 

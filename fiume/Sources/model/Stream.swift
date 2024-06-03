@@ -42,6 +42,9 @@ struct Stream: Identifiable {
       } else {
         return self.monthlyAmount
       }
+
+    case .age:
+      return Money(-1)
     }
   }
 

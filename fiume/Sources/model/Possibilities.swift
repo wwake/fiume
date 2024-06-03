@@ -16,13 +16,12 @@ typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 
 @Observable
 class Possibilities {
-	var plan = AndTree("My Finances")
-	var sections = [PlanTree]()
- // let startDate: MonthYear
+  let startDate: MonthYear
+  var plan = AndTree("My Finances")
+  var sections = [PlanTree]()
 
-  init() {
-//	init(startDate: MonthYear) {
-//    self.startDate = startDate
+	init(startDate: MonthYear) {
+    self.startDate = startDate
 		sections.append(plan)
 	}
 

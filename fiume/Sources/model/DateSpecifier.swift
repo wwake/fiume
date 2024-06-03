@@ -1,13 +1,14 @@
 enum DateSpecifier: Equatable {
   case unchanged
-  case month(Int)
+  case month(MonthNumber)
+  case age(String, Int)
 
   func update(using: DateSpecifier) -> DateSpecifier {
     switch using {
     case .unchanged:
       return self
 
-    case .month:
+    case .month, .age:
       return using
     }
   }

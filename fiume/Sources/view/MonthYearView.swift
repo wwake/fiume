@@ -12,9 +12,9 @@ struct HalfSized: ViewModifier {
 }
 
 extension View {
-    func halfSize(_ size: CGSize) -> some View {
-      modifier(HalfSized(size: size))
-    }
+  func halfSize(_ size: CGSize) -> some View {
+    modifier(HalfSized(size: size))
+  }
 }
 
 struct MonthYearView: View {
@@ -48,8 +48,8 @@ struct MonthYearView: View {
     HStack {
       VStack {
         Text("Known?")
-      Toggle("Known?", isOn: $isKnown)
-        .labelsHidden()
+        Toggle("Known?", isOn: $isKnown)
+          .labelsHidden()
       }
       .padding(16)
       .onChange(of: isKnown) {
@@ -58,17 +58,6 @@ struct MonthYearView: View {
 
       GeometryReader { geometry in
         HStack {
-          Picker("Year", selection: self.$yearNumber) {
-            ForEach(years, id: \.self) { year in
-              Text(verbatim: "\(year)")
-                .tag(year)
-            }
-          }
-          .halfSize(geometry.size)
-          .onChange(of: yearNumber) {
-            updateValues()
-          }
-
           Picker("Month", selection: self.$monthNumber) {
             ForEach(0..<months.count, id: \.self) { monthIndex in
               Text(verbatim: "\(months[monthIndex])")
@@ -77,6 +66,17 @@ struct MonthYearView: View {
           }
           .halfSize(geometry.size)
           .onChange(of: monthNumber) {
+            updateValues()
+          }
+
+          Picker("Year", selection: self.$yearNumber) {
+            ForEach(years, id: \.self) { year in
+              Text(verbatim: "\(year)")
+                .tag(year)
+            }
+          }
+          .halfSize(geometry.size)
+          .onChange(of: yearNumber) {
             updateValues()
           }
         }
