@@ -1,7 +1,7 @@
 enum DateSpecifier: Equatable {
   case unchanged
   case month(MonthNumber)
-  case age(String, Int)
+  case age(Person, Int)
 
   func update(using: DateSpecifier) -> DateSpecifier {
     switch using {
@@ -23,8 +23,8 @@ extension DateSpecifier: CustomStringConvertible {
     case .month(let month):
       return "\(month)"
 
-    case let .age(name, age):
-      return "\(name)@\(age)"
+    case let .age(person, age):
+      return "\(person.name)@\(age)"
     }
   }
 }

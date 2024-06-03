@@ -1,6 +1,6 @@
 import Foundation
 
-struct MonthYear {
+struct MonthYear: Equatable {
   let month: Int  // 0-based
   let year: Int   // 1-based
 
