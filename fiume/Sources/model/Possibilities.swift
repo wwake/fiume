@@ -16,12 +16,12 @@ typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 
 @Observable
 class Possibilities {
-  let startDate: MonthYear
+  let startMonth: MonthYear
   var plan = AndTree("My Finances")
   var sections = [PlanTree]()
 
 	init(startDate: MonthYear) {
-    self.startDate = startDate
+    self.startMonth = startDate
 		sections.append(plan)
 	}
 
@@ -33,10 +33,13 @@ class Possibilities {
     plan.append(tree)
   }
 
-  func project(_ maxMonth: MonthNumber) -> PossibilitiesNetWorth {
+  func project(_ numberOfMonths: Int) -> PossibilitiesNetWorth {
     scenarios()
       .map {
-        $0.project(1...maxMonth)
+        $0.project(
+          of: startMonth...(startMonth.advanced(by: numberOfMonths - 1)),
+          1...numberOfMonths
+        )
       }
 	}
 

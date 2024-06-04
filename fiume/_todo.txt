@@ -1,4 +1,4 @@
-* Make MonthYear be Strideable
+* Make Possibilities pass down MonthYear
 * Split out Month as a separate enum?
 * Scenario.project() needs range over MonthYear
 * Scenario.net() needs the real month-year
@@ -23,6 +23,9 @@ Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
 Persistence
+
+FI-24-15: 2024-06-04 - MonthNumber => MonthYear
+* Make MonthYear be Strideable
 
 FI-24-14: 2024-06-03 - People
 * [offline] Changed "Family" to "People"
