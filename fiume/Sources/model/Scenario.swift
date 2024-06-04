@@ -29,10 +29,11 @@ class Scenario: Identifiable {
     }
   }
 
-  func project(of range: ClosedRange<MonthYear> = MonthYear(.jan, 2000)...MonthYear(.jan, 2000), _ months: ClosedRange<MonthNumber>) -> ScenarioNetWorth {
+  func project(of range: ClosedRange<MonthYear>, _ months: ClosedRange<MonthNumber>) -> ScenarioNetWorth {
     var result = [MonthlyNetWorth]()
     var runningTotal = Money(0)
-    months.forEach { month in
+    range.forEach { monthYear in
+      let month = range.lowerBound.distance(to: monthYear) + 1
       runningTotal += net(month, of: range.lowerBound)
       result.append(MonthlyNetWorth(month: month, amount: runningTotal))
     }
