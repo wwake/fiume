@@ -13,6 +13,27 @@ final class AStream: XCTestCase {
     return Stream(name, Money(amount), first: firstDateSpec, last: lastDateSpec)
   }
 
+  private func makeStream(
+    name: String = "Sample",
+    _ amount: Int,
+    first: DateSpecifier,
+    last: DateSpecifier
+  ) -> fiume.Stream {
+    Stream(name, Money(amount), first: first, last: last)
+  }
+
+  func test_determines_amount_outside_month_year_date_range() throws {
+    let sut = makeStream(100, first: DateSpecifier.month(MonthYear(.jan, 2020)), last: .month(MonthYear(.oct, 2020)))
+    XCTAssertEqual(sut.amount(of: MonthYear(.dec, 2019), month: 0), Money(0))
+    XCTAssertEqual(sut.amount(of: MonthYear(.nov, 2020), month: 11), Money(0))
+  }
+
+  func test_determines_amount_inside_month_year_date_range() throws {
+    let sut = makeStream(100, first: DateSpecifier.month(MonthYear(.jan, 2020)), last: .month(MonthYear(.oct, 2020)))
+    XCTAssertEqual(sut.amount(of: MonthYear(.jan, 2020), month: 1), Money(100))
+    XCTAssertEqual(sut.amount(of: MonthYear(.oct, 2020), month: 10), Money(100))
+  }
+
   func test_determines_amount_inside_date_range() throws {
     let sut = makeStream(100, first: 1, last: 10)
     XCTAssertEqual(sut.amount(of: MonthYear(.feb, 2020), month: 1), Money(100))

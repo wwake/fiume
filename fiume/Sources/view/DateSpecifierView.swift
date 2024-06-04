@@ -5,14 +5,16 @@ struct DateSpecifierView: View {
   @Binding var dateSpec: DateSpecifier
 
   @State var month: Int?
+  @State var monthYear: MonthYear?
 
   var body: some View {
-    NumberField(label: label, value: $month)
-      .onChange(of: month) { _, new in
+    Text(label)
+    MonthYearView(monthYear: $monthYear)
+      .onChange(of: monthYear) { _, new in
         if new == nil {
           dateSpec = DateSpecifier.unchanged
         } else {
-          dateSpec = DateSpecifier.month_(new!)
+          dateSpec = DateSpecifier.month(new!)
         }
       }
   }
