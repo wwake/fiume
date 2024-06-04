@@ -40,7 +40,7 @@ class Scenario: Identifiable {
     return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }
 
-  func net(_ month: MonthNumber, of cursor: MonthYear = MonthYear(.jan, 1)) -> Money {
+  func net(_ month: MonthNumber, of cursor: MonthYear) -> Money {
     items.values.reduce(Money(0)) { soFar, stream in
       soFar + stream.amount(of: cursor, month: month)
     }
