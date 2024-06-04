@@ -46,7 +46,7 @@ final class SomePossibilities: XCTestCase {
     let result = Array(sut.scenarios())
 
 		XCTAssertEqual(result.count, 1)
-		XCTAssertEqual(result.first!.net(1), Money(100))
+		XCTAssertEqual(result.first!.net(1, of: MonthYear(.jan, 2024)), Money(100))
 	}
 
   func test_adds_scenarios() {

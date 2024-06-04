@@ -8,6 +8,8 @@ extension fiume.Stream: Equatable {
 }
 
 final class AScenario: XCTestCase {
+  // Assume month 1 = Jan 2024
+
   private func makeStream(
     _ name: String,
     _ amount: Int,
@@ -34,16 +36,16 @@ final class AScenario: XCTestCase {
     let stream2 = makeStream("Income2", 2_000, first: 1, last: 12)
     result.add(stream2)
 
-    XCTAssertEqual(sut.net(1), Money(1_000))
-    XCTAssertEqual(result.net(1), Money(3_000))
+    XCTAssertEqual(sut.net(1, of: MonthYear(.jan, 2024)), Money(1_000))
+    XCTAssertEqual(result.net(1, of: MonthYear(.jan, 2024)), Money(3_000))
     XCTAssertEqual(result.name, "altered name")
   }
 
   func test_built_for_one_stream() {
     let sut = makeScenario(makeStream("Income1", 1_000, first: 1, last: 12))
 
-    XCTAssertEqual(sut.net(12), Money(1_000))
-    XCTAssertEqual(sut.net(13), Money(0))
+    XCTAssertEqual(sut.net(12, of: MonthYear(.dec, 2024)), Money(1_000))
+    XCTAssertEqual(sut.net(13, of: MonthYear(.jan, 2025)), Money(0))
   }
 
   func test_scenario_for_distinct_streams() {
@@ -52,10 +54,10 @@ final class AScenario: XCTestCase {
       makeStream("Income2", 500, first: 10, last: nil)
     )
 
-    XCTAssertEqual(sut.net(1), Money(1_000))
-    XCTAssertEqual(sut.net(10), Money(1_500))
-    XCTAssertEqual(sut.net(12), Money(1_500))
-    XCTAssertEqual(sut.net(13), Money(500))
+    XCTAssertEqual(sut.net(1, of: MonthYear(.jan, 2024)), Money(1_000))
+    XCTAssertEqual(sut.net(10, of: MonthYear(.oct, 2024)), Money(1_500))
+    XCTAssertEqual(sut.net(12, of: MonthYear(.dec, 2024)), Money(1_500))
+    XCTAssertEqual(sut.net(13, of: MonthYear(.jan, 2025)), Money(500))
   }
 
   func test_scenario_for_merged_streams_with_last_date_unchanged() {
@@ -64,10 +66,10 @@ final class AScenario: XCTestCase {
       makeStream("Income1", 500, first: 10, last: nil)
     )
 
-    XCTAssertEqual(sut.net(1), Money(0))
-    XCTAssertEqual(sut.net(10), Money(500))
-    XCTAssertEqual(sut.net(12), Money(500))
-    XCTAssertEqual(sut.net(13), Money(0))
+    XCTAssertEqual(sut.net(1, of: MonthYear(.jan, 2024)), Money(0))
+    XCTAssertEqual(sut.net(10, of: MonthYear(.oct, 2024)), Money(500))
+    XCTAssertEqual(sut.net(12, of: MonthYear(.dec, 2024)), Money(500))
+    XCTAssertEqual(sut.net(13, of: MonthYear(.jan, 2025)), Money(0))
   }
 
   func test_scenario_for_merged_streams_with_first_date_unchanged() {
@@ -76,12 +78,12 @@ final class AScenario: XCTestCase {
       makeStream("Income1", 500, first: nil, last: 25)
     )
 
-    XCTAssertEqual(sut.net(1), Money(0))
-    XCTAssertEqual(sut.net(2), Money(500))
-    XCTAssertEqual(sut.net(12), Money(500))
-    XCTAssertEqual(sut.net(13), Money(500))
-    XCTAssertEqual(sut.net(25), Money(500))
-    XCTAssertEqual(sut.net(26), Money(0))
+    XCTAssertEqual(sut.net(1, of: MonthYear(.jan, 2024)), Money(0))
+    XCTAssertEqual(sut.net(2, of: MonthYear(.feb, 2024)), Money(500))
+    XCTAssertEqual(sut.net(12, of: MonthYear(.dec, 2024)), Money(500))
+    XCTAssertEqual(sut.net(13, of: MonthYear(.jan, 2025)), Money(500))
+    XCTAssertEqual(sut.net(25, of: MonthYear(.jan, 2026)), Money(500))
+    XCTAssertEqual(sut.net(26, of: MonthYear(.feb, 2026)), Money(0))
   }
 
   func test_salary_minus_expenses_creates_net_worth() throws {
