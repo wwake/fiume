@@ -1,7 +1,11 @@
-* Scenario.net needs the real month-year
+
+* Make MonthYear be Strideable
+* Split out Month as a separate enum?
+* Scenario.project() needs range over MonthYear
+* Scenario.net() needs the real month-year
+* Manage by month/year
 * Age - Stream
 * Age - StreamView
-* Manage by month/year
 * Make StreamView use Date picker
 * Allow dates to depend on age or death day
 

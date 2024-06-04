@@ -29,19 +29,19 @@ class Scenario: Identifiable {
     }
   }
 
-  func project(_ months: ClosedRange<MonthNumber>) -> ScenarioNetWorth {
+  func project(of range: ClosedRange<MonthYear> = MonthYear(month: 0, year: 2000)...MonthYear(month: 0, year: 2000), _ months: ClosedRange<MonthNumber>) -> ScenarioNetWorth {
     var result = [MonthlyNetWorth]()
     var runningTotal = Money(0)
     months.forEach { month in
-      runningTotal += net(month)
+      runningTotal += net(of: range.lowerBound, month)
       result.append(MonthlyNetWorth(month: month, amount: runningTotal))
     }
     return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }
 
-  func net(_ month: MonthNumber) -> Money {
+  func net(of cursor: MonthYear = MonthYear(month: 1, year: 1), _ month: MonthNumber) -> Money {
     items.values.reduce(Money(0)) { soFar, stream in
-      soFar + stream.amount(for: MonthYear(month: 1, year: 1), month: month)
+      soFar + stream.amount(of: cursor, month: month)
     }
   }
 }
