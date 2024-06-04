@@ -21,7 +21,7 @@ struct MonthYearView: View {
   @Binding var monthYear: MonthYear?
 
   @State private var isKnown: Bool
-  @State private var monthNumber: Month
+  @State private var month: Month
   @State private var yearNumber: Int
 
   private var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -32,13 +32,13 @@ struct MonthYearView: View {
     let wrapped = monthYear.wrappedValue
     let alreadyKnown = wrapped != nil
     isKnown = alreadyKnown
-    monthNumber = alreadyKnown ? wrapped!.month : .jan
+    month = alreadyKnown ? wrapped!.month : .jan
     yearNumber = alreadyKnown ? wrapped!.year : 2000
   }
 
   func updateValues() {
     if isKnown {
-      monthYear = MonthYear(month: monthNumber.rawValue, year: yearNumber)
+      monthYear = MonthYear(month, yearNumber)
     } else {
       monthYear = nil
     }
@@ -58,14 +58,14 @@ struct MonthYearView: View {
 
       GeometryReader { geometry in
         HStack {
-          Picker("Month", selection: self.$monthNumber) {
+          Picker("Month", selection: self.$month) {
             ForEach(0..<months.count, id: \.self) { monthIndex in
               Text(verbatim: "\(months[monthIndex])")
                 .tag(monthIndex)
             }
           }
           .halfSize(geometry.size)
-          .onChange(of: monthNumber) {
+          .onChange(of: month) {
             updateValues()
           }
 
@@ -88,6 +88,6 @@ struct MonthYearView: View {
 }
 
 #Preview {
-  @State var myMonthYear: MonthYear? = MonthYear(month: 2, year: 2025)
+  @State var myMonthYear: MonthYear? = MonthYear(.mar, 2025)
   return MonthYearView(monthYear: $myMonthYear)
 }

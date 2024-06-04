@@ -39,11 +39,6 @@ struct MonthYear: Equatable {
     self.year = year
   }
 
-  init(month: Int, year: Int) {
-    self.month = Month(rawValue: month) ?? .jan
-    self.year = year
-  }
-
   init(date: Date) {
     let calendar = Calendar.current
     self.year = calendar.component(.year, from: date)
@@ -72,7 +67,7 @@ extension MonthYear: Strideable {
   }
 
   private func toMonthYear(_ months: Int) -> MonthYear {
-    MonthYear(month: months % 12, year: months / 12)
+    MonthYear(Month(rawValue: months % 12)!, months / 12)
   }
 
   func advanced(by n: Int) -> MonthYear {
