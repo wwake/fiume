@@ -1,4 +1,3 @@
-
 * Make MonthYear be Strideable
 * Split out Month as a separate enum?
 * Scenario.project() needs range over MonthYear

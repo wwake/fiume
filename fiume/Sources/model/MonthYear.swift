@@ -37,3 +37,21 @@ extension MonthYear: CustomStringConvertible {
     "\(months[month]), \(year)"
   }
 }
+
+extension MonthYear: Strideable {
+  private func toMonthCount() -> Int {
+    year * 12 + month
+  }
+
+  private func toMonthYear(_ months: Int) -> MonthYear {
+    MonthYear(month: months % 12, year: months / 12)
+  }
+
+  func advanced(by n: Int) -> MonthYear {
+    toMonthYear(self.toMonthCount() + n)
+  }
+
+  func distance(to other: MonthYear) -> Int {
+    other.toMonthCount() - self.toMonthCount()
+  }
+}
