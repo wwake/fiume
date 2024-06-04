@@ -37,8 +37,7 @@ class Possibilities {
     scenarios()
       .map {
         $0.project(
-          of: startMonth...(startMonth.advanced(by: numberOfMonths - 1)),
-          1...numberOfMonths
+          of: startMonth...(startMonth.advanced(by: numberOfMonths - 1))
         )
       }
 	}
