@@ -14,8 +14,8 @@ final class AScenario: XCTestCase {
     first: MonthNumber? = 1,
     last: MonthNumber? = nil
   ) -> fiume.Stream {
-    let firstDate = first == nil ? DateSpecifier.unchanged : .month(first!)
-    let lastDate = last == nil ? DateSpecifier.unchanged : .month(last!)
+    let firstDate = first == nil ? DateSpecifier.unchanged : .month_(first!)
+    let lastDate = last == nil ? DateSpecifier.unchanged : .month_(last!)
     return Stream(name, Money(amount), first: firstDate, last: lastDate)
   }
 

@@ -12,13 +12,13 @@ struct DateSpecifierView: View {
         if new == nil {
           dateSpec = DateSpecifier.unchanged
         } else {
-          dateSpec = DateSpecifier.month(new!)
+          dateSpec = DateSpecifier.month_(new!)
         }
       }
   }
 }
 
 #Preview {
-  @State var dateSpec = DateSpecifier.month(3)
+  @State var dateSpec = DateSpecifier.month_(3)
   return DateSpecifierView(label: "Choose date", dateSpec: $dateSpec)
 }

@@ -73,7 +73,7 @@ struct PlanCompositeView: View {
 }
 
 #Preview {
-  let planLeaf = PlanLeaf(Stream("demo", Money(100), first: .month(1), last: .unchanged))
+  let planLeaf = PlanLeaf(Stream("demo", Money(100), first: .month_(1), last: .unchanged))
 	let planTree = AndTree("tree")
 	planTree.append(planLeaf)
 

@@ -9,32 +9,49 @@ struct ADateSpecifier {
   @Test
   func equatable() throws {
     #expect((DateSpecifier.unchanged) == DateSpecifier.unchanged)
-    #expect(DateSpecifier.month(3) != DateSpecifier.unchanged)
-    #expect(DateSpecifier.unchanged != DateSpecifier.month(3))
-    #expect((DateSpecifier.month(3)) == DateSpecifier.month(3))
-    #expect(DateSpecifier.month(3) != DateSpecifier.month(4))
-    #expect(DateSpecifier.month(3) != DateSpecifier.age(makePerson(), 67))
+    #expect(DateSpecifier.month_(3) != DateSpecifier.unchanged)
+    #expect(DateSpecifier.unchanged != DateSpecifier.month_(3))
+    #expect((DateSpecifier.month_(3)) == DateSpecifier.month_(3))
+    #expect(DateSpecifier.month_(3) != DateSpecifier.month_(4))
+    #expect(DateSpecifier.month_(3) != DateSpecifier.age(makePerson(), 67))
+    #expect(DateSpecifier.month(MonthYear(.feb, 2025)) != DateSpecifier.unchanged)
+  }
+
+  @Test
+  func update_when_month_values_change() {
+    let value1 = DateSpecifier.month(MonthYear(.jan, 1999))
+    let value2 = DateSpecifier.month(MonthYear(.jan, 2000))
+    let sut = value1.update(using: value2)
+    #expect(sut == DateSpecifier.month(MonthYear(.jan, 2000)))
+  }
+
+  @Test
+  func update_retains_original_when_new_month_value_is_unchanged() {
+    let value1 = DateSpecifier.month(MonthYear(.dec, 2030))
+    let value2 = DateSpecifier.unchanged
+    let sut = value1.update(using: value2)
+    #expect(sut == DateSpecifier.month(MonthYear(.dec, 2030)))
   }
 
   @Test
   func update_when_values_change() {
-    let value1 = DateSpecifier.month(10)
-    let value2 = DateSpecifier.month(12)
+    let value1 = DateSpecifier.month_(10)
+    let value2 = DateSpecifier.month_(12)
     let sut = value1.update(using: value2)
-    #expect(sut == DateSpecifier.month(12))
+    #expect(sut == DateSpecifier.month_(12))
   }
 
   @Test
   func update_retains_original_when_new_value_is_unchanged() {
-    let value1 = DateSpecifier.month(10)
+    let value1 = DateSpecifier.month_(10)
     let value2 = DateSpecifier.unchanged
     let sut = value1.update(using: value2)
-    #expect(sut == DateSpecifier.month(10))
+    #expect(sut == DateSpecifier.month_(10))
   }
 
   @Test
   func update_age_changes() {
-    let value1 = DateSpecifier.month(10)
+    let value1 = DateSpecifier.month_(10)
     let person = makePerson()
     let value2 = DateSpecifier.age(person, 70)
     let sut = value1.update(using: value2)
@@ -44,7 +61,8 @@ struct ADateSpecifier {
   @Test
   func description() {
     #expect(DateSpecifier.unchanged.description == "(unchanged)")
-    #expect(DateSpecifier.month(3).description == "3")
+    #expect(DateSpecifier.month_(3).description == "3")
+    #expect(DateSpecifier.month(MonthYear(.apr, 2023)).description == "April, 2023")
     #expect(DateSpecifier.age(makePerson(), 72).description == "bub@72")
   }
 }
