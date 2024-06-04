@@ -34,7 +34,7 @@ class Scenario: Identifiable {
     var runningTotal = Money(0)
     range.forEach { monthYear in
       let month = range.lowerBound.distance(to: monthYear) + 1
-      runningTotal += net(month, of: range.lowerBound)
+      runningTotal += net(month, of: monthYear)
       result.append(MonthlyNetWorth(month: month, amount: runningTotal))
     }
     return ScenarioNetWorth(name: name, netWorthByMonth: result)
