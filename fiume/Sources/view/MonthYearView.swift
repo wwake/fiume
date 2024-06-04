@@ -21,7 +21,7 @@ struct MonthYearView: View {
   @Binding var monthYear: MonthYear?
 
   @State private var isKnown: Bool
-  @State private var month: Month
+  @State private var month: Int
   @State private var yearNumber: Int
 
   private var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -32,13 +32,13 @@ struct MonthYearView: View {
     let wrapped = monthYear.wrappedValue
     let alreadyKnown = wrapped != nil
     isKnown = alreadyKnown
-    month = alreadyKnown ? wrapped!.month : .jan
+    month = alreadyKnown ? wrapped!.month.rawValue : 0
     yearNumber = alreadyKnown ? wrapped!.year : 2000
   }
 
   func updateValues() {
     if isKnown {
-      monthYear = MonthYear(month, yearNumber)
+      monthYear = MonthYear(Month(rawValue: month) ?? .jan, yearNumber)
     } else {
       monthYear = nil
     }
