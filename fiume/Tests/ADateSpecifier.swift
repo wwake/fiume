@@ -3,7 +3,7 @@ import Testing
 
 struct ADateSpecifier {
   private func makePerson() -> Person {
-    Person(name: "bub", birth: MonthYear(month: 2, year: 1970), death: nil)
+    Person(name: "bub", birth: MonthYear(.mar, 1970), death: nil)
   }
 
   @Test

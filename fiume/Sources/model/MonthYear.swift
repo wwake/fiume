@@ -34,6 +34,11 @@ struct MonthYear: Equatable {
     "October", "November", "December",
   ]
 
+  init(_ month: Month, _ year: Int) {
+    self.month = month
+    self.year = year
+  }
+
   init(month: Int, year: Int) {
     self.month = Month(rawValue: month) ?? .jan
     self.year = year

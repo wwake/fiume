@@ -1,5 +1,5 @@
-* Make Possibilities pass down MonthYear
-* Split out Month as a separate enum?
+* Split out Month as a separate enum
+* Make DateSpecifier use Month
 * Scenario.project() needs range over MonthYear
 * Scenario.net() needs the real month-year
 * Manage by month/year
@@ -26,6 +26,7 @@ Persistence
 
 FI-24-15: 2024-06-04 - MonthNumber => MonthYear
 * Make MonthYear be Strideable
+* Make Possibilities pass down MonthYear
 
 FI-24-14: 2024-06-03 - People
 * [offline] Changed "Family" to "People"

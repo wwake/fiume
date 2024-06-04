@@ -39,7 +39,6 @@
 		91D5439C2C0523D900AD3592 /* ADateSpecifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D5439B2C0523D900AD3592 /* ADateSpecifier.swift */; };
 		91D543A02C06927900AD3592 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = 91D5439F2C06927900AD3592 /* Testing */; };
 		91D543A32C06DE2A00AD3592 /* Scaffolding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D543A22C06DE2A00AD3592 /* Scaffolding.swift */; };
-		91D543A52C075BC800AD3592 /* ASwiftTestingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D543A42C075BC800AD3592 /* ASwiftTestingTest.swift */; };
 		91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D867882BF3E116001B4A3D /* SpikeView.swift */; };
 		91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */; };
 		91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FE2BF291F6004ADB9B /* ContentView.swift */; };
@@ -91,7 +90,6 @@
 		91D5439B2C0523D900AD3592 /* ADateSpecifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADateSpecifier.swift; sourceTree = "<group>"; };
 		91D543A12C0692B500AD3592 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		91D543A22C06DE2A00AD3592 /* Scaffolding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scaffolding.swift; sourceTree = "<group>"; };
-		91D543A42C075BC800AD3592 /* ASwiftTestingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASwiftTestingTest.swift; sourceTree = "<group>"; };
 		91D867882BF3E116001B4A3D /* SpikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpikeView.swift; sourceTree = "<group>"; };
 		91DA64F92BF291F6004ADB9B /* fiume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fiume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiumeApp.swift; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 				919CED4A2BF5499F00ACCE2E /* APlanTree.swift */,
 				914B54C62BFBDF34005A9090 /* AScenario.swift */,
 				914FEFA92BF29399003D858E /* AStream.swift */,
-				91D543A42C075BC800AD3592 /* ASwiftTestingTest.swift */,
 				91D543A12C0692B500AD3592 /* Package.swift */,
 				91D543A22C06DE2A00AD3592 /* Scaffolding.swift */,
 				914FEFA82BF29399003D858E /* SomePossibilities.swift */,
@@ -395,7 +392,6 @@
 				914B54C72BFBDF34005A9090 /* AScenario.swift in Sources */,
 				91206E2F2C09013C00D4C1CB /* AMonthYear.swift in Sources */,
 				914FEFAA2BF29399003D858E /* SomePossibilities.swift in Sources */,
-				91D543A52C075BC800AD3592 /* ASwiftTestingTest.swift in Sources */,
 				91D543A32C06DE2A00AD3592 /* Scaffolding.swift in Sources */,
 				914FEFAB2BF29399003D858E /* AStream.swift in Sources */,
 			);
