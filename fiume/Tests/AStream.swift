@@ -70,4 +70,20 @@ final class AStream: XCTestCase {
     XCTAssertTrue(makeStream(0, first: MonthYear(.jan, 2021), last: 2021.mar).isNonNegative)
     XCTAssertFalse(makeStream(-5, first: 2020.oct, last: 2020.dec).isNonNegative)
   }
+
+  func test_doesnt_pay_by_age_if_birthdate_unknown() {
+    let person = Person(name: "Bob", birth: nil, death: nil)
+    let age = DateSpecifier.age(person, 40)
+    let sut = makeStream(name: "Annuity", 500, first: age, last: .unchanged)
+    XCTAssertEqual(sut.amount(at: 2009.dec), Money(0))
+    XCTAssertEqual(sut.amount(at: 2010.jan), Money(0))
+  }
+
+  func test_can_start_at_an_age() {
+    let person = Person(name: "Bob", birth: 1970.jan, death: nil)
+    let age = DateSpecifier.age(person, 40)
+    let sut = makeStream(name: "Annuity", 500, first: age, last: .unchanged)
+    XCTAssertEqual(sut.amount(at: 2009.dec), Money(0))
+    XCTAssertEqual(sut.amount(at: 2010.jan), Money(500))
+  }
 }

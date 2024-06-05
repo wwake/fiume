@@ -29,6 +29,11 @@ struct Stream: Identifiable {
     if case let .month(startMonth) = first, month < startMonth {
       return Money(0)
     }
+    if case let .age(person, age) = first {
+      guard let birth = person.birth else { return Money(0) }
+      let effectiveStart = birth.advanced(by: 12 * age)
+      if month < effectiveStart { return Money(0) }
+    }
 
     switch last {
     case .unchanged:

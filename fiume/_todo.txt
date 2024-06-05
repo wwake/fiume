@@ -1,5 +1,6 @@
 * Age - Stream
 * Age - StreamView
+* Require birthdate on Person
 * Allow dates to depend on age or death day
 
 * Make amount an overrideable value on stream
@@ -23,6 +24,7 @@ FI-24-16: 2024-06-05 - Graph by MonthYear
 * Clean out use of MonthNumber (in Stream and Scenario, and tests)
 * Refactor the range of the graph
 * Made Possibilities know the range to explore
+* Introduce abbreviated constants for MonthYear eg. 2024.oct
 
 FI-24-15: 2024-06-04 - MonthNumber => MonthYear
 * Manage by month/year:
