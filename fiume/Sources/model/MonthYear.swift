@@ -24,6 +24,21 @@ extension Month: CustomStringConvertible {
   }
 }
 
+extension Int {
+  var jan: MonthYear { MonthYear(.jan, self)}
+  var feb: MonthYear { MonthYear(.feb, self)}
+  var mar: MonthYear { MonthYear(.mar, self)}
+  var apr: MonthYear { MonthYear(.apr, self)}
+  var may: MonthYear { MonthYear(.may, self)}
+  var jun: MonthYear { MonthYear(.jun, self)}
+  var jul: MonthYear { MonthYear(.jul, self)}
+  var aug: MonthYear { MonthYear(.aug, self)}
+  var sep: MonthYear { MonthYear(.sep, self)}
+  var oct: MonthYear { MonthYear(.oct, self)}
+  var nov: MonthYear { MonthYear(.nov, self)}
+  var dec: MonthYear { MonthYear(.dec, self)}
+}
+
 struct MonthYear: Equatable {
   let month: Month
   let year: Int

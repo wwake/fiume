@@ -4,25 +4,30 @@ import Testing
 
 struct AMonthYear {
   @Test
+  func can_be_written_from_int() {
+    #expect(2024.oct == MonthYear(.oct, 2024))
+  }
+
+  @Test
   func compares_year_if_one_is_less() {
-    let a = MonthYear(.apr, 2000)
-    let b = MonthYear(.jun, 1999)
+    let a = 2000.apr
+    let b = 1999.jun
     #expect (a > b)
     #expect (b < a)
   }
 
   @Test
   func compares_month_if_months_differ_and_years_are_equal() {
-    let a = MonthYear(.apr, 2020)
-    let b = MonthYear(.jun, 2020)
+    let a = 2020.apr
+    let b = 2020.jun
     #expect (a < b)
     #expect (b > a)
   }
 
   @Test
   func is_same_only_if_month_and_year_are_the_same() {
-    let a = MonthYear(.apr, 2020)
-    let b = MonthYear(.jun, 2020)
+    let a = 2020.apr
+    let b = 2020.jun
     #expect((a) == a)
     #expect(a != b)
   }
@@ -35,20 +40,20 @@ struct AMonthYear {
 
     let date = dateFormatter.date(from: "2016-10")
     let sut = MonthYear(date: date!)
-    #expect(sut == MonthYear(.oct, 2016))
+    #expect(sut == 2016.oct)
     #expect(sut.description == "October, 2016")
   }
 
   @Test
   func advances_by_integer() {
-    #expect(MonthYear(.dec, 2022).advanced(by: 1) == MonthYear(.jan, 2023))
-    #expect(MonthYear(.jan, 2000).advanced(by: -1) == MonthYear(.dec, 1999))
+    #expect(2022.dec.advanced(by: 1) == 2023.jan)
+    #expect(2000.jan.advanced(by: -1) == 1999.dec)
   }
 
   @Test
   func distance_as_integer() {
-    #expect(MonthYear(.apr, 2000).distance(to: MonthYear(.apr, 2000)) == 0)
-    #expect(MonthYear(.apr, 2000).distance(to: MonthYear(.mar, 2002)) == 11 + 12)
-    #expect(MonthYear(.apr, 2002).distance(to: MonthYear(.dec, 2001)) == -4)
+    #expect(2000.apr.distance(to: 2000.apr) == 0)
+    #expect(2000.apr.distance(to: 2002.mar) == 11 + 12)
+    #expect(2002.apr.distance(to: 2001.dec) == -4)
   }
 }
