@@ -8,17 +8,22 @@ extension fiume.Stream: Equatable {
 }
 
 final class AScenario: XCTestCase {
-  // Assume month 1 = Jan 2024
+  private func makeStream(
+    name: String = "Sample",
+    _ amount: Int,
+    first: MonthYear,
+    last: MonthYear
+  ) -> fiume.Stream {
+    Stream(name, Money(amount), first: DateSpecifier.month(first), last: DateSpecifier.month(last))
+  }
 
   private func makeStream(
-    _ name: String,
+    name: String = "Sample",
     _ amount: Int,
-    first: MonthNumber? = 1,
-    last: MonthNumber? = nil
+    first: DateSpecifier,
+    last: DateSpecifier
   ) -> fiume.Stream {
-    let firstDate = first == nil ? DateSpecifier.unchanged : .month_(first!)
-    let lastDate = last == nil ? DateSpecifier.unchanged : .month_(last!)
-    return Stream(name, Money(amount), first: firstDate, last: lastDate)
+    Stream(name, Money(amount), first: first, last: last)
   }
 
   private func makeScenario(_ streams: fiume.Stream...) -> Scenario {
@@ -30,10 +35,12 @@ final class AScenario: XCTestCase {
   }
 
   func test_makes_independent_copies() {
-    let sut = makeScenario(makeStream("Income1", 1_000, first: 1, last: 12))
+    let sut = makeScenario(
+      makeStream(name: "Income1", 1_000, first: MonthYear(.jan, 2024), last: MonthYear(.dec, 2024))
+    )
 
     let result = sut.copy("altered name")
-    let stream2 = makeStream("Income2", 2_000, first: 1, last: 12)
+    let stream2 = makeStream(name: "Income2", 2_000, first: MonthYear(.jan, 2024), last: MonthYear(.dec, 2024))
     result.add(stream2)
 
     XCTAssertEqual(sut.net(1, of: MonthYear(.jan, 2024)), Money(1_000))
@@ -42,7 +49,9 @@ final class AScenario: XCTestCase {
   }
 
   func test_built_for_one_stream() {
-    let sut = makeScenario(makeStream("Income1", 1_000, first: 1, last: 12))
+    let sut = makeScenario(
+      makeStream(name: "Income1", 1_000, first: MonthYear(.jan, 2024), last: MonthYear(.dec, 2024))
+    )
 
     XCTAssertEqual(sut.net(12, of: MonthYear(.dec, 2024)), Money(1_000))
     XCTAssertEqual(sut.net(13, of: MonthYear(.jan, 2025)), Money(0))
@@ -50,8 +59,8 @@ final class AScenario: XCTestCase {
 
   func test_scenario_for_distinct_streams() {
     let sut = makeScenario(
-      makeStream("Income1", 1_000, first: 1, last: 12),
-      makeStream("Income2", 500, first: 10, last: nil)
+      makeStream(name: "Income1", 1_000, first: MonthYear(.jan, 2024), last: MonthYear(.dec, 2024)),
+      makeStream(name: "Income2", 500, first: DateSpecifier.month(MonthYear(.oct, 2024)), last: DateSpecifier.unchanged)
     )
 
     XCTAssertEqual(sut.net(1, of: MonthYear(.jan, 2024)), Money(1_000))
@@ -62,8 +71,8 @@ final class AScenario: XCTestCase {
 
   func test_scenario_for_merged_streams_with_last_date_unchanged() {
     let sut = makeScenario(
-      makeStream("Income1", 1_000, first: 1, last: 12),
-      makeStream("Income1", 500, first: 10, last: nil)
+      makeStream(name: "Income1", 1_000, first: MonthYear(.jan, 2024), last: MonthYear(.dec, 2024)),
+      makeStream(name: "Income1", 500, first: DateSpecifier.month(MonthYear(.oct, 2024)), last: DateSpecifier.unchanged)
     )
 
     XCTAssertEqual(sut.net(1, of: MonthYear(.jan, 2024)), Money(0))
@@ -74,8 +83,8 @@ final class AScenario: XCTestCase {
 
   func test_scenario_for_merged_streams_with_first_date_unchanged() {
     let sut = makeScenario(
-      makeStream("Income1", 1_000, first: 2, last: 12),
-      makeStream("Income1", 500, first: nil, last: 25)
+      makeStream(name: "Income1", 1_000, first: MonthYear(.feb, 2024), last: MonthYear(.dec, 2024)),
+      makeStream(name: "Income1", 500, first: DateSpecifier.unchanged, last: DateSpecifier.month(MonthYear(.jan, 2026)))
     )
 
     XCTAssertEqual(sut.net(1, of: MonthYear(.jan, 2024)), Money(0))
@@ -88,8 +97,8 @@ final class AScenario: XCTestCase {
 
   func test_salary_minus_expenses_creates_net_worth() throws {
     let sut = makeScenario(
-      makeStream("Salary", Money(1_000)),
-      makeStream("Expenses", Money(-900))
+      makeStream(name: "Salary", 1_000, first: DateSpecifier.unchanged, last: DateSpecifier.unchanged),
+      makeStream(name: "Expenses", -900, first: DateSpecifier.unchanged, last: DateSpecifier.unchanged)
     )
 
     let result = sut.project(of: MonthYear(.jan, 2024)...MonthYear(.dec, 2024))

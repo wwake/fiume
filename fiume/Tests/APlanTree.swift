@@ -2,19 +2,17 @@
 import XCTest
 
 final class APlanTree: XCTestCase {
-  // tests assume month 1 = Jan. 2024
-
   private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
-    Stream(name, Money(amount), first: .month_(1), last: .unchanged)
+    Stream(name, Money(amount), first: .month(MonthYear(.jan, 2024)), last: .unchanged)
   }
 
   private func makeLeaf(
     _ name: String,
     _ amount: Int,
-    _ first: MonthNumber = 1,
-    _ last: MonthNumber = 120
+    _ first: MonthYear = MonthYear(.jan, 2024),
+    _ last: MonthYear = MonthYear(.dec, 2034)
   ) -> PlanLeaf {
-    let stream = Stream(name, Money(amount), first: .month_(first), last: .month_(last))
+    let stream = Stream(name, Money(amount), first: .month(first), last: .month(last))
     return PlanLeaf(stream)
   }
 
@@ -35,7 +33,7 @@ final class APlanTree: XCTestCase {
   }
 
   func test_makes_a_leaf() throws {
-    let sut = makeLeaf("Income", 100, 3, 12)
+    let sut = makeLeaf("Income", 100, MonthYear(.mar, 2024), MonthYear(.dec, 2024))
 
     XCTAssertEqual(sut.name, "Income")
     XCTAssertNil(sut.children)
@@ -65,7 +63,7 @@ final class APlanTree: XCTestCase {
   }
 
   func test_scenarios_for_stream() {
-    let sut = makeLeaf("Income1", 1_000, 1, 12)
+    let sut = makeLeaf("Income1", 1_000, MonthYear(.jan, 2024), MonthYear(.dec, 2024))
 
     let result = sut.scenarios(Scenarios([Scenario("A"), Scenario("B")]))
     let array = Array(result)
@@ -78,8 +76,8 @@ final class APlanTree: XCTestCase {
   }
 
   func test_scenarios_for_and_tree() {
-    let leaf1 = makeLeaf("Income1", 1_000, 1, 12)
-    let leaf2 = makeLeaf("Income2", 2_000, 6, 18)
+    let leaf1 = makeLeaf("Income1", 1_000, MonthYear(.jan, 2024), MonthYear(.dec, 2024))
+    let leaf2 = makeLeaf("Income2", 2_000, MonthYear(.jun, 2024), MonthYear(.jun, 2025))
 
     let sut = makeAndTree("parent", [leaf1, leaf2])
 
@@ -110,8 +108,8 @@ final class APlanTree: XCTestCase {
   }
 
   func test_scenarios_for_or_tree() {
-    let leaf1 = makeLeaf("Income1", 1_000, 1, 12)
-    let leaf2 = makeLeaf("Income2", 2_000, 6, 18)
+    let leaf1 = makeLeaf("Income1", 1_000, MonthYear(.jan, 2024), MonthYear(.dec, 2024))
+    let leaf2 = makeLeaf("Income2", 2_000, MonthYear(.jun, 2024), MonthYear(.jun, 2025))
 
     let sut = makeOrTree("parent", [leaf1, leaf2])
 
