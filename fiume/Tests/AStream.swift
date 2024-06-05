@@ -22,19 +22,19 @@ final class AStream: XCTestCase {
 
   func test_determines_amount_outside_month_year_date_range() throws {
     let sut = makeStream(100, first: MonthYear(.jan, 2020), last: MonthYear(.oct, 2020))
-    XCTAssertEqual(sut.amount(of: MonthYear(.dec, 2019), month: 0), Money(0))
-    XCTAssertEqual(sut.amount(of: MonthYear(.nov, 2020), month: 11), Money(0))
+    XCTAssertEqual(sut.amount(at: MonthYear(.dec, 2019)), Money(0))
+    XCTAssertEqual(sut.amount(at: MonthYear(.nov, 2020)), Money(0))
   }
 
   func test_determines_amount_inside_month_year_date_range() throws {
     let sut = makeStream(100, first: MonthYear(.jan, 2020), last: MonthYear(.oct, 2020))
-    XCTAssertEqual(sut.amount(of: MonthYear(.jan, 2020), month: 1), Money(100))
-    XCTAssertEqual(sut.amount(of: MonthYear(.oct, 2020), month: 10), Money(100))
+    XCTAssertEqual(sut.amount(at: MonthYear(.jan, 2020)), Money(100))
+    XCTAssertEqual(sut.amount(at: MonthYear(.oct, 2020)), Money(100))
   }
 
   func test_month_starts_at_1_when_unspecified() {
     let sut = makeStream(100, first: DateSpecifier.unchanged, last: DateSpecifier.month(MonthYear(.feb, 2020)))
-    XCTAssertEqual(sut.amount(of: MonthYear(.jan, 2020), month: 1), Money(100))
+    XCTAssertEqual(sut.amount(at: MonthYear(.jan, 2020)), Money(100))
   }
 
   func test_merge_when_values_change() {
