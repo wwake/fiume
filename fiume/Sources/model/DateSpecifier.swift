@@ -1,6 +1,5 @@
 enum DateSpecifier: Equatable {
   case unchanged
-  case month_(MonthNumber)
   case month(MonthYear)
   case age(Person, Int)
 
@@ -9,7 +8,7 @@ enum DateSpecifier: Equatable {
     case .unchanged:
       return self
 
-    case .month_, .month, .age:
+    case .month, .age:
       return using
     }
   }
@@ -20,9 +19,6 @@ extension DateSpecifier: CustomStringConvertible {
     switch self {
     case .unchanged:
       return "(unchanged)"
-
-    case .month_(let month):
-      return "\(month)"
 
     case .month(let monthYear):
       return monthYear.description

@@ -36,9 +36,6 @@ struct Stream: Identifiable {
     case .unchanged:
       return self.monthlyAmount
 
-    case .month_:
-      return Money(-48)
-
     case .month(let monthYear):
       if cursor > monthYear {
         return Money(0)
