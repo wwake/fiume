@@ -11,7 +11,7 @@ struct ContentView: View {
 
   var body: some View {
     NavigationStack {
-      Chart(possibilities.project(numberOfMonths)) { dataSeries in
+      Chart(possibilities.project(possibilities.range(numberOfMonths))) { dataSeries in
         ForEach(dataSeries.netWorthByMonth) {
           LineMark(
             x: .value("Month", $0.month),
@@ -20,7 +20,7 @@ struct ContentView: View {
         }
         .foregroundStyle(by: .value("Scenario Name", dataSeries.name))
       }
-      .chartXScale(domain: (possibilities.startMonth)...( possibilities.startMonth.advanced(by: numberOfMonths - 1)))
+      .chartXScale(domain: possibilities.range(numberOfMonths))
       .padding()
 
       HStack {

@@ -8,14 +8,14 @@ final class SomePossibilities: XCTestCase {
   }
 
   private func makePossibilities() -> Possibilities {
-    Possibilities(startDate: MonthYear(date: Date()))
+    Possibilities(startDate: MonthYear(.jan, 2030))
   }
 
 	func test_salary_builds_net_worth() throws {
 		let sut = makePossibilities()
 		sut.add(makeStream("Salary", Money(1_000)))
 
-		let data = sut.project(12)
+    let data = sut.project(sut.range(12))
 
     XCTAssertEqual(data[0].netWorthByMonth.last!.amount, Money(12_000))
 	}
@@ -25,7 +25,7 @@ final class SomePossibilities: XCTestCase {
 		sut.add(makeStream("Salary", Money(1_000)))
 		sut.add(makeStream("Expenses", Money(-900)))
 
-		let data = sut.project(12)
+		let data = sut.project(sut.range(12))
 
     XCTAssertEqual(data[0].netWorthByMonth.last!.amount, Money(1_200))
 	}
@@ -70,7 +70,7 @@ final class SomePossibilities: XCTestCase {
     orTree.append(PlanLeaf(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)
 
-    let result = sut.project(3)
+    let result = sut.project(sut.range(3))
     let resultSet = Set([
       result[0].netWorthByMonth.last!.amount,
       result[1].netWorthByMonth.last!.amount,

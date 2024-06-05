@@ -29,7 +29,7 @@ class Scenario: Identifiable {
     }
   }
 
-  func project(of range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
+  func project(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
     var result = [MonthlyNetWorth]()
     var runningTotal = Money(0)
     range.forEach { monthYear in

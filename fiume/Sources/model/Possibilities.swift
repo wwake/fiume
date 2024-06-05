@@ -33,12 +33,14 @@ class Possibilities {
     plan.append(tree)
   }
 
-  func project(_ numberOfMonths: Int) -> PossibilitiesNetWorth {
+  func range(_ numberOfMonths: Int) -> ClosedRange<MonthYear> {
+    startMonth...(startMonth.advanced(by: numberOfMonths - 1))
+  }
+
+  func project(_ range: ClosedRange<MonthYear>) -> PossibilitiesNetWorth {
     scenarios()
       .map {
-        $0.project(
-          of: startMonth...(startMonth.advanced(by: numberOfMonths - 1))
-        )
+        $0.project(range)
       }
 	}
 
