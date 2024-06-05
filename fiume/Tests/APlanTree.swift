@@ -69,10 +69,10 @@ final class APlanTree: XCTestCase {
     let array = Array(result)
 
     XCTAssertEqual(array.count, 2)
-    XCTAssertEqual(array[0].net(12, of: MonthYear(.dec, 2024)), Money(1_000))
-    XCTAssertEqual(array[1].net(12, of: MonthYear(.dec, 2024)), Money(1_000))
-    XCTAssertEqual(array[0].net(13, of: MonthYear(.jan, 2025)), Money(0))
-    XCTAssertEqual(array[1].net(13, of: MonthYear(.jan, 2025)), Money(0))
+    XCTAssertEqual(array[0].net(at: MonthYear(.dec, 2024)), Money(1_000))
+    XCTAssertEqual(array[1].net(at: MonthYear(.dec, 2024)), Money(1_000))
+    XCTAssertEqual(array[0].net(at: MonthYear(.jan, 2025)), Money(0))
+    XCTAssertEqual(array[1].net(at: MonthYear(.jan, 2025)), Money(0))
   }
 
   func test_scenarios_for_and_tree() {
@@ -85,12 +85,12 @@ final class APlanTree: XCTestCase {
     let array = Array(result)
 
     XCTAssertEqual(array.count, 2)
-    XCTAssertEqual(array[0].net(1, of: MonthYear(.jan, 2024)), Money(1_000))
-    XCTAssertEqual(array[1].net(1, of: MonthYear(.jan, 2024)), Money(1_000))
-    XCTAssertEqual(array[0].net(6, of: MonthYear(.jun, 2024)), Money(3_000))
-    XCTAssertEqual(array[1].net(6, of: MonthYear(.jun, 2024)), Money(3_000))
-    XCTAssertEqual(array[0].net(13, of: MonthYear(.jan, 2025)), Money(2_000))
-    XCTAssertEqual(array[1].net(13, of: MonthYear(.jan, 2025)), Money(2_000))
+    XCTAssertEqual(array[0].net(at: MonthYear(.jan, 2024)), Money(1_000))
+    XCTAssertEqual(array[1].net(at: MonthYear(.jan, 2024)), Money(1_000))
+    XCTAssertEqual(array[0].net(at: MonthYear(.jun, 2024)), Money(3_000))
+    XCTAssertEqual(array[1].net(at: MonthYear(.jun, 2024)), Money(3_000))
+    XCTAssertEqual(array[0].net(at: MonthYear(.jan, 2025)), Money(2_000))
+    XCTAssertEqual(array[1].net(at: MonthYear(.jan, 2025)), Money(2_000))
   }
 
   func test_scenarios_for_and_tree_with_or_child() {
@@ -101,7 +101,7 @@ final class APlanTree: XCTestCase {
     let sut = makeAndTree("parent", [orTree, leaf2])
 
     let result = sut.scenarios(Scenarios([Scenario("")]))
-    let resultSet = Set(result.map { $0.net(1, of: MonthYear(.jan, 2024)) })
+    let resultSet = Set(result.map { $0.net(at: MonthYear(.jan, 2024)) })
 
     XCTAssertEqual(resultSet.count, 2)
     XCTAssertEqual(resultSet, [3_000, 3_500])
@@ -117,13 +117,13 @@ final class APlanTree: XCTestCase {
     let array = Array(result)
 
     XCTAssertEqual(array.count, 2)
-    let (x, y) = array[0].net(1, of: MonthYear(.jan, 2024)) != 0 ? (array[0], array[1]) : (array[1], array[0])
+    let (x, y) = array[0].net(at: MonthYear(.jan, 2024)) != 0 ? (array[0], array[1]) : (array[1], array[0])
     XCTAssertEqual(
-      [x.net(1, of: MonthYear(.jan, 2024)), x.net(6, of: MonthYear(.jun, 2024)), x.net(13, of: MonthYear(.jan, 2025))],
+      [x.net(at: MonthYear(.jan, 2024)), x.net(at: MonthYear(.jun, 2024)), x.net(at: MonthYear(.jan, 2025))],
       [Money(1_000), Money(1_000), Money(0)]
     )
     XCTAssertEqual(
-      [y.net(1, of: MonthYear(.jan, 2024)), y.net(6, of: MonthYear(.jun, 2024)), y.net(13, of: MonthYear(.jan, 2025))],
+      [y.net(at: MonthYear(.jan, 2024)), y.net(at: MonthYear(.jun, 2024)), y.net(at: MonthYear(.jan, 2025))],
       [Money(0), Money(2_000), Money(2_000)]
     )
   }
@@ -143,10 +143,10 @@ final class APlanTree: XCTestCase {
     let month = MonthYear(.jan, 2024)
 
     XCTAssertEqual(result.count, 4)
-    XCTAssertTrue(result.contains { $0.net(1, of: month) == Money(1_000) })
-    XCTAssertTrue(result.contains { $0.net(1, of: month) == Money(2_000) })
-    XCTAssertTrue(result.contains { $0.net(1, of: month) == Money(1_500) })
-    XCTAssertTrue(result.contains { $0.net(1, of: month) == Money(2_500) })
+    XCTAssertTrue(result.contains { $0.net(at: month) == Money(1_000) })
+    XCTAssertTrue(result.contains { $0.net(at: month) == Money(2_000) })
+    XCTAssertTrue(result.contains { $0.net(at: month) == Money(1_500) })
+    XCTAssertTrue(result.contains { $0.net(at: month) == Money(2_500) })
   }
 
   func test_scenarios_for_or_tree_get_names_from_starting_scenario() {

@@ -34,15 +34,15 @@ class Scenario: Identifiable {
     var runningTotal = Money(0)
     range.forEach { monthYear in
       let month = range.lowerBound.distance(to: monthYear) + 1
-      runningTotal += net(month, of: monthYear)
+      runningTotal += net(at: monthYear)
       result.append(MonthlyNetWorth(month: monthYear, amount: runningTotal))
     }
     return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }
 
-  func net(_ month: MonthNumber, of cursor: MonthYear) -> Money {
+  func net(at month: MonthYear) -> Money {
     items.values.reduce(Money(0)) { soFar, stream in
-      soFar + stream.amount(at: cursor)
+      soFar + stream.amount(at: month)
     }
   }
 }
