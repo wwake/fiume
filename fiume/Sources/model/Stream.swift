@@ -1,7 +1,5 @@
 import Foundation
 
-typealias MonthNumber = Int
-
 struct Stream: Identifiable {
   let id = UUID()
   var name: String
