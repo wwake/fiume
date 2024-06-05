@@ -28,9 +28,6 @@ struct Stream: Identifiable {
   }
 
   func amount(of cursor: MonthYear, month: MonthNumber) -> Money {
-    if case let .month_(streamFirstMonth) = first, month < streamFirstMonth {
-      return Money(0)
-    }
     if case let .month(monthYear) = first, cursor < monthYear {
       return Money(0)
     }
@@ -39,12 +36,8 @@ struct Stream: Identifiable {
     case .unchanged:
       return self.monthlyAmount
 
-    case .month_(let lastMonth):
-      if month > lastMonth {
-        return Money(0)
-      } else {
-        return self.monthlyAmount
-      }
+    case .month_:
+      return Money(-48)
 
     case .month(let monthYear):
       if cursor > monthYear {

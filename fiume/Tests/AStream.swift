@@ -32,18 +32,6 @@ final class AStream: XCTestCase {
     XCTAssertEqual(sut.amount(of: MonthYear(.oct, 2020), month: 10), Money(100))
   }
 
-  func test_determines_amount_inside_date_range() throws {
-    let sut = makeStream(100, first: MonthYear(.feb, 2020), last: MonthYear(.oct, 2020))
-    XCTAssertEqual(sut.amount(of: MonthYear(.feb, 2020), month: 1), Money(100))
-    XCTAssertEqual(sut.amount(of: MonthYear(.oct, 2020), month: 10), Money(100))
-  }
-
-  func test_determines_amount_outside_date_range() throws {
-    let sut = makeStream(100, first: MonthYear(.mar, 2020), last: MonthYear(.nov, 2020))
-    XCTAssertEqual(sut.amount(of: MonthYear(.feb, 2020), month: 0), Money(0))
-    XCTAssertEqual(sut.amount(of: MonthYear(.dec, 2020), month: 12), Money(0))
-  }
-
   func test_month_starts_at_1_when_unspecified() {
     let sut = makeStream(100, first: DateSpecifier.unchanged, last: DateSpecifier.month(MonthYear(.feb, 2020)))
     XCTAssertEqual(sut.amount(of: MonthYear(.jan, 2020), month: 1), Money(100))

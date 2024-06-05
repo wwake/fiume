@@ -24,7 +24,7 @@ struct PlanListView: View {
 
 #Preview {
   let plan = Possibilities(startDate: MonthYear(date: Date()))
-  let stream = Stream("Annuity", Money(1_000), first: .month_(1), last: .unchanged)
+  let stream = Stream("Annuity", Money(1_000), first: .month(MonthYear(.jan, 2020)), last: .unchanged)
 	plan.add(stream)
 	return PlanListView(plan: plan)
 }

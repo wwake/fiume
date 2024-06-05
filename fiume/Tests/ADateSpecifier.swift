@@ -9,7 +9,6 @@ struct ADateSpecifier {
   @Test
   func equatable() throws {
     #expect((DateSpecifier.unchanged) == DateSpecifier.unchanged)
-    #expect(DateSpecifier.unchanged != DateSpecifier.month_(3))
     #expect((DateSpecifier.month(MonthYear(.jan, 2025))) == DateSpecifier.month(MonthYear(.jan, 2025)))
     #expect(DateSpecifier.month(MonthYear(.jan, 2025)) != DateSpecifier.month(MonthYear(.apr, 2025)))
     #expect(DateSpecifier.month(MonthYear(.jan, 2025)) != DateSpecifier.age(makePerson(), 67))
