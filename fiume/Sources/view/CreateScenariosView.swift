@@ -30,6 +30,6 @@ struct CreateScenariosView: View {
 
 #Preview {
 	let tree = AndTree("accounts")
-  tree.append(PlanLeaf(Stream("income", Money(100), first: .month(MonthYear(.jan, 2020)), last: .unchanged)))
+  tree.append(PlanLeaf(Stream("income", Money(100), first: .month(2020.jan), last: .unchanged)))
 	return CreateScenariosView(plan: tree)
 }

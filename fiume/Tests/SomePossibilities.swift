@@ -4,11 +4,11 @@ import XCTest
 
 final class SomePossibilities: XCTestCase {
   private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
-    Stream(name, Money(amount), first: .month(MonthYear(.jan, 2024)), last: .unchanged)
+    Stream(name, Money(amount), first: .month(2024.jan), last: .unchanged)
   }
 
   private func makePossibilities() -> Possibilities {
-    Possibilities(startDate: MonthYear(.jan, 2030))
+    Possibilities(startDate: 2030.jan)
   }
 
 	func test_salary_builds_net_worth() throws {
@@ -46,7 +46,7 @@ final class SomePossibilities: XCTestCase {
     let result = Array(sut.scenarios())
 
 		XCTAssertEqual(result.count, 1)
-		XCTAssertEqual(result.first!.net(at: MonthYear(.jan, 2024)), Money(100))
+		XCTAssertEqual(result.first!.net(at: 2024.jan), Money(100))
 	}
 
   func test_adds_scenarios() {

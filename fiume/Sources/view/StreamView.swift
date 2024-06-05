@@ -23,6 +23,6 @@ struct StreamView: View {
 }
 
 #Preview {
-  let stream = Stream("Salary", 1_000, first: .month(MonthYear(.jan, 2020)), last: .month(MonthYear(.dec, 2025)))
+  let stream = Stream("Salary", 1_000, first: .month(2020.jan), last: .month(2025.dec))
 	return StreamView(stream: stream)
 }

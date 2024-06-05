@@ -39,8 +39,8 @@ struct PeopleView: View {
 }
 
 #Preview {
-  let person1 = Person(name: "Bob", birth: MonthYear(.mar, 1970), death: nil)
-  let person2 = Person(name: "Chris", birth: MonthYear(.dec, 1980), death: MonthYear(.apr, 2025))
+  let person1 = Person(name: "Bob", birth: 1970.mar, death: nil)
+  let person2 = Person(name: "Chris", birth: 1980.dec, death: 2025.apr)
   let people = People()
   people.add(person1)
   people.add(person2)

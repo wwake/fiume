@@ -88,6 +88,6 @@ struct MonthYearView: View {
 }
 
 #Preview {
-  @State var myMonthYear: MonthYear? = MonthYear(.mar, 2025)
+  @State var myMonthYear: MonthYear? = 2025.mar
   return MonthYearView(monthYear: $myMonthYear)
 }
