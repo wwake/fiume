@@ -1,8 +1,6 @@
-* Scenario.net() needs the real month-year
-* Manage by month/year
+
 * Age - Stream
 * Age - StreamView
-* Make StreamView use Date picker
 * Allow dates to depend on age or death day
 
 * Make amount an overrideable value on stream
@@ -22,10 +20,12 @@ Should we segregate streams by income/expense? (two columns)
 Persistence
 
 FI-24-15: 2024-06-04 - MonthNumber => MonthYear
-* Make MonthYear be Strideable
-* Make Possibilities pass down MonthYear
-* Split out Month as a separate enum
-* Scenario.project() needs range over MonthYear
+* Manage by month/year:
+  * Make MonthYear be Strideable
+  * Make Possibilities pass down MonthYear
+  * Split out Month as a separate enum
+  * Scenario.project() needs range over MonthYear
+  * Make StreamView use Date picker
 
 FI-24-14: 2024-06-03 - People
 * [offline] Changed "Family" to "People"

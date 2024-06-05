@@ -2,6 +2,8 @@ import Charts
 import SwiftUI
 
 struct ContentView: View {
+  let numberOfMonths = 360
+
   @Bindable var people: People
   @Bindable var possibilities: Possibilities
 
@@ -9,7 +11,7 @@ struct ContentView: View {
 
   var body: some View {
     NavigationStack {
-      Chart(possibilities.project(360)) { dataSeries in
+      Chart(possibilities.project(numberOfMonths)) { dataSeries in
         ForEach(dataSeries.netWorthByMonth) {
           LineMark(
             x: .value("Month", $0.month),
@@ -18,7 +20,7 @@ struct ContentView: View {
         }
         .foregroundStyle(by: .value("Scenario Name", dataSeries.name))
       }
-      .chartXScale(domain: 1...360)
+      .chartXScale(domain: (possibilities.startMonth)...( possibilities.startMonth.advanced(by: numberOfMonths - 1)))
       .padding()
 
       HStack {

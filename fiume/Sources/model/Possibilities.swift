@@ -2,7 +2,7 @@ import Foundation
 
 struct MonthlyNetWorth: Identifiable {
 	let id = UUID()
-	let month: Int
+	let month: MonthYear
 	let amount: Money
 }
 
