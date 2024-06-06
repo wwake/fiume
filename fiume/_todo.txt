@@ -1,4 +1,4 @@
-* Age - Stream
+* Age - Stream - for death dates
 * Age - StreamView
 * Require birthdate on Person
 * Allow dates to depend on age or death day
@@ -19,12 +19,15 @@ Add flows
 Should we segregate streams by income/expense? (two columns)
 Persistence
 
+FI-24-17: 2024-06-06 - Age-Based Dates
+
 FI-24-16: 2024-06-05 - Graph by MonthYear
 * Make Graph work with MonthYear
 * Clean out use of MonthNumber (in Stream and Scenario, and tests)
 * Refactor the range of the graph
 * Made Possibilities know the range to explore
 * Introduce abbreviated constants for MonthYear eg. 2024.oct
+* Make Stream work for age on birthdates
 
 FI-24-15: 2024-06-04 - MonthNumber => MonthYear
 * Manage by month/year:
