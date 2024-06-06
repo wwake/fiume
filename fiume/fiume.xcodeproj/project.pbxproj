@@ -26,6 +26,7 @@
 		914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB42BF2AD09003D858E /* FormFields.swift */; };
 		914FEFB72BF2AD6B003D858E /* CreateStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */; };
 		914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB82BF2AF08003D858E /* StreamView.swift */; };
+		91690A7F2C12451500A6082D /* AgeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91690A7E2C12451500A6082D /* AgeSelector.swift */; };
 		919CED492BF5492800ACCE2E /* PlanTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED482BF5492800ACCE2E /* PlanTree.swift */; };
 		919CED4B2BF5499F00ACCE2E /* APlanTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4A2BF5499F00ACCE2E /* APlanTree.swift */; };
 		919CED4D2BF54D8C00ACCE2E /* PlanTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */; };
@@ -75,6 +76,7 @@
 		914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStreamView.swift; sourceTree = "<group>"; };
 		914FEFB82BF2AF08003D858E /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
 		9152FC512C0AB46A000D5001 /* fiume-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "fiume-Info.plist"; sourceTree = "<group>"; };
+		91690A7E2C12451500A6082D /* AgeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelector.swift; sourceTree = "<group>"; };
 		919CED482BF5492800ACCE2E /* PlanTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTree.swift; sourceTree = "<group>"; };
 		919CED4A2BF5499F00ACCE2E /* APlanTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APlanTree.swift; sourceTree = "<group>"; };
 		919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTreeView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
+				91690A7E2C12451500A6082D /* AgeSelector.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */,
 				91206E282C07BD2300D4C1CB /* CreatePersonView.swift in Sources */,
 				91D5439A2C051B5700AD3592 /* DateSpecifier.swift in Sources */,
+				91690A7F2C12451500A6082D /* AgeSelector.swift in Sources */,
 				91D543982C051A3800AD3592 /* DateSpecifierView.swift in Sources */,
 				914B54C52BFBDB74005A9090 /* Scenario.swift in Sources */,
 				91206E312C090AA100D4C1CB /* People.swift in Sources */,

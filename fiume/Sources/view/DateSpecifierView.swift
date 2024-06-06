@@ -77,17 +77,7 @@ struct DateSpecifierView: View {
 
       case .age:
         Text("Pick an age")
-
-        //        Picker("Age", selection: self.$yearNumber) {
-        //          ForEach(years, id: \.self) { year in
-        //            Text(verbatim: "\(year)")
-        //              .tag(year)
-        //          }
-        //        }
-        //        .halfSize(geometry.size)
-        //        .onChange(of: yearNumber) {
-        //          updateValues()
-        //        }
+        AgeSelector(dateSpec: $dateSpec)
       }
     }
   }
