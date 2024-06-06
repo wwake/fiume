@@ -26,10 +26,14 @@ struct Stream: Identifiable {
   }
 
   func amount(at month: MonthYear) -> Money {
-    if case let .month(startMonth) = first, month < startMonth {
-      return Money(0)
-    }
-    if case let .age(person, age) = first {
+    switch first {
+    case .unchanged:
+      break
+
+    case let .month(startMonth):
+      if month < startMonth { return Money(0) }
+
+    case let .age(person, age):
       guard let birth = person.birth else { return Money(0) }
       let effectiveStart = birth.advanced(by: 12 * age)
       if month < effectiveStart { return Money(0) }
