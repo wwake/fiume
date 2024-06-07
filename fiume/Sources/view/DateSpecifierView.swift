@@ -43,7 +43,7 @@ struct DateSpecifierView: View {
       dateSpec = DateSpecifier.month(monthYear)
 
     case .age:
-      dateSpec = .age(Person(name: "bob", birth: 2000.jan, death: nil), 40)
+      break
     }
   }
 
@@ -53,6 +53,8 @@ struct DateSpecifierView: View {
         Text(label)
         Spacer()
       }
+
+      Text("DEBUG: \(dateSpec)")
 
       Picker("Add New", selection: $dateType) {
         ForEach(DateSpecifierType.allCases) {
@@ -78,6 +80,7 @@ struct DateSpecifierView: View {
       case .age:
         Text("Pick an age")
         AgeSelector(dateSpec: $dateSpec)
+          .frame(height: 200)
       }
     }
   }
@@ -85,5 +88,8 @@ struct DateSpecifierView: View {
 
 #Preview {
   @State var dateSpec = DateSpecifier.month(2020.mar)
+  let people = People()
+
   return DateSpecifierView(label: "Choose date", dateSpec: $dateSpec)
+    .environment(people)
 }

@@ -48,7 +48,7 @@ class Scenario: Identifiable {
 
 extension Scenario: Hashable {
 	static func == (lhs: Scenario, rhs: Scenario) -> Bool {
-		false
+    lhs.id == rhs.id
 	}
 
 	func hash(into hasher: inout Hasher) {

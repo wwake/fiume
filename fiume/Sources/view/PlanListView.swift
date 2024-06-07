@@ -26,5 +26,8 @@ struct PlanListView: View {
   let plan = Possibilities(startDate: MonthYear(date: Date()))
   let stream = Stream("Annuity", Money(1_000), first: .month(2020.jan), last: .unchanged)
 	plan.add(stream)
+  let people = People()
+
 	return PlanListView(plan: plan)
+    .environment(people)
 }

@@ -7,4 +7,8 @@ class People {
   func add(_ person: Person) {
     people.append(person)
   }
+
+  var count: Int {
+    people.count
+  }
 }

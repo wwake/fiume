@@ -41,6 +41,7 @@ struct ContentView: View {
     .sheet(isPresented: $isShowingPeople) {
       PeopleView(people: people)
     }
+    .environment(people)
   }
 }
 
