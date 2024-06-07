@@ -29,7 +29,7 @@ struct DateSpecifierView: View {
       dateType = DateSpecifierType.monthYear
       monthYear = monthYearIn
 
-    case let .age(person, age):
+    case .age:
       dateType = DateSpecifierType.age
     }
   }
@@ -54,8 +54,6 @@ struct DateSpecifierView: View {
         Spacer()
       }
 
-      Text("DEBUG: \(dateSpec)")
-
       Picker("Add New", selection: $dateType) {
         ForEach(DateSpecifierType.allCases) {
           Text($0.rawValue.capitalized)
@@ -66,22 +64,21 @@ struct DateSpecifierView: View {
         updateDateSpec(newValue)
       }
 
-      switch dateType {
-      case .unchanged:
-        Text("Leave any previous date in effect.")
+      Group {
+        switch dateType {
+        case .unchanged:
+          Text("Leave any previous date in effect.")
 
-      case .monthYear:
-        MonthYearView(monthYear: $monthYear)
-          .onChange(of: monthYear) {
-            updateDateSpec(.monthYear)
-          }
-          .frame(height: 200)
+        case .monthYear:
+          MonthYearView(monthYear: $monthYear)
+            .onChange(of: monthYear) {
+              updateDateSpec(.monthYear)
+            }
 
-      case .age:
-        Text("Pick an age")
-        AgeSelector(dateSpec: $dateSpec)
-          .frame(height: 200)
-      }
+        case .age:
+          AgeSelector(dateSpec: $dateSpec)
+        }
+      }.frame(height: 200)
     }
   }
 }

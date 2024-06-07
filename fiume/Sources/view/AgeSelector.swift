@@ -44,14 +44,25 @@ struct AgeSelector: View {
   }
 
   var body: some View {
-    if people.count == 0 {
-      ContentUnavailableView(
+    Group {
+      if people.count == 0 {
+        ContentUnavailableView(
           "No People",
-          systemImage: "exclamationmark.circle",
+          systemImage: "exclamationmark.triangle",
           description: Text("Add people before using age to specify dates.")
-      )
-    } else {
-      personAge()
+        )
+      } else {
+        personAge()
+      }
+    }.onAppear {
+      if case let .age(person, age) = $dateSpec.wrappedValue {
+        self.person = person
+        self.age = age
+      } else if people.count == 0 {
+        person = nil
+      } else {
+        person = people.people.first!
+      }
     }
   }
 }
@@ -59,7 +70,7 @@ struct AgeSelector: View {
 #Preview {
   @State var dateSpec1 = DateSpecifier.unchanged
   @State var dateSpec2 = DateSpecifier.unchanged
-  
+
   let people1 = People()
   people1.add(Person(name: "Bob", birth: 2000.jan, death: nil))
   people1.add(Person(name: "Anny", birth: 1995.dec, death: nil))
