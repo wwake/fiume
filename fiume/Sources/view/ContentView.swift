@@ -11,7 +11,9 @@ struct ContentView: View {
 
   var body: some View {
     NavigationStack {
-      Chart(possibilities.project(possibilities.range(numberOfMonths))) { dataSeries in
+      Text("Net Worth")
+        .font(.title)
+      Chart(possibilities.netWorth(possibilities.range(numberOfMonths))) { dataSeries in
         ForEach(dataSeries.netWorthByMonth) {
           LineMark(
             x: .value("Month", $0.month),

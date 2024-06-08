@@ -1,14 +1,25 @@
 
 * Age - StreamView
-* Allow dates to depend on age or death day
-
+* Make Person.birthYear required
 * Make amount an overrideable value on stream
+
+Persistence
+
+Delete streams
+Edit stream
+
+Pools
+
+Inflation
+
+* Allow dates to depend on death day
+
 * Validate month is valid; end-date >= start-date
 
 * Add multiple sections
 
-Delete streams
-Edit stream
+* SS with 1/2 of spouse etc.
+
 Move streams
 Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
@@ -16,7 +27,9 @@ Calendar view (with RuleMark)
 Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
-Persistence
+
+Scenarios
+
 
 FI-24-18:
 * [offline] Added environment(people) to previews that needed it.

@@ -101,7 +101,7 @@ final class AScenario: XCTestCase {
       makeStream(name: "Expenses", -900, first: DateSpecifier.unchanged, last: DateSpecifier.unchanged)
     )
 
-    let result = sut.project(2024.jan...2024.dec)
+    let result = sut.netWorth(2024.jan...2024.dec)
 
     XCTAssertEqual(result.name, "Scenario Name")
     XCTAssertEqual(result.netWorthByMonth.last!.amount, Money(1_200))

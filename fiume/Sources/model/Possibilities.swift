@@ -37,10 +37,10 @@ class Possibilities {
     startMonth...(startMonth.advanced(by: numberOfMonths - 1))
   }
 
-  func project(_ range: ClosedRange<MonthYear>) -> PossibilitiesNetWorth {
+  func netWorth(_ range: ClosedRange<MonthYear>) -> PossibilitiesNetWorth {
     scenarios()
       .map {
-        $0.project(range)
+        $0.netWorth(range)
       }
 	}
 

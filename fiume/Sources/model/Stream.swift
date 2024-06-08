@@ -44,9 +44,7 @@ struct Stream: Identifiable {
       return self.monthlyAmount
 
     case .month(let endMonth):
-      if month > endMonth {
-        return Money(0)
-      }
+      if month > endMonth { return Money(0) }
       return self.monthlyAmount
 
     case let .age(person, age):
