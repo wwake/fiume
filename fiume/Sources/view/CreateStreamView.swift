@@ -67,7 +67,7 @@ struct CreateStreamView: View {
             first: startMonth,
             last: endMonth
           )
-          plan.append(PlanLeaf(stream))
+          plan.append(PlanStream(stream))
           dismiss()
         }
         .disabled(!valid())

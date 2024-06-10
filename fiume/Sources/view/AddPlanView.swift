@@ -39,6 +39,6 @@ struct AddPlanView: View {
 
 #Preview {
   let tree = AndTree("accounts")
-  tree.append(PlanLeaf(Stream("income", Money(100), first: .month(2024.jan), last: .unchanged)))
+  tree.append(PlanStream(Stream("income", Money(100), first: .month(2024.jan), last: .unchanged)))
   return AddPlanView(plan: tree)
 }

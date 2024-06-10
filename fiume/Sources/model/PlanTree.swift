@@ -1,6 +1,10 @@
 import Foundation
 import SwiftData
 
+enum Plan {
+
+}
+
 protocol PlanTree {
 	var id: UUID { get }
 	var name: String { get }
@@ -11,7 +15,7 @@ protocol PlanTree {
 
 // @Model
 @Observable
-class PlanLeaf: PlanTree, Identifiable {
+class PlanStream: PlanTree, Identifiable {
 	let id = UUID()
 
 	let stream: Stream

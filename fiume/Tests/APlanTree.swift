@@ -11,9 +11,9 @@ final class APlanTree: XCTestCase {
     _ amount: Int,
     _ first: MonthYear = 2024.jan,
     _ last: MonthYear = 2034.dec
-  ) -> PlanLeaf {
+  ) -> PlanStream {
     let stream = Stream(name, Money(amount), first: .month(first), last: .month(last))
-    return PlanLeaf(stream)
+    return PlanStream(stream)
   }
 
   private func makeAndTree(_ name: String, _ children: [PlanTree]) -> PlanComposite {

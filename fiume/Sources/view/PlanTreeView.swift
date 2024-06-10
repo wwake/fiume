@@ -4,8 +4,8 @@ struct PlanTreeView: View {
 	var plan: PlanTree
 
 	var body: some View {
-		if plan is PlanLeaf {
-			PlanLeafView(plan: plan as! PlanLeaf)
+		if plan is PlanStream {
+			PlanLeafView(plan: plan as! PlanStream)
     } else if plan is AndTree {
       PlanAndTreeView(plan: plan as! PlanComposite)
     } else if plan is OrTree {
@@ -15,7 +15,7 @@ struct PlanTreeView: View {
 }
 
 struct PlanLeafView: View {
-	var plan: PlanLeaf
+	var plan: PlanStream
 
 	var body: some View {
 		StreamView(stream: plan.stream)
@@ -73,9 +73,9 @@ struct PlanCompositeView: View {
 }
 
 #Preview {
-  let planLeaf = PlanLeaf(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
+  let planStream = PlanStream(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
 	let planTree = AndTree("tree")
-	planTree.append(planLeaf)
+	planTree.append(planStream)
 
 	return PlanTreeView(plan: planTree)
 }

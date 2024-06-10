@@ -28,7 +28,7 @@ class Possibilities {
 	}
 
 	func add(_ stream: Stream) {
-		plan.append(PlanLeaf(stream))
+		plan.append(PlanStream(stream))
 	}
 
   func add(_ tree: PlanTree) {

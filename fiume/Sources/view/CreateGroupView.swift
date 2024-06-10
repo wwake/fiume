@@ -30,6 +30,6 @@ struct CreateGroupView: View {
 
 #Preview {
 	let tree = AndTree("accounts")
-  tree.append(PlanLeaf(Stream("income", Money(100), first: .month(2020.jan), last: .unchanged)))
+  tree.append(PlanStream(Stream("income", Money(100), first: .month(2020.jan), last: .unchanged)))
 	return CreateGroupView(plan: tree)
 }
