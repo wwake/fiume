@@ -15,7 +15,7 @@ struct CreateStreamView: View {
   @State private var endMonth = DateSpecifier.unchanged
 
   fileprivate func createdAmount() -> Int {
-    guard let amount = amount else { return 0 }
+    guard let amount else { return 0 }
     let sign = isIncome ? 1 : -1
     return sign * amount
   }

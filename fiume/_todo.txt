@@ -1,12 +1,18 @@
 
 * Age - StreamView
 * Make Person.birthYear required
-* Make amount an overrideable value on stream
+* Make default year higher
 
 Persistence
 
-Delete streams
-Edit stream
+* Delete streams
+* Edit stream
+* Move streams
+
+* Sections
+* Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
+
+* Make amount an overrideable value on stream
 
 Pools
 
@@ -20,19 +26,20 @@ Inflation
 
 * SS with 1/2 of spouse etc.
 
-Move streams
-Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
 Calendar view (with RuleMark)
 Add assets/liabilities
 Add flows
 Should we segregate streams by income/expense? (two columns)
 
-Scenarios
+Variables?
 
 
-FI-24-18:
+FI-24-18: 2024-06-10 - User Interface for the Ages
 * [offline] Added environment(people) to previews that needed it.
+* [offline] Make AgeSelector initialize onAppear() [temporarily removed]
+* [offline] Rename project() to netWorth()
+
 
 FI-24-17: 2024-06-06 - Age-Based Dates
 * Make Stream work for age at end of range

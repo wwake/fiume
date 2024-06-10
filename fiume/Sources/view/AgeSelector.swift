@@ -2,26 +2,24 @@ import SwiftUI
 
 struct AgeSelector: View {
   @Environment(People.self)
-  private var people
+  private var people: People
 
   @Binding var dateSpec: DateSpecifier
 
-  @State var person: Person?
-  @State var age = 50
+  @State var person = Person(name: "Unknown", birth: nil, death: nil)
+  @State var age = 60
 
   func updateValues() {
-    if person != nil {
-      dateSpec = .age(person!, age)
-    }
+    dateSpec = DateSpecifier.age(person, age)
   }
 
   func personAge() -> some View {
     GeometryReader { geometry in
       HStack {
         Picker("People", selection: $person) {
-          ForEach(people.people) {
+          ForEach(people.people, id: \.id) {
             Text($0.name)
-              .tag($0.id)
+              .tag($0)
           }
         }
         .halfSize(geometry.size)
@@ -41,6 +39,9 @@ struct AgeSelector: View {
         }
       }
     }
+    .onAppear {
+      person = people.people.first!
+    }
   }
 
   var body: some View {
@@ -54,15 +55,6 @@ struct AgeSelector: View {
       } else {
         personAge()
       }
-    }.onAppear {
-      if case let .age(person, age) = $dateSpec.wrappedValue {
-        self.person = person
-        self.age = age
-      } else if people.count == 0 {
-        person = nil
-      } else {
-        person = people.people.first!
-      }
     }
   }
 }
@@ -74,6 +66,7 @@ struct AgeSelector: View {
   let people1 = People()
   people1.add(Person(name: "Bob", birth: 2000.jan, death: nil))
   people1.add(Person(name: "Anny", birth: 1995.dec, death: nil))
+  people1.add(Person(name: "gil", birth: 1990.mar, death: nil))
   let people2 = People()
 
   return VStack {
