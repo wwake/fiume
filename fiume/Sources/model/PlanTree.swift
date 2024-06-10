@@ -1,4 +1,5 @@
 import Foundation
+import SwiftData
 
 protocol PlanTree {
 	var id: UUID { get }
@@ -8,6 +9,7 @@ protocol PlanTree {
 	func scenarios(_ original: Scenarios) -> Scenarios
 }
 
+// @Model
 @Observable
 class PlanLeaf: PlanTree, Identifiable {
 	let id = UUID()
@@ -29,6 +31,7 @@ class PlanLeaf: PlanTree, Identifiable {
 	}
 }
 
+// @Model
 @Observable
 internal class PlanComposite: PlanTree, Identifiable {
 	let id = UUID()

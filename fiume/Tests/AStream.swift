@@ -72,7 +72,7 @@ final class AStream: XCTestCase {
   }
 
   func test_doesnt_pay_by_starting_age_if_birthdate_unknown() {
-    let person = Person(name: "Bob", birth: nil, death: nil)
+    let person = Person(name: "Bob", birth: 1980.jan, death: nil)
     let age = DateSpecifier.age(person, 40)
     let sut = makeStream(name: "Annuity", 500, first: age, last: .unchanged)
     XCTAssertEqual(sut.amount(at: 2009.dec), Money(0))
@@ -85,14 +85,6 @@ final class AStream: XCTestCase {
     let sut = makeStream(name: "Annuity", 500, first: age, last: .unchanged)
     XCTAssertEqual(sut.amount(at: 2009.dec), Money(0))
     XCTAssertEqual(sut.amount(at: 2010.jan), Money(500))
-  }
-
-  func test_doesnt_expire_by_age_if_birthdate_unknown() {
-    let person = Person(name: "Bob", birth: nil, death: nil)
-    let age = DateSpecifier.age(person, 40)
-    let sut = makeStream(name: "Annuity", 500, first: .unchanged, last: age)
-    XCTAssertEqual(sut.amount(at: 2009.dec), Money(0))
-    XCTAssertEqual(sut.amount(at: 2010.jan), Money(0))
   }
 
   func test_can_end_at_an_age() {

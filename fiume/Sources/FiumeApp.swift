@@ -14,5 +14,6 @@ struct FiumeApp: App {
         ContentView(people: people, possibilities: plan)
 			}
 		}
+    //.modelContainer(for: Possibilities.self)
 	}
 }

@@ -1,4 +1,5 @@
 import Foundation
+import SwiftData
 
 struct MonthlyNetWorth: Identifiable {
 	let id = UUID()
@@ -14,6 +15,7 @@ struct ScenarioNetWorth: Identifiable {
 
 typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 
+// @Model
 @Observable
 class Possibilities {
   let startMonth: MonthYear
