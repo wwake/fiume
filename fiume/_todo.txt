@@ -1,3 +1,5 @@
+* Convert PlanTree to Plan enum - and node
+* Convert PlanTree to Plan enum - or node
 Persistence
 
 * Delete streams
@@ -40,6 +42,8 @@ FI-24-18: 2024-06-10 - User Interface for the Ages
 * Make Person.birthYear required
 * Make default year higher
 
+Persistence
+* Convert PlanTree to Plan enum - stream
 
 
 FI-24-17: 2024-06-06 - Age-Based Dates

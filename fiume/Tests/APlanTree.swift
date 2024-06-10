@@ -8,9 +8,13 @@ struct APlanTree {
     _ amount: Int,
     _ first: MonthYear = 2024.jan,
     _ last: MonthYear = 2034.dec
-  ) -> PlanStream {
+  ) -> Plan {
     let stream = Stream(name, Money(amount), first: .month(first), last: .month(last))
-    return PlanStream(stream)
+    return Plan.stream(UUID(), stream)
+  }
+
+  private func makeAndTree(_ name: String, _ children: [Plan]) -> Plan {
+    return Plan.and(UUID(), name, children)
   }
 
   @Test
@@ -19,6 +23,20 @@ struct APlanTree {
 
     #expect(sut.name == "Income")
     #expect(sut.children == nil)
+  }
+
+  @Test
+  func makes_a_composite() {
+    let leaf1 = makeLeaf("Income1", 1)
+    let leaf2 = makeLeaf("Income2", 2)
+    let leaf3 = makeLeaf("Income3", 3)
+
+    let parent = makeAndTree("parent", [leaf1, leaf2])
+    let sut = makeAndTree("grandparent", [parent, leaf3])
+
+    #expect(sut.name == "grandparent")
+    #expect(sut.children?.count == 2)
+    #expect(parent.children?.count == 2)
   }
 }
 

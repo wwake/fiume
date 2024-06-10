@@ -1,12 +1,16 @@
 import Foundation
 import SwiftData
 
-enum Plan {
+indirect enum Plan {
   case stream(UUID, Stream)
+  case and(UUID, String, [Plan]?)
 
   var id: UUID {
     switch self {
     case let .stream(id, _):
+      return id
+
+    case let .and(id, _, _):
       return id
     }
   }
@@ -15,22 +19,50 @@ enum Plan {
     switch self {
     case let .stream(_, stream):
       return stream.name
+
+    case let .and(_, name, _):
+      return name
     }
   }
 
-  var children: [PlanTree]? {
+  var children: [Plan]? {
     switch self {
     case .stream:
       return nil
+
+    case let .and(_, _, myChildren):
+      return myChildren
     }
   }
 
-  func append(_: PlanTree) { }
+  mutating func append(_ plan: Plan) {
+    switch self {
+    case .stream:
+      break
+
+    case let .and(id, name, myChildren):
+      if myChildren == nil {
+        self = .and(id, name, [plan])
+      } else {
+        self = .and(id, name, myChildren! + [plan])
+      }
+    }
+  }
 
   func scenarios(_ original: Scenarios) -> Scenarios {
     switch self {
     case let .stream(_, stream):
-      original.add(stream)
+      return original.add(stream)
+
+    case let .and(_, _, myChildren):
+      guard let children = myChildren else {
+        return original
+      }
+      var result = original
+      children.forEach { child in
+        result = child.scenarios(result)
+      }
+      return result
     }
   }
 }
