@@ -1,7 +1,28 @@
 @testable import fiume
+import Testing
 import XCTest
 
-final class APlanTree: XCTestCase {
+struct APlanTree {
+  private func makeLeaf(
+    _ name: String,
+    _ amount: Int,
+    _ first: MonthYear = 2024.jan,
+    _ last: MonthYear = 2034.dec
+  ) -> PlanStream {
+    let stream = Stream(name, Money(amount), first: .month(first), last: .month(last))
+    return PlanStream(stream)
+  }
+
+  @Test
+  func makes_a_leaf() throws {
+    let sut = makeLeaf("Income", 100, 2024.mar, 2024.dec)
+
+    #expect(sut.name == "Income")
+    #expect(sut.children == nil)
+  }
+}
+
+final class APlanTreeOld: XCTestCase {
   private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
     Stream(name, Money(amount), first: .month(2024.jan), last: .unchanged)
   }

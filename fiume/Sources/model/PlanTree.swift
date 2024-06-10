@@ -2,7 +2,37 @@ import Foundation
 import SwiftData
 
 enum Plan {
+  case stream(UUID, Stream)
 
+  var id: UUID {
+    switch self {
+    case let .stream(id, _):
+      return id
+    }
+  }
+
+  var name: String {
+    switch self {
+    case let .stream(_, stream):
+      return stream.name
+    }
+  }
+
+  var children: [PlanTree]? {
+    switch self {
+    case .stream:
+      return nil
+    }
+  }
+
+  func append(_: PlanTree) { }
+
+  func scenarios(_ original: Scenarios) -> Scenarios {
+    switch self {
+    case let .stream(_, stream):
+      original.add(stream)
+    }
+  }
 }
 
 protocol PlanTree {
