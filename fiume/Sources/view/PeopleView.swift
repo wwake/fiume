@@ -28,7 +28,7 @@ struct PeopleView: View {
         ForEach(people.people) { person in
           HStack {
             Text(person.name)
-            Text("  b. \(person.birth == nil ? "?" : "\(person.birth!)")")
+            Text("  b. \(person.birth)")
 
             Text("  d. \(person.death == nil ? "?" : "\(person.death!)")")
           }

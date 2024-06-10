@@ -6,7 +6,7 @@ struct AgeSelector: View {
 
   @Binding var dateSpec: DateSpecifier
 
-  @State var person = Person(name: "Unknown", birth: nil, death: nil)
+  @State var person = Person(name: "Unknown", birth: 2000.jan, death: nil)
   @State var age = 60
 
   func updateValues() {

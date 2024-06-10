@@ -1,13 +1,10 @@
-
-* Age - StreamView
-* Make Person.birthYear required
-* Make default year higher
-
 Persistence
 
 * Delete streams
 * Edit stream
 * Move streams
+
+* Make People a sequence so we don't access people.people
 
 * Sections
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
@@ -39,6 +36,10 @@ FI-24-18: 2024-06-10 - User Interface for the Ages
 * [offline] Added environment(people) to previews that needed it.
 * [offline] Make AgeSelector initialize onAppear() [temporarily removed]
 * [offline] Rename project() to netWorth()
+* Make AgeSelector work [it could only pick first name on list because selection state was optional]
+* Make Person.birthYear required
+* Make default year higher
+
 
 
 FI-24-17: 2024-06-06 - Age-Based Dates

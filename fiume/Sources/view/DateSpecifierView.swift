@@ -19,7 +19,7 @@ struct DateSpecifierView: View {
   init(label: String, dateSpec: Binding<DateSpecifier>) {
     self.label = label
     self._dateSpec = dateSpec
-    self.monthYear = 2000.jan
+    self.monthYear = 2020.jan
 
     switch dateSpec.wrappedValue {
     case .unchanged:
