@@ -4,13 +4,14 @@ import SwiftData
 indirect enum Plan {
   case stream(UUID, Stream)
   case and(UUID, String, [Plan]?)
+  case or(UUID, String, [Plan]?)
 
   var id: UUID {
     switch self {
     case let .stream(id, _):
       return id
 
-    case let .and(id, _, _):
+    case .and(let id, _, _), .or(let id, _, _):
       return id
     }
   }
@@ -20,7 +21,7 @@ indirect enum Plan {
     case let .stream(_, stream):
       return stream.name
 
-    case let .and(_, name, _):
+    case .and(_, let name, _), .or(_, let name, _):
       return name
     }
   }
@@ -30,7 +31,7 @@ indirect enum Plan {
     case .stream:
       return nil
 
-    case let .and(_, _, myChildren):
+    case .and(_, _, let myChildren), .or(_, _, let myChildren):
       return myChildren
     }
   }
@@ -46,7 +47,18 @@ indirect enum Plan {
       } else {
         self = .and(id, name, myChildren! + [plan])
       }
+
+    case let .or(id, name, myChildren):
+      if myChildren == nil {
+        self = .or(id, name, [plan])
+      } else {
+        self = .or(id, name, myChildren! + [plan])
+      }
     }
+  }
+
+  func uniqueName(_ name: String, _ child: Plan, _ index: Int) -> String {
+    " • \(name) (\(index + 1)) - \(child.name)"
   }
 
   func scenarios(_ original: Scenarios) -> Scenarios {
@@ -61,6 +73,21 @@ indirect enum Plan {
       var result = original
       children.forEach { child in
         result = child.scenarios(result)
+      }
+      return result
+
+    case let .or(_, _, myChildren):
+      guard let children = myChildren else {
+        return original
+      }
+
+      let result = Scenarios()
+      children.enumerated().forEach { index, child in
+        original.forEach { scenario in
+          let childName = scenario.name + uniqueName(name, child, index)
+          let newScenarios = child.scenarios(Scenarios([scenario.copy(childName)]))
+          result.add(newScenarios)
+        }
       }
       return result
     }

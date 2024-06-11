@@ -3,6 +3,10 @@ import Testing
 import XCTest
 
 struct APlan {
+  private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
+    Stream(name, Money(amount), first: .month(2024.jan), last: .unchanged)
+  }
+
   private func makeLeaf(
     _ name: String,
     _ amount: Int,
@@ -15,6 +19,10 @@ struct APlan {
 
   private func makeAndTree(_ name: String, _ children: [Plan]) -> Plan {
     Plan.and(UUID(), name, children)
+  }
+
+  private func makeOrTree(_ name: String, _ children: [Plan]) -> Plan {
+    Plan.or(UUID(), name, children)
   }
 
   @Test
@@ -70,6 +78,93 @@ struct APlan {
     #expect(array[1].net(at: 2024.jun) == Money(3_000))
     #expect(array[0].net(at: 2025.jan) == Money(2_000))
     #expect(array[1].net(at: 2025.jan) == Money(2_000))
+  }
+
+  @Test
+  func scenarios_for_and_tree_with_or_child() {
+    let leaf1a = makeLeaf("Income1a", 1_000)
+    let leaf1b = makeLeaf("Income1b", 1_500)
+    let leaf2 = makeLeaf("Income2", 2_000)
+    let orTree = makeOrTree( "scenarios", [leaf1a, leaf1b])
+    let sut = makeAndTree("parent", [orTree, leaf2])
+
+    let result = sut.scenarios(Scenarios([Scenario("")]))
+    let resultSet = Set(result.map { $0.net(at: 2024.jan) })
+
+    #expect(resultSet.count == 2)
+    #expect(resultSet == [3_000, 3_500])
+  }
+
+  @Test
+  func scenarios_for_or_tree() {
+    let leaf1 = makeLeaf("Income1", 1_000, 2024.jan, 2024.dec)
+    let leaf2 = makeLeaf("Income2", 2_000, 2024.jun, 2025.jun)
+
+    let sut = makeOrTree("parent", [leaf1, leaf2])
+
+    let result = sut.scenarios(Scenarios([Scenario("")]))
+    let array = Array(result)
+
+    #expect(array.count == 2)
+    let (x, y) = array[0].net(at: 2024.jan) != 0 ? (array[0], array[1]) : (array[1], array[0])
+    let nets1 = [x.net(at: 2024.jan), x.net(at: 2024.jun), x.net(at: 2025.jan)]
+    #expect(nets1 == [Money(1_000), Money(1_000), Money(0)])
+
+    let nets2: [Money] = [y.net(at: 2024.jan), y.net(at: 2024.jun), y.net(at: 2025.jan)]
+    #expect(nets2 == [Money(0), Money(2_000), Money(2_000)])
+  }
+
+  @Test
+  func multiple_scenarios_for_or_tree() {
+    let scenario1 = Scenario("")
+    let scenario2 = Scenario("")
+    scenario2.add(makeStream("annuity", 500))
+
+    let leaf1 = makeLeaf("Income1", 1_000)
+    let leaf2 = makeLeaf("Income2", 2_000)
+
+    let sut = makeOrTree("parent", [leaf1, leaf2])
+
+    let scenarios = sut.scenarios(Scenarios([scenario1, scenario2]))
+    let result = Array(scenarios)
+    let month = 2024.jan
+
+    #expect(result.count == 4)
+    #expect(result.contains { $0.net(at: month) == Money(1_000) })
+    #expect(result.contains { $0.net(at: month) == Money(2_000) })
+    #expect(result.contains { $0.net(at: month) == Money(1_500) })
+    #expect(result.contains { $0.net(at: month) == Money(2_500) })
+  }
+
+  @Test
+  func scenarios_for_or_tree_get_names_from_starting_scenario() {
+    let leaf1 = makeLeaf("Income1", 1_000)
+    let leaf2 = makeLeaf("Income2", 2_000)
+
+    let sut = makeOrTree("Job", [leaf1, leaf2])
+
+    let result = sut.scenarios(Scenarios([Scenario("")]))
+    let array = Array(result)
+
+    #expect(array.count == 2)
+    let names = array.map { $0.name }
+    #expect(Set(names) == [" • Job (1) - Income1", " • Job (2) - Income2"])
+  }
+
+  @Test
+  func scenarios_for_nested_or_trees_gets_combined_name() {
+    let leaf1 = makeLeaf("Income1", 1_000)
+    let leaf2 = makeLeaf("Income2", 2_000)
+
+    let or1 = makeOrTree("Job", [leaf1])
+    let or2 = makeOrTree("Salary", [leaf2])
+    let sut = makeAndTree("And", [or1, or2])
+
+    let result = sut.scenarios(Scenarios([Scenario("Start")]))
+    let array = Array(result)
+
+    #expect(array.count == 1)
+    #expect(array.first!.name == "Start • Job (1) - Income1 • Salary (1) - Income2")
   }
 }
 
