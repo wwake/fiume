@@ -2,7 +2,7 @@
 import Testing
 import XCTest
 
-struct APlanTree {
+struct APlan {
   private func makeLeaf(
     _ name: String,
     _ amount: Int,
@@ -37,6 +37,39 @@ struct APlanTree {
     #expect(sut.name == "grandparent")
     #expect(sut.children?.count == 2)
     #expect(parent.children?.count == 2)
+  }
+
+  @Test
+  func scenarios_for_stream() {
+    let sut = makeLeaf("Income1", 1_000, 2024.jan, 2024.dec)
+
+    let result = sut.scenarios(Scenarios([Scenario("A"), Scenario("B")]))
+    let array = Array(result)
+
+    #expect(array.count == 2)
+    #expect(array[0].net(at: 2024.dec) == Money(1_000))
+    #expect(array[1].net(at: 2024.dec) == Money(1_000))
+    #expect(array[0].net(at: 2025.jan) == Money(0))
+    #expect(array[1].net(at: 2025.jan) == Money(0))
+  }
+
+  @Test
+  func scenarios_for_and_tree() {
+    let leaf1 = makeLeaf("Income1", 1_000, 2024.jan, 2024.dec)
+    let leaf2 = makeLeaf("Income2", 2_000, 2024.jun, 2025.jun)
+
+    let sut = makeAndTree("parent", [leaf1, leaf2])
+
+    let result = sut.scenarios(Scenarios([Scenario(""), Scenario("")]))
+    let array = Array(result)
+
+    #expect(array.count == 2)
+    #expect(array[0].net(at: 2024.jan) == Money(1_000))
+    #expect(array[1].net(at: 2024.jan) == Money(1_000))
+    #expect(array[0].net(at: 2024.jun) == Money(3_000))
+    #expect(array[1].net(at: 2024.jun) == Money(3_000))
+    #expect(array[0].net(at: 2025.jan) == Money(2_000))
+    #expect(array[1].net(at: 2025.jan) == Money(2_000))
   }
 }
 
