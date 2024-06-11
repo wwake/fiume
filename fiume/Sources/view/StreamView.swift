@@ -6,10 +6,10 @@ struct StreamView: View {
 	var body: some View {
     HStack {
       if stream.isNonNegative {
-        Image(systemName: "plus.circle")
+        Image(systemName: "arrow.up.right")
           .accessibilityLabel("income stream")
       } else {
-        Image(systemName: "minus.circle")
+        Image(systemName: "arrow.down.right")
           .accessibilityLabel("expense stream")
       }
 

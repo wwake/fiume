@@ -14,7 +14,7 @@ struct APlanTree {
   }
 
   private func makeAndTree(_ name: String, _ children: [Plan]) -> Plan {
-    return Plan.and(UUID(), name, children)
+    Plan.and(UUID(), name, children)
   }
 
   @Test
