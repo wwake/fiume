@@ -27,8 +27,8 @@
 		914FEFB72BF2AD6B003D858E /* CreateStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */; };
 		914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB82BF2AF08003D858E /* StreamView.swift */; };
 		91690A7F2C12451500A6082D /* AgeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91690A7E2C12451500A6082D /* AgeSelector.swift */; };
-		919CED492BF5492800ACCE2E /* PlanTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED482BF5492800ACCE2E /* PlanTree.swift */; };
-		919CED4B2BF5499F00ACCE2E /* APlanTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4A2BF5499F00ACCE2E /* APlanTree.swift */; };
+		919CED492BF5492800ACCE2E /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED482BF5492800ACCE2E /* Plan.swift */; };
+		919CED4B2BF5499F00ACCE2E /* APlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4A2BF5499F00ACCE2E /* APlan.swift */; };
 		919CED4D2BF54D8C00ACCE2E /* PlanTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */; };
 		919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4E2BF550E300ACCE2E /* PlanListView.swift */; };
 		919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED512BF699E900ACCE2E /* AddPlanView.swift */; };
@@ -77,8 +77,8 @@
 		914FEFB82BF2AF08003D858E /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
 		9152FC512C0AB46A000D5001 /* fiume-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "fiume-Info.plist"; sourceTree = "<group>"; };
 		91690A7E2C12451500A6082D /* AgeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelector.swift; sourceTree = "<group>"; };
-		919CED482BF5492800ACCE2E /* PlanTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTree.swift; sourceTree = "<group>"; };
-		919CED4A2BF5499F00ACCE2E /* APlanTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APlanTree.swift; sourceTree = "<group>"; };
+		919CED482BF5492800ACCE2E /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		919CED4A2BF5499F00ACCE2E /* APlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APlan.swift; sourceTree = "<group>"; };
 		919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTreeView.swift; sourceTree = "<group>"; };
 		919CED4E2BF550E300ACCE2E /* PlanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanListView.swift; sourceTree = "<group>"; };
 		919CED512BF699E900ACCE2E /* AddPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlanView.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 				914FEFA22BF292FE003D858E /* Money.swift */,
 				91F950822C07B860006822AF /* MonthYear.swift */,
 				91F950842C07B8AB006822AF /* Person.swift */,
-				919CED482BF5492800ACCE2E /* PlanTree.swift */,
+				919CED482BF5492800ACCE2E /* Plan.swift */,
 				914FEFA42BF2930E003D858E /* Possibilities.swift */,
 				914B54C42BFBDB74005A9090 /* Scenario.swift */,
 				91CDFD162BFE6AE700695E65 /* Scenarios.swift */,
@@ -217,7 +217,7 @@
 			children = (
 				91D5439B2C0523D900AD3592 /* ADateSpecifier.swift */,
 				91206E2D2C09011500D4C1CB /* AMonthYear.swift */,
-				919CED4A2BF5499F00ACCE2E /* APlanTree.swift */,
+				919CED4A2BF5499F00ACCE2E /* APlan.swift */,
 				914B54C62BFBDF34005A9090 /* AScenario.swift */,
 				914FEFA92BF29399003D858E /* AStream.swift */,
 				91D543A12C0692B500AD3592 /* Package.swift */,
@@ -370,7 +370,7 @@
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
 				91206E2C2C07C21300D4C1CB /* Person.swift in Sources */,
 				914FEFA32BF292FE003D858E /* Money.swift in Sources */,
-				919CED492BF5492800ACCE2E /* PlanTree.swift in Sources */,
+				919CED492BF5492800ACCE2E /* Plan.swift in Sources */,
 				91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */,
 				91206E282C07BD2300D4C1CB /* CreatePersonView.swift in Sources */,
 				91D5439A2C051B5700AD3592 /* DateSpecifier.swift in Sources */,
@@ -391,7 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919CED4B2BF5499F00ACCE2E /* APlanTree.swift in Sources */,
+				919CED4B2BF5499F00ACCE2E /* APlan.swift in Sources */,
 				91D5439C2C0523D900AD3592 /* ADateSpecifier.swift in Sources */,
 				914B54C72BFBDF34005A9090 /* AScenario.swift in Sources */,
 				91206E2F2C09013C00D4C1CB /* AMonthYear.swift in Sources */,
