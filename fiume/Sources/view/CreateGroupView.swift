@@ -4,7 +4,7 @@ struct CreateGroupView: View {
 	@Environment(\.dismiss)
 	var dismiss
 
-	@Bindable var plan: PlanComposite
+	@Binding var plan: Planxty
 	@State private var name = ""
 
   func valid() -> Bool {
@@ -18,7 +18,7 @@ struct CreateGroupView: View {
 			HStack {
 				Spacer()
 				Button("Create") {
-					plan.append(AndTree(name))
+          plan.append(Planxty.makeAnd(name))
 					dismiss()
 				}
         .disabled(!valid())
@@ -29,7 +29,7 @@ struct CreateGroupView: View {
 }
 
 #Preview {
-	let tree = AndTree("accounts")
-  tree.append(PlanStream(Stream("income", Money(100), first: .month(2020.jan), last: .unchanged)))
-	return CreateGroupView(plan: tree)
+  @State var tree = Planxty.makeAnd("accounts")
+  tree.append(Planxty.makeStream(Stream("income", Money(100), first: .month(2020.jan), last: .unchanged)))
+	return CreateGroupView(plan: $tree)
 }

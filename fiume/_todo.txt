@@ -1,3 +1,4 @@
+
 * Convert PlanTree to Plan enum [parallel change] - and node
 * Convert PlanTree to Plan enum [parallel change] - or node
 Persistence
@@ -33,6 +34,12 @@ Should we segregate streams by income/expense? (two columns)
 
 Variables?
 
+FI-24-19: 2024-06-11 - Persistence - PlanTree ⇒ enum
+Persistence
+* Convert PlanTree to Plan enum [parallel change] - and node
+* Convert PlanTree to Plan enum [parallel change] - or node
+* Convert PlanTree to Planxty struct
+* Update all sets of tests
 
 FI-24-18: 2024-06-10 - User Interface for the Ages
 * [offline] Added environment(people) to previews that needed it.

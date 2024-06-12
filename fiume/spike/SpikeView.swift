@@ -3,6 +3,14 @@ import SwiftUI
 struct Tree<Value: Hashable>: Hashable {
 	let value: Value
 	var children: [Tree]?
+
+  var count: Int {
+    var childCount = 0
+    if children != nil {
+      childCount = children!.map { $0.count }.reduce(0, +)
+    }
+    return 1 + childCount
+  }
 }
 
 var categories: [Tree<String>] = [
@@ -43,25 +51,42 @@ func makeCategories() -> [Tree<String>] {
 	return categories
 }
 
+struct XView: View {
+  @Binding var arg: Tree<String>
+
+  var body: some View {
+    Text(arg.value)
+      .font(.subheadline)
+  }
+}
 struct SpikeView: View {
 	@State private var categories = makeCategories()
+  @State private var counter = 0
 
-	var body: some View {
-		List {
-			ForEach(categories, id: \.self) { section in
-				Section(header: Text(section.value)) {
-					OutlineGroup(
-						section.children ?? [],
-						id: \.value,
-						children: \.children
-					) { tree in
-						Text(tree.value)
-							.font(.subheadline)
-					}
-				}
-			}
-		}.listStyle(SidebarListStyle())
-	}
+  var body: some View {
+    VStack {
+      Text("count=\(categories.count)")
+
+      List {
+        ForEach($categories, id: \.self) { section in
+          //Section(header: Text(section.value)) {
+          OutlineGroup(
+            section,  // section.children ?? []
+            id: \.value,
+            children: \.children
+          ) { tree in
+            XView(arg: tree)
+          }
+          //	}
+        }
+      }.listStyle(SidebarListStyle())
+
+      Button("Add") {
+        counter += 1
+        categories.append(Tree(value: "My \(counter)"))
+      }
+    }
+  }
 }
 
 #Preview {

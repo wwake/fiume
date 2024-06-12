@@ -98,12 +98,15 @@ enum PlanxtyType {
   case stream, and, or
 }
 
-struct Planxty {
+struct Planxty: Identifiable {
+  static let childrenPath: WritableKeyPath = \Planxty.children
+
   var id = UUID()
   var type: PlanxtyType
   private(set) var name: String
+
   var stream: Stream?
-  private(set) var children: [Planxty]?
+  var children: [Planxty]?
 
   static func makeStream(_ stream: Stream) -> Planxty {
     Planxty(stream)

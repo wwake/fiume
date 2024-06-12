@@ -50,10 +50,11 @@ final class SomePossibilities: XCTestCase {
 	}
 
   func test_adds_scenarios() {
-    let sut = makePossibilities()
-    let orTree = OrTree("jobs")
-    orTree.append(PlanStream(makeStream("Salary1", Money(1_000))))
-    orTree.append(PlanStream(makeStream("Salary2", Money(2_000))))
+    var sut = makePossibilities()
+
+    var orTree = Planxty.makeOr("jobs")
+    orTree.append(Planxty.makeStream(makeStream("Salary1", Money(1_000))))
+    orTree.append(Planxty.makeStream(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)
 
     print(sut.plan)
@@ -64,10 +65,10 @@ final class SomePossibilities: XCTestCase {
   }
 
   func test_computes_net_worth_for_multiple_scenarios() {
-    let sut = makePossibilities()
-    let orTree = OrTree("jobs")
-    orTree.append(PlanStream(makeStream("Salary1", Money(1_000))))
-    orTree.append(PlanStream(makeStream("Salary2", Money(2_000))))
+    var sut = makePossibilities()
+    var orTree = Planxty.makeOr("jobs")
+    orTree.append(Planxty.makeStream(makeStream("Salary1", Money(1_000))))
+    orTree.append(Planxty.makeStream(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)
 
     let result = sut.netWorth(sut.range(3))

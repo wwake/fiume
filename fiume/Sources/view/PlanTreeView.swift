@@ -1,33 +1,36 @@
 import SwiftUI
 
 struct PlanTreeView: View {
-	var plan: PlanTree
+	@Binding var plan: Planxty
 
 	var body: some View {
-		if plan is PlanStream {
-			PlanLeafView(plan: plan as! PlanStream)
-    } else if plan is AndTree {
-      PlanAndTreeView(plan: plan as! PlanComposite)
-    } else if plan is OrTree {
-      PlanOrTreeView(plan: plan as! PlanComposite)
+    switch plan.type {
+    case .stream:
+      PlanLeafView(stream: plan.stream!)
+
+    case .and:
+      PlanAndTreeView(plan: $plan)
+
+    case .or:
+      PlanAndTreeView(plan: $plan)
     }
   }
 }
 
 struct PlanLeafView: View {
-	var plan: PlanStream
+  var stream: Stream
 
 	var body: some View {
-		StreamView(stream: plan.stream)
+		StreamView(stream: stream)
 	}
 }
 
 struct PlanAndTreeView: View {
-  var plan: PlanComposite
+  @Binding var plan: Planxty
 
   var body: some View {
     PlanCompositeView(
-      plan: plan,
+      plan: $plan,
       icon: "list.bullet.clipboard",
       label: "Group"
     )
@@ -35,11 +38,11 @@ struct PlanAndTreeView: View {
 }
 
 struct PlanOrTreeView: View {
-  var plan: PlanComposite
+  @Binding var plan: Planxty
 
   var body: some View {
     PlanCompositeView(
-      plan: plan,
+      plan: $plan,
       icon: "arrow.left.arrow.right",
       label: "Alternatives"
     )
@@ -47,7 +50,7 @@ struct PlanOrTreeView: View {
 }
 
 struct PlanCompositeView: View {
-	var plan: PlanComposite
+	@Binding var plan: Planxty
   let icon: String
   let label: String
 
@@ -67,15 +70,15 @@ struct PlanCompositeView: View {
 					isAddPresented = true
 			}
 		}.sheet(isPresented: $isAddPresented) {
-			AddPlanView(plan: plan)
+			AddPlanView(plan: $plan)
 		}
 	}
 }
 
 #Preview {
-  let planStream = PlanStream(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
-	let planTree = AndTree("tree")
+  let planStream = Planxty.makeStream(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
+  @State var planTree = Planxty.makeAnd("tree")
 	planTree.append(planStream)
 
-	return PlanTreeView(plan: planTree)
+	return PlanTreeView(plan: $planTree)
 }

@@ -4,7 +4,7 @@ struct CreateStreamView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  @Bindable var plan: PlanComposite
+  @Binding var plan: Planxty
 
   @State private var isIncome = true
 
@@ -67,7 +67,7 @@ struct CreateStreamView: View {
             first: startMonth,
             last: endMonth
           )
-          plan.append(PlanStream(stream))
+          plan.append(Planxty.makeStream(stream))
           dismiss()
         }
         .disabled(!valid())
