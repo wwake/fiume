@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct PlanTreeView: View {
-	@Binding var plan: Planxty
+struct PlanView: View {
+	@Binding var plan: Plan
 
 	var body: some View {
     switch plan.type {
@@ -26,7 +26,7 @@ struct PlanLeafView: View {
 }
 
 struct PlanAndTreeView: View {
-  @Binding var plan: Planxty
+  @Binding var plan: Plan
 
   var body: some View {
     PlanCompositeView(
@@ -38,7 +38,7 @@ struct PlanAndTreeView: View {
 }
 
 struct PlanOrTreeView: View {
-  @Binding var plan: Planxty
+  @Binding var plan: Plan
 
   var body: some View {
     PlanCompositeView(
@@ -50,7 +50,7 @@ struct PlanOrTreeView: View {
 }
 
 struct PlanCompositeView: View {
-	@Binding var plan: Planxty
+	@Binding var plan: Plan
   let icon: String
   let label: String
 
@@ -76,9 +76,9 @@ struct PlanCompositeView: View {
 }
 
 #Preview {
-  let planStream = Planxty.makeStream(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
-  @State var planTree = Planxty.makeAnd("tree")
+  let planStream = Plan.makeStream(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
+  @State var planTree = Plan.makeAnd("tree")
 	planTree.append(planStream)
 
-	return PlanTreeView(plan: $planTree)
+	return PlanView(plan: $planTree)
 }

@@ -19,9 +19,9 @@ typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 @Observable
 class Possibilities {
   let startMonth: MonthYear
-  var plan = Planxty.makeAnd("My Finances")
+  var plan = Plan.makeAnd("My Finances")
 
-  var sections = [Planxty]() { didSet { print("Possibilities set \(sections.map {$0.name})")}}
+  var sections = [Plan]() { didSet { print("Possibilities set \(sections.map {$0.name})")}}
 
 	init(startDate: MonthYear) {
     self.startMonth = startDate
@@ -29,10 +29,10 @@ class Possibilities {
 	}
 
 	func add(_ stream: Stream) {
-    plan.append(Planxty.makeStream(stream))
+    plan.append(Plan.makeStream(stream))
 	}
 
-  func add(_ tree: Planxty) {
+  func add(_ tree: Plan) {
     plan.append(tree)
   }
 

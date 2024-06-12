@@ -3,7 +3,7 @@ import SwiftUI
 struct PlanListView: View {
   @Bindable var plan: Possibilities
 
-  func contents(_ child: Binding<Planxty>) -> Text {
+  func contents(_ child: Binding<Plan>) -> Text {
     Text("ok hope")
   }
 
@@ -15,7 +15,7 @@ struct PlanListView: View {
           id: \.id,
           children: \.children
         ) { tree in
-            PlanTreeView(plan: tree)
+            PlanView(plan: tree)
         }
       }
     }

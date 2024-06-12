@@ -12,21 +12,21 @@ struct APlanxty {
     _ amount: Int,
     _ first: MonthYear = 2024.jan,
     _ last: MonthYear = 2034.dec
-  ) -> Planxty {
+  ) -> Plan {
     let stream = Stream(name, Money(amount), first: .month(first), last: .month(last))
-    return Planxty.makeStream(stream)
+    return Plan.makeStream(stream)
   }
 
-  private func makeAndTree(_ name: String, _ children: [Planxty]) -> Planxty {
-    var result = Planxty.makeAnd(name)
+  private func makeAndTree(_ name: String, _ children: [Plan]) -> Plan {
+    var result = Plan.makeAnd(name)
     children.forEach {
       result.append($0)
     }
     return result
   }
 
-  private func makeOrTree(_ name: String, _ children: [Planxty]) -> Planxty {
-    var result = Planxty.makeOr(name)
+  private func makeOrTree(_ name: String, _ children: [Plan]) -> Plan {
+    var result = Plan.makeOr(name)
     children.forEach {
       result.append($0)
     }

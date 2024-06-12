@@ -7,7 +7,7 @@ enum AddType: String, CaseIterable, Identifiable {
 }
 
 struct AddPlanView: View {
-  @Binding var plan: Planxty
+  @Binding var plan: Plan
   @State private var addType = AddType.stream
 
   var body: some View {
@@ -38,7 +38,7 @@ struct AddPlanView: View {
 }
 
 #Preview {
-  @State var tree = Planxty.makeAnd("accounts")
-  tree.append(Planxty.makeStream(Stream("income", Money(100), first: .month(2024.jan), last: .unchanged)))
+  @State var tree = Plan.makeAnd("accounts")
+  tree.append(Plan.makeStream(Stream("income", Money(100), first: .month(2024.jan), last: .unchanged)))
   return AddPlanView(plan: $tree)
 }

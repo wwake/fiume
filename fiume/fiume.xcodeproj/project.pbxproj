@@ -29,7 +29,7 @@
 		91690A7F2C12451500A6082D /* AgeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91690A7E2C12451500A6082D /* AgeSelector.swift */; };
 		919CED492BF5492800ACCE2E /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED482BF5492800ACCE2E /* Plan.swift */; };
 		919CED4B2BF5499F00ACCE2E /* APlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4A2BF5499F00ACCE2E /* APlan.swift */; };
-		919CED4D2BF54D8C00ACCE2E /* PlanTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */; };
+		919CED4D2BF54D8C00ACCE2E /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4C2BF54D8C00ACCE2E /* PlanView.swift */; };
 		919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4E2BF550E300ACCE2E /* PlanListView.swift */; };
 		919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED512BF699E900ACCE2E /* AddPlanView.swift */; };
 		919CED542BF69C5C00ACCE2E /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */; };
@@ -79,7 +79,7 @@
 		91690A7E2C12451500A6082D /* AgeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelector.swift; sourceTree = "<group>"; };
 		919CED482BF5492800ACCE2E /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		919CED4A2BF5499F00ACCE2E /* APlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APlan.swift; sourceTree = "<group>"; };
-		919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTreeView.swift; sourceTree = "<group>"; };
+		919CED4C2BF54D8C00ACCE2E /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
 		919CED4E2BF550E300ACCE2E /* PlanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanListView.swift; sourceTree = "<group>"; };
 		919CED512BF699E900ACCE2E /* AddPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlanView.swift; sourceTree = "<group>"; };
 		919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 				91206E292C07BE6B00D4C1CB /* MonthYearView.swift */,
 				91206E322C090B3F00D4C1CB /* PeopleView.swift */,
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
-				919CED4C2BF54D8C00ACCE2E /* PlanTreeView.swift */,
+				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
 				91690A7E2C12451500A6082D /* AgeSelector.swift */,
 			);
@@ -382,7 +382,7 @@
 				914FEFA72BF29317003D858E /* Stream.swift in Sources */,
 				914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */,
 				91206E2A2C07BE6B00D4C1CB /* MonthYearView.swift in Sources */,
-				919CED4D2BF54D8C00ACCE2E /* PlanTreeView.swift in Sources */,
+				919CED4D2BF54D8C00ACCE2E /* PlanView.swift in Sources */,
 				919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

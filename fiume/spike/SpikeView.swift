@@ -69,7 +69,6 @@ struct SpikeView: View {
 
       List {
         ForEach($categories, id: \.self) { section in
-          //Section(header: Text(section.value)) {
           OutlineGroup(
             section,  // section.children ?? []
             id: \.value,
@@ -77,7 +76,6 @@ struct SpikeView: View {
           ) { tree in
             XView(arg: tree)
           }
-          //	}
         }
       }.listStyle(SidebarListStyle())
 

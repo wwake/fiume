@@ -1,30 +1,30 @@
 import Foundation
 import SwiftData
 
-enum PlanxtyType {
+enum PlanType {
   case stream, and, or
 }
 
-struct Planxty: Identifiable {
-  static let childrenPath: WritableKeyPath = \Planxty.children
+struct Plan: Identifiable {
+  static let childrenPath: WritableKeyPath = \Plan.children
 
   var id = UUID()
-  var type: PlanxtyType
+  var type: PlanType
   private(set) var name: String
 
   var stream: Stream?
-  var children: [Planxty]?
+  var children: [Plan]?
 
-  static func makeStream(_ stream: Stream) -> Planxty {
-    Planxty(stream)
+  static func makeStream(_ stream: Stream) -> Plan {
+    Plan(stream)
   }
 
-  static func makeAnd(_ name: String) -> Planxty {
-    Planxty(.and, name)
+  static func makeAnd(_ name: String) -> Plan {
+    Plan(.and, name)
   }
 
-  static func makeOr(_ name: String) -> Planxty {
-    Planxty(.or, name)
+  static func makeOr(_ name: String) -> Plan {
+    Plan(.or, name)
   }
 
   init(_ stream: Stream) {
@@ -33,13 +33,13 @@ struct Planxty: Identifiable {
     self.stream = stream
   }
 
-  init(_ type: PlanxtyType, _ name: String) {
+  init(_ type: PlanType, _ name: String) {
     self.type = type
     self.name = name
     self.children = []
   }
 
-  mutating func append(_ plan: Planxty) {
+  mutating func append(_ plan: Plan) {
     guard type != .stream else { return }
     if children == nil {
       children = [plan]
@@ -48,7 +48,7 @@ struct Planxty: Identifiable {
     }
   }
 
-  private func uniqueName(_ name: String, _ child: Planxty, _ index: Int) -> String {
+  private func uniqueName(_ name: String, _ child: Plan, _ index: Int) -> String {
     " • \(name) (\(index + 1)) - \(child.name)"
   }
 
