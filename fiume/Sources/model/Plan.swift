@@ -6,8 +6,6 @@ enum PlanType {
 }
 
 struct Plan: Identifiable {
-  static let childrenPath: WritableKeyPath = \Plan.children
-
   var id = UUID()
   var type: PlanType
   private(set) var name: String

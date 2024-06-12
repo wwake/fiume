@@ -59,13 +59,23 @@ struct XView: View {
       .font(.subheadline)
   }
 }
+
+struct Counter {
+  let id = UUID()
+  var value = 0
+
+  mutating func incr() {
+    value += 1
+  }
+}
+
 struct SpikeView: View {
 	@State private var categories = makeCategories()
-  @State private var counter = 0
+  @State private var count = Counter()
 
   var body: some View {
     VStack {
-      Text("count=\(categories.count)")
+      Text("count=\(count)")
 
       List {
         ForEach($categories, id: \.self) { section in
@@ -79,9 +89,10 @@ struct SpikeView: View {
         }
       }.listStyle(SidebarListStyle())
 
-      Button("Add") {
-        counter += 1
-        categories.append(Tree(value: "My \(counter)"))
+      Button("Alter") {
+        print("before \(count)")
+        count.incr()
+        print("after \(count)\n")
       }
     }
   }

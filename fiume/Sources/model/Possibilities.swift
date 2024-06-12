@@ -19,9 +19,9 @@ typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 @Observable
 class Possibilities {
   let startMonth: MonthYear
-  var plan = Plan.makeAnd("My Finances")
 
-  var sections = [Plan]() { didSet { print("Possibilities set \(sections.map {$0.name})")}}
+  var plan = Plan.makeAnd("My Finances")
+  var sections = [Plan]()
 
 	init(startDate: MonthYear) {
     self.startMonth = startDate
@@ -29,11 +29,11 @@ class Possibilities {
 	}
 
 	func add(_ stream: Stream) {
-    plan.append(Plan.makeStream(stream))
+    sections[0].append(Plan.makeStream(stream))
 	}
 
   func add(_ tree: Plan) {
-    plan.append(tree)
+    sections[0].append(tree)
   }
 
   func range(_ numberOfMonths: Int) -> ClosedRange<MonthYear> {
@@ -48,6 +48,6 @@ class Possibilities {
 	}
 
 	func scenarios() -> Scenarios {
-		plan.scenarios(Scenarios([Scenario("Scenario")]))
+		sections[0].scenarios(Scenarios([Scenario("Scenario")]))
 	}
 }

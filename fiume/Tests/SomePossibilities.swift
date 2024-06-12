@@ -57,11 +57,7 @@ final class SomePossibilities: XCTestCase {
     orTree.append(Plan.makeStream(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)
 
-    print(sut.plan)
-
-    let result = Array(sut.scenarios())
-
-    XCTAssertEqual(result.count, 2)
+    XCTAssertEqual(sut.scenarios().count, 2)
   }
 
   func test_computes_net_worth_for_multiple_scenarios() {

@@ -12,7 +12,7 @@ struct PlanView: View {
       PlanAndTreeView(plan: $plan)
 
     case .or:
-      PlanAndTreeView(plan: $plan)
+      PlanOrTreeView(plan: $plan)
     }
   }
 }

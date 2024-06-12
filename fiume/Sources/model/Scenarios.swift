@@ -5,6 +5,10 @@ class Scenarios: Sequence {
     self.scenarios = Set(scenarios)
   }
 
+  var count: Int {
+    scenarios.count
+  }
+
   func add(_ stream: Stream) -> Scenarios {
     let result = Scenarios(Array(scenarios))
     scenarios.forEach {
