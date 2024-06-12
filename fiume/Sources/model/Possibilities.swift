@@ -19,14 +19,11 @@ typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 @Observable
 class Possibilities {
   let startMonth: MonthYear
+  var sections: [Plan] = [Plan.makeAnd("My Finances")]
 
-  var plan = Plan.makeAnd("My Finances")
-  var sections = [Plan]()
-
-	init(startDate: MonthYear) {
+  init(startDate: MonthYear) {
     self.startMonth = startDate
-		sections.append(plan)
-	}
+  }
 
 	func add(_ stream: Stream) {
     sections[0].append(Plan.makeStream(stream))
