@@ -1,11 +1,11 @@
-
+* Figure out Person's previews
 * Figure out Plan's persistence
-* Figure out People's persistence
 Persistence
 
 * Provide a "Delete All" button
-
+* Require distinct people names
 * Make People a sequence so we don't access people.people
+* Delete People (no longer used)
 
 * Delete streams
 * Edit stream
@@ -38,6 +38,7 @@ Should we segregate streams by income/expense? (two columns)
 Variables?
 
 FI-24-21: 2024-06-13 - SwiftData Persistence
+* Figure out Person's persistence
 
 
 FI-24-20: 2024-06-12 - Persistence - Planxty in Views

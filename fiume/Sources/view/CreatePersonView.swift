@@ -1,3 +1,4 @@
+import SwiftData
 import SwiftUI
 
 struct CreatePersonView: View {
@@ -16,9 +17,9 @@ struct CreatePersonView: View {
 
   var body: some View {
     Form {
-        Text("Add Person")
-          .font(.title)
-      .padding([.bottom], 4)
+      Text("Add Person")
+        .font(.title)
+        .padding([.bottom], 4)
 
       RequiredTextField(name: "Name", field: $name)
 
@@ -45,5 +46,7 @@ struct CreatePersonView: View {
 }
 
 #Preview {
-  CreatePersonView()
+  dataPreview(Person.self) {
+    CreatePersonView()
+  }
 }

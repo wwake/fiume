@@ -64,15 +64,25 @@ struct AgeSelector: View {
   @State var dateSpec1 = DateSpecifier.unchanged
   @State var dateSpec2 = DateSpecifier.unchanged
 
-  let people1 = People()
-  people1.add(Person(name: "Bob", birth: 2000.jan, death: nil))
-  people1.add(Person(name: "Anny", birth: 1995.dec, death: nil))
-  people1.add(Person(name: "gil", birth: 1990.mar, death: nil))
-  let people2 = People()
+  let config1 = ModelConfiguration(isStoredInMemoryOnly: true)
+
+  // swiftlint:disable:next force_try
+  let container1 = try! ModelContainer(for: Person.self, configurations: config1)
+
+  container1.mainContext.insert(Person(name: "Bob", birth: 2000.jan, death: nil))
+  container1.mainContext.insert(Person(name: "Anny", birth: 1995.dec, death: nil))
+  container1.mainContext.insert(Person(name: "gil", birth: 1990.mar, death: nil))
+
+  let config2 = ModelConfiguration(isStoredInMemoryOnly: true)
+
+  // swiftlint:disable:next force_try
+  let container2 = try! ModelContainer(for: Person.self, configurations: config2)
 
   return VStack {
     AgeSelector(dateSpec: $dateSpec1)
+      .modelContainer(container1)
     Divider()
     AgeSelector(dateSpec: $dateSpec2)
+      .modelContainer(container2)
   }
 }
