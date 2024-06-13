@@ -1,7 +1,7 @@
 import Foundation
 
-struct Stream: Identifiable {
-  let id = UUID()
+struct Stream: Identifiable, Codable {
+  var id = UUID()
   var name: String
   var monthlyAmount: Money
   var first: DateSpecifier

@@ -8,7 +8,7 @@ private let months = [
   "October", "November", "December",
 ]
 
-enum Month: Int {
+enum Month: Int, Codable {
   case jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
 }
 
@@ -39,11 +39,11 @@ extension Int {
   var dec: MonthYear { MonthYear(.dec, self)}
 }
 
-struct MonthYear: Equatable {
+struct MonthYear: Equatable, Codable {
   let month: Month
   let year: Int
 
-  let months = [
+  var months: [String] = [
     "January", "February", "March",
     "April", "May", "June",
     "July", "August", "September",

@@ -1,4 +1,4 @@
-enum DateSpecifier: Equatable {
+enum DateSpecifier: Equatable, Codable {
   case unchanged
   case month(MonthYear)
   case age(Person, Int)

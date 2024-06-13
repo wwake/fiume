@@ -1,11 +1,13 @@
 import Foundation
 import SwiftData
 
-enum PlanType {
+enum PlanType: Codable {
   case stream, and, or
 }
 
-struct Plan: Identifiable {
+@Observable
+// @Model
+class Plan: Identifiable {
   var id = UUID()
   var type: PlanType
   private(set) var name: String
@@ -37,7 +39,7 @@ struct Plan: Identifiable {
     self.children = []
   }
 
-  mutating func append(_ plan: Plan) {
+  func append(_ plan: Plan) {
     guard type != .stream else { return }
     if children == nil {
       children = [plan]

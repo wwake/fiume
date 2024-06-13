@@ -1,3 +1,4 @@
+import SwiftData
 import SwiftUI
 
 @main
@@ -7,13 +8,9 @@ struct FiumeApp: App {
 	var spiking = false
 
 	var body: some Scene {
-		WindowGroup {
-			if spiking {
-				SpikeView()
-			} else {
-        ContentView(people: people, possibilities: plan)
-			}
-		}
-    // .modelContainer(for: Possibilities.self)
+    WindowGroup {
+      ContentView(people: people, possibilities: plan)
+    }
+   // .modelContainer(for: Possibilities.self)
 	}
 }

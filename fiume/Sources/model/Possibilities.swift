@@ -15,8 +15,8 @@ struct ScenarioNetWorth: Identifiable {
 
 typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 
-// @Model
 @Observable
+// @Model
 class Possibilities {
   let startMonth: MonthYear
   var sections: [Plan] = [Plan.makeAnd("My Finances")]

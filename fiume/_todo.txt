@@ -1,18 +1,21 @@
 
-* Convert PlanTree to Plan enum [parallel change] - and node
-* Convert PlanTree to Plan enum [parallel change] - or node
+* Figure out Plan's persistence
+* Figure out People's persistence
 Persistence
+
+* Provide a "Delete All" button
+
+* Make People a sequence so we don't access people.people
 
 * Delete streams
 * Edit stream
 * Move streams
 
-* Make People a sequence so we don't access people.people
+* Make amount an overrideable value on stream
 
 * Sections
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
-* Make amount an overrideable value on stream
 
 Pools
 
@@ -34,12 +37,25 @@ Should we segregate streams by income/expense? (two columns)
 
 Variables?
 
+FI-24-21: 2024-06-13 - SwiftData Persistence
+
+
+FI-24-20: 2024-06-12 - Persistence - Planxty in Views
+* Figured out that Possibilities was relying on a semi-dead variable ("plan")
+* Figured out that a view referenced wrong type of node
+* Made sure scenarios and groups work, even when deep
+* Rename Planxty => Plan
+* Persistence - Tried making Possiblities a model object, needed Plan to be one too [to allow recursion]
+* Made other classes Decodable
+* Tried to active modelContainer without success
+
 FI-24-19: 2024-06-11 - Persistence - PlanTree ⇒ enum
 Persistence
 * Convert PlanTree to Plan enum [parallel change] - and node
 * Convert PlanTree to Plan enum [parallel change] - or node
 * Convert PlanTree to Planxty struct
 * Update all sets of tests
+* Need to decide which of the three representations will work for persistence
 
 FI-24-18: 2024-06-10 - User Interface for the Ages
 * [offline] Added environment(people) to previews that needed it.
