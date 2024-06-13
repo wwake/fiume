@@ -52,7 +52,7 @@ final class SomePossibilities: XCTestCase {
   func test_adds_scenarios() {
     let sut = makePossibilities()
 
-    var orTree = Plan.makeOr("jobs")
+    let orTree = Plan.makeOr("jobs")
     orTree.append(Plan.makeStream(makeStream("Salary1", Money(1_000))))
     orTree.append(Plan.makeStream(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)
@@ -62,7 +62,7 @@ final class SomePossibilities: XCTestCase {
 
   func test_computes_net_worth_for_multiple_scenarios() {
     let sut = makePossibilities()
-    var orTree = Plan.makeOr("jobs")
+    let orTree = Plan.makeOr("jobs")
     orTree.append(Plan.makeStream(makeStream("Salary1", Money(1_000))))
     orTree.append(Plan.makeStream(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)

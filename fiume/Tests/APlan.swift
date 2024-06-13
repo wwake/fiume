@@ -18,7 +18,7 @@ struct APlanxty {
   }
 
   private func makeAndTree(_ name: String, _ children: [Plan]) -> Plan {
-    var result = Plan.makeAnd(name)
+    let result = Plan.makeAnd(name)
     children.forEach {
       result.append($0)
     }
@@ -26,7 +26,7 @@ struct APlanxty {
   }
 
   private func makeOrTree(_ name: String, _ children: [Plan]) -> Plan {
-    var result = Plan.makeOr(name)
+    let result = Plan.makeOr(name)
     children.forEach {
       result.append($0)
     }

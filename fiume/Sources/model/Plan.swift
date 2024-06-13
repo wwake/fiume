@@ -5,8 +5,8 @@ enum PlanType: Codable {
   case stream, and, or
 }
 
-@Observable
 // @Model
+@Observable
 class Plan: Identifiable {
   var id = UUID()
   var type: PlanType
