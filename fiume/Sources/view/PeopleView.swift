@@ -45,10 +45,14 @@ struct PeopleView: View {
 }
 
 #Preview {
-  let person1 = Person(name: "Bob", birth: 1970.mar, death: nil)
-  let person2 = Person(name: "Chris", birth: 1980.dec, death: 2025.apr)
-  var people = [Person]()
-  people.append(person1)
-  people.append(person2)
+  let config = ModelConfiguration(isStoredInMemoryOnly: true)
+
+  // swiftlint:disable:next force_try
+  let container = try! ModelContainer(for: Person.self, configurations: config)
+
+  container.mainContext.insert(Person(name: "Bob", birth: 1970.mar, death: nil))
+  container.mainContext.insert(Person(name: "Chris", birth: 1980.dec, death: 2025.apr))
+
   return PeopleView()
+    .modelContainer(container)
 }
