@@ -2,6 +2,9 @@ import Charts
 import SwiftUI
 
 struct ContentView: View {
+  @Environment(\.modelContext)
+  var modelContext
+
   let numberOfMonths = 360
 
   @Bindable var possibilities: Possibilities
@@ -35,6 +38,17 @@ struct ContentView: View {
         .clipShape(Capsule())
         .padding(.leading, 20)
 
+        Button("Clear All People", role: .destructive) {
+          // swiftlint:disable:next force_try
+          try! modelContext.delete(model: Person.self)
+        }
+        .padding(12)
+        .background(Color.red)
+        .foregroundStyle(Color.white)
+        .bold()
+        .clipShape(Capsule())
+        .padding(.leading, 20)
+
         Spacer()
       }
       PlanListView(plan: possibilities)
@@ -46,7 +60,6 @@ struct ContentView: View {
 }
 
 #Preview {
-  let people = People()
   let possibilities = Possibilities(startDate: MonthYear(date: Date()))
   possibilities.add(Stream("Salary", 1_000, first: .month(2024.jan), last: .month(2029.jan)))
   possibilities.add(Stream("Expenses", -800, first: .month(2024.jan), last: .unchanged))
