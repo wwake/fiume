@@ -4,7 +4,6 @@ import SwiftUI
 struct ContentView: View {
   let numberOfMonths = 360
 
-  @Bindable var people: People
   @Bindable var possibilities: Possibilities
 
   @State var isShowingPeople = false
@@ -41,9 +40,8 @@ struct ContentView: View {
       PlanListView(plan: possibilities)
     }
     .sheet(isPresented: $isShowingPeople) {
-      PeopleView(people: people)
+      PeopleView()
     }
-    .environment(people)
   }
 }
 
@@ -52,5 +50,5 @@ struct ContentView: View {
   let possibilities = Possibilities(startDate: MonthYear(date: Date()))
   possibilities.add(Stream("Salary", 1_000, first: .month(2024.jan), last: .month(2029.jan)))
   possibilities.add(Stream("Expenses", -800, first: .month(2024.jan), last: .unchanged))
-  return ContentView(people: people, possibilities: possibilities)
+  return ContentView(possibilities: possibilities)
 }

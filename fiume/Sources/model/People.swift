@@ -1,8 +1,10 @@
+import SwiftData
 import SwiftUI
 
-@Observable
 class People {
   var people = [Person]()
+
+  init() { }
 
   func add(_ person: Person) {
     people.append(person)

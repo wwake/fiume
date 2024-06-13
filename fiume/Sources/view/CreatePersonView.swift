@@ -4,7 +4,8 @@ struct CreatePersonView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  @Bindable var people: People
+  @Environment(\.modelContext)
+  var modelContext
 
   @State private var name = ""
   @State private var born: MonthYear = 2024.jan
@@ -33,7 +34,7 @@ struct CreatePersonView: View {
         Spacer()
         Button("Create") {
           let person = Person(name: name, birth: born, death: nil)
-          people.people.append(person)
+          modelContext.insert(person)
           dismiss()
         }
         .disabled(!valid())
@@ -44,6 +45,5 @@ struct CreatePersonView: View {
 }
 
 #Preview {
-  let people = People()
-  return CreatePersonView(people: people)
+  CreatePersonView()
 }

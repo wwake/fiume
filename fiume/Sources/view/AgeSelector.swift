@@ -1,8 +1,9 @@
+import SwiftData
 import SwiftUI
 
 struct AgeSelector: View {
-  @Environment(People.self)
-  private var people: People
+  @Query(sort: \Person.name)
+  var people: [Person]
 
   @Binding var dateSpec: DateSpecifier
 
@@ -10,14 +11,14 @@ struct AgeSelector: View {
   @State var age = 60
 
   func updateValues() {
-    dateSpec = DateSpecifier.age(person, age)
+    dateSpec = DateSpecifier.age(person.name, person.birth, age)
   }
 
   func personAge() -> some View {
     GeometryReader { geometry in
       HStack {
         Picker("People", selection: $person) {
-          ForEach(people.people, id: \.id) {
+          ForEach(people, id: \.id) {
             Text($0.name)
               .tag($0)
           }
@@ -40,7 +41,7 @@ struct AgeSelector: View {
       }
     }
     .onAppear {
-      person = people.people.first!
+      person = people.first!
     }
   }
 
@@ -71,9 +72,7 @@ struct AgeSelector: View {
 
   return VStack {
     AgeSelector(dateSpec: $dateSpec1)
-      .environment(people1)
     Divider()
     AgeSelector(dateSpec: $dateSpec2)
-      .environment(people2)
   }
 }

@@ -85,8 +85,6 @@ struct DateSpecifierView: View {
 
 #Preview {
   @State var dateSpec = DateSpecifier.month(2020.mar)
-  let people = People()
 
   return DateSpecifierView(label: "Choose date", dateSpec: $dateSpec)
-    .environment(people)
 }
