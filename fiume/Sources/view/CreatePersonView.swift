@@ -46,7 +46,6 @@ struct CreatePersonView: View {
 }
 
 #Preview {
-  dataPreview(Person.self) {
-    CreatePersonView()
-  }
+  CreatePersonView()
+    .modelContainer(previewContainer(Person.self))
 }
