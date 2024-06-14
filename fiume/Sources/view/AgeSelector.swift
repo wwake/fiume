@@ -64,12 +64,12 @@ struct AgeSelector: View {
   @State var dateSpec1 = DateSpecifier.unchanged
   @State var dateSpec2 = DateSpecifier.unchanged
 
-  let container1 = previewContainer(Person.self)
+  let container1 = memoryContainer(for: Person.self)
   container1.mainContext.insert(Person(name: "Bob", birth: 2000.jan, death: nil))
   container1.mainContext.insert(Person(name: "Anny", birth: 1995.dec, death: nil))
   container1.mainContext.insert(Person(name: "gil", birth: 1990.mar, death: nil))
 
-  let container2 = previewContainer(Person.self)
+  let container2 = memoryContainer(for: Person.self)
 
   return VStack {
     AgeSelector(dateSpec: $dateSpec1)

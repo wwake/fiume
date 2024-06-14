@@ -68,7 +68,6 @@ FI-24-18: 2024-06-10 - User Interface for the Ages
 Persistence
 * Convert PlanTree to Plan enum [parallel change] - stream
 
-
 FI-24-17: 2024-06-06 - Age-Based Dates
 * Make Stream work for age at end of range
 * Require birthdate on Person

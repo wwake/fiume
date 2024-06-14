@@ -2,9 +2,6 @@ import SwiftData
 import SwiftUI
 
 struct PeopleView: View {
-  @Environment(\.modelContext)
-  var modelContext
-
   @Query(sort: \Person.name)
   var people: [Person]
 
@@ -45,11 +42,7 @@ struct PeopleView: View {
 }
 
 #Preview {
-  let config = ModelConfiguration(isStoredInMemoryOnly: true)
-
-  // swiftlint:disable:next force_try
-  let container = try! ModelContainer(for: Person.self, configurations: config)
-
+  let container = memoryContainer(for: Person.self)
   container.mainContext.insert(Person(name: "Bob", birth: 1970.mar, death: nil))
   container.mainContext.insert(Person(name: "Chris", birth: 1980.dec, death: 2025.apr))
 
