@@ -42,7 +42,7 @@ struct PeopleView: View {
 }
 
 #Preview {
-  let container = memoryContainer(for: Person.self)
+  let container = demoContainer(for: Person.self)
   container.mainContext.insert(Person(name: "Bob", birth: 1970.mar, death: nil))
   container.mainContext.insert(Person(name: "Chris", birth: 1980.dec, death: 2025.apr))
 

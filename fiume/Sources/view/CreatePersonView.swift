@@ -47,5 +47,5 @@ struct CreatePersonView: View {
 
 #Preview {
   CreatePersonView()
-    .modelContainer(memoryContainer(for: Person.self))
+    .modelContainer(demoContainer(for: Person.self))
 }
