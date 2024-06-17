@@ -19,6 +19,7 @@ typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 @Observable
 class Possibilities {
   let startMonth: MonthYear
+
   var sections: [Plan] = [Plan.makeAnd("My Finances")]
 
   init(startDate: MonthYear) {

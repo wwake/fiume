@@ -8,12 +8,19 @@ enum PlanType: Codable {
 // @Model
 @Observable
 class Plan: Identifiable {
+  @Attribute(.unique)
   var id = UUID()
+
   var type: PlanType
+
   private(set) var name: String
 
   var stream: Stream?
+
   var children: [Plan]?
+
+  @Relationship(inverse: \Plan.children)
+  var parent: Plan?
 
   static func makeStream(_ stream: Stream) -> Plan {
     Plan(stream)
@@ -39,12 +46,14 @@ class Plan: Identifiable {
     self.children = []
   }
 
-  func append(_ plan: Plan) {
+  func append(_ child: Plan) {
     guard type != .stream else { return }
+
+    child.parent = self
     if children == nil {
-      children = [plan]
+      children = [child]
     } else {
-      children!.append(plan)
+      children!.append(child)
     }
   }
 

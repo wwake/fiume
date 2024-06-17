@@ -1,6 +1,5 @@
 @testable import fiume
 import Testing
-import XCTest
 
 struct APlanxty {
   private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
@@ -39,6 +38,7 @@ struct APlanxty {
 
     #expect(sut.name == "Income")
     #expect(sut.children == nil)
+    #expect(sut.parent == nil)
   }
 
   @Test
@@ -53,6 +53,10 @@ struct APlanxty {
     #expect(sut.name == "grandparent")
     #expect(sut.children?.count == 2)
     #expect(parent.children?.count == 2)
+
+    #expect(leaf1.parent!.name == "parent")
+    #expect(parent.parent!.name == "grandparent")
+    #expect(sut.parent == nil)
   }
 
   @Test
