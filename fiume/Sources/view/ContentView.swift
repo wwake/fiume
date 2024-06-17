@@ -7,9 +7,16 @@ struct ContentView: View {
 
   let numberOfMonths = 360
 
-  @Bindable var possibilities: Possibilities
+  var startDate: MonthYear
+
+  @State var possibilities: Possibilities
 
   @State var isShowingPeople = false
+
+  init(startDate: MonthYear, possibilities: Possibilities? = nil) {
+    self.startDate = startDate
+    self.possibilities = possibilities ?? Possibilities(startDate: startDate)
+  }
 
   var body: some View {
     NavigationStack {
@@ -63,5 +70,5 @@ struct ContentView: View {
   let possibilities = Possibilities(startDate: MonthYear(date: Date()))
   possibilities.add(Stream("Salary", 1_000, first: .month(2024.jan), last: .month(2029.jan)))
   possibilities.add(Stream("Expenses", -800, first: .month(2024.jan), last: .unchanged))
-  return ContentView(possibilities: possibilities)
+  return ContentView(startDate: MonthYear(date: Date()), possibilities: possibilities)
 }
