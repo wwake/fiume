@@ -4,7 +4,6 @@ import SwiftUI
 @main
 struct FiumeApp: App {
   @State var startDate = MonthYear(date: Date())
-	var spiking = false
 
   init() {
     print(URL.applicationSupportDirectory.path(percentEncoded: false))
@@ -14,7 +13,7 @@ struct FiumeApp: App {
     WindowGroup {
       ContentView(startDate: startDate)
     }
-    .modelContainer(for: [Person.self])
-//    .modelContainer(for: [Person.self, Plan.self])
+//    .modelContainer(for: [Person.self])
+    .modelContainer(for: [Person.self, Plan.self])
 	}
 }

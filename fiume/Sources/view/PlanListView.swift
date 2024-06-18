@@ -1,15 +1,12 @@
+import SwiftData
 import SwiftUI
 
 struct PlanListView: View {
-  @Bindable var plan: Possibilities
-
-  func contents(_ child: Binding<Plan>) -> Text {
-    Text("ok hope")
-  }
+  @Bindable var possibilities: Possibilities
 
   var body: some View {
     List {
-      ForEach($plan.sections, id: \.id) { $planTree in
+      ForEach($possibilities.sections, id: \.id) { $planTree in
         OutlineGroup(
           $planTree,
           id: \.id,
@@ -24,10 +21,13 @@ struct PlanListView: View {
   }
 }
 
-#Preview {
-  let plan = Possibilities(startDate: MonthYear(date: Date()))
-  let stream = Stream("Annuity", Money(1_000), first: .month(2020.jan), last: .unchanged)
-  plan.add(stream)
-
-  return PlanListView(plan: plan)
-}
+//#Preview {
+//  let container = demoContainer(for: Plan.self)
+//
+//  let plan = Possibilities(startDate: MonthYear(date: Date()), plans: plans)
+//  let stream = Stream("Annuity", Money(1_000), first: .month(2020.jan), last: .unchanged)
+//  plan.add(stream)
+//
+//  return PlanListView(possibilities: plan)
+//    .modelContainer(container)
+//}

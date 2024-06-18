@@ -20,10 +20,11 @@ typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 class Possibilities {
   let startMonth: MonthYear
 
-  var sections: [Plan] = [Plan.makeAnd("My Finances")]
+  var sections: [Plan]
 
-  init(startDate: MonthYear) {
+  init(startDate: MonthYear, plans: [Plan]) {
     self.startMonth = startDate
+    self.sections = plans
   }
 
 	func add(_ stream: Stream) {

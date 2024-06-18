@@ -5,11 +5,11 @@
 * Figure out Plan's persistence
 Persistence
 
-* Require distinct people names
-
 * Delete streams
 * Edit stream
 * Move streams
+
+* Require distinct people names
 
 * Make amount an overrideable value on stream
 
@@ -36,6 +36,9 @@ Add flows
 Should we segregate streams by income/expense? (two columns)
 
 Variables?
+
+FI-24-23: 2024-06-18 - Plan Persistence - Try Again
+
 
 FI-24-22: 2024-06-17 - Plan Persistence
 * Added parent id to Plan (to enable editing & 1-many relationships)

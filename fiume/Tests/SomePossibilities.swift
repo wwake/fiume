@@ -8,7 +8,8 @@ final class SomePossibilities: XCTestCase {
   }
 
   private func makePossibilities() -> Possibilities {
-    Possibilities(startDate: 2030.jan)
+    let plans = [Plan]()
+    return Possibilities(startDate: 2030.jan, plans: plans)
   }
 
 	func test_salary_builds_net_worth() throws {
