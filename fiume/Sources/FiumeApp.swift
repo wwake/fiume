@@ -6,6 +6,10 @@ struct FiumeApp: App {
   @State var startDate = MonthYear(date: Date())
 	var spiking = false
 
+  init() {
+    print(URL.applicationSupportDirectory.path(percentEncoded: false))
+  }
+
 	var body: some Scene {
     WindowGroup {
       ContentView(startDate: startDate)

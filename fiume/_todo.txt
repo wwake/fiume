@@ -1,4 +1,7 @@
 
+* It seems not to update Possibilities when [Plan] changes !!
+* Re-add our delete all database button
+* Maybe Possibilities should be a struct, regenerated as needed
 * Figure out Plan's persistence
 Persistence
 
@@ -33,6 +36,11 @@ Add flows
 Should we segregate streams by income/expense? (two columns)
 
 Variables?
+
+FI-24-22: 2024-06-17 - Plan Persistence
+* Added parent id to Plan (to enable editing & 1-many relationships)
+* Split out startDate to be owned by the app; possibilities no longer is
+* Tried making a query for [Plan] in views and Possibilities; reverted
 
 FI-24-21: 2024-06-13 - SwiftData Persistence
 * Figure out Person's persistence

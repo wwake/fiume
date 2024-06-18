@@ -6,10 +6,10 @@ struct StreamView: View {
 	var body: some View {
     HStack {
       if stream.isNonNegative {
-        Image(systemName: "arrow.up.right")
+        Image(systemName: "arrow.up")
           .accessibilityLabel("income stream")
       } else {
-        Image(systemName: "arrow.down.right")
+        Image(systemName: "arrow.down")
           .accessibilityLabel("expense stream")
       }
 
@@ -23,6 +23,11 @@ struct StreamView: View {
 }
 
 #Preview {
-  let stream = Stream("Salary", 1_000, first: .month(2020.jan), last: .month(2025.dec))
-	return StreamView(stream: stream)
+  let income = Stream("Salary", 1_000, first: .month(2020.jan), last: .month(2025.dec))
+  let expense = Stream("Car", -300, first: .month(2030.mar), last: .unchanged)
+  return VStack {
+    StreamView(stream: income)
+    Divider()
+    StreamView(stream: expense)
+  }
 }
