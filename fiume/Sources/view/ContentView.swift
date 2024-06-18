@@ -54,6 +54,8 @@ struct ContentView: View {
 
           // swiftlint:disable:next force_try
           try! modelContext.delete(model: Plan.self)
+
+          modelContext.insert(Plan.makeAnd("My Finances"))
         }
         .padding(12)
         .background(Color.red)

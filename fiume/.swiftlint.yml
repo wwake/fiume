@@ -5,6 +5,7 @@ excluded:
 
 disabled_rules: # house style - turn these off
   - force_cast # I only tend to use them when really needed
+  - force_try # or convert to warning
   - identifier_name # I'm ok with short names when appropriate
   - inert_defer  # they're not inert in constructors
   - multiple_closures_with_trailing_closure  # I'm ok with these (but could be convinced otherwise)
