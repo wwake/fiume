@@ -90,6 +90,10 @@ extension MonthYear: Strideable {
     toMonthYear(self.toMonthCount() + n)
   }
 
+  func advanced(byYears n: Int) -> MonthYear {
+    toMonthYear(self.toMonthCount() + 12 * n)
+  }
+
   func distance(to other: MonthYear) -> Int {
     other.toMonthCount() - self.toMonthCount()
   }

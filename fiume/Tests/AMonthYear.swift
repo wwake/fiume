@@ -45,13 +45,19 @@ struct AMonthYear {
   }
 
   @Test
-  func advances_by_integer() {
+  func advances_by_months() {
     #expect(2022.dec.advanced(by: 1) == 2023.jan)
     #expect(2000.jan.advanced(by: -1) == 1999.dec)
   }
 
   @Test
-  func distance_as_integer() {
+  func advances_by_years() {
+    #expect(1960.jan.advanced(byYears: 10) == 1970.jan)
+    #expect(1970.dec.advanced(byYears: -10) == 1960.dec)
+  }
+
+  @Test
+  func distance_in_months() {
     #expect(2000.apr.distance(to: 2000.apr) == 0)
     #expect(2000.apr.distance(to: 2002.mar) == 11 + 12)
     #expect(2002.apr.distance(to: 2001.dec) == -4)
