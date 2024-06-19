@@ -1,7 +1,10 @@
 import SwiftUI
 
 struct PlanView: View {
-	@Binding var plan: Plan
+  @Environment(\.modelContext)
+  var modelContext
+
+  @Binding var plan: Plan
 
 	var body: some View {
     switch plan.type {

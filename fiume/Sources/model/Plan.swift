@@ -5,7 +5,7 @@ enum PlanType: Codable {
   case stream, and, or
 }
 
-// @Observable
+//@Observable
 @Model
 class Plan: Identifiable {
   @Attribute(.unique)

@@ -24,7 +24,7 @@ struct AddPlanView: View {
 
     switch addType {
     case .stream:
-      CreateStreamView(plan: $plan)
+      CreateStreamView(parent: $plan)
 
     case .group:
       CreateGroupView(plan: $plan)

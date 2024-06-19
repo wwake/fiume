@@ -1,10 +1,13 @@
 import SwiftUI
 
 struct CreateStreamView: View {
+  @Environment(\.modelContext)
+  var modelContext
+
   @Environment(\.dismiss)
   var dismiss
 
-  @Binding var plan: Plan
+  @Binding var parent: Plan
 
   @State private var isIncome = true
 
@@ -67,7 +70,17 @@ struct CreateStreamView: View {
             first: startMonth,
             last: endMonth
           )
-          plan.append(Plan.makeStream(stream))
+          let newPlan = Plan.makeStream(stream)
+          newPlan.parent = parent
+          modelContext.insert(newPlan)
+//          parent.append(newPlan)
+          print(modelContext.container.configurations.first!.debugDescription)
+          do {
+            try modelContext.save()
+          } catch {
+            print(error.localizedDescription)
+            fatalError("Couldn't save - CreateStreamView")
+          }
           dismiss()
         }
         .disabled(!valid())

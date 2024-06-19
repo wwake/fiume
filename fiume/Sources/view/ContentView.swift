@@ -56,6 +56,7 @@ struct ContentView: View {
           try! modelContext.delete(model: Plan.self)
 
           modelContext.insert(Plan.makeAnd("My Finances"))
+          try? modelContext.save()
         }
         .padding(12)
         .background(Color.red)
@@ -69,9 +70,10 @@ struct ContentView: View {
       PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
     }
     .onAppear {
-      if plans.isEmpty {
-        modelContext.insert(Plan.makeAnd("My Finances"))
-      }
+//      if plans.isEmpty {
+//        modelContext.insert(Plan.makeAnd("My Finances"))
+//        try? modelContext.save()
+//      }
     }
     .sheet(isPresented: $isShowingPeople) {
       PeopleView()
