@@ -73,7 +73,7 @@ struct PlanCompositeView: View {
 					isAddPresented = true
 			}
 		}.sheet(isPresented: $isAddPresented) {
-			AddPlanView(plan: $plan)
+      AddPlanView(plan: $plan)
 		}
 	}
 }

@@ -14,8 +14,8 @@ struct PlanListView: View {
           $planTree,
           id: \.id,
           children: \.children
-        ) { tree in
-            PlanView(plan: tree)
+        ) { $tree in
+            PlanView(plan: $tree)
         }
       }
     }
