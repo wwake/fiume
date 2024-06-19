@@ -2,7 +2,6 @@
 * Check save() calls for exception thrown
 * Should Plan be @Bindable rather than @Binding in PlanListView
 * It seems not to update Possibilities when [Plan] changes !!
-* Re-add our delete all database button
 * Maybe Possibilities should be a struct, regenerated as needed
 * Figure out Plan's persistence
 Persistence
@@ -41,6 +40,7 @@ Variables?
 
 FI-24-23: 2024-06-18 - Plan Persistence - Try Again
 * Make ContentView own [Plan] rather than Possibilities
+* Re-add our delete all database button
 * We appear to have new Stream plans created, but can't see in database and it blows up when you try to disclose them
 
 FI-24-22: 2024-06-17 - Plan Persistence
