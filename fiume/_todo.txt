@@ -1,15 +1,15 @@
-
+* Switch to JSON files instead for persistence
+* Try List instead of OutlineGroup and see if we can avoid [Plan]? in Plan
 * It seems not to update Possibilities when [Plan] changes !!
-* Re-add our delete all database button
 * Maybe Possibilities should be a struct, regenerated as needed
 * Figure out Plan's persistence
 Persistence
 
-* Require distinct people names
-
 * Delete streams
 * Edit stream
 * Move streams
+
+* Require distinct people names
 
 * Make amount an overrideable value on stream
 
@@ -36,6 +36,18 @@ Add flows
 Should we segregate streams by income/expense? (two columns)
 
 Variables?
+
+FI-24-25: 2024-06-20 - SwiftData?
+
+FI-24-24: 2024-06-19 - Plan Persistence - Try, Try Again
+* [offline] Check save() calls for exception thrown
+* Converted Plan to be @Bindable rather than @Binding in PlanListView
+* Try software-maintained relationship inverse for parent & children in Plan - still dies when trying to reconstitute persisted children under "My Finances"
+
+FI-24-23: 2024-06-18 - Plan Persistence - Try Again
+* Make ContentView own [Plan] rather than Possibilities
+* Re-add our delete all database button
+* We appear to have new Stream plans created, but can't see in database and it blows up when you try to disclose them
 
 FI-24-22: 2024-06-17 - Plan Persistence
 * Added parent id to Plan (to enable editing & 1-many relationships)
