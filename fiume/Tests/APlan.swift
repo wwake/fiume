@@ -1,7 +1,7 @@
 @testable import fiume
 import Testing
 
-struct APlanxty {
+struct APlan {
   private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
     Stream(name, Money(amount), first: .month(2024.jan), last: .unchanged)
   }
