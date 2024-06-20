@@ -16,6 +16,37 @@ struct ContentView: View {
     self.people = people
   }
 
+  fileprivate func save<T: Encodable>(_ filename: String, _ encodable: T) {
+    let encoder = JSONEncoder()
+    do {
+      print(URL.documentsDirectory)
+      let jsonData = try encoder.encode(encodable)
+      let data = Data(jsonData)
+      let url = URL.documentsDirectory.appending(path: filename)
+
+      try data.write(to: url, options: [.atomic, .completeFileProtection])
+    } catch {
+      print(error.localizedDescription)
+    }
+  }
+
+  fileprivate func open<T: Decodable>(_ filename: String, _ type: T.Type) -> T {
+    print(URL.documentsDirectory)
+    let url = URL.documentsDirectory.appending(path: filename)
+
+    guard let data = try? Data(contentsOf: url) else {
+      fatalError("Failed to load \(url).")
+    }
+
+    let decoder = JSONDecoder()
+
+    guard let loaded = try? decoder.decode(type, from: data) else {
+      fatalError("Failed to decode \(type) from \(url).")
+    }
+
+    return loaded
+  }
+
   var body: some View {
     NavigationStack {
       Text("Net Worth")
@@ -52,17 +83,7 @@ struct ContentView: View {
         .padding(.leading, 20)
 
         Button("Save") {
-          let encoder = JSONEncoder()
-          do {
-            print(URL.documentsDirectory)
-            let jsonData = try encoder.encode(people)
-            let data = Data(jsonData)
-            let url = URL.documentsDirectory.appending(path: "people.saved")
-
-            try data.write(to: url, options: [.atomic, .completeFileProtection])
-          } catch {
-            print(error.localizedDescription)
-          }
+          save("people.saved", people)
         }
         .padding(12)
         .background(Color.red)
@@ -74,20 +95,8 @@ struct ContentView: View {
         Spacer()
 
         Button("Open") {
-          print(URL.documentsDirectory)
-          let url = URL.documentsDirectory.appending(path: "people.saved")
-
-          guard let data = try? Data(contentsOf: url) else {
-            fatalError("Failed to load \(url).")
-          }
-
-          let decoder = JSONDecoder()
-
-          guard let loaded = try? decoder.decode(People.self, from: data) else {
-            fatalError("Failed to decode from \(url).")
-          }
-
-          loaded.people.forEach {
+          let newPeople = open("people.saved", People.self)
+          newPeople.people.forEach {
             people.add($0)
           }
         }
