@@ -15,7 +15,6 @@ struct ScenarioNetWorth: Identifiable {
 
 typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 
-// @Model
 @Observable
 class Possibilities {
   let startMonth: MonthYear
@@ -47,6 +46,6 @@ class Possibilities {
 	}
 
 	func scenarios() -> Scenarios {
-		sections[0].scenarios(Scenarios([Scenario("Scenario")]))
+    sections[0].scenarios(Scenarios([Scenario("Scenario")]))
 	}
 }

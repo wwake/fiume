@@ -6,7 +6,7 @@ struct ContentView: View {
 
   var startDate: MonthYear
 
-  @State var plans = [Plan]()
+  @State var plans = [Plan.makeAnd("My Finances")]
 
   @State var isShowingPeople = false
 
@@ -18,17 +18,17 @@ struct ContentView: View {
     NavigationStack {
       Text("Net Worth")
         .font(.title)
-      //      Chart(possibilities.netWorth(possibilities.range(numberOfMonths))) { dataSeries in
-      //        ForEach(dataSeries.netWorthByMonth) {
-      //          LineMark(
-      //            x: .value("Month", $0.month),
-      //            y: .value("Net Worth", $0.amount)
-      //          )
-      //        }
-      //        .foregroundStyle(by: .value("Scenario Name", dataSeries.name))
-      //      }
-      //      .chartXScale(domain: possibilities.range(numberOfMonths))
-      //      .padding()
+      Chart(Possibilities(startDate: startDate, plans: plans).netWorth(Possibilities(startDate: startDate, plans: plans).range(numberOfMonths))) { dataSeries in
+        ForEach(dataSeries.netWorthByMonth) {
+          LineMark(
+            x: .value("Month", $0.month),
+            y: .value("Net Worth", $0.amount)
+          )
+        }
+        .foregroundStyle(by: .value("Scenario Name", dataSeries.name))
+      }
+      .chartXScale(domain: Possibilities(startDate: startDate, plans: plans).range(numberOfMonths))
+      .padding()
 
       HStack {
         Button("People") {
@@ -54,11 +54,11 @@ struct ContentView: View {
       }
       PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
     }
-    .onAppear {
-      if plans.isEmpty {
-        plans.append(Plan.makeAnd("My Finances"))
-      }
-    }
+//    .onAppear {
+//      if plans.isEmpty {
+//        plans.append(Plan.makeAnd("My Finances"))
+//      }
+//    }
     .sheet(isPresented: $isShowingPeople) {
       PeopleView()
     }
