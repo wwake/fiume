@@ -1,19 +1,12 @@
 import Charts
-import SwiftData
 import SwiftUI
 
 struct ContentView: View {
-  @Environment(\.modelContext)
-  var modelContext
-
   let numberOfMonths = 360
 
   var startDate: MonthYear
 
-  @Query(filter: #Predicate<Plan>{
-    $0.parent == nil
-  })
-  var plans: [Plan]
+  @State var plans = [Plan]()
 
   @State var isShowingPeople = false
 
@@ -49,18 +42,6 @@ struct ContentView: View {
         .padding(.leading, 20)
 
         Button("Clear All Data", role: .destructive) {
-          do {
-            try modelContext.delete(model: Person.self)
-
-            try modelContext.delete(model: Plan.self)
-
-            modelContext.insert(Plan.makeAnd("My Finances"))
-
-            try modelContext.save()
-          } catch {
-            print(error.localizedDescription)
-            fatalError("Couldn't delete all - \(#file)")
-          }
         }
         .padding(12)
         .background(Color.red)
@@ -74,10 +55,9 @@ struct ContentView: View {
       PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
     }
     .onAppear {
-      //      if plans.isEmpty {
-      //        modelContext.insert(Plan.makeAnd("My Finances"))
-      //        try? modelContext.save()
-      //      }
+      if plans.isEmpty {
+        plans.append(Plan.makeAnd("My Finances"))
+      }
     }
     .sheet(isPresented: $isShowingPeople) {
       PeopleView()
@@ -86,11 +66,8 @@ struct ContentView: View {
 }
 
 #Preview {
-  let container = demoContainer(for: Plan.self)
-
   //  let possibilities = Possibilities(startDate: MonthYear(date: Date()), plans: plans)
   //  possibilities.add(Stream("Salary", 1_000, first: .month(2024.jan), last: .month(2029.jan)))
   //  possibilities.add(Stream("Expenses", -800, first: .month(2024.jan), last: .unchanged))
   return ContentView(startDate: MonthYear(date: Date()))
-    .modelContainer(container)
 }

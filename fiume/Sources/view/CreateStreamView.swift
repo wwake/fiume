@@ -1,9 +1,6 @@
 import SwiftUI
 
 struct CreateStreamView: View {
-  @Environment(\.modelContext)
-  var modelContext
-
   @Environment(\.dismiss)
   var dismiss
 
@@ -72,15 +69,7 @@ struct CreateStreamView: View {
           )
           let newPlan = Plan.makeStream(stream)
           newPlan.parent = parent
-          modelContext.insert(newPlan)
-//          parent.append(newPlan)
-          print(modelContext.container.configurations.first!.debugDescription)
-          do {
-            try modelContext.save()
-          } catch {
-            print(error.localizedDescription)
-            fatalError("Couldn't save - CreateStreamView")
-          }
+          parent.append(newPlan)
           dismiss()
         }
         .disabled(!valid())

@@ -1,14 +1,11 @@
 import Foundation
-import SwiftData
 
 enum PlanType: Codable {
   case stream, and, or
 }
 
-//@Observable
-@Model
+@Observable
 class Plan: Identifiable {
-  @Attribute(.unique)
   var id = UUID()
 
   var type: PlanType
@@ -19,7 +16,6 @@ class Plan: Identifiable {
 
   var children: [Plan]?
 
-  @Relationship(inverse: \Plan.children)
   var parent: Plan?
 
   static func makeStream(_ stream: Stream) -> Plan {

@@ -13,7 +13,5 @@ struct FiumeApp: App {
     WindowGroup {
       ContentView(startDate: startDate)
     }
-//    .modelContainer(for: [Person.self])
-    .modelContainer(for: [Person.self, Plan.self])
 	}
 }

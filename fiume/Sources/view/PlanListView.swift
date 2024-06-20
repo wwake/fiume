@@ -1,10 +1,6 @@
-import SwiftData
 import SwiftUI
 
 struct PlanListView: View {
-  @Environment(\.modelContext)
-  var modelContext
-
   @Bindable var possibilities: Possibilities
 
   var body: some View {
