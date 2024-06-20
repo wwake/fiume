@@ -5,7 +5,7 @@ enum PlanType: Codable {
 }
 
 @Observable
-class Plan: Identifiable {
+class Plan: Identifiable, Codable {
   var id = UUID()
 
   var type: PlanType

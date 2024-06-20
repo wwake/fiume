@@ -17,9 +17,9 @@ struct ContentView: View {
   }
 
   fileprivate func save<T: Encodable>(_ filename: String, _ encodable: T) {
+    print(URL.documentsDirectory)
     let encoder = JSONEncoder()
     do {
-      print(URL.documentsDirectory)
       let jsonData = try encoder.encode(encodable)
       let data = Data(jsonData)
       let url = URL.documentsDirectory.appending(path: filename)
@@ -84,6 +84,7 @@ struct ContentView: View {
 
         Button("Save") {
           save("people.saved", people)
+          save("plans.saved", plans)
         }
         .padding(12)
         .background(Color.red)
@@ -99,6 +100,10 @@ struct ContentView: View {
           newPeople.people.forEach {
             people.add($0)
           }
+
+          let newPlans = open("plans.saved", Array<Plan>.self)
+          plans.removeAll()
+          plans.append(newPlans[0])
         }
         .padding(12)
         .background(Color.red)

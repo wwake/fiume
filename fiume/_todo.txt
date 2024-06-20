@@ -1,9 +1,17 @@
-* Switch to JSON files instead for persistence
+
+* Fix all the previews
+
+* Refactor I/O out of ContentView (and elsewhere?)
+* Is I/O a manual step? Save incrementally?
+* Scheme: Save after each change; only read file at open
+* Handle app startup/close
+* Better error handling on I/O
+Persistence
+
 * Try List instead of OutlineGroup and see if we can avoid [Plan]? in Plan
 * It seems not to update Possibilities when [Plan] changes !!
 * Maybe Possibilities should be a struct, regenerated as needed
-* Figure out Plan's persistence
-Persistence
+* Should Plan be a struct?
 
 * Delete streams
 * Edit stream
@@ -38,6 +46,9 @@ Should we segregate streams by income/expense? (two columns)
 Variables?
 
 FI-24-25: 2024-06-20 - SwiftData?
+* Removed all traces of SwiftData - it was just too hard to work with
+* Removed Plan.parent - may need it later for editing
+* Switch to JSON files instead for persistence - Person, Plan; Open and Save
 
 FI-24-24: 2024-06-19 - Plan Persistence - Try, Try Again
 * [offline] Check save() calls for exception thrown
