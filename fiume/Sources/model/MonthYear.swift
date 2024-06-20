@@ -97,6 +97,10 @@ extension MonthYear: Strideable {
   func distance(to other: MonthYear) -> Int {
     other.toMonthCount() - self.toMonthCount()
   }
+
+  func range(_ numberOfMonths: Int) -> ClosedRange<MonthYear> {
+    self...(self.advanced(by: numberOfMonths - 1))
+  }
 }
 
 extension MonthYear: Plottable {

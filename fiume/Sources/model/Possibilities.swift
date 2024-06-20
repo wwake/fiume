@@ -35,7 +35,8 @@ class Possibilities {
   }
 
   func range(_ numberOfMonths: Int) -> ClosedRange<MonthYear> {
-    startMonth...(startMonth.advanced(by: numberOfMonths - 1))
+    startMonth.range(numberOfMonths)
+//    startMonth...(startMonth.advanced(by: numberOfMonths - 1))
   }
 
   func netWorth(_ range: ClosedRange<MonthYear>) -> PossibilitiesNetWorth {

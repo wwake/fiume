@@ -5,6 +5,8 @@ import SwiftUI
 struct FiumeApp: App {
   @State var startDate = MonthYear(date: Date())
 
+  @State var people = People()
+
   init() {
     print(URL.applicationSupportDirectory.path(percentEncoded: false))
   }
@@ -13,5 +15,6 @@ struct FiumeApp: App {
     WindowGroup {
       ContentView(startDate: startDate)
     }
+    .environment(people)
 	}
 }

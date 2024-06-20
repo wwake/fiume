@@ -1,9 +1,8 @@
-import SwiftData
 import SwiftUI
 
 struct PeopleView: View {
-  @Query(sort: \Person.name)
-  var people: [Person]
+  @Environment(People.self)
+  var people: People
 
   @State var isShowingCreateView = false
 
@@ -28,7 +27,7 @@ struct PeopleView: View {
   var body: some View {
     List {
       Section(header: header) {
-        ForEach(people) { person in
+        ForEach(people.people) { person in
           HStack {
             Text(person.name)
             Text("  b. \(person.birth)")
@@ -41,11 +40,11 @@ struct PeopleView: View {
   }
 }
 
-#Preview {
-  let container = demoContainer(for: Person.self)
-  container.mainContext.insert(Person(name: "Bob", birth: 1970.mar, death: nil))
-  container.mainContext.insert(Person(name: "Chris", birth: 1980.dec, death: 2025.apr))
-
-  return PeopleView()
-    .modelContainer(container)
-}
+//#Preview {
+//  let container = demoContainer(for: Person.self)
+//  container.mainContext.insert(Person(name: "Bob", birth: 1970.mar, death: nil))
+//  container.mainContext.insert(Person(name: "Chris", birth: 1980.dec, death: 2025.apr))
+//
+//  return PeopleView()
+//    .modelContainer(container)
+//}

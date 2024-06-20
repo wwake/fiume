@@ -10,6 +10,7 @@ enum DateSpecifierType: String, CaseIterable, Identifiable {
 
 struct DateSpecifierView: View {
   var label: String
+
   @Binding var dateSpec: DateSpecifier
 
   @State private var dateType: DateSpecifierType

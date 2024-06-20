@@ -8,7 +8,7 @@ final class SomePossibilities: XCTestCase {
   }
 
   private func makePossibilities() -> Possibilities {
-    let plans = [Plan]()
+    let plans = [Plan.makeAnd("Test Finances")]
     return Possibilities(startDate: 2030.jan, plans: plans)
   }
 

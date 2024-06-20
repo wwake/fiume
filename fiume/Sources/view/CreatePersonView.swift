@@ -1,12 +1,11 @@
-import SwiftData
 import SwiftUI
 
 struct CreatePersonView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  @Environment(\.modelContext)
-  var modelContext
+  @Environment(People.self)
+  var people: People
 
   @State private var name = ""
   @State private var born: MonthYear = 2024.jan
@@ -35,7 +34,7 @@ struct CreatePersonView: View {
         Spacer()
         Button("Create") {
           let person = Person(name: name, birth: born, death: nil)
-          modelContext.insert(person)
+          people.add(person)
           dismiss()
         }
         .disabled(!valid())
@@ -47,5 +46,4 @@ struct CreatePersonView: View {
 
 #Preview {
   CreatePersonView()
-    .modelContainer(demoContainer(for: Person.self))
 }
