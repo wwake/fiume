@@ -16,8 +16,6 @@ class Plan: Identifiable {
 
   var children: [Plan]?
 
-  var parent: Plan?
-
   static func makeStream(_ stream: Stream) -> Plan {
     Plan(stream)
   }
@@ -45,7 +43,6 @@ class Plan: Identifiable {
   func append(_ child: Plan) {
     guard type != .stream else { return }
 
-    child.parent = self
     if children == nil {
       children = [child]
     } else {

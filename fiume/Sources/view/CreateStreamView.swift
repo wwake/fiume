@@ -68,7 +68,6 @@ struct CreateStreamView: View {
             last: endMonth
           )
           let newPlan = Plan.makeStream(stream)
-          newPlan.parent = parent
           parent.append(newPlan)
           dismiss()
         }
