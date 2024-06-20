@@ -18,7 +18,15 @@ struct ContentView: View {
     NavigationStack {
       Text("Net Worth")
         .font(.title)
-      Chart(Possibilities(startDate: startDate, plans: plans).netWorth(Possibilities(startDate: startDate, plans: plans).range(numberOfMonths))) { dataSeries in
+      Chart(
+        Possibilities(
+          startDate: startDate,
+          plans: plans
+        )
+        .netWorth(
+          startDate.range(numberOfMonths)
+         )
+      ) { dataSeries in
         ForEach(dataSeries.netWorthByMonth) {
           LineMark(
             x: .value("Month", $0.month),
@@ -27,7 +35,7 @@ struct ContentView: View {
         }
         .foregroundStyle(by: .value("Scenario Name", dataSeries.name))
       }
-      .chartXScale(domain: Possibilities(startDate: startDate, plans: plans).range(numberOfMonths))
+      .chartXScale(domain: startDate.range(numberOfMonths))
       .padding()
 
       HStack {
@@ -54,11 +62,11 @@ struct ContentView: View {
       }
       PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
     }
-//    .onAppear {
-//      if plans.isEmpty {
-//        plans.append(Plan.makeAnd("My Finances"))
-//      }
-//    }
+    //    .onAppear {
+    //      if plans.isEmpty {
+    //        plans.append(Plan.makeAnd("My Finances"))
+    //      }
+    //    }
     .sheet(isPresented: $isShowingPeople) {
       PeopleView()
     }
