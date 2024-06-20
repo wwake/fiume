@@ -13,7 +13,7 @@ struct FiumeApp: App {
 
 	var body: some Scene {
     WindowGroup {
-      ContentView(startDate: startDate)
+      ContentView(startDate: startDate, people: people)
     }
     .environment(people)
 	}

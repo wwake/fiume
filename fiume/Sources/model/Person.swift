@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct Person: Identifiable, Equatable {
+struct Person: Identifiable, Equatable, Codable {
   var id = UUID()
   let name: String
   let birth: MonthYear

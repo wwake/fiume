@@ -1,8 +1,16 @@
 import SwiftUI
 
 @Observable
-class People {
-  var people = [Person]()
+class People: Codable {
+  var people: [Person]
+
+  init() {
+    people = [Person]()
+  }
+
+  init(_ people: [Person]) {
+    self.people = people
+  }
 
   func add(_ person: Person) {
     people.append(person)
@@ -10,5 +18,11 @@ class People {
 
   var count: Int {
     people.count
+  }
+}
+
+extension People: Sequence {
+  func makeIterator() -> some IteratorProtocol {
+    people.makeIterator()
   }
 }
