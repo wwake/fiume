@@ -1,6 +1,5 @@
-
-* Check save() calls for exception thrown
-* Should Plan be @Bindable rather than @Binding in PlanListView
+* Switch to JSON files instead for persistence
+* Try List instead of OutlineGroup and see if we can avoid [Plan]? in Plan
 * It seems not to update Possibilities when [Plan] changes !!
 * Maybe Possibilities should be a struct, regenerated as needed
 * Figure out Plan's persistence
@@ -37,6 +36,13 @@ Add flows
 Should we segregate streams by income/expense? (two columns)
 
 Variables?
+
+FI-24-25: 2024-06-20 - SwiftData?
+
+FI-24-24: 2024-06-19 - Plan Persistence - Try, Try Again
+* [offline] Check save() calls for exception thrown
+* Converted Plan to be @Bindable rather than @Binding in PlanListView
+* Try software-maintained relationship inverse for parent & children in Plan - still dies when trying to reconstitute persisted children under "My Finances"
 
 FI-24-23: 2024-06-18 - Plan Persistence - Try Again
 * Make ContentView own [Plan] rather than Possibilities
