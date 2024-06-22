@@ -20,10 +20,9 @@ struct ContentView: View {
     print(URL.documentsDirectory)
     let encoder = JSONEncoder()
     do {
+      let url = URL.documentsDirectory.appending(path: filename)
       let jsonData = try encoder.encode(encodable)
       let data = Data(jsonData)
-      let url = URL.documentsDirectory.appending(path: filename)
-
       try data.write(to: url, options: [.atomic, .completeFileProtection])
     } catch {
       print(error.localizedDescription)
@@ -81,26 +80,14 @@ struct ContentView: View {
         .bold()
         .clipShape(Capsule())
         .padding(.leading, 20)
-
-        Button("Save") {
-          save("people.saved", people)
-          save("plans.saved", plans)
-        }
-        .padding(12)
-        .background(Color.red)
-        .foregroundStyle(Color.white)
-        .bold()
-        .clipShape(Capsule())
-        .padding(.leading, 20)
-
-        Spacer()
-
+        
+        
         Button("Open") {
           let newPeople = open("people.saved", People.self)
           newPeople.people.forEach {
             people.add($0)
           }
-
+          
           let newPlans = open("plans.saved", Array<Plan>.self)
           plans.removeAll()
           plans.append(newPlans[0])
@@ -111,8 +98,22 @@ struct ContentView: View {
         .bold()
         .clipShape(Capsule())
         .padding(.leading, 20)
+        
+        Button("Save") {
+          save("people.saved", people)
+          save("plans.saved", plans)
+        }
+        .padding(12)
+        .background(Color.red)
+        .foregroundStyle(Color.white)
+        .bold()
+        .clipShape(Capsule())
+        .padding(.leading, 20)
+        
+        Spacer()
+        
+        PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
       }
-      PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
     }
     .sheet(isPresented: $isShowingPeople) {
       PeopleView()
