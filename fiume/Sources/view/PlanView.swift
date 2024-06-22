@@ -80,7 +80,7 @@ struct PlanCompositeView: View {
 
 #Preview {
   let planStream = Plan.makeStream(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
-  @State var planTree = Plan.makeAnd("tree")
+  @State var planTree = Plan.makeAnd("an 'and' tree")
 	planTree.append(planStream)
 
 	return PlanView(plan: $planTree)

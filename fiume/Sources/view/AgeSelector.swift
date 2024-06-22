@@ -60,22 +60,22 @@ struct AgeSelector: View {
   }
 }
 
-//#Preview {
-//  @State var dateSpec1 = DateSpecifier.unchanged
-//  @State var dateSpec2 = DateSpecifier.unchanged
-//
-//  let container1 = demoContainer(for: Person.self)
-//  container1.mainContext.insert(Person(name: "Bob", birth: 2000.jan, death: nil))
-//  container1.mainContext.insert(Person(name: "Anny", birth: 1995.dec, death: nil))
-//  container1.mainContext.insert(Person(name: "gil", birth: 1990.mar, death: nil))
-//
-//  let container2 = demoContainer(for: Person.self)
-//
-//  return VStack {
-//    AgeSelector(dateSpec: $dateSpec1)
-//      .modelContainer(container1)
-//    Divider()
-//    AgeSelector(dateSpec: $dateSpec2)
-//      .modelContainer(container2)
-//  }
-//}
+#Preview {
+  @State var dateSpec1 = DateSpecifier.unchanged
+  @State var dateSpec2 = DateSpecifier.unchanged
+
+  @State var people1 = People()
+  people1.add(Person(name: "Bob", birth: 2000.jan, death: nil))
+  people1.add(Person(name: "Anny", birth: 1995.dec, death: nil))
+  people1.add(Person(name: "gil", birth: 1990.mar, death: nil))
+
+  let people2 = People()
+
+  return VStack {
+    AgeSelector(dateSpec: $dateSpec1)
+      .environment(people1)
+    Divider()
+    AgeSelector(dateSpec: $dateSpec2)
+      .environment(people2)
+  }
+}

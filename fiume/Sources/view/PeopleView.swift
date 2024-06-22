@@ -40,11 +40,11 @@ struct PeopleView: View {
   }
 }
 
-//#Preview {
-//  let container = demoContainer(for: Person.self)
-//  container.mainContext.insert(Person(name: "Bob", birth: 1970.mar, death: nil))
-//  container.mainContext.insert(Person(name: "Chris", birth: 1980.dec, death: 2025.apr))
-//
-//  return PeopleView()
-//    .modelContainer(container)
-//}
+#Preview {
+  @State var people = People()
+  people.add(Person(name: "Bob", birth: 1970.mar, death: nil))
+  people.add(Person(name: "Chris", birth: 1980.dec, death: 2025.apr))
+
+  return PeopleView()
+    .environment(people)
+}

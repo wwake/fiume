@@ -86,7 +86,7 @@ struct ContentView: View {
           newPeople.people.forEach {
             people.add($0)
           }
-          
+
           let newPlans = open("plans.saved", Array<Plan>.self)
           plans.removeAll()
           plans.append(newPlans[0])
@@ -108,9 +108,9 @@ struct ContentView: View {
         .bold()
         .clipShape(Capsule())
         .padding(.leading, 20)
-      }
 
         Spacer()
+      }
 
         PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
     }
@@ -120,9 +120,7 @@ struct ContentView: View {
   }
 }
 
-//#Preview {
-  //  let possibilities = Possibilities(startDate: MonthYear(date: Date()), plans: plans)
-  //  possibilities.add(Stream("Salary", 1_000, first: .month(2024.jan), last: .month(2029.jan)))
-  //  possibilities.add(Stream("Expenses", -800, first: .month(2024.jan), last: .unchanged))
-//  return ContentView(startDate: MonthYear(date: Date()))
-//}
+#Preview {
+  let people = People()
+  return ContentView(startDate: MonthYear(date: Date()), people: people)
+}

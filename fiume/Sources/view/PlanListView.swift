@@ -20,13 +20,12 @@ struct PlanListView: View {
   }
 }
 
-//#Preview {
-//  let container = demoContainer(for: Plan.self)
-//
-//  let plan = Possibilities(startDate: MonthYear(date: Date()), plans: plans)
-//  let stream = Stream("Annuity", Money(1_000), first: .month(2020.jan), last: .unchanged)
-//  plan.add(stream)
-//
-//  return PlanListView(possibilities: plan)
-//    .modelContainer(container)
-//}
+#Preview {
+  @State var plans = [Plan]()
+
+  let plan = Possibilities(startDate: MonthYear(date: Date()), plans: plans)
+  let stream = Stream("Annuity", Money(1_000), first: .month(2020.jan), last: .unchanged)
+  plan.add(stream)
+
+  return PlanListView(possibilities: plan)
+}

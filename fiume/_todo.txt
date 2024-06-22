@@ -1,6 +1,4 @@
 
-* Fix all the previews
-
 * Refactor I/O out of ContentView (and elsewhere?)
 * Is I/O a manual step? Save incrementally?
 * Scheme: Save after each change; only read file at open
@@ -8,26 +6,26 @@
 * Better error handling on I/O
 Persistence
 
-* Try List instead of OutlineGroup and see if we can avoid [Plan]? in Plan
-* It seems not to update Possibilities when [Plan] changes !!
-* Maybe Possibilities should be a struct, regenerated as needed
-* Should Plan be a struct?
-
 * Delete streams
 * Edit stream
 * Move streams
 
+Pools
+
+Inflation
+
+* Try List instead of OutlineGroup and see if we can avoid [Plan]? in Plan
+* Maybe Possibilities should be a struct, regenerated as needed
+* Should Plan be a struct?
+
 * Require distinct people names
 
 * Make amount an overrideable value on stream
+* SS with 1/2 of spouse etc.
 
 * Sections
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
-
-Pools
-
-Inflation
 
 * Allow dates to depend on death day
 
@@ -35,7 +33,6 @@ Inflation
 
 * Add multiple sections
 
-* SS with 1/2 of spouse etc.
 
 
 Calendar view (with RuleMark)
@@ -44,6 +41,9 @@ Add flows
 Should we segregate streams by income/expense? (two columns)
 
 Variables?
+
+FI-24-26: 2024-07-01 -
+* [offline] Fix all the previews (removing SwiftData references)
 
 FI-24-25: 2024-06-20 - SwiftData?
 * Removed all traces of SwiftData - it was just too hard to work with

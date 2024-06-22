@@ -45,5 +45,8 @@ struct CreatePersonView: View {
 }
 
 #Preview {
-  CreatePersonView()
+  @State var people = People()
+
+  return CreatePersonView()
+    .environment(people)
 }
