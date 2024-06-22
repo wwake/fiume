@@ -80,8 +80,7 @@ struct ContentView: View {
         .bold()
         .clipShape(Capsule())
         .padding(.leading, 20)
-        
-        
+
         Button("Open") {
           let newPeople = open("people.saved", People.self)
           newPeople.people.forEach {
@@ -98,7 +97,7 @@ struct ContentView: View {
         .bold()
         .clipShape(Capsule())
         .padding(.leading, 20)
-        
+
         Button("Save") {
           save("people.saved", people)
           save("plans.saved", plans)
@@ -109,11 +108,11 @@ struct ContentView: View {
         .bold()
         .clipShape(Capsule())
         .padding(.leading, 20)
-        
-        Spacer()
-        
-        PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
       }
+
+        Spacer()
+
+        PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
     }
     .sheet(isPresented: $isShowingPeople) {
       PeopleView()
