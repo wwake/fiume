@@ -11,6 +11,9 @@ struct ContentView: View {
 
   @State var isShowingPeople = false
 
+  @State private var showSaveAlert = false
+  @State private var saveError: Error?
+
   init(startDate: MonthYear, people: People) {
     self.startDate = startDate
     self.people = people
@@ -69,8 +72,13 @@ struct ContentView: View {
         .padding(.leading, 20)
 
         Button("Save") {
-          save("people.saved", people)
-          save("plans.saved", plans)
+          do {
+            try save("people.saved", people)
+            try save("plans.saved", plans)
+          } catch {
+            showSaveAlert = true
+            saveError = error
+          }
         }
         .padding(12)
         .background(Color.red)
@@ -83,6 +91,12 @@ struct ContentView: View {
       }
 
         PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
+    }
+    .alert("Error saving", isPresented: $showSaveAlert) {
+      if let saveError {
+        Text(saveError.localizedDescription)
+      }
+      Button("OK", role: .cancel) { }
     }
     .sheet(isPresented: $isShowingPeople) {
       PeopleView()

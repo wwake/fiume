@@ -1,8 +1,10 @@
+* Better error handling on I/O
 * Is I/O a manual step? Save incrementally?
 * Scheme: Save after each change; only read file at open
 * Handle app startup/close
-* Better error handling on I/O
 Persistence
+
+* How do we tie plans with a date spec using a person to that person? (Link to UUID of person and check when using)
 
 * Delete streams
 * Edit stream
