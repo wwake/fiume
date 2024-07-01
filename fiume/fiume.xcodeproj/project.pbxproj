@@ -34,6 +34,7 @@
 		919CED542BF69C5C00ACCE2E /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */; };
 		919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */; };
 		91C248CD2C24B3CE00A1EEB3 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248CC2C24B3CE00A1EEB3 /* People.swift */; };
+		91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D12C33277100A1EEB3 /* Persistence.swift */; };
 		91CDFD172BFE6AE700695E65 /* Scenarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDFD162BFE6AE700695E65 /* Scenarios.swift */; };
 		91D543982C051A3800AD3592 /* DateSpecifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D543972C051A3800AD3592 /* DateSpecifierView.swift */; };
 		91D5439A2C051B5700AD3592 /* DateSpecifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D543992C051B5700AD3592 /* DateSpecifier.swift */; };
@@ -86,6 +87,7 @@
 		91A8C2962BFD773100DF5AC0 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		91A8C2982BFD7C5400DF5AC0 /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
 		91C248CC2C24B3CE00A1EEB3 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		91C248D12C33277100A1EEB3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		91CDFD162BFE6AE700695E65 /* Scenarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenarios.swift; sourceTree = "<group>"; };
 		91D543972C051A3800AD3592 /* DateSpecifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSpecifierView.swift; sourceTree = "<group>"; };
 		91D543992C051B5700AD3592 /* DateSpecifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSpecifier.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		91C248D02C33270F00A1EEB3 /* io */ = {
+			isa = PBXGroup;
+			children = (
+				91C248D12C33277100A1EEB3 /* Persistence.swift */,
+			);
+			path = io;
+			sourceTree = "<group>";
+		};
 		91D5439D2C05FF3F00AD3592 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +208,7 @@
 				91DA65002BF291F7004ADB9B /* Assets.xcassets */,
 				91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */,
 				91D5439D2C05FF3F00AD3592 /* model */,
+				91C248D02C33270F00A1EEB3 /* io */,
 				919CED502BF6979A00ACCE2E /* view */,
 				91DA65022BF291F7004ADB9B /* Preview Content */,
 			);
@@ -367,6 +378,7 @@
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
 				919CED542BF69C5C00ACCE2E /* CreateGroupView.swift in Sources */,
 				91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */,
+				91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */,
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
 				91206E2C2C07C21300D4C1CB /* Person.swift in Sources */,
 				914FEFA32BF292FE003D858E /* Money.swift in Sources */,

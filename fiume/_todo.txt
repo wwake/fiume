@@ -1,5 +1,5 @@
-
-* Refactor I/O out of ContentView (and elsewhere?)
+* Refactor I/O out of ContentView
+(and elsewhere?)
 * Is I/O a manual step? Save incrementally?
 * Scheme: Save after each change; only read file at open
 * Handle app startup/close
