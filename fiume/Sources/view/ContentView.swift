@@ -11,8 +11,11 @@ struct ContentView: View {
 
   @State var isShowingPeople = false
 
-  @State private var showSaveAlert = false
   @State private var saveError: Error?
+  @State private var showSaveAlert = false
+
+  @State private var openError: Error?
+  @State private var showOpenAlert = false
 
   init(startDate: MonthYear, people: People) {
     self.startDate = startDate
@@ -55,14 +58,19 @@ struct ContentView: View {
         .padding(.leading, 20)
 
         Button("Open") {
-          let newPeople = open("people.saved", People.self)
-          newPeople.people.forEach {
-            people.add($0)
-          }
+          do {
+            let newPeople = try open("people.saved", People.self)
+            newPeople.people.forEach {
+              people.add($0)
+            }
 
-          let newPlans = open("plans.saved", Array<Plan>.self)
-          plans.removeAll()
-          plans.append(newPlans[0])
+            let newPlans = try open("plans.saved", Array<Plan>.self)
+            plans.removeAll()
+            plans.append(newPlans[0])
+          } catch {
+            openError = error
+            showOpenAlert = true
+          }
         }
         .padding(12)
         .background(Color.red)
@@ -76,8 +84,8 @@ struct ContentView: View {
             try save("people.saved", people)
             try save("plans.saved", plans)
           } catch {
-            showSaveAlert = true
             saveError = error
+            showSaveAlert = true
           }
         }
         .padding(12)
@@ -95,6 +103,12 @@ struct ContentView: View {
     .alert("Error saving", isPresented: $showSaveAlert) {
       if let saveError {
         Text(saveError.localizedDescription)
+      }
+      Button("OK", role: .cancel) { }
+    }
+    .alert("Error reading", isPresented: $showOpenAlert) {
+      if let openError {
+        Text(openError.localizedDescription)
       }
       Button("OK", role: .cancel) { }
     }

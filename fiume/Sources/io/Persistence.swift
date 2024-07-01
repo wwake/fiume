@@ -8,18 +8,14 @@ func save<T: Encodable>(_ filename: String, _ encodable: T) throws {
   try data.write(to: url, options: [.atomic, .completeFileProtection])
 }
 
-func open<T: Decodable>(_ filename: String, _ type: T.Type) -> T {
+func open<T: Decodable>(_ filename: String, _ type: T.Type) throws -> T {
   let url = URL.documentsDirectory.appending(path: filename)
 
-  guard let data = try? Data(contentsOf: url) else {
-    fatalError("Failed to load \(url).")
-  }
+  let data = try Data(contentsOf: url)
 
   let decoder = JSONDecoder()
 
-  guard let loaded = try? decoder.decode(type, from: data) else {
-    fatalError("Failed to decode \(type) from \(url).")
-  }
+  let loaded = try decoder.decode(type, from: data)
 
   return loaded
 }
