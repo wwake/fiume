@@ -14,9 +14,6 @@ struct ContentView: View {
   @State private var saveError: Error?
   @State private var showSaveAlert = false
 
-  @State private var openError: Error?
-  @State private var showOpenAlert = false
-
   init(startDate: MonthYear, people: People, plans: Plans) {
     self.startDate = startDate
     self.people = people
@@ -58,28 +55,6 @@ struct ContentView: View {
         .clipShape(Capsule())
         .padding(.leading, 20)
 
-        Button("Open") {
-          do {
-            let newPeople = try open("people.saved", People.self)
-            newPeople.people.forEach {
-              people.add($0)
-            }
-
-            let newPlans = try open("plans.saved", Array<Plan>.self)
-            plans.removeAll()
-            plans.append(newPlans[0])
-          } catch {
-            openError = error
-            showOpenAlert = true
-          }
-        }
-        .padding(12)
-        .background(Color.red)
-        .foregroundStyle(Color.white)
-        .bold()
-        .clipShape(Capsule())
-        .padding(.leading, 20)
-
         Button("Save") {
           do {
             try save("people.saved", people)
@@ -104,12 +79,6 @@ struct ContentView: View {
     .alert("Error saving", isPresented: $showSaveAlert) {
       if let saveError {
         Text(saveError.localizedDescription)
-      }
-      Button("OK", role: .cancel) { }
-    }
-    .alert("Error reading", isPresented: $showOpenAlert) {
-      if let openError {
-        Text(openError.localizedDescription)
       }
       Button("OK", role: .cancel) { }
     }
