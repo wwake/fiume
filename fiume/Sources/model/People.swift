@@ -15,6 +15,7 @@ class People: Codable {
 
   func add(_ person: Person) {
     people.append(person)
+    wasChanged = true
   }
 
   var count: Int {

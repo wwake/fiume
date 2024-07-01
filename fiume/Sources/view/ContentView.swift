@@ -85,7 +85,15 @@ struct ContentView: View {
     .sheet(isPresented: $isShowingPeople) {
       PeopleView()
     }
-//    .onChange(of: )
+    .onChange(of: people.wasChanged) {
+      do {
+        try save("people.saved", people)
+//        try save("plans.saved", plans)
+      } catch {
+        saveError = error
+        showSaveAlert = true
+      }
+    }
   }
 }
 
