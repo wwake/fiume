@@ -1,7 +1,5 @@
-* Better error handling on I/O
-* Is I/O a manual step? Save incrementally?
-* Scheme: Save after each change; only read file at open
-* Handle app startup/close
+* Read file at app's opening
+* Save to file after each change
 Persistence
 
 * How do we tie plans with a date spec using a person to that person? (Link to UUID of person and check when using)
@@ -45,6 +43,7 @@ Variables?
 FI-24-26: 2024-07-01 - Improve Persistence
 * [offline] Fix all the previews (removing SwiftData references)
 * Refactor I/O out of ContentView
+* Better error handling on I/O
 
 
 FI-24-25: 2024-06-20 - SwiftData?

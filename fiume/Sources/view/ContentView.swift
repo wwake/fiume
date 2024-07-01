@@ -7,7 +7,7 @@ struct ContentView: View {
   var startDate: MonthYear
   @Bindable var people: People
 
-  @State var plans = [Plan.makeAnd("My Finances")]
+  @Bindable var plans: Plans
 
   @State var isShowingPeople = false
 
@@ -17,9 +17,10 @@ struct ContentView: View {
   @State private var openError: Error?
   @State private var showOpenAlert = false
 
-  init(startDate: MonthYear, people: People) {
+  init(startDate: MonthYear, people: People, plans: Plans) {
     self.startDate = startDate
     self.people = people
+    self.plans = plans
   }
 
   var body: some View {
@@ -29,7 +30,7 @@ struct ContentView: View {
       Chart(
         Possibilities(
           startDate: startDate,
-          plans: plans
+          plans: plans.plans
         )
         .netWorth(
           startDate.range(numberOfMonths)
@@ -98,7 +99,7 @@ struct ContentView: View {
         Spacer()
       }
 
-        PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
+      PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans.plans))
     }
     .alert("Error saving", isPresented: $showSaveAlert) {
       if let saveError {
@@ -120,5 +121,6 @@ struct ContentView: View {
 
 #Preview {
   let people = People()
-  return ContentView(startDate: MonthYear(date: Date()), people: people)
+  let plans = Plans()
+  return ContentView(startDate: MonthYear(date: Date()), people: people, plans: plans)
 }
