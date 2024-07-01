@@ -2,6 +2,7 @@ import SwiftUI
 
 @Observable
 class People: Codable {
+  var wasChanged = false
   var people: [Person]
 
   init() {

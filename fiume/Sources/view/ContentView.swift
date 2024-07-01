@@ -85,6 +85,7 @@ struct ContentView: View {
     .sheet(isPresented: $isShowingPeople) {
       PeopleView()
     }
+//    .onChange(of: )
   }
 }
 
