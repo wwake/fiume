@@ -1,5 +1,3 @@
-* Refactor I/O out of ContentView
-(and elsewhere?)
 * Is I/O a manual step? Save incrementally?
 * Scheme: Save after each change; only read file at open
 * Handle app startup/close
@@ -42,8 +40,10 @@ Should we segregate streams by income/expense? (two columns)
 
 Variables?
 
-FI-24-26: 2024-07-01 -
+FI-24-26: 2024-07-01 - Improve Persistence
 * [offline] Fix all the previews (removing SwiftData references)
+* Refactor I/O out of ContentView
+
 
 FI-24-25: 2024-06-20 - SwiftData?
 * Removed all traces of SwiftData - it was just too hard to work with
