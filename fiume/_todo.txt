@@ -1,4 +1,3 @@
-* Read file at app's opening
 * Save to file after each change
 Persistence
 
@@ -44,6 +43,7 @@ FI-24-26: 2024-07-01 - Improve Persistence
 * [offline] Fix all the previews (removing SwiftData references)
 * Refactor I/O out of ContentView
 * Better error handling on I/O
+* Read file at app's opening
 
 
 FI-24-25: 2024-06-20 - SwiftData?
