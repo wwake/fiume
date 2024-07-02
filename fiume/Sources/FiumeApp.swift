@@ -9,13 +9,14 @@ struct FiumeApp: App {
   @State var plans = Plans()
 
   init() {
-    print(URL.applicationSupportDirectory.path(percentEncoded: false))
+    print("Document path: \(URL.documentsDirectory)")
 
     do {
       let newPeople = try open("people.saved", People.self)
       newPeople.people.forEach {
         people.add($0)
       }
+      people.wasChanged = false
     } catch {
       // Fail => no file => first open => everything starts empty
     }

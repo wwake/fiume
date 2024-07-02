@@ -2,15 +2,17 @@ import SwiftUI
 
 @Observable
 class People: Codable {
-  var wasChanged = false
+  var wasChanged: Bool
   var people: [Person]
 
   init() {
     people = [Person]()
+    wasChanged = false
   }
 
   init(_ people: [Person]) {
     self.people = people
+    wasChanged = false
   }
 
   func add(_ person: Person) {

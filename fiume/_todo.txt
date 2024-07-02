@@ -1,5 +1,11 @@
+* Make save() work properly - wasChanged needs to be cleared after open()
+* Make initial open work properly
+* Opening plans currently appends a new plan - interacts with persistence - make an init that doesn't "change"?
 * Save to file after each change
 Persistence
+
+* Do we need to use CodingKeys and implement encode/decode? (to eliminate warnings & omit fields)
+* Remove add() functions from Possibilities
 
 * How do we tie plans with a date spec using a person to that person? (Link to UUID of person and check when using)
 
@@ -39,12 +45,18 @@ Should we segregate streams by income/expense? (two columns)
 
 Variables?
 
+FI-24-27: 2024-07-02 - Plan Persistence
+* [offline] Installed Jon Reid's new test templates
+
+
 FI-24-26: 2024-07-01 - Improve Persistence
 * [offline] Fix all the previews (removing SwiftData references)
 * Refactor I/O out of ContentView
 * Better error handling on I/O
 * Read file at app's opening
-
+* Track a flag, changed when object changes; reset on save
+* Save People to file when it changes
+* Started work to save Plans when that changes
 
 FI-24-25: 2024-06-20 - SwiftData?
 * Removed all traces of SwiftData - it was just too hard to work with

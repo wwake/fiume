@@ -86,9 +86,20 @@ struct ContentView: View {
       PeopleView()
     }
     .onChange(of: people.wasChanged) {
+      if !people.wasChanged { return }
       do {
+        people.wasChanged = false
         try save("people.saved", people)
-//        try save("plans.saved", plans)
+      } catch {
+        saveError = error
+        showSaveAlert = true
+      }
+    }
+    .onChange(of: plans.wasChanged) {
+      if !plans.wasChanged { return }
+      do {
+        plans.wasChanged = false
+        try save("plans.saved", plans)
       } catch {
         saveError = error
         showSaveAlert = true
