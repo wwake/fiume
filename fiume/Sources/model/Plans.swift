@@ -6,18 +6,13 @@ class Plans: Codable {
   var plans = [Plan.makeAnd("My Finances")]
 
   func load(_ newPlans: Plans) {
-    removeAll()
+    plans.removeAll()
     plans.append(newPlans.plans[0])
     wasChanged = false
   }
 
   func append(parent: Plan, child: Plan) {
     parent.append(child)
-    wasChanged = true
-  }
-
-  func removeAll() {
-    plans.removeAll()
     wasChanged = true
   }
 }

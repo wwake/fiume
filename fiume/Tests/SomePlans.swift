@@ -30,11 +30,4 @@ struct SomePlans {
     #expect(plans.plans[0].children![0] === stream)
     #expect(plans.wasChanged)
   }
-
-  @Test
-  func changesWhenAllPlansRemoved() {
-    let plans = Plans()
-    plans.removeAll()
-    #expect(plans.wasChanged)
-  }
 }
