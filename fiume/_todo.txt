@@ -1,10 +1,9 @@
-Persistence
 
 * Do we need to use CodingKeys and implement encode/decode? (to eliminate warnings & omit fields)
-* Remove add() functions from Possibilities
 * Move to Plans with group vs [Plan] in various places
 
 * How do we tie plans with a date spec using a person to that person? (Link to UUID of person and check when using)
+* Make Plans iterable
 
 * Delete streams
 * Edit stream
@@ -44,9 +43,11 @@ Variables?
 
 FI-24-27: 2024-07-02 - Plan Persistence
 * [offline] Installed Jon Reid's new test templates
-* Save to file after each change
+* Persistence - Save to file after each change
   * Make save() work properly for Person and Plans - wasChanged needs to be cleared after open()
   * Make Plans save and load as Plans rather than [Plan]
+  * Inline and remove Plans.append() and Plans.removeAll()
+* Move add() functions from Possibilities to test module
 
 
 FI-24-26: 2024-07-01 - Improve Persistence
