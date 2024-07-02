@@ -19,11 +19,11 @@ typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 class Possibilities {
   let startMonth: MonthYear
 
-  var sections: [Plan]
+  var plans: [Plan]
 
-  init(startDate: MonthYear, plans: [Plan]) {
+  init(startDate: MonthYear, plans: Plans) {
     self.startMonth = startDate
-    self.sections = plans
+    self.plans = plans.plans
   }
 
   func range(_ numberOfMonths: Int) -> ClosedRange<MonthYear> {
@@ -38,6 +38,6 @@ class Possibilities {
 	}
 
 	func scenarios() -> Scenarios {
-    sections[0].scenarios(Scenarios([Scenario("Scenario")]))
+    plans[0].scenarios(Scenarios([Scenario("Scenario")]))
 	}
 }

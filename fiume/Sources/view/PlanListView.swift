@@ -5,7 +5,7 @@ struct PlanListView: View {
 
   var body: some View {
     List {
-      ForEach($possibilities.sections, id: \.id) { $planTree in
+      ForEach($possibilities.plans, id: \.id) { $planTree in
         OutlineGroup(
           $planTree,
           id: \.id,
@@ -21,11 +21,11 @@ struct PlanListView: View {
 }
 
 #Preview {
-  @State var plans = [Plan]()
+  @State var plans = Plans()
 
-  let plan = Possibilities(startDate: MonthYear(date: Date()), plans: plans)
+  let possibilities = Possibilities(startDate: MonthYear(date: Date()), plans: plans)
   let stream = Plan.makeStream(Stream("Annuity", Money(1_000), first: .month(2020.jan), last: .unchanged))
-  plan.sections[0].append(stream)
+  possibilities.plans[0].append(stream)
 
-  return PlanListView(possibilities: plan)
+  return PlanListView(possibilities: possibilities)
 }
