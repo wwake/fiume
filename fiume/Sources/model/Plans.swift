@@ -18,6 +18,7 @@ class Plans: Codable {
 
   func append(parent: Plan, child: Plan) {
     parent.append(child)
+    wasChanged = true
   }
 
   func removeAll() {

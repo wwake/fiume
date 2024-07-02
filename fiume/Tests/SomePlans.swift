@@ -25,6 +25,17 @@ struct SomePlans {
   }
 
   @Test
+  func changesWhenPlanIsAppended() {
+    let plans = Plans()
+
+    let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
+
+    plans.append(parent: plans.plans[0], child: stream)
+    #expect(plans.plans[0].children![0] === stream)
+    #expect(plans.wasChanged)
+  }
+
+  @Test
   func changesWhenAllPlansRemoved() {
     let plans = Plans()
     plans.removeAll()
