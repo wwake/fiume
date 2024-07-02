@@ -5,15 +5,10 @@ class Plans: Codable {
   var wasChanged = false
   var plans = [Plan.makeAnd("My Finances")]
 
-  func load(_ newPlans: [Plan]) {
+  func load(_ newPlans: Plans) {
     removeAll()
-    append(newPlans[0])
+    plans.append(newPlans.plans[0])
     wasChanged = false
-  }
-
-  func append(_ plan: Plan) {
-    plans.append(plan)
-    wasChanged = true
   }
 
   func append(parent: Plan, child: Plan) {

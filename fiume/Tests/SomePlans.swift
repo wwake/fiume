@@ -11,17 +11,13 @@ struct SomePlans {
   @Test
   func doesntChangeWhenLoading() {
     let plans = Plans()
-    let newPlans = [Plan.makeStream(Stream("A Stream", 1999, first: .unchanged, last: .unchanged))]
+    let newPlans = Plans()
+    newPlans.plans = [Plan.makeStream(Stream("A Stream", 1999, first: .unchanged, last: .unchanged))]
     plans.wasChanged = true
-    plans.load(newPlans)
-    #expect(plans.wasChanged == false)
-  }
 
-  @Test
-  func changesWhenPlanIsAdded() {
-    let plans = Plans()
-    plans.append(Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged)))
-    #expect(plans.wasChanged)
+    plans.load(newPlans)
+
+    #expect(plans.wasChanged == false)
   }
 
   @Test

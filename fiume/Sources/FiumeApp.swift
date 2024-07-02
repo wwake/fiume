@@ -19,7 +19,7 @@ struct FiumeApp: App {
     }
 
     do {
-      let newPlans = try open("plans.saved", Array<Plan>.self)
+      let newPlans = try open("plans.saved", Plans.self)
       plans.load(newPlans)
     } catch {
       // Fail => no file => first open => everything starts empty
