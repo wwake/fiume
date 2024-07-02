@@ -43,13 +43,6 @@ struct MonthYear: Equatable, Codable {
   let month: Month
   let year: Int
 
-  var months: [String] = [
-    "January", "February", "March",
-    "April", "May", "June",
-    "July", "August", "September",
-    "October", "November", "December",
-  ]
-
   init(_ month: Month, _ year: Int) {
     self.month = month
     self.year = year
