@@ -20,9 +20,7 @@ struct FiumeApp: App {
 
     do {
       let newPlans = try open("plans.saved", Array<Plan>.self)
-      plans.removeAll()
-      plans.append(newPlans[0])
-      plans.wasChanged = false
+      plans.load(newPlans)
     } catch {
       // Fail => no file => first open => everything starts empty
     }
@@ -33,5 +31,6 @@ struct FiumeApp: App {
       ContentView(startDate: startDate, people: people, plans: plans)
     }
     .environment(people)
+    .environment(plans)
 	}
 }

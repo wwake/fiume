@@ -4,6 +4,9 @@ struct CreateStreamView: View {
   @Environment(\.dismiss)
   var dismiss
 
+  @Environment(Plans.self)
+  var plans: Plans
+
   @Binding var parent: Plan
 
   @State private var isIncome = true
@@ -68,7 +71,8 @@ struct CreateStreamView: View {
             last: endMonth
           )
           let newPlan = Plan.makeStream(stream)
-          parent.append(newPlan)
+          plans.append(parent: parent, child: newPlan)
+
           dismiss()
         }
         .disabled(!valid())

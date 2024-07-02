@@ -4,6 +4,7 @@ Persistence
 
 * Do we need to use CodingKeys and implement encode/decode? (to eliminate warnings & omit fields)
 * Remove add() functions from Possibilities
+* Move to Plans with group vs [Plan] in various places
 
 * How do we tie plans with a date spec using a person to that person? (Link to UUID of person and check when using)
 
