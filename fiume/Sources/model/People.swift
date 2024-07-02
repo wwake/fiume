@@ -15,6 +15,11 @@ class People: Codable {
     wasChanged = false
   }
 
+  func load(_ newPeople: [Person]) {
+    people = newPeople
+    self.wasChanged = false
+  }
+
   func add(_ person: Person) {
     people.append(person)
     wasChanged = true

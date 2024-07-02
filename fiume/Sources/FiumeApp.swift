@@ -13,10 +13,7 @@ struct FiumeApp: App {
 
     do {
       let newPeople = try open("people.saved", People.self)
-      newPeople.people.forEach {
-        people.add($0)
-      }
-      people.wasChanged = false
+      people.load(newPeople.people)
     } catch {
       // Fail => no file => first open => everything starts empty
     }
@@ -25,6 +22,7 @@ struct FiumeApp: App {
       let newPlans = try open("plans.saved", Array<Plan>.self)
       plans.removeAll()
       plans.append(newPlans[0])
+      plans.wasChanged = false
     } catch {
       // Fail => no file => first open => everything starts empty
     }

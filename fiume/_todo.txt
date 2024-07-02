@@ -1,5 +1,3 @@
-* Make save() work properly - wasChanged needs to be cleared after open()
-* Make initial open work properly
 * Opening plans currently appends a new plan - interacts with persistence - make an init that doesn't "change"?
 * Save to file after each change
 Persistence
@@ -47,6 +45,7 @@ Variables?
 
 FI-24-27: 2024-07-02 - Plan Persistence
 * [offline] Installed Jon Reid's new test templates
+* Make save() work properly - wasChanged needs to be cleared after open()
 
 
 FI-24-26: 2024-07-01 - Improve Persistence
