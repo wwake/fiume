@@ -38,7 +38,9 @@ extension DateSpecifier: CustomStringConvertible {
     case .month(let monthYear):
       return monthYear.description
 
-    case let .age(_, name, _, age):
+    case let .age(id, _, _, age):
+      let person = people.findById(id)
+      let name = person?.name ?? "<person not found>"
       return "\(name)@\(age)"
     }
   }
