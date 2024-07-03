@@ -25,7 +25,7 @@ struct Stream: Identifiable, Codable {
     monthlyAmount >= 0
   }
 
-  func amount(at month: MonthYear) -> Money {
+  func amount(at month: MonthYear, people: People) -> Money {
     switch first {
     case .unchanged:
       break
@@ -33,7 +33,9 @@ struct Stream: Identifiable, Codable {
     case let .month(startMonth):
       if month < startMonth { return Money(0) }
 
-    case let .age(_, _, birth, age):
+    case let .age(id, age):
+      guard let person = people.findById(id) else { return Money(0) }
+      let birth = person.birth
       let effectiveStart = birth.advanced(byYears: age)
       if month < effectiveStart { return Money(0) }
     }
@@ -46,7 +48,9 @@ struct Stream: Identifiable, Codable {
       if month > endMonth { return Money(0) }
       return self.monthlyAmount
 
-    case let .age(_, _, birth, age):
+    case let .age(id, age):
+      guard let person = people.findById(id) else { return Money(0) }
+      let birth = person.birth
       let effectiveEnd = birth.advanced(byYears: age)
       if month >= effectiveEnd { return Money(0) }
       return self.monthlyAmount

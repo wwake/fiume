@@ -3,13 +3,15 @@
 import XCTest
 
 final class SomePossibilities: XCTestCase {
+  private let people = People()
+
   private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
     Stream(name, Money(amount), first: .month(2024.jan), last: .unchanged)
   }
 
   private func makePossibilities() -> Possibilities {
     let plans = Plans()
-    return Possibilities(startDate: 2030.jan, plans: plans)
+    return Possibilities(startDate: 2030.jan, plans: plans, people: people)
   }
 
 	func test_salary_builds_net_worth() throws {

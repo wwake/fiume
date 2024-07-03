@@ -27,7 +27,8 @@ struct ContentView: View {
       Chart(
         Possibilities(
           startDate: startDate,
-          plans: plans
+          plans: plans,
+          people: people
         )
         .netWorth(
           startDate.range(numberOfMonths)
@@ -74,7 +75,7 @@ struct ContentView: View {
         Spacer()
       }
 
-      PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans))
+      PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans, people: people))
     }
     .alert("Error saving", isPresented: $showSaveAlert) {
       if let saveError {

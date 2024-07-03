@@ -1,7 +1,4 @@
-* Tie plans with a date spec using a person's id
-* Change date spec to use person id
-* Handle if id not found
-* Why is Person CustomStringConvertible?
+* Remove use of name and birth year
 
 * Delete streams
 * Edit stream
@@ -45,6 +42,10 @@ Variables?
 
 FI-24-28: 2024-07-03 - File Names and Date Specs
 * Rename files to .json
+* Make date spec use person id
+* Handle when id not found
+* Remove CustomStringConvertible from Person
+
 
 FI-24-27: 2024-07-02 - Plan Persistence
 * [offline] Installed Jon Reid's new test templates

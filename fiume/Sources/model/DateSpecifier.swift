@@ -3,7 +3,7 @@ import Foundation
 enum DateSpecifier: Equatable, Codable {
   case unchanged
   case month(MonthYear)
-  case age(UUID, String, MonthYear, Int)
+  case age(UUID, Int)
 
   func update(using: DateSpecifier) -> DateSpecifier {
     switch using {
@@ -25,7 +25,7 @@ extension DateSpecifier {
     case .month(let monthYear):
       return monthYear.description
 
-    case let .age(id, _, _, age):
+    case let .age(id, age):
       let person = people.findById(id)
       let name = person?.name ?? "<person not found>"
       return "\(name)@\(age)"

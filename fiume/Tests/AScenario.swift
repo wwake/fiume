@@ -8,6 +8,8 @@ extension fiume.Stream: Equatable {
 }
 
 final class AScenario: XCTestCase {
+  private let people = People()
+
   private func makeStream(
     name: String = "Sample",
     _ amount: Int,
@@ -27,7 +29,7 @@ final class AScenario: XCTestCase {
   }
 
   private func makeScenario(_ streams: fiume.Stream...) -> Scenario {
-    let result = Scenario("Scenario Name")
+    let result = Scenario("Scenario Name", people: people)
     streams.forEach {
       result.add($0)
     }

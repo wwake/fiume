@@ -20,10 +20,12 @@ class Possibilities {
   let startMonth: MonthYear
 
   var plans: [Plan]
+  var people: People
 
-  init(startDate: MonthYear, plans: Plans) {
+  init(startDate: MonthYear, plans: Plans, people: People) {
     self.startMonth = startDate
     self.plans = plans.plans
+    self.people = people
   }
 
   func range(_ numberOfMonths: Int) -> ClosedRange<MonthYear> {
@@ -38,6 +40,6 @@ class Possibilities {
 	}
 
 	func scenarios() -> Scenarios {
-    plans[0].scenarios(Scenarios([Scenario("Scenario")]))
+    plans[0].scenarios(Scenarios([Scenario("Scenario", people: people)]))
 	}
 }

@@ -3,14 +3,17 @@ import Foundation
 class Scenario: Identifiable {
   let id = UUID()
   let name: String
+  let people: People
+
   var items = [String: Stream]()
 
-  init(_ name: String) {
+  init(_ name: String, people: People) {
     self.name = name
+    self.people = people
   }
 
   private convenience init(_ other: Scenario, _ newName: String) {
-    self.init(newName)
+    self.init(newName, people: other.people)
     let copy = other.items
     self.items = copy
   }
@@ -41,7 +44,7 @@ class Scenario: Identifiable {
 
   func net(at month: MonthYear) -> Money {
     items.values.reduce(Money(0)) { soFar, stream in
-      soFar + stream.amount(at: month)
+      soFar + stream.amount(at: month, people: people)
     }
   }
 }
