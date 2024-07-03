@@ -1,5 +1,10 @@
 import Foundation
 
+enum Persistence {
+  static let peopleFilename = "people.json"
+  static let plansFilename = "plans.json"
+}
+
 func save<T: Encodable>(_ filename: String, _ encodable: T) throws {
   let encoder = JSONEncoder()
   let url = URL.documentsDirectory.appending(path: filename)

@@ -57,8 +57,8 @@ struct ContentView: View {
 
         Button("Save") {
           do {
-            try save("people.saved", people)
-            try save("plans.saved", plans)
+            try save(Persistence.peopleFilename, people)
+            try save(Persistence.plansFilename, plans)
           } catch {
             saveError = error
             showSaveAlert = true
@@ -89,7 +89,7 @@ struct ContentView: View {
       if !people.wasChanged { return }
       do {
         people.wasChanged = false
-        try save("people.saved", people)
+        try save(Persistence.peopleFilename, people)
       } catch {
         saveError = error
         showSaveAlert = true
@@ -99,7 +99,7 @@ struct ContentView: View {
       if !plans.wasChanged { return }
       do {
         plans.wasChanged = false
-        try save("plans.saved", plans)
+        try save(Persistence.plansFilename, plans)
       } catch {
         saveError = error
         showSaveAlert = true

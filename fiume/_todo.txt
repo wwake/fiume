@@ -1,6 +1,6 @@
-
 * Rename files to .json
-* How do we tie plans with a date spec using a person to that person? (Link to UUID of person and check when using)
+* Do we need to use CodingKeys and implement encode/decode? (to eliminate warnings & omit fields)
+* How do we tie plans with a date spec using a person to that person? (Link to UUID of person and check when using?)
 
 * Delete streams
 * Edit stream
@@ -39,7 +39,6 @@ Should we segregate streams by income/expense? (two columns)
 
 Variables?
 
-* Do we need to use CodingKeys and implement encode/decode? (to eliminate warnings & omit fields)
 
 
 FI-24-27: 2024-07-02 - Plan Persistence

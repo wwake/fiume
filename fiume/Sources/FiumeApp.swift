@@ -12,14 +12,14 @@ struct FiumeApp: App {
     print("Document path: \(URL.documentsDirectory)")
 
     do {
-      let newPeople = try open("people.saved", People.self)
+      let newPeople = try open(Persistence.peopleFilename, People.self)
       people.load(newPeople.people)
     } catch {
       // Fail => no file => first open => everything starts empty
     }
 
     do {
-      let newPlans = try open("plans.saved", Plans.self)
+      let newPlans = try open(Persistence.plansFilename, Plans.self)
       plans.load(newPlans)
     } catch {
       // Fail => no file => first open => everything starts empty
