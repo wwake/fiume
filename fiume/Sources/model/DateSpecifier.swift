@@ -16,20 +16,7 @@ enum DateSpecifier: Equatable, Codable {
   }
 }
 
-extension DateSpecifier: CustomStringConvertible {
-  var description: String {
-    switch self {
-    case .unchanged:
-      return "(unchanged)"
-
-    case .month(let monthYear):
-      return monthYear.description
-
-    case let .age(_, name, _, age):
-      return "\(name)@\(age)"
-    }
-  }
-
+extension DateSpecifier {
   func description(_ people: People) -> String {
     switch self {
     case .unchanged:

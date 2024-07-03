@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct StreamView: View {
+  @Environment(People.self)
+  var people: People
+
 	var stream: Stream
 
 	var body: some View {
@@ -14,7 +17,7 @@ struct StreamView: View {
       }
 
       Text("\(stream.name)   $\(stream.monthlyAmount)/mo" +
-           "   Months: \(stream.first)-\(stream.last)")
+           "   Months: \(stream.first.description(people))-\(stream.last.description(people))")
       Spacer()
     }
     .padding(4)
