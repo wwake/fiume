@@ -1,6 +1,7 @@
-* Rename files to .json
-* Do we need to use CodingKeys and implement encode/decode? (to eliminate warnings & omit fields)
-* How do we tie plans with a date spec using a person to that person? (Link to UUID of person and check when using?)
+* Tie plans with a date spec using a person's id
+* Change date spec to use person id
+* Handle if id not found
+* Why is Person CustomStringConvertible?
 
 * Delete streams
 * Edit stream
@@ -39,7 +40,11 @@ Should we segregate streams by income/expense? (two columns)
 
 Variables?
 
+* Do we need to use CodingKeys and implement encode/decode? (to eliminate warnings about unused ("$observationRegistrar") fields) - OK for now; if future updates change the fields, we need to accommodate that.
 
+
+FI-24-28: 2024-07-03 - File Names and Date Specs
+* Rename files to .json
 
 FI-24-27: 2024-07-02 - Plan Persistence
 * [offline] Installed Jon Reid's new test templates

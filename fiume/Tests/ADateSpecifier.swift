@@ -12,7 +12,7 @@ struct ADateSpecifier {
     #expect((DateSpecifier.unchanged) == DateSpecifier.unchanged)
     #expect((DateSpecifier.month(2025.jan)) == DateSpecifier.month(2025.jan))
     #expect(DateSpecifier.month(2025.jan) != DateSpecifier.month(2025.apr))
-    #expect(DateSpecifier.month(2025.jan) != DateSpecifier.age(person.name, person.birth, 67))
+    #expect(DateSpecifier.month(2025.jan) != DateSpecifier.age(person.id, person.name, person.birth, 67))
     #expect(DateSpecifier.month(2025.feb) != DateSpecifier.unchanged)
   }
 
@@ -52,9 +52,9 @@ struct ADateSpecifier {
   func update_age_changes() {
     let value1 = DateSpecifier.month(2024.oct)
     let person = makePerson()
-    let value2 = DateSpecifier.age(person.name, person.birth, 70)
+    let value2 = DateSpecifier.age(person.id, person.name, person.birth, 70)
     let sut = value1.update(using: value2)
-    #expect(sut == DateSpecifier.age(person.name, person.birth, 70))
+    #expect(sut == DateSpecifier.age(person.id, person.name, person.birth, 70))
   }
 
   @Test
@@ -62,6 +62,6 @@ struct ADateSpecifier {
     #expect(DateSpecifier.unchanged.description == "(unchanged)")
     #expect(DateSpecifier.month(2023.apr).description == "April, 2023")
     let person = makePerson()
-    #expect(DateSpecifier.age(person.name, person.birth, 72).description == "bub@72")
+    #expect(DateSpecifier.age(person.id, person.name, person.birth, 72).description == "bub@72")
   }
 }

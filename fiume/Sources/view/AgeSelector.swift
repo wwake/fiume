@@ -11,7 +11,7 @@ struct AgeSelector: View {
   @State var age = 60
 
   func updateValues() {
-    dateSpec = DateSpecifier.age(person.name, person.birth, age)
+    dateSpec = DateSpecifier.age(person.id, person.name, person.birth, age)
   }
 
   func personAge() -> some View {
