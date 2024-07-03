@@ -1,8 +1,12 @@
-* Remove use of name and birth year
+* Eliminate Save button
 
 * Delete streams
 * Edit stream
 * Move streams
+* Delete groups
+* Delete scenarios
+Editing
+
 
 Pools
 
@@ -41,11 +45,14 @@ Variables?
 
 
 FI-24-28: 2024-07-03 - File Names and Date Specs
+Persistence
 * Rename files to .json
 * Make date spec use person id
 * Handle when id not found
 * Remove CustomStringConvertible from Person
+* Remove use of name and birth year in DateSpecifier
 
+Editing
 
 FI-24-27: 2024-07-02 - Plan Persistence
 * [offline] Installed Jon Reid's new test templates

@@ -56,22 +56,6 @@ struct ContentView: View {
         .clipShape(Capsule())
         .padding(.leading, 20)
 
-        Button("Save") {
-          do {
-            try save(Persistence.peopleFilename, people)
-            try save(Persistence.plansFilename, plans)
-          } catch {
-            saveError = error
-            showSaveAlert = true
-          }
-        }
-        .padding(12)
-        .background(Color.red)
-        .foregroundStyle(Color.white)
-        .bold()
-        .clipShape(Capsule())
-        .padding(.leading, 20)
-
         Spacer()
       }
 
