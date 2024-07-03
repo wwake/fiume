@@ -20,7 +20,7 @@ struct AgeSelector: View {
         Picker("People", selection: $person) {
           ForEach(people.people, id: \.id) {
             Text($0.name)
-              .tag($0)
+              .tag($0.id)
           }
         }
         .halfSize(geometry.size)
