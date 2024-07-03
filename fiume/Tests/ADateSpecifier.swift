@@ -64,4 +64,14 @@ struct ADateSpecifier {
     let person = makePerson()
     #expect(DateSpecifier.age(person.id, person.name, person.birth, 72).description == "bub@72")
   }
+
+  @Test
+  func descriptionFromPeople() {
+    let people = People()
+    let person = makePerson()
+    people.add(person)
+    #expect(DateSpecifier.unchanged.description(people) == "(unchanged)")
+    #expect(DateSpecifier.month(2023.apr).description(people) == "April, 2023")
+    #expect(DateSpecifier.age(person.id, person.name, person.birth, 72).description(people) == "bub@72")
+  }
 }
