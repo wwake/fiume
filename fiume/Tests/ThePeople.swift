@@ -1,16 +1,17 @@
 @testable import fiume
+import Foundation
 import Testing
 
-struct SomePeople {
+struct ThePeople {
+  let people = People()
+
   @Test
   func startsUnchanged() {
-    let people = People()
     #expect(!people.wasChanged)
   }
 
   @Test
   func doesntChangeWhenNewPeopleLoaded() {
-    let people = People()
     people.add(Person(name: "initial", birth: 2020.mar, death: nil))
     let newPeople = [
       Person(name: "new1", birth: 2021.may, death: nil),
@@ -24,8 +25,12 @@ struct SomePeople {
 
   @Test
   func changesWhenPersonIsAdded() {
-    let people = People()
     people.add(Person(name: "Buck", birth: 2000.oct, death: nil))
     #expect(people.wasChanged)
+  }
+
+  @Test
+  func returnsNilIfPersonIdNotFound() {
+    #expect(people.findById(UUID()) == nil)
   }
 }

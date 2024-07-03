@@ -28,6 +28,10 @@ class People: Codable {
   var count: Int {
     people.count
   }
+
+  func findById(_ id: UUID) -> Person? {
+    return nil
+  }
 }
 
 extension People: Sequence {
