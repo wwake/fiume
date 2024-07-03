@@ -1,9 +1,6 @@
 
-* Do we need to use CodingKeys and implement encode/decode? (to eliminate warnings & omit fields)
-* Move to Plans with group vs [Plan] in various places
-
+* Rename files to .json
 * How do we tie plans with a date spec using a person to that person? (Link to UUID of person and check when using)
-* Make Plans iterable
 
 * Delete streams
 * Edit stream
@@ -12,6 +9,8 @@
 Pools
 
 Inflation
+
+* Move to Plans with group vs [Plan] in various places - tree view requires MutableCollection
 
 * Try List instead of OutlineGroup and see if we can avoid [Plan]? in Plan
 * Maybe Possibilities should be a struct, regenerated as needed
@@ -39,6 +38,9 @@ Add flows
 Should we segregate streams by income/expense? (two columns)
 
 Variables?
+
+* Do we need to use CodingKeys and implement encode/decode? (to eliminate warnings & omit fields)
+
 
 FI-24-27: 2024-07-02 - Plan Persistence
 * [offline] Installed Jon Reid's new test templates
