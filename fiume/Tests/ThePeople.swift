@@ -33,4 +33,12 @@ struct ThePeople {
   func returnsNilIfPersonIdNotFound() {
     #expect(people.findById(UUID()) == nil)
   }
+
+  @Test
+  func returnsPersonWhenFound() {
+    let person = Person(name: "Bob", birth: 2010.apr, death: nil)
+    people.add(person)
+
+    #expect(people.findById(person.id) == person)
+  }
 }

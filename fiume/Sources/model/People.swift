@@ -30,7 +30,7 @@ class People: Codable {
   }
 
   func findById(_ id: UUID) -> Person? {
-    return nil
+    people.first { $0.id == id }
   }
 }
 
