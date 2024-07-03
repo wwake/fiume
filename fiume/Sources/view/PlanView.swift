@@ -9,7 +9,7 @@ struct PlanView: View {
 	var body: some View {
     switch plan.type {
     case .stream:
-      PlanLeafView(stream: plan.stream!)
+      PlanLeafView(plan: $plan)
 
     case .and:
       PlanAndTreeView(plan: $plan)
@@ -21,10 +21,10 @@ struct PlanView: View {
 }
 
 struct PlanLeafView: View {
-  var stream: Stream
+  @Binding var plan: Plan
 
 	var body: some View {
-		StreamView(stream: stream)
+    StreamView(plan: $plan)
 	}
 }
 
