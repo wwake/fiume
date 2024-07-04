@@ -31,7 +31,7 @@ struct ThePlans {
     #expect(plans.wasChanged)
   }
 
-  @Test("name", .disabled())
+  @Test
   func can_remove_a_plan() {
     let plans = Plans()
     let scenario = Plan.makeOr("my scenario")
@@ -41,8 +41,9 @@ struct ThePlans {
 
     plans.remove(stream)
 
-    #expect(plans.plans.children![0].name == "my scenario")
-    #expect(plans.plans.children![0].children!.count == 0)
+    let expectedScenario = plans.plans.children![0]
+    #expect(expectedScenario.name == "my scenario")
+    #expect(expectedScenario.children!.count == 0)
     #expect(plans.wasChanged)
   }
 }
