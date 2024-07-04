@@ -38,7 +38,7 @@
 		91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D12C33277100A1EEB3 /* Persistence.swift */; };
 		91C248D42C3337E400A1EEB3 /* Plans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D32C3337E400A1EEB3 /* Plans.swift */; };
 		91C248D62C333DC200A1EEB3 /* ThePeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D52C333DC200A1EEB3 /* ThePeople.swift */; };
-		91C248D92C33456E00A1EEB3 /* SomePlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D72C33453E00A1EEB3 /* SomePlans.swift */; };
+		91C248D92C33456E00A1EEB3 /* ThePlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D72C33453E00A1EEB3 /* ThePlans.swift */; };
 		91CDFD172BFE6AE700695E65 /* Scenarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDFD162BFE6AE700695E65 /* Scenarios.swift */; };
 		91D543982C051A3800AD3592 /* DateSpecifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D543972C051A3800AD3592 /* DateSpecifierView.swift */; };
 		91D5439A2C051B5700AD3592 /* DateSpecifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D543992C051B5700AD3592 /* DateSpecifier.swift */; };
@@ -95,7 +95,7 @@
 		91C248D12C33277100A1EEB3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		91C248D32C3337E400A1EEB3 /* Plans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plans.swift; sourceTree = "<group>"; };
 		91C248D52C333DC200A1EEB3 /* ThePeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThePeople.swift; sourceTree = "<group>"; };
-		91C248D72C33453E00A1EEB3 /* SomePlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomePlans.swift; sourceTree = "<group>"; };
+		91C248D72C33453E00A1EEB3 /* ThePlans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThePlans.swift; sourceTree = "<group>"; };
 		91CDFD162BFE6AE700695E65 /* Scenarios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenarios.swift; sourceTree = "<group>"; };
 		91D543972C051A3800AD3592 /* DateSpecifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSpecifierView.swift; sourceTree = "<group>"; };
 		91D543992C051B5700AD3592 /* DateSpecifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSpecifier.swift; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 				91D543A22C06DE2A00AD3592 /* Scaffolding.swift */,
 				91C248D52C333DC200A1EEB3 /* ThePeople.swift */,
 				914FEFA82BF29399003D858E /* SomePossibilities.swift */,
-				91C248D72C33453E00A1EEB3 /* SomePlans.swift */,
+				91C248D72C33453E00A1EEB3 /* ThePlans.swift */,
 				9189070F2C3493FC0030918E /* Possibilities+add.swift */,
 			);
 			path = Tests;
@@ -419,7 +419,7 @@
 				919CED4B2BF5499F00ACCE2E /* APlan.swift in Sources */,
 				91D5439C2C0523D900AD3592 /* ADateSpecifier.swift in Sources */,
 				914B54C72BFBDF34005A9090 /* AScenario.swift in Sources */,
-				91C248D92C33456E00A1EEB3 /* SomePlans.swift in Sources */,
+				91C248D92C33456E00A1EEB3 /* ThePlans.swift in Sources */,
 				91206E2F2C09013C00D4C1CB /* AMonthYear.swift in Sources */,
 				918907102C3493FC0030918E /* Possibilities+add.swift in Sources */,
 				91C248D62C333DC200A1EEB3 /* ThePeople.swift in Sources */,

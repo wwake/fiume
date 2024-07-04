@@ -1,7 +1,7 @@
 @testable import fiume
 import Testing
 
-struct SomePlans {
+struct ThePlans {
   @Test
   func startsUnchanged() {
     let plans = Plans()
@@ -30,4 +30,18 @@ struct SomePlans {
     #expect(plans.plans[0].children![0] === stream)
     #expect(plans.wasChanged)
   }
+
+//  @Test
+//  func canRemoveAPlan() {
+//    let plans = Plans()
+//    let scenario = Plan.makeOr("my scenario")
+//    let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
+//    scenario.append(stream)
+//    plans.append(parent: plans.plans[0], child: scenario)
+//
+//    plans.remove(stream)
+//
+//    #expect(plans.plans[0].children![0].name == "my scenario")
+//    #expect(plans.plans[0].children![0].children!.count == 0)
+//  }
 }

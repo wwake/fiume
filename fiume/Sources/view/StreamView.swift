@@ -43,6 +43,8 @@ struct StreamView: View {
 }
 
 #Preview {
+  @State var people = People()
+  @State var plans = Plans()
   @State var income = Plan.makeStream(Stream("Salary", 1_000, first: .month(2020.jan), last: .month(2025.dec)))
   @State var expense = Plan.makeStream(Stream("Car", -300, first: .month(2030.mar), last: .unchanged))
   return VStack {
@@ -50,4 +52,6 @@ struct StreamView: View {
     Divider()
     StreamView(plan: $expense)
   }
+  .environment(people)
+  .environment(plans)
 }
