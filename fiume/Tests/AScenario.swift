@@ -1,5 +1,5 @@
 @testable import fiume
-import XCTest
+import Testing
 
 extension fiume.Stream: Equatable {
   public static func == (lhs: fiume.Stream, rhs: fiume.Stream) -> Bool {
@@ -7,7 +7,7 @@ extension fiume.Stream: Equatable {
   }
 }
 
-final class AScenario: XCTestCase {
+struct AScenario {
   private let people = People()
 
   private func makeStream(
@@ -36,7 +36,8 @@ final class AScenario: XCTestCase {
     return result
   }
 
-  func test_makes_independent_copies() {
+  @Test
+  func makes_independent_copies() {
     let sut = makeScenario(
       makeStream(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec)
     )
@@ -45,59 +46,64 @@ final class AScenario: XCTestCase {
     let stream2 = makeStream(name: "Income2", 2_000, first: 2024.jan, last: 2024.dec)
     result.add(stream2)
 
-    XCTAssertEqual(sut.net(at: 2024.jan), Money(1_000))
-    XCTAssertEqual(result.net(at: 2024.jan), Money(3_000))
-    XCTAssertEqual(result.name, "altered name")
+    #expect(sut.net(at: 2024.jan) == Money(1_000))
+    #expect(result.net(at: 2024.jan) == Money(3_000))
+    #expect(result.name == "altered name")
   }
 
-  func test_built_for_one_stream() {
+  @Test
+  func built_for_one_stream() {
     let sut = makeScenario(
       makeStream(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec)
     )
 
-    XCTAssertEqual(sut.net(at: 2024.dec), Money(1_000))
-    XCTAssertEqual(sut.net(at: 2025.jan), Money(0))
+    #expect(sut.net(at: 2024.dec) == Money(1_000))
+    #expect(sut.net(at: 2025.jan) == Money(0))
   }
 
-  func test_scenario_for_distinct_streams() {
+  @Test
+  func scenario_for_distinct_streams() {
     let sut = makeScenario(
       makeStream(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec),
       makeStream(name: "Income2", 500, first: DateSpecifier.month(2024.oct), last: DateSpecifier.unchanged)
     )
 
-    XCTAssertEqual(sut.net(at: 2024.jan), Money(1_000))
-    XCTAssertEqual(sut.net(at: 2024.oct), Money(1_500))
-    XCTAssertEqual(sut.net(at: 2024.dec), Money(1_500))
-    XCTAssertEqual(sut.net(at: 2025.jan), Money(500))
+    #expect(sut.net(at: 2024.jan) == Money(1_000))
+    #expect(sut.net(at: 2024.oct) == Money(1_500))
+    #expect(sut.net(at: 2024.dec) == Money(1_500))
+    #expect(sut.net(at: 2025.jan) == Money(500))
   }
 
-  func test_scenario_for_merged_streams_with_last_date_unchanged() {
+  @Test
+  func scenario_for_merged_streams_with_last_date_unchanged() {
     let sut = makeScenario(
       makeStream(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec),
       makeStream(name: "Income1", 500, first: DateSpecifier.month(2024.oct), last: DateSpecifier.unchanged)
     )
 
-    XCTAssertEqual(sut.net(at: 2024.jan), Money(0))
-    XCTAssertEqual(sut.net(at: 2024.oct), Money(500))
-    XCTAssertEqual(sut.net(at: 2024.dec), Money(500))
-    XCTAssertEqual(sut.net(at: 2025.jan), Money(0))
+    #expect(sut.net(at: 2024.jan) == Money(0))
+    #expect(sut.net(at: 2024.oct) == Money(500))
+    #expect(sut.net(at: 2024.dec) == Money(500))
+    #expect(sut.net(at: 2025.jan) == Money(0))
   }
 
-  func test_scenario_for_merged_streams_with_first_date_unchanged() {
+  @Test
+  func scenario_for_merged_streams_with_first_date_unchanged() {
     let sut = makeScenario(
       makeStream(name: "Income1", 1_000, first: 2024.feb, last: 2024.dec),
       makeStream(name: "Income1", 500, first: DateSpecifier.unchanged, last: DateSpecifier.month(2026.jan))
     )
 
-    XCTAssertEqual(sut.net(at: 2024.jan), Money(0))
-    XCTAssertEqual(sut.net(at: 2024.feb), Money(500))
-    XCTAssertEqual(sut.net(at: 2024.dec), Money(500))
-    XCTAssertEqual(sut.net(at: 2025.jan), Money(500))
-    XCTAssertEqual(sut.net(at: 2026.jan), Money(500))
-    XCTAssertEqual(sut.net(at: 2026.feb), Money(0))
+    #expect(sut.net(at: 2024.jan) == Money(0))
+    #expect(sut.net(at: 2024.feb) == Money(500))
+    #expect(sut.net(at: 2024.dec) == Money(500))
+    #expect(sut.net(at: 2025.jan) == Money(500))
+    #expect(sut.net(at: 2026.jan) == Money(500))
+    #expect(sut.net(at: 2026.feb) == Money(0))
   }
 
-  func test_salary_minus_expenses_creates_net_worth() throws {
+  @Test
+  func salary_minus_expenses_creates_net_worth() throws {
     let sut = makeScenario(
       makeStream(name: "Salary", 1_000, first: DateSpecifier.unchanged, last: DateSpecifier.unchanged),
       makeStream(name: "Expenses", -900, first: DateSpecifier.unchanged, last: DateSpecifier.unchanged)
@@ -105,7 +111,7 @@ final class AScenario: XCTestCase {
 
     let result = sut.netWorth(2024.jan...2024.dec)
 
-    XCTAssertEqual(result.name, "Scenario Name")
-    XCTAssertEqual(result.netWorthByMonth.last!.amount, Money(1_200))
+    #expect(result.name == "Scenario Name")
+    #expect(result.netWorthByMonth.last!.amount == Money(1_200))
   }
 }
