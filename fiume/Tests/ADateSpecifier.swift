@@ -8,7 +8,7 @@ struct ADateSpecifier {
   }
 
   @Test
-  func equatable() throws {
+  func is_equatable() throws {
     let person = makePerson()
     #expect((DateSpecifier.unchanged) == DateSpecifier.unchanged)
     #expect((DateSpecifier.month(2025.jan)) == DateSpecifier.month(2025.jan))
@@ -59,7 +59,7 @@ struct ADateSpecifier {
   }
 
   @Test
-  func descriptionFromFoundPerson() {
+  func description_from_foundPerson() {
     let people = People()
     let person = makePerson()
     people.add(person)
@@ -69,7 +69,7 @@ struct ADateSpecifier {
   }
 
   @Test
-  func descriptionFromPersonNotFound() {
+  func description_from_person_not_found() {
     let people = People()
     #expect(DateSpecifier.age(UUID(), 72).description(people) == "<person not found>@72")
   }

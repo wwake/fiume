@@ -1,8 +1,7 @@
 @testable import fiume
+import Testing
 
-import XCTest
-
-final class ThePossibilities: XCTestCase {
+struct ThePossibilities {
   private let people = People()
 
   private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
@@ -14,45 +13,50 @@ final class ThePossibilities: XCTestCase {
     return Possibilities(startDate: 2030.jan, plans: plans, people: people)
   }
 
-	func test_salary_builds_net_worth() throws {
+  @Test
+	func salary_builds_net_worth() throws {
 		let sut = makePossibilities()
 		sut.add(makeStream("Salary", Money(1_000)))
 
     let data = sut.netWorth(sut.range(12))
 
-    XCTAssertEqual(data[0].netWorthByMonth.last!.amount, Money(12_000))
+    #expect(data[0].netWorthByMonth.last!.amount == Money(12_000))
 	}
 
-	func test_salary_minus_expenses_creates_net_worth() throws {
+  @Test
+	func salary_minus_expenses_creates_net_worth() throws {
 		let sut = makePossibilities()
 		sut.add(makeStream("Salary", Money(1_000)))
 		sut.add(makeStream("Expenses", Money(-900)))
 
 		let data = sut.netWorth(sut.range(12))
 
-    XCTAssertEqual(data[0].netWorthByMonth.last!.amount, Money(1_200))
+    #expect(data[0].netWorthByMonth.last!.amount == Money(1_200))
 	}
 
-  func test_scenarios_start_with_empty_name() {
+  @Test
+  func scenarios_start_with_empty_name() {
     let sut = makePossibilities()
     let scenarios = sut.scenarios()
     scenarios.forEach {
-      XCTAssertEqual($0.name, "Scenario")
+      #expect($0.name == "Scenario")
     }
   }
 
-  func test_scenarios_with_only_groups() {
+  @Test
+  func scenarios_with_only_groups() {
 		let sut = makePossibilities()
 		sut.add(makeStream("Salary", Money(1_000)))
 		sut.add(makeStream("Expenses", Money(-900)))
 
     let result = Array(sut.scenarios())
 
-		XCTAssertEqual(result.count, 1)
-		XCTAssertEqual(result.first!.net(at: 2024.jan), Money(100))
+		#expect(result.count == 1)
+		#expect(result.first!.net(at: 2024.jan) == Money(100))
 	}
 
-  func test_adds_scenarios() {
+  @Test
+  func adds_scenarios() {
     let sut = makePossibilities()
 
     let orTree = Plan.makeOr("jobs")
@@ -60,10 +64,11 @@ final class ThePossibilities: XCTestCase {
     orTree.append(Plan.makeStream(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)
 
-    XCTAssertEqual(sut.scenarios().count, 2)
+    #expect(sut.scenarios().count == 2)
   }
 
-  func test_computes_net_worth_for_multiple_scenarios() {
+  @Test
+  func computes_net_worth_for_multiple_scenarios() {
     let sut = makePossibilities()
     let orTree = Plan.makeOr("jobs")
     orTree.append(Plan.makeStream(makeStream("Salary1", Money(1_000))))
@@ -75,6 +80,6 @@ final class ThePossibilities: XCTestCase {
       result[0].netWorthByMonth.last!.amount,
       result[1].netWorthByMonth.last!.amount,
     ])
-    XCTAssertEqual(resultSet, [3_000, 6_000])
+    #expect(resultSet == [3_000, 6_000])
   }
 }
