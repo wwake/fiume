@@ -4,6 +4,7 @@ struct PlanListView: View {
   @Bindable var possibilities: Possibilities
 
   var body: some View {
+
     List {
       ForEach($possibilities.plans, id: \.id) { $planTree in
         OutlineGroup(
@@ -29,4 +30,6 @@ struct PlanListView: View {
   possibilities.plans[0].append(stream)
 
   return PlanListView(possibilities: possibilities)
+    .environment(people)
+    .environment(plans)
 }
