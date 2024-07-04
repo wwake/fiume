@@ -236,13 +236,13 @@
 			isa = PBXGroup;
 			children = (
 				91D543A12C0692B500AD3592 /* Package.swift */,
+				91D543A22C06DE2A00AD3592 /* Scaffolding.swift */,
 				91D5439B2C0523D900AD3592 /* ADateSpecifier.swift */,
 				91206E2D2C09011500D4C1CB /* AMonthYear.swift */,
 				919CED4A2BF5499F00ACCE2E /* APlan.swift */,
 				914B54C62BFBDF34005A9090 /* AScenario.swift */,
 				914FEFA92BF29399003D858E /* AStream.swift */,
 				9189070F2C3493FC0030918E /* Possibilities+add.swift */,
-				91D543A22C06DE2A00AD3592 /* Scaffolding.swift */,
 				91C248D52C333DC200A1EEB3 /* ThePeople.swift */,
 				91C248D72C33453E00A1EEB3 /* ThePlans.swift */,
 				914FEFA82BF29399003D858E /* ThePossibilities.swift */,
