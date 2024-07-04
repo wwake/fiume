@@ -1,9 +1,8 @@
-* Do groups and scenarios persist?
-* Create new stream after deleting something
-* Edit stream
-* Move streams
+* Test: Create new stream after deleting something
 * Delete groups
 * Delete scenarios
+* Edit stream
+* Move streams
 Editing
 
 Pools
@@ -42,6 +41,7 @@ Persistence
 
 FI-24-29: 2024-07-04 - Delete Streams
 * Delete streams
+* Make groups and scenarios
 
 
 FI-24-28: 2024-07-03 - File Names and Date Specs

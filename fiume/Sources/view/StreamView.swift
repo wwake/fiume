@@ -35,6 +35,7 @@ struct StreamView: View {
         Image(systemName: "trash")
           .accessibilityLabel(Text("Delete"))
       }
+      .buttonStyle(.plain)
     }
     .padding(4)
     .background(stream.isNonNegative ? Color("Income") : Color("Expense"))

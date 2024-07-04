@@ -6,7 +6,7 @@ struct PlanView: View {
 
   @Binding var plan: Plan
 
-	var body: some View {
+  var body: some View {
     switch plan.type {
     case .stream:
       PlanLeafView(plan: $plan)
@@ -23,9 +23,9 @@ struct PlanView: View {
 struct PlanLeafView: View {
   @Binding var plan: Plan
 
-	var body: some View {
+  var body: some View {
     StreamView(plan: $plan)
-	}
+  }
 }
 
 struct PlanAndTreeView: View {
@@ -56,35 +56,38 @@ struct PlanCompositeView: View {
   @Environment(Plans.self)
   var plans: Plans
 
-	@Binding var plan: Plan
+  @Binding var plan: Plan
   let icon: String
   let label: String
 
-	@State private var isAddPresented = false
+  @State private var isAddPresented = false
 
-	var body: some View {
-		HStack {
+  var body: some View {
+    HStack {
       Image(systemName: icon)
         .accessibilityLabel(label)
 
-			Text(plan.name)
-			Spacer()
-      Button(
-        "",
-        systemImage: "trash"
-      ) {
+      Text(plan.name)
+      Spacer()
+      Button(action: {
         plans.remove(plan)
+      }) {
+        Image(systemName: "trash")
+          .accessibilityLabel(Text("Delete"))
       }
-			Button(
-				"",
-				systemImage: "plus"
-      ) {
-					isAddPresented = true
-			}
-		}.sheet(isPresented: $isAddPresented) {
+      .buttonStyle(.plain)
+
+      Button(action: {
+        isAddPresented = true
+      }) {
+        Image(systemName: "plus")
+          .accessibilityLabel(Text("Add"))
+      }
+      .buttonStyle(.plain)
+    }.sheet(isPresented: $isAddPresented) {
       AddPlanView(plan: $plan)
-		}
-	}
+    }
+  }
 }
 
 #Preview {
@@ -92,8 +95,8 @@ struct PlanCompositeView: View {
 
   let planStream = Plan.makeStream(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
   @State var planTree = Plan.makeAnd("an 'and' tree")
-	planTree.append(planStream)
+  planTree.append(planStream)
 
-	return PlanView(plan: $planTree)
+  return PlanView(plan: $planTree)
     .environment(plans)
 }
