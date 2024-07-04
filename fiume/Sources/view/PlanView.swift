@@ -53,6 +53,9 @@ struct PlanOrTreeView: View {
 }
 
 struct PlanCompositeView: View {
+  @Environment(Plans.self)
+  var plans: Plans
+
 	@Binding var plan: Plan
   let icon: String
   let label: String
@@ -66,8 +69,14 @@ struct PlanCompositeView: View {
 
 			Text(plan.name)
 			Spacer()
+      Button(
+        "",
+        systemImage: "trash"
+      ) {
+        plans.remove(plan)
+      }
 			Button(
-				" ",
+				"",
 				systemImage: "plus"
       ) {
 					isAddPresented = true
@@ -79,9 +88,12 @@ struct PlanCompositeView: View {
 }
 
 #Preview {
+  @State var plans = Plans()
+
   let planStream = Plan.makeStream(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
   @State var planTree = Plan.makeAnd("an 'and' tree")
 	planTree.append(planStream)
 
 	return PlanView(plan: $planTree)
+    .environment(plans)
 }

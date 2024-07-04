@@ -1,5 +1,5 @@
-
-* Delete streams
+* Do groups and scenarios persist?
+* Create new stream after deleting something
 * Edit stream
 * Move streams
 * Delete groups
@@ -41,6 +41,7 @@ Persistence
 
 
 FI-24-29: 2024-07-04 - Delete Streams
+* Delete streams
 
 
 FI-24-28: 2024-07-03 - File Names and Date Specs

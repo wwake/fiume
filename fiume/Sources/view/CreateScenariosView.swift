@@ -4,7 +4,10 @@ struct CreateScenariosView: View {
 	@Environment(\.dismiss)
 	var dismiss
 
-	@Binding var plan: Plan
+  @Environment(Plans.self)
+  var plans: Plans
+
+  @Binding var plan: Plan
 	@State private var name = ""
 
   func valid() -> Bool {
@@ -18,7 +21,8 @@ struct CreateScenariosView: View {
 			HStack {
 				Spacer()
 				Button("Create") {
-          plan.append(Plan.makeOr(name))
+          plans.append(parent: plan, child: Plan.makeOr(name))
+
 					dismiss()
 				}
         .disabled(!valid())
@@ -29,7 +33,9 @@ struct CreateScenariosView: View {
 }
 
 #Preview {
+  @State var plans = Plans()
   @State var tree = Plan.makeAnd("accounts")
   tree.append(Plan.makeStream(Stream("income", Money(100), first: .month(2020.jan), last: .unchanged)))
 	return CreateScenariosView(plan: $tree)
+    .environment(plans)
 }
