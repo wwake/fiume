@@ -1,6 +1,4 @@
-* Test: Create new stream after deleting something
-* Delete groups
-* Delete scenarios
+
 * Edit stream
 * Move streams
 Editing
@@ -42,7 +40,9 @@ Persistence
 FI-24-29: 2024-07-04 - Delete Streams
 * Delete streams
 * Make groups and scenarios
-
+* Fix problem where multiple buttons got triggered from a single click (delete and add on the group & scenario lines) - Solution add .buttonStyle(.plain)
+* Delete groups
+* Delete scenarios
 
 FI-24-28: 2024-07-03 - File Names and Date Specs
 Persistence
