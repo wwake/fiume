@@ -2,7 +2,7 @@
 
 import XCTest
 
-final class SomePossibilities: XCTestCase {
+final class ThePossibilities: XCTestCase {
   private let people = People()
 
   private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {

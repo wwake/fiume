@@ -8,7 +8,6 @@ Pools
 Inflation
 
 Design
-* Try List instead of OutlineGroup and see if we can avoid [Plan]? in Plan
 * Maybe Possibilities should be a struct, regenerated as needed
 
 People

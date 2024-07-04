@@ -4,7 +4,6 @@ struct PlanListView: View {
   @Bindable var possibilities: Possibilities
 
   var body: some View {
-
     List {
       ForEach($possibilities.plans, id: \.id) { $planTree in
         OutlineGroup(
