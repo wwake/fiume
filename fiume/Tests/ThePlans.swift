@@ -3,13 +3,13 @@ import Testing
 
 struct ThePlans {
   @Test
-  func startsUnchanged() {
+  func starts_unchanged() {
     let plans = Plans()
     #expect(!plans.wasChanged)
   }
 
   @Test
-  func doesntChangeWhenLoading() {
+  func doesnt_change_when_loading() {
     let plans = Plans()
     let newPlans = Plans()
     newPlans.plans = Plan.makeStream(Stream("A Stream", 1999, first: .unchanged, last: .unchanged))
@@ -21,7 +21,7 @@ struct ThePlans {
   }
 
   @Test
-  func changesWhenPlanIsAppended() {
+  func changes_when_plan_is_appended() {
     let plans = Plans()
 
     let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
@@ -31,17 +31,18 @@ struct ThePlans {
     #expect(plans.wasChanged)
   }
 
-//  @Test
-//  func canRemoveAPlan() {
-//    let plans = Plans()
-//    let scenario = Plan.makeOr("my scenario")
-//    let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
-//    scenario.append(stream)
-//    plans.append(parent: plans.plans[0], child: scenario)
-//
-//    plans.remove(stream)
-//
-//    #expect(plans.plans[0].children![0].name == "my scenario")
-//    #expect(plans.plans[0].children![0].children!.count == 0)
-//  }
+  @Test("name", .disabled())
+  func can_remove_a_plan() {
+    let plans = Plans()
+    let scenario = Plan.makeOr("my scenario")
+    let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
+    scenario.append(stream)
+    plans.append(parent: plans.plans, child: scenario)
+
+    plans.remove(stream)
+
+    #expect(plans.plans.children![0].name == "my scenario")
+    #expect(plans.plans.children![0].children!.count == 0)
+    #expect(plans.wasChanged)
+  }
 }

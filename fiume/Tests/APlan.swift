@@ -57,6 +57,20 @@ struct APlan {
   }
 
   @Test
+  func removes_a_descendant() {
+    let leaf1 = makeLeaf("Income1", 1)
+    let parent = makeAndTree("parent", [leaf1])
+    let sut = makeAndTree("grandparent", [parent])
+
+    sut.remove(leaf1)
+
+    #expect(sut.name == "grandparent")
+    #expect(sut.children!.count == 1)
+    #expect(sut.children![0].name == "parent")
+    #expect(sut.children![0].children!.count == 0)
+  }
+
+  @Test
   func scenarios_for_stream() {
     let sut = makeLeaf("Income1", 1_000, 2024.jan, 2024.dec)
 

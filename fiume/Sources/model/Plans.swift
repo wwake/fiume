@@ -15,8 +15,8 @@ class Plans: Codable {
     wasChanged = true
   }
 
-//  func remove(_ planToRemove: Plan) {
-//    for plan in plans {
-//    }
-//  }
+  func remove(_ planToRemove: Plan) {
+    plans.remove(planToRemove)
+    wasChanged = true
+  }
 }

@@ -50,6 +50,18 @@ class Plan: Identifiable, Codable {
     }
   }
 
+  func remove(_ descendant: Plan) {
+    if children == nil { return }
+    if let theChildren = children,
+        theChildren.contains(where: { $0.id == descendant.id }) {
+      children!.removeAll(where: { $0.id == descendant.id })
+      return
+    }
+    children!.forEach {
+      $0.remove(descendant)
+    }
+  }
+
   private func uniqueName(_ name: String, _ child: Plan, _ index: Int) -> String {
     " • \(name) (\(index + 1)) - \(child.name)"
   }
