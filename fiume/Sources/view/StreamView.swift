@@ -30,8 +30,7 @@ struct StreamView: View {
            "   Months: \(stream.first.description(people))-\(stream.last.description(people))")
       Spacer()
       Button(action: {
-       // plans.remove(plan)
-        print("delete me")
+        plans.remove(plan)
       }) {
         Image(systemName: "trash")
           .accessibilityLabel(Text("Delete"))
