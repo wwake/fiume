@@ -12,7 +12,7 @@ struct ThePlans {
   func doesntChangeWhenLoading() {
     let plans = Plans()
     let newPlans = Plans()
-    newPlans.plans = [Plan.makeStream(Stream("A Stream", 1999, first: .unchanged, last: .unchanged))]
+    newPlans.plans = Plan.makeStream(Stream("A Stream", 1999, first: .unchanged, last: .unchanged))
     plans.wasChanged = true
 
     plans.load(newPlans)
@@ -26,8 +26,8 @@ struct ThePlans {
 
     let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
 
-    plans.append(parent: plans.plans[0], child: stream)
-    #expect(plans.plans[0].children![0] === stream)
+    plans.append(parent: plans.plans, child: stream)
+    #expect(plans.plans.children![0] === stream)
     #expect(plans.wasChanged)
   }
 

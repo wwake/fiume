@@ -24,7 +24,7 @@ class Possibilities {
 
   init(startDate: MonthYear, plans: Plans, people: People) {
     self.startMonth = startDate
-    self.plans = plans.plans
+    self.plans = [plans.plans]
     self.people = people
   }
 
