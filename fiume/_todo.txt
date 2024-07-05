@@ -1,6 +1,6 @@
 
 * Edit stream
-* Move streams
+* Move streams (?)
 Editing
 
 Pools
@@ -19,14 +19,14 @@ Amount
 * Make amount an overrideable value on stream
 * SS with 1/2 of spouse etc.
 
+Streams
+* Allow dates to depend on death day
+* Validate month is valid; end-date >= start-date
+
 Sections
 * Add multiple sections
 * Move to Plans with group vs [Plan] in various places - tree view requires MutableCollection
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
-
-Streams
-* Allow dates to depend on death day
-* Validate month is valid; end-date >= start-date
 
 Calendar view (with RuleMark)
 Add assets/liabilities
