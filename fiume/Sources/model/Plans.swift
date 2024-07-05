@@ -2,6 +2,11 @@ import Foundation
 
 @Observable
 class Plans: Codable {
+  enum CodingKeys: String, CodingKey {
+    case _wasChanged = "wasChanged"
+    case _plans = "plans"
+  }
+
   var wasChanged = false
   var plans = Plan.makeAnd("My Finances")
 

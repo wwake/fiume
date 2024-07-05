@@ -5,6 +5,8 @@ Editing
 
 Pools
 
+Turn off spell-checking on name fields
+
 Inflation
 
 Design
@@ -32,16 +34,18 @@ Add flows
 
 Variables?
 
-Persistence
-* Do we need to use CodingKeys and implement encode/decode? (to eliminate warnings about unused ("$observationRegistrar") fields) - OK for now; if future updates change the fields, we need to accommodate that.
+FI-24-30: 2024-07-08 - Edit Streams
+* [offline] Adjusted codable output to remove observable info and improve names, following https://www.hackingwithswift.com/books/ios-swiftui/adding-codable-conformance-to-an-observable-class
 
 
 FI-24-29: 2024-07-04 - Delete Streams
 * Delete streams
-* Make groups and scenarios
+* Make groups and scenarios get saved and read
 * Fix problem where multiple buttons got triggered from a single click (delete and add on the group & scenario lines) - Solution add .buttonStyle(.plain)
 * Delete groups
 * Delete scenarios
+* Tried using recursive List instead of OutlineGroup; dropped since no improvement
+* Converted remaining tests to SwiftTesting; fixed non-snake-case names
 
 FI-24-28: 2024-07-03 - File Names and Date Specs
 Persistence

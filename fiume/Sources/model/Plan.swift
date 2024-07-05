@@ -6,6 +6,14 @@ enum PlanType: Codable {
 
 @Observable
 class Plan: Identifiable, Codable {
+  enum CodingKeys: String, CodingKey {
+    case _id = "id"
+    case _type = "type"
+    case _name = "name"
+    case _stream = "stream"
+    case _children = "children"
+  }
+
   var id = UUID()
 
   var type: PlanType

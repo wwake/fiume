@@ -14,9 +14,7 @@ enum DateSpecifier: Equatable, Codable {
       return using
     }
   }
-}
 
-extension DateSpecifier {
   func description(_ people: People) -> String {
     switch self {
     case .unchanged:

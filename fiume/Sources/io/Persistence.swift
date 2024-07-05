@@ -16,7 +16,6 @@ func save<T: Encodable>(_ filename: String, _ encodable: T) throws {
 func open<T: Decodable>(_ filename: String, _ type: T.Type) throws -> T {
   let url = URL.documentsDirectory.appending(path: filename)
   let data = try Data(contentsOf: url)
-
   let decoder = JSONDecoder()
   return try decoder.decode(type, from: data)
 }

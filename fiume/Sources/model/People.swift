@@ -2,6 +2,11 @@ import SwiftUI
 
 @Observable
 class People: Codable {
+  enum CodingKeys: String, CodingKey {
+    case _wasChanged = "wasChanged"
+    case _people = "people"
+  }
+
   var wasChanged: Bool
   var people: [Person]
 

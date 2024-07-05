@@ -17,6 +17,12 @@ typealias PossibilitiesNetWorth = [ScenarioNetWorth]
 
 @Observable
 class Possibilities {
+  enum CodingKeys: String, CodingKey {
+    case _startMonth = "startMonth"
+    case _plans = "plans"
+    case _people = "people"
+  }
+
   let startMonth: MonthYear
 
   var plans: [Plan]
