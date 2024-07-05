@@ -7,8 +7,8 @@ enum Persistence {
 
 func save<T: Encodable>(_ filename: String, _ encodable: T) throws {
   let encoder = JSONEncoder()
-  let url = URL.documentsDirectory.appending(path: filename)
   let jsonData = try encoder.encode(encodable)
+  let url = URL.documentsDirectory.appending(path: filename)
   let data = Data(jsonData)
   try data.write(to: url, options: [.atomic, .completeFileProtection])
 }
