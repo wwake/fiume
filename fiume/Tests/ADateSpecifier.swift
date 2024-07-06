@@ -18,7 +18,7 @@ struct ADateSpecifier {
   }
 
   @Test
-  func update_when_month_values_change() {
+  func updates_when_month_values_change() {
     let value1 = DateSpecifier.month(1999.jan)
     let value2 = DateSpecifier.month(2000.jan)
     let sut = value1.update(using: value2)
@@ -26,7 +26,7 @@ struct ADateSpecifier {
   }
 
   @Test
-  func update_retains_original_when_new_month_value_is_unchanged() {
+  func updates_retains_original_when_new_month_value_is_unchanged() {
     let value1 = DateSpecifier.month(2030.dec)
     let value2 = DateSpecifier.unchanged
     let sut = value1.update(using: value2)
@@ -34,7 +34,7 @@ struct ADateSpecifier {
   }
 
   @Test
-  func update_when_values_change() {
+  func updates_when_values_change() {
     let value1 = DateSpecifier.month(2024.oct)
     let value2 = DateSpecifier.month(2024.dec)
     let sut = value1.update(using: value2)
@@ -42,7 +42,7 @@ struct ADateSpecifier {
   }
 
   @Test
-  func update_retains_original_when_new_value_is_unchanged() {
+  func retains_original_when_new_value_is_unchanged() {
     let value1 = DateSpecifier.month(2024.oct)
     let value2 = DateSpecifier.unchanged
     let sut = value1.update(using: value2)
@@ -50,7 +50,7 @@ struct ADateSpecifier {
   }
 
   @Test
-  func update_age_changes() {
+  func updates_age_changes() {
     let value1 = DateSpecifier.month(2024.oct)
     let person = makePerson()
     let value2 = DateSpecifier.age(person.id, 70)
@@ -59,7 +59,7 @@ struct ADateSpecifier {
   }
 
   @Test
-  func description_from_foundPerson() {
+  func description_from_found_person() {
     let people = People()
     let person = makePerson()
     people.add(person)

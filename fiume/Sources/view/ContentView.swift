@@ -94,7 +94,9 @@ struct ContentView: View {
 }
 
 #Preview {
-  let people = People()
-  let plans = Plans()
+  @State var people = People()
+  @State var plans = Plans()
   return ContentView(startDate: MonthYear(date: Date()), people: people, plans: plans)
+    .environment(people)
+    .environment(plans)
 }
