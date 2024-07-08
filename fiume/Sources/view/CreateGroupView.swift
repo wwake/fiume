@@ -11,7 +11,7 @@ struct CreateGroupView: View {
   var child: Plan?
 
   var buttonName: String
-  var action: (String) -> ()
+  var action: (String) -> Void
 
 	@State private var name = ""
 
@@ -27,7 +27,7 @@ struct CreateGroupView: View {
 				Spacer()
         if child == nil {
           Button(buttonName) {
-            plans.append(parent: parent, child: Plan.makeAnd(name))
+            action(name)
             dismiss()
           }
           .disabled(!valid())

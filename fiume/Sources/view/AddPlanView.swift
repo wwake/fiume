@@ -7,6 +7,9 @@ enum AddType: String, CaseIterable, Identifiable {
 }
 
 struct AddPlanView: View {
+  @Environment(Plans.self)
+  var plans: Plans
+
   @Binding var plan: Plan
   @State private var addType = AddType.stream
 
@@ -27,7 +30,9 @@ struct AddPlanView: View {
       CreateStreamView(parent: $plan)
 
     case .group:
-      CreateGroupView(parent: $plan, child: nil, buttonName: "Create") { _ in }
+      CreateGroupView(parent: $plan, child: nil, buttonName: "Create") { name in
+        plans.append(parent: plan, child: Plan.makeAnd(name))
+      }
 
     case .scenarios:
       CreateScenariosView(plan: $plan)
