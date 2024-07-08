@@ -27,7 +27,11 @@ struct AddPlanView: View {
 
     switch addType {
     case .stream:
-      CreateStreamView(parent: $plan)
+      EditStreamView(parent: $plan, buttonName: "Create") { stream in
+        let newPlan = Plan.makeStream(stream)
+        plans.append(parent: plan, child: newPlan)
+        plans.wasChanged = true
+      }
 
     case .group:
       EditGroupView(child: nil, buttonName: "Create") { name in

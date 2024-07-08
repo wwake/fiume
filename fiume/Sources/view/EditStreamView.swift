@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CreateStreamView: View {
+struct EditStreamView: View {
   @Environment(\.dismiss)
   var dismiss
 
@@ -8,6 +8,9 @@ struct CreateStreamView: View {
   var plans: Plans
 
   @Binding var parent: Plan
+
+  var buttonName: String
+  var action: (Stream) -> Void
 
   @State private var isIncome = true
 
@@ -63,15 +66,14 @@ struct CreateStreamView: View {
 
       HStack {
         Spacer()
-        Button("Create") {
+        Button(buttonName) {
           let stream = Stream(
             name,
             Money(createdAmount()),
             first: startMonth,
             last: endMonth
           )
-          let newPlan = Plan.makeStream(stream)
-          plans.append(parent: parent, child: newPlan)
+          action(stream)
 
           dismiss()
         }
