@@ -71,6 +71,13 @@ struct APlan {
   }
 
   @Test
+  func can_be_renamed() {
+    let plan = makeAndTree("parent", [])
+    plan.rename("new name")
+    #expect(plan.name == "new name")
+  }
+
+  @Test
   func scenarios_for_stream() {
     let sut = makeLeaf("Income1", 1_000, 2024.jan, 2024.dec)
 

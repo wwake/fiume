@@ -66,6 +66,10 @@ class Plan: Identifiable, Codable {
     }
   }
 
+  func rename(_ newName: String) {
+    name = newName
+  }
+
   private func uniqueName(_ name: String, _ child: Plan, _ index: Int) -> String {
     " • \(name) (\(index + 1)) - \(child.name)"
   }

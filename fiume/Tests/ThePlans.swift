@@ -46,4 +46,16 @@ struct ThePlans {
     #expect(expectedScenario.children!.count == 0)
     #expect(plans.wasChanged)
   }
+
+  @Test
+  func are_changed_by_rename() {
+    let plan = Plan.makeAnd("original")
+    let plans = Plans()
+    plans.append(parent: plans.plans, child: plan)
+
+    plans.rename(plan, "revised")
+
+    #expect(plan.name == "revised")
+    #expect(plans.wasChanged)
+  }
 }

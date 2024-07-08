@@ -24,4 +24,9 @@ class Plans: Codable {
     plans.remove(planToRemove)
     wasChanged = true
   }
+
+  func rename(_ plan: Plan, _ newName: String) {
+    plan.rename(newName)
+    wasChanged = true
+  }
 }

@@ -4,7 +4,7 @@ struct EditGroupView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  var child: Plan?
+  var plan: Plan?
 
   var buttonName: String
   var action: (String) -> Void
@@ -12,7 +12,7 @@ struct EditGroupView: View {
   @State private var name = ""
 
   init(child: Plan?, buttonName: String, action: @escaping (String) -> Void) {
-    self.child = child
+    self.plan = child
     self.buttonName = buttonName
     self.action = action
     if child != nil {
