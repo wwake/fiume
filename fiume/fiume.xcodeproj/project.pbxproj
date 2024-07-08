@@ -32,7 +32,7 @@
 		919CED4D2BF54D8C00ACCE2E /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4C2BF54D8C00ACCE2E /* PlanView.swift */; };
 		919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4E2BF550E300ACCE2E /* PlanListView.swift */; };
 		919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED512BF699E900ACCE2E /* AddPlanView.swift */; };
-		919CED542BF69C5C00ACCE2E /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */; };
+		919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED532BF69C5C00ACCE2E /* EditGroupView.swift */; };
 		919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */; };
 		91C248CD2C24B3CE00A1EEB3 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248CC2C24B3CE00A1EEB3 /* People.swift */; };
 		91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D12C33277100A1EEB3 /* Persistence.swift */; };
@@ -87,7 +87,7 @@
 		919CED4C2BF54D8C00ACCE2E /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
 		919CED4E2BF550E300ACCE2E /* PlanListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanListView.swift; sourceTree = "<group>"; };
 		919CED512BF699E900ACCE2E /* AddPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlanView.swift; sourceTree = "<group>"; };
-		919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
+		919CED532BF69C5C00ACCE2E /* EditGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupView.swift; sourceTree = "<group>"; };
 		919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScenariosView.swift; sourceTree = "<group>"; };
 		91A8C2962BFD773100DF5AC0 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		91A8C2982BFD7C5400DF5AC0 /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 				919CED512BF699E900ACCE2E /* AddPlanView.swift */,
 				91690A7E2C12451500A6082D /* AgeSelector.swift */,
 				91DA64FE2BF291F6004ADB9B /* ContentView.swift */,
-				919CED532BF69C5C00ACCE2E /* CreateGroupView.swift */,
+				919CED532BF69C5C00ACCE2E /* EditGroupView.swift */,
 				91206E272C07BD2300D4C1CB /* CreatePersonView.swift */,
 				919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */,
 				914FEFB62BF2AD6B003D858E /* CreateStreamView.swift */,
@@ -388,7 +388,7 @@
 				91206E2B2C07C16100D4C1CB /* MonthYear.swift in Sources */,
 				914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */,
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
-				919CED542BF69C5C00ACCE2E /* CreateGroupView.swift in Sources */,
+				919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */,
 				91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */,
 				91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */,
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,

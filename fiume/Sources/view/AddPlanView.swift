@@ -30,7 +30,7 @@ struct AddPlanView: View {
       CreateStreamView(parent: $plan)
 
     case .group:
-      CreateGroupView(parent: $plan, child: nil, buttonName: "Create") { name in
+      EditGroupView(child: nil, buttonName: "Create") { name in
         plans.append(parent: plan, child: Plan.makeAnd(name))
       }
 

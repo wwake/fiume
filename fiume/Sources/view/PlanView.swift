@@ -99,7 +99,7 @@ struct PlanCompositeView: View {
       AddPlanView(plan: $plan)
     }
     .sheet(isPresented: $isEditPresented) {
-      CreateGroupView(parent: $plan, buttonName: "Edit") { _ in }
+      EditGroupView(buttonName: "Edit") { _ in }
     }
   }
 }
