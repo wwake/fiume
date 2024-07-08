@@ -11,6 +11,8 @@ struct StreamView: View {
 
   var stream: Stream
 
+  @State private var isEditPresented = false
+
   init(plan: Binding<Plan>) {
     self._plan = plan
     self.stream = plan.wrappedValue.stream!
@@ -36,9 +38,20 @@ struct StreamView: View {
           .accessibilityLabel(Text("Delete"))
       }
       .buttonStyle(.plain)
+
+      Button(action: {
+        isEditPresented = true
+      }) {
+        Image(systemName: "square.and.pencil")
+          .accessibilityLabel(Text("Edit"))
+      }
+      .buttonStyle(.plain)
     }
     .padding(4)
     .background(stream.isNonNegative ? Color("Income") : Color("Expense"))
+    .sheet(isPresented: $isEditPresented) {
+      Text("not yet")
+    }
 	}
 }
 
