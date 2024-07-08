@@ -70,6 +70,10 @@ class Plan: Identifiable, Codable {
     name = newName
   }
 
+  func replaceStream(_ newStream: Stream) {
+    self.stream = newStream
+  }
+
   private func uniqueName(_ name: String, _ child: Plan, _ index: Int) -> String {
     " • \(name) (\(index + 1)) - \(child.name)"
   }

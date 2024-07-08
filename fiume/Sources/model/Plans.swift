@@ -29,4 +29,9 @@ class Plans: Codable {
     plan.rename(newName)
     wasChanged = true
   }
+
+  func replaceStream(_ plan: Plan, _ newStream: Stream) {
+    plan.replaceStream(newStream)
+    wasChanged = true
+  }
 }

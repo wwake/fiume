@@ -58,4 +58,17 @@ struct ThePlans {
     #expect(plan.name == "revised")
     #expect(plans.wasChanged)
   }
+
+  @Test
+  func are_changed_by_replacing_stream() {
+    let plan = Plan.makeStream(Stream("test", Money(200), first: .unchanged, last: .unchanged))
+    let plans = Plans()
+    plans.append(parent: plans.plans, child: plan)
+
+    plans.replaceStream(plan, Stream("revised", Money(500), first: .unchanged, last: .unchanged))
+
+    #expect(plan.stream!.name == "revised")
+    #expect(plan.stream!.monthlyAmount == 500)
+    #expect(plans.wasChanged)
+  }
 }

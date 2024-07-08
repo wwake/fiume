@@ -78,6 +78,17 @@ struct APlan {
   }
 
   @Test
+  func can_replace_its_stream() {
+    let stream = makeStream("test", 500)
+    let plan = Plan.makeStream(makeStream("original", 20))
+
+    plan.replaceStream(stream)
+
+    #expect(plan.stream!.name == "test")
+    #expect(plan.stream!.monthlyAmount == 500)
+  }
+
+  @Test
   func scenarios_for_stream() {
     let sut = makeLeaf("Income1", 1_000, 2024.jan, 2024.dec)
 
