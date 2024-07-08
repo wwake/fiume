@@ -27,7 +27,7 @@ struct AddPlanView: View {
       CreateStreamView(parent: $plan)
 
     case .group:
-      CreateGroupView(plan: $plan)
+      CreateGroupView(plan: $plan, child: nil)
 
     case .scenarios:
       CreateScenariosView(plan: $plan)

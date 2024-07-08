@@ -1,5 +1,7 @@
-
+* Edit groups
+* Edit scenarios
 * Edit stream
+* Edit Persons
 * Move streams (?)
 Editing
 
