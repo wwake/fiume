@@ -1,6 +1,10 @@
 import Foundation
 
 struct Stream: Identifiable, Codable {
+  static var null: Stream {
+    Stream("", 0, first: .unchanged, last: .unchanged)
+  }
+
   var id = UUID()
   var name: String
   var monthlyAmount: Money

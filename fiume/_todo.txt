@@ -1,4 +1,4 @@
-* Edit stream
+* Try starting with "null value" for creating new Plan
 * Edit Persons
 * Move streams (?)
 Editing
@@ -37,6 +37,7 @@ Variables?
 FI-24-30: 2024-07-08 - Edit Streams
 * [offline] Adjusted codable output to remove observable info and improve names, following https://www.hackingwithswift.com/books/ios-swiftui/adding-codable-conformance-to-an-observable-class
 * Edit group and scenario names
+* Edit stream
 
 
 FI-24-29: 2024-07-04 - Delete Streams

@@ -27,7 +27,7 @@ struct AddPlanView: View {
 
     switch addType {
     case .stream:
-      EditStreamView(stream: nil, buttonName: "Create") { stream in
+      EditStreamView(stream: Stream.null, buttonName: "Create") { stream in
         plans.append(parent: plan, child: Plan.makeStream(stream))
       }
 
