@@ -99,7 +99,7 @@ struct PlanCompositeView: View {
     }
     .sheet(isPresented: $isEditPresented) {
       EditGroupView(child: plan, buttonName: "Update") { name in
-        print("rename \(plan.name) to \(name)")
+        plans.rename(plan, name)
       }
     }
   }
