@@ -4,13 +4,24 @@ struct EditStreamView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  @Environment(Plans.self)
-  var plans: Plans
-
-  @Binding var parent: Plan
+  var stream: Stream?
 
   var buttonName: String
   var action: (Stream) -> Void
+
+  init(stream: Stream?, buttonName: String, action: @escaping (Stream) -> Void) {
+    self.stream = stream
+    self.buttonName = buttonName
+    self.action = action
+
+    if stream != nil {
+      self._isIncome = .init(initialValue: stream!.isNonNegative)
+      self._name = .init(initialValue: stream!.name)
+      self._amount = .init(initialValue: stream!.monthlyAmount)
+      self._startMonth = .init(initialValue: stream!.first)
+      self._endMonth = .init(initialValue: stream!.last)
+    }
+  }
 
   @State private var isIncome = true
 

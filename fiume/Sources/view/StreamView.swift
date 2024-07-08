@@ -50,7 +50,10 @@ struct StreamView: View {
     .padding(4)
     .background(stream.isNonNegative ? Color("Income") : Color("Expense"))
     .sheet(isPresented: $isEditPresented) {
-      Text("not yet")
+      EditStreamView(stream: stream, buttonName: "Update") { stream in
+        plan.stream = stream
+        plans.wasChanged = true
+      }
     }
 	}
 }
