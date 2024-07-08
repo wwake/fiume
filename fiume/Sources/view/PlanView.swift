@@ -77,7 +77,6 @@ struct PlanCompositeView: View {
           .accessibilityLabel(Text("Delete"))
       }
       .buttonStyle(.plain)
-      .disabled(true)   //TBD
 
       Button(action: {
         isEditPresented = true
@@ -99,7 +98,9 @@ struct PlanCompositeView: View {
       AddPlanView(plan: $plan)
     }
     .sheet(isPresented: $isEditPresented) {
-      EditGroupView(buttonName: "Edit") { _ in }
+      EditGroupView(child: plan, buttonName: "Update") { name in
+        print("rename \(plan.name) to \(name)")
+      }
     }
   }
 }

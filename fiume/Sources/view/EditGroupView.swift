@@ -1,37 +1,44 @@
 import SwiftUI
 
 struct EditGroupView: View {
-	@Environment(\.dismiss)
-	var dismiss
+  @Environment(\.dismiss)
+  var dismiss
 
   var child: Plan?
 
   var buttonName: String
   var action: (String) -> Void
 
-	@State private var name = ""
+  @State private var name = ""
+
+  init(child: Plan?, buttonName: String, action: @escaping (String) -> Void) {
+    self.child = child
+    self.buttonName = buttonName
+    self.action = action
+    if child != nil {
+      _name = .init(initialValue: child!.name)
+    }
+  }
 
   func valid() -> Bool {
     !name.isEmpty
   }
 
-	var body: some View {
-		Form {
+  var body: some View {
+    Form {
       RequiredTextField(name: "Name", field: $name)
 
-			HStack {
-				Spacer()
-        if child == nil {
-          Button(buttonName) {
-            action(name)
-            dismiss()
-          }
-          .disabled(!valid())
+      HStack {
+        Spacer()
+        Button(buttonName) {
+          action(name)
+          dismiss()
         }
-				Spacer()
-			}
-		}
-	}
+        .disabled(!valid())
+        Spacer()
+      }
+    }
+  }
 }
 
 #Preview {
