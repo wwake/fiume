@@ -61,6 +61,7 @@ struct PlanCompositeView: View {
   let label: String
 
   @State private var isAddPresented = false
+  @State private var isEditPresented = false
 
   var body: some View {
     HStack {
@@ -76,6 +77,15 @@ struct PlanCompositeView: View {
           .accessibilityLabel(Text("Delete"))
       }
       .buttonStyle(.plain)
+      .disabled(true)   //TBD
+
+      Button(action: {
+        isEditPresented = true
+      }) {
+        Image(systemName: "square.and.pencil")
+          .accessibilityLabel(Text("Edit"))
+      }
+      .buttonStyle(.plain)
 
       Button(action: {
         isAddPresented = true
@@ -84,8 +94,12 @@ struct PlanCompositeView: View {
           .accessibilityLabel(Text("Add"))
       }
       .buttonStyle(.plain)
-    }.sheet(isPresented: $isAddPresented) {
+    }
+    .sheet(isPresented: $isAddPresented) {
       AddPlanView(plan: $plan)
+    }
+    .sheet(isPresented: $isEditPresented) {
+      CreateGroupView(parent: $plan, buttonName: "Edit") { _ in }
     }
   }
 }
