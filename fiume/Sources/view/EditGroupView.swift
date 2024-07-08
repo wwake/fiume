@@ -9,29 +9,29 @@ struct EditGroupView: View {
   var buttonName: String
   var action: (String) -> Void
 
-  @State private var name = ""
+  @State private var nameField = ""
 
   init(child: Plan?, buttonName: String, action: @escaping (String) -> Void) {
     self.plan = child
     self.buttonName = buttonName
     self.action = action
     if child != nil {
-      _name = .init(initialValue: child!.name)
+      _nameField = .init(initialValue: child!.name)
     }
   }
 
   func valid() -> Bool {
-    !name.isEmpty
+    !nameField.isEmpty
   }
 
   var body: some View {
     Form {
-      RequiredTextField(name: "Name", field: $name)
+      RequiredTextField(name: "Name", field: $nameField)
 
       HStack {
         Spacer()
         Button(buttonName) {
-          action(name)
+          action(nameField)
           dismiss()
         }
         .disabled(!valid())
