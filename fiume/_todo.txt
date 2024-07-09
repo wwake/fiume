@@ -1,8 +1,7 @@
 
-* Try starting with name value for creating new Group or Scenarios
 * Clean up ThePlans use of new Plans()
+* Try starting with name value for creating new Group or Scenarios
 * Edit Persons
-* Move streams (?)
 Editing
 
 Turn off spell-checking on name fields
@@ -36,6 +35,8 @@ Add assets/liabilities
 Add flows
 
 Variables?
+
+* Move streams (?)
 
 FI-24-30: 2024-07-08 - Edit Streams
 * [offline] Adjusted codable output to remove observable info and improve names, following https://www.hackingwithswift.com/books/ios-swiftui/adding-codable-conformance-to-an-observable-class

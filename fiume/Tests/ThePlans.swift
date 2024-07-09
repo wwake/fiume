@@ -2,15 +2,15 @@
 import Testing
 
 struct ThePlans {
+  let plans = Plans()
+
   @Test
   func starts_unchanged() {
-    let plans = Plans()
     #expect(!plans.wasChanged)
   }
 
   @Test
   func doesnt_change_when_loading() {
-    let plans = Plans()
     let newPlans = Plans()
     newPlans.plans = Plan.makeStream(Stream("A Stream", 1999, first: .unchanged, last: .unchanged))
     plans.wasChanged = true
@@ -22,8 +22,6 @@ struct ThePlans {
 
   @Test
   func changes_when_plan_is_appended() {
-    let plans = Plans()
-
     let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
 
     plans.append(parent: plans.plans, child: stream)
@@ -33,7 +31,6 @@ struct ThePlans {
 
   @Test
   func can_remove_a_plan() {
-    let plans = Plans()
     let scenario = Plan.makeOr("my scenario")
     let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
     scenario.append(stream)
@@ -50,7 +47,6 @@ struct ThePlans {
   @Test
   func are_changed_by_rename() {
     let plan = Plan.makeAnd("original")
-    let plans = Plans()
     plans.append(parent: plans.plans, child: plan)
 
     plans.rename(plan, "revised")
@@ -62,7 +58,6 @@ struct ThePlans {
   @Test
   func are_changed_by_replacing_stream() {
     let plan = Plan.makeStream(Stream("test", Money(200), first: .unchanged, last: .unchanged))
-    let plans = Plans()
     plans.append(parent: plans.plans, child: plan)
 
     plans.replaceStream(plan, Stream("revised", Money(500), first: .unchanged, last: .unchanged))
