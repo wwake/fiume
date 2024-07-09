@@ -32,7 +32,7 @@ struct AddPlanView: View {
       }
 
     case .group:
-      EditGroupView(child: nil, buttonName: "Create") { name in
+      EditGroupView(name: "", buttonName: "Create") { name in
         plans.append(parent: plan, child: Plan.makeAnd(name))
       }
 

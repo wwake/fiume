@@ -4,20 +4,15 @@ struct EditGroupView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  var plan: Plan?
-
   var buttonName: String
   var action: (String) -> Void
 
   @State private var nameField = ""
 
-  init(child: Plan?, buttonName: String, action: @escaping (String) -> Void) {
-    self.plan = child
+  init(name: String, buttonName: String, action: @escaping (String) -> Void) {
     self.buttonName = buttonName
     self.action = action
-    if child != nil {
-      _nameField = .init(initialValue: child!.name)
-    }
+    _nameField = .init(initialValue: name)
   }
 
   func valid() -> Bool {
@@ -42,7 +37,5 @@ struct EditGroupView: View {
 }
 
 #Preview {
-  @State var tree = Plan.makeAnd("accounts")
-  tree.append(Plan.makeStream(Stream("income", Money(100), first: .month(2020.jan), last: .unchanged)))
-  return EditGroupView(child: nil, buttonName: "Create") { _ in }
+  EditGroupView(name: "accounts", buttonName: "Create") { _ in }
 }

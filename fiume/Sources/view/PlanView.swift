@@ -98,7 +98,7 @@ struct PlanCompositeView: View {
       AddPlanView(plan: $plan)
     }
     .sheet(isPresented: $isEditPresented) {
-      EditGroupView(child: plan, buttonName: "Update") { name in
+      EditGroupView(name: plan.name, buttonName: "Update") { name in
         plans.rename(plan, name)
       }
     }
