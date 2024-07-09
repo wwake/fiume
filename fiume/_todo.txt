@@ -1,4 +1,3 @@
-* Try starting with name value for creating new Group or Scenarios
 * Edit Persons
 Editing
 
@@ -38,6 +37,7 @@ Variables?
 
 FI-24-31: 2024-07-09 - Edit People
 * Clean up ThePlans use of new Plans()
+* Try starting with name value for creating new Group or Scenarios
 
 
 FI-24-30: 2024-07-08 - Edit Streams

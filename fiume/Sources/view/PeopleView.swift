@@ -20,7 +20,9 @@ struct PeopleView: View {
       }
     }
     .sheet(isPresented: $isShowingCreateView) {
-      CreatePersonView()
+      EditPersonView(buttonName: "Create") { person in
+        people.add(person)
+      }
     }
   }
 

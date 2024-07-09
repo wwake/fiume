@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CreatePersonView: View {
+struct EditPersonView: View {
   @Environment(\.dismiss)
   var dismiss
 
@@ -9,6 +9,9 @@ struct CreatePersonView: View {
 
   @State private var name = ""
   @State private var born: MonthYear = 2024.jan
+
+  var buttonName: String
+  var action: (Person) -> Void
 
   func valid() -> Bool {
     !name.isEmpty
@@ -34,7 +37,7 @@ struct CreatePersonView: View {
         Spacer()
         Button("Create") {
           let person = Person(name: name, birth: born, death: nil)
-          people.add(person)
+          action(person)
           dismiss()
         }
         .disabled(!valid())
@@ -47,6 +50,6 @@ struct CreatePersonView: View {
 #Preview {
   @State var people = People()
 
-  return CreatePersonView()
+  return EditPersonView(buttonName: "Create") { _ in }
     .environment(people)
 }
