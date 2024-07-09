@@ -49,6 +49,7 @@ struct PeopleView: View {
           }
           .sheet(isPresented: $isEditPresented) {
             EditPersonView(person: person, buttonName: "Update") { person in
+              people.replace(person)
             }
           }
         }

@@ -45,7 +45,9 @@ class People: Codable {
 }
 
 extension People: Sequence {
-  func makeIterator() -> some IteratorProtocol {
-    people.makeIterator()
+  func makeIterator() -> some IteratorProtocol<Person> {
+    people
+      .sorted(by: { $0.name < $1.name })
+      .makeIterator()
   }
 }
