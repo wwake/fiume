@@ -9,6 +9,6 @@ struct PoolView: View {
 }
 
 #Preview {
-  @State var plan = Plan.makeAnd("required")
+  @State var plan = Plan.makeGroup("required")
   return PoolView(plan: $plan)
 }

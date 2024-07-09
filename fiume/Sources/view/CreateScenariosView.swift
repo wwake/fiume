@@ -21,7 +21,7 @@ struct CreateScenariosView: View {
 			HStack {
 				Spacer()
 				Button("Create") {
-          plans.append(parent: plan, child: Plan.makeOr(name))
+          plans.append(parent: plan, child: Plan.makeScenarios(name))
 
 					dismiss()
 				}
@@ -34,7 +34,7 @@ struct CreateScenariosView: View {
 
 #Preview {
   @State var plans = Plans()
-  @State var tree = Plan.makeAnd("accounts")
+  @State var tree = Plan.makeGroup("accounts")
   tree.append(Plan.makeStream(Stream("income", Money(100), first: .month(2020.jan), last: .unchanged)))
 	return CreateScenariosView(plan: $tree)
     .environment(plans)

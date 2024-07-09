@@ -30,11 +30,11 @@ class Plan: Identifiable, Codable {
     Plan(stream)
   }
 
-  static func makeAnd(_ name: String) -> Plan {
+  static func makeGroup(_ name: String) -> Plan {
     Plan(.group, name)
   }
 
-  static func makeOr(_ name: String) -> Plan {
+  static func makeScenarios(_ name: String) -> Plan {
     Plan(.scenarios, name)
   }
 

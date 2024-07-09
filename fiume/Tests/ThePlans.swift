@@ -31,7 +31,7 @@ struct ThePlans {
 
   @Test
   func can_remove_a_plan() {
-    let scenario = Plan.makeOr("my scenario")
+    let scenario = Plan.makeScenarios("my scenario")
     let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
     scenario.append(stream)
     plans.append(parent: plans.plans, child: scenario)
@@ -46,7 +46,7 @@ struct ThePlans {
 
   @Test
   func are_changed_by_rename() {
-    let plan = Plan.makeAnd("original")
+    let plan = Plan.makeGroup("original")
     plans.append(parent: plans.plans, child: plan)
 
     plans.rename(plan, "revised")

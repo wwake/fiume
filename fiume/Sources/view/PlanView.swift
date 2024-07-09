@@ -15,10 +15,10 @@ struct PlanView: View {
       PlanLeafView(plan: $plan)
 
     case .group:
-      PlanAndTreeView(plan: $plan)
+      PlanGroupView(plan: $plan)
 
     case .scenarios:
-      PlanOrTreeView(plan: $plan)
+      PlanScenariosView(plan: $plan)
     }
   }
 }
@@ -31,7 +31,7 @@ struct PlanLeafView: View {
   }
 }
 
-struct PlanAndTreeView: View {
+struct PlanGroupView: View {
   @Binding var plan: Plan
 
   var body: some View {
@@ -43,7 +43,7 @@ struct PlanAndTreeView: View {
   }
 }
 
-struct PlanOrTreeView: View {
+struct PlanScenariosView: View {
   @Binding var plan: Plan
 
   var body: some View {
@@ -112,7 +112,7 @@ struct PlanCompositeView: View {
   @State var plans = Plans()
 
   let planStream = Plan.makeStream(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
-  @State var planTree = Plan.makeAnd("an 'and' tree")
+  @State var planTree = Plan.makeGroup("an 'and' tree")
   planTree.append(planStream)
 
   return PlanView(plan: $planTree)

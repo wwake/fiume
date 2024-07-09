@@ -59,7 +59,7 @@ struct ThePossibilities {
   func adds_scenarios() {
     let sut = makePossibilities()
 
-    let orTree = Plan.makeOr("jobs")
+    let orTree = Plan.makeScenarios("jobs")
     orTree.append(Plan.makeStream(makeStream("Salary1", Money(1_000))))
     orTree.append(Plan.makeStream(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)
@@ -70,7 +70,7 @@ struct ThePossibilities {
   @Test
   func computes_net_worth_for_multiple_scenarios() {
     let sut = makePossibilities()
-    let orTree = Plan.makeOr("jobs")
+    let orTree = Plan.makeScenarios("jobs")
     orTree.append(Plan.makeStream(makeStream("Salary1", Money(1_000))))
     orTree.append(Plan.makeStream(makeStream("Salary2", Money(2_000))))
     sut.add(orTree)

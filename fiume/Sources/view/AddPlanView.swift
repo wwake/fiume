@@ -30,7 +30,7 @@ struct AddPlanView: View {
 
     case .group:
       EditGroupView(name: "", buttonName: "Create") { name in
-        plans.append(parent: plan, child: Plan.makeAnd(name))
+        plans.append(parent: plan, child: Plan.makeGroup(name))
       }
 
     case .scenarios:
@@ -42,7 +42,7 @@ struct AddPlanView: View {
 }
 
 #Preview {
-  @State var tree = Plan.makeAnd("accounts")
+  @State var tree = Plan.makeGroup("accounts")
   tree.append(Plan.makeStream(Stream("income", Money(100), first: .month(2024.jan), last: .unchanged)))
   return AddPlanView(plan: $tree)
 }

@@ -8,7 +8,7 @@ class Plans: Codable {
   }
 
   var wasChanged = false
-  var plans = Plan.makeAnd("My Finances")
+  var plans = Plan.makeGroup("My Finances")
 
   func load(_ newPlans: Plans) {
     plans = newPlans.plans

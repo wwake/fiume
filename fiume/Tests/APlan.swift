@@ -18,16 +18,16 @@ struct APlan {
     return Plan.makeStream(stream)
   }
 
-  private func makeAndTree(_ name: String, _ children: [Plan]) -> Plan {
-    let result = Plan.makeAnd(name)
+  private func makeGroup(_ name: String, _ children: [Plan]) -> Plan {
+    let result = Plan.makeGroup(name)
     children.forEach {
       result.append($0)
     }
     return result
   }
 
-  private func makeOrTree(_ name: String, _ children: [Plan]) -> Plan {
-    let result = Plan.makeOr(name)
+  private func makeScenarios(_ name: String, _ children: [Plan]) -> Plan {
+    let result = Plan.makeScenarios(name)
     children.forEach {
       result.append($0)
     }
@@ -48,8 +48,8 @@ struct APlan {
     let leaf2 = makeLeaf("Income2", 2)
     let leaf3 = makeLeaf("Income3", 3)
 
-    let parent = makeAndTree("parent", [leaf1, leaf2])
-    let sut = makeAndTree("grandparent", [parent, leaf3])
+    let parent = makeGroup("parent", [leaf1, leaf2])
+    let sut = makeGroup("grandparent", [parent, leaf3])
 
     #expect(sut.name == "grandparent")
     #expect(sut.children?.count == 2)
@@ -59,8 +59,8 @@ struct APlan {
   @Test
   func removes_a_descendant() {
     let leaf1 = makeLeaf("Income1", 1)
-    let parent = makeAndTree("parent", [leaf1])
-    let sut = makeAndTree("grandparent", [parent])
+    let parent = makeGroup("parent", [leaf1])
+    let sut = makeGroup("grandparent", [parent])
 
     sut.remove(leaf1)
 
@@ -72,7 +72,7 @@ struct APlan {
 
   @Test
   func can_be_renamed() {
-    let plan = makeAndTree("parent", [])
+    let plan = makeGroup("parent", [])
     plan.rename("new name")
     #expect(plan.name == "new name")
   }
@@ -107,7 +107,7 @@ struct APlan {
     let leaf1 = makeLeaf("Income1", 1_000, 2024.jan, 2024.dec)
     let leaf2 = makeLeaf("Income2", 2_000, 2024.jun, 2025.jun)
 
-    let sut = makeAndTree("parent", [leaf1, leaf2])
+    let sut = makeGroup("parent", [leaf1, leaf2])
 
     let result = sut.scenarios(Scenarios([Scenario("", people: people), Scenario("", people: people)]))
     let array = Array(result)
@@ -126,8 +126,8 @@ struct APlan {
     let leaf1a = makeLeaf("Income1a", 1_000)
     let leaf1b = makeLeaf("Income1b", 1_500)
     let leaf2 = makeLeaf("Income2", 2_000)
-    let orTree = makeOrTree( "scenarios", [leaf1a, leaf1b])
-    let sut = makeAndTree("parent", [orTree, leaf2])
+    let orTree = makeScenarios( "scenarios", [leaf1a, leaf1b])
+    let sut = makeGroup("parent", [orTree, leaf2])
 
     let result = sut.scenarios(Scenarios([Scenario("", people: people)]))
     let resultSet = Set(result.map { $0.net(at: 2024.jan) })
@@ -141,7 +141,7 @@ struct APlan {
     let leaf1 = makeLeaf("Income1", 1_000, 2024.jan, 2024.dec)
     let leaf2 = makeLeaf("Income2", 2_000, 2024.jun, 2025.jun)
 
-    let sut = makeOrTree("parent", [leaf1, leaf2])
+    let sut = makeScenarios("parent", [leaf1, leaf2])
 
     let result = sut.scenarios(Scenarios([Scenario("", people: people)]))
     let array = Array(result)
@@ -164,7 +164,7 @@ struct APlan {
     let leaf1 = makeLeaf("Income1", 1_000)
     let leaf2 = makeLeaf("Income2", 2_000)
 
-    let sut = makeOrTree("parent", [leaf1, leaf2])
+    let sut = makeScenarios("parent", [leaf1, leaf2])
 
     let scenarios = sut.scenarios(Scenarios([scenario1, scenario2]))
     let result = Array(scenarios)
@@ -182,7 +182,7 @@ struct APlan {
     let leaf1 = makeLeaf("Income1", 1_000)
     let leaf2 = makeLeaf("Income2", 2_000)
 
-    let sut = makeOrTree("Job", [leaf1, leaf2])
+    let sut = makeScenarios("Job", [leaf1, leaf2])
 
     let result = sut.scenarios(Scenarios([Scenario("", people: people)]))
     let array = Array(result)
@@ -197,9 +197,9 @@ struct APlan {
     let leaf1 = makeLeaf("Income1", 1_000)
     let leaf2 = makeLeaf("Income2", 2_000)
 
-    let or1 = makeOrTree("Job", [leaf1])
-    let or2 = makeOrTree("Salary", [leaf2])
-    let sut = makeAndTree("And", [or1, or2])
+    let or1 = makeScenarios("Job", [leaf1])
+    let or2 = makeScenarios("Salary", [leaf2])
+    let sut = makeGroup("And", [or1, or2])
 
     let result = sut.scenarios(Scenarios([Scenario("Start", people: people)]))
     let array = Array(result)
