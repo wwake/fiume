@@ -21,7 +21,8 @@ struct AddPlanView: View {
 
     switch planType {
     case .pool:
-      Text("TBD")
+      EditPoolView(pool: Pool.null, buttonName: "Create") { _ in
+      }
 
     case .stream:
       EditStreamView(stream: Stream.null, buttonName: "Create") { stream in

@@ -12,7 +12,7 @@ struct PlanView: View {
       PoolView(plan: $plan)
 
     case .stream:
-      PlanLeafView(plan: $plan)
+      StreamView(plan: $plan)
 
     case .group:
       PlanGroupView(plan: $plan)
@@ -20,14 +20,6 @@ struct PlanView: View {
     case .scenarios:
       PlanScenariosView(plan: $plan)
     }
-  }
-}
-
-struct PlanLeafView: View {
-  @Binding var plan: Plan
-
-  var body: some View {
-    StreamView(plan: $plan)
   }
 }
 

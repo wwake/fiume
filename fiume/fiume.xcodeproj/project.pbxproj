@@ -52,6 +52,7 @@
 		91DA65042BF291F7004ADB9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */; };
 		91EA30B32C3DCC2000FA1177 /* PoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA30B22C3DCC2000FA1177 /* PoolView.swift */; };
 		91EA30B52C3DCD9500FA1177 /* Pool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA30B42C3DCD9500FA1177 /* Pool.swift */; };
+		91F56D982C3DD266005A7E6E /* EditPoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F56D972C3DD266005A7E6E /* EditPoolView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		91DA65092BF291F8004ADB9B /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EA30B22C3DCC2000FA1177 /* PoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolView.swift; sourceTree = "<group>"; };
 		91EA30B42C3DCD9500FA1177 /* Pool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pool.swift; sourceTree = "<group>"; };
+		91F56D972C3DD266005A7E6E /* EditPoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPoolView.swift; sourceTree = "<group>"; };
 		91F950822C07B860006822AF /* MonthYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYear.swift; sourceTree = "<group>"; };
 		91F950842C07B8AB006822AF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
 				91EA30B22C3DCC2000FA1177 /* PoolView.swift */,
+				91F56D972C3DD266005A7E6E /* EditPoolView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				914FEFA72BF29317003D858E /* Stream.swift in Sources */,
 				914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */,
 				91206E2A2C07BE6B00D4C1CB /* MonthYearView.swift in Sources */,
+				91F56D982C3DD266005A7E6E /* EditPoolView.swift in Sources */,
 				919CED4D2BF54D8C00ACCE2E /* PlanView.swift in Sources */,
 				919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */,
 			);
