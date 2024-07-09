@@ -56,12 +56,12 @@ struct ThePeople {
   }
 
   @Test
-  func returns_persons_in_alphabetical_order() {
+  func sorts_in_alphabetical_order() {
     let bob = Person(name: "Bob", birth: 2000.feb, death: nil)
     people.add(bob)
     let art = Person(name: "Art", birth: 1990.feb, death: nil)
     people.add(art)
 
-    #expect(Array(people).map { $0.name } == ["Art", "Bob"])
+    #expect(people.sorted().map { $0.name } == ["Art", "Bob"])
   }
 }

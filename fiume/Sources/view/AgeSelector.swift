@@ -18,7 +18,7 @@ struct AgeSelector: View {
     GeometryReader { geometry in
       HStack {
         Picker("People", selection: $person) {
-          ForEach(people.people, id: \.id) {
+          ForEach(people.sorted()) {
             Text($0.name)
               .tag($0.id)
           }
