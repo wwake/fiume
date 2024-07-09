@@ -2,6 +2,10 @@ import Foundation
 import SwiftUI
 
 struct Person: Identifiable, Equatable, Codable {
+  static var null: Person {
+    Person(name: "", birth: 2000.jun, death: nil)
+  }
+
   var id: UUID
   let name: String
   let birth: MonthYear

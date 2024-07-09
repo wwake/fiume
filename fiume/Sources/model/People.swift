@@ -30,6 +30,11 @@ class People: Codable {
     wasChanged = true
   }
 
+  func replace(_ person: Person) {
+    people.removeAll { $0.id == person.id }
+    add(person)
+  }
+
   var count: Int {
     people.count
   }

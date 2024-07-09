@@ -5,6 +5,7 @@ struct PeopleView: View {
   var people: People
 
   @State var isShowingCreateView = false
+  @State var isEditPresented = false
 
   var header: some View {
     HStack {
@@ -20,7 +21,7 @@ struct PeopleView: View {
       }
     }
     .sheet(isPresented: $isShowingCreateView) {
-      EditPersonView(buttonName: "Create") { person in
+      EditPersonView(person: Person.null, buttonName: "Create") { person in
         people.add(person)
       }
     }
@@ -35,6 +36,20 @@ struct PeopleView: View {
             Text("  b. \(person.birth)")
 
             Text("  d. \(person.death == nil ? "?" : "\(person.death!)")")
+
+            Spacer()
+
+            Button(action: {
+              isEditPresented = true
+            }) {
+              Image(systemName: "square.and.pencil")
+                .accessibilityLabel(Text("Edit"))
+            }
+            .buttonStyle(.plain)
+          }
+          .sheet(isPresented: $isEditPresented) {
+            EditPersonView(person: person, buttonName: "Update") { person in
+            }
           }
         }
       }

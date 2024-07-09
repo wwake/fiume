@@ -41,4 +41,17 @@ struct ThePeople {
 
     #expect(people.findById(person.id) == person)
   }
+
+  @Test
+  func replaces_person() {
+    let bob = Person(name: "Bob", birth: 2000.feb, death: nil)
+    people.add(bob)
+    let robert = Person(bob.id, name: "Robert", birth: 2000.feb, death: nil)
+    people.wasChanged = false
+
+    people.replace(robert)
+
+    #expect(people.findById(bob.id)!.name == "Robert")
+    #expect(people.wasChanged)
+  }
 }

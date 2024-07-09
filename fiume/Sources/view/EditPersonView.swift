@@ -4,14 +4,22 @@ struct EditPersonView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  @Environment(People.self)
-  var people: People
-
   @State private var name = ""
   @State private var born: MonthYear = 2024.jan
 
+  var person: Person
+
   var buttonName: String
   var action: (Person) -> Void
+
+  init(person: Person, buttonName: String, action: @escaping (Person) -> Void) {
+    self.person = person
+    self.buttonName = buttonName
+    self.action = action
+
+    _name = .init(wrappedValue: person.name)
+    _born = .init(wrappedValue: person.birth)
+  }
 
   func valid() -> Bool {
     !name.isEmpty
@@ -19,7 +27,7 @@ struct EditPersonView: View {
 
   var body: some View {
     Form {
-      Text("Add Person")
+      Text("\(buttonName) Person")
         .font(.title)
         .padding([.bottom], 4)
 
@@ -35,8 +43,8 @@ struct EditPersonView: View {
 
       HStack {
         Spacer()
-        Button("Create") {
-          let person = Person(name: name, birth: born, death: nil)
+        Button(buttonName) {
+          let person = Person(person.id, name: name, birth: born, death: person.death)
           action(person)
           dismiss()
         }
@@ -48,8 +56,5 @@ struct EditPersonView: View {
 }
 
 #Preview {
-  @State var people = People()
-
-  return EditPersonView(buttonName: "Create") { _ in }
-    .environment(people)
+  EditPersonView(person: Person.null, buttonName: "Create") { _ in }
 }
