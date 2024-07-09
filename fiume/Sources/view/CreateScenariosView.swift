@@ -17,7 +17,8 @@ struct CreateScenariosView: View {
 	var body: some View {
 		Form {
       RequiredTextField(name: "Name", field: $name)
-
+        .disableAutocorrection(true)
+      
 			HStack {
 				Spacer()
 				Button("Create") {

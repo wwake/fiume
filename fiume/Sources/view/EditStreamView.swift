@@ -53,6 +53,7 @@ struct EditStreamView: View {
   var body: some View {
     Form {
       RequiredTextField(name: "Name", field: $name)
+        .disableAutocorrection(true)
 
       Picker(selection: $isIncome, label: Text("Type:")) {
         Text("Income").tag(true)

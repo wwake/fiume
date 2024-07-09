@@ -32,6 +32,7 @@ struct EditPersonView: View {
         .padding([.bottom], 4)
 
       RequiredTextField(name: "Name", field: $name)
+        .disableAutocorrection(true)
 
       LabeledContent {
         MonthYearView(monthYear: $born)
