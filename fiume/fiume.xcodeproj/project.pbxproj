@@ -50,6 +50,8 @@
 		91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA64FE2BF291F6004ADB9B /* ContentView.swift */; };
 		91DA65012BF291F7004ADB9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65002BF291F7004ADB9B /* Assets.xcassets */; };
 		91DA65042BF291F7004ADB9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */; };
+		91EA30B32C3DCC2000FA1177 /* PoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA30B22C3DCC2000FA1177 /* PoolView.swift */; };
+		91EA30B52C3DCD9500FA1177 /* Pool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA30B42C3DCD9500FA1177 /* Pool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		91DA65002BF291F7004ADB9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		91DA65092BF291F8004ADB9B /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91EA30B22C3DCC2000FA1177 /* PoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolView.swift; sourceTree = "<group>"; };
+		91EA30B42C3DCD9500FA1177 /* Pool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pool.swift; sourceTree = "<group>"; };
 		91F950822C07B860006822AF /* MonthYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYear.swift; sourceTree = "<group>"; };
 		91F950842C07B8AB006822AF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +153,7 @@
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
+				91EA30B22C3DCC2000FA1177 /* PoolView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				914FEFA62BF29317003D858E /* Stream.swift */,
 				91C248CC2C24B3CE00A1EEB3 /* People.swift */,
 				91C248D32C3337E400A1EEB3 /* Plans.swift */,
+				91EA30B42C3DCD9500FA1177 /* Pool.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -390,6 +396,8 @@
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
 				919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */,
 				91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */,
+				91EA30B52C3DCD9500FA1177 /* Pool.swift in Sources */,
+				91EA30B32C3DCC2000FA1177 /* PoolView.swift in Sources */,
 				91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */,
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
 				91206E2C2C07C21300D4C1CB /* Person.swift in Sources */,

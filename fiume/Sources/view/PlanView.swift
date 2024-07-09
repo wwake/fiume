@@ -8,13 +8,16 @@ struct PlanView: View {
 
   var body: some View {
     switch plan.type {
+    case .pool:
+      PoolView(plan: $plan)
+
     case .stream:
       PlanLeafView(plan: $plan)
 
-    case .and:
+    case .group:
       PlanAndTreeView(plan: $plan)
 
-    case .or:
+    case .scenarios:
       PlanOrTreeView(plan: $plan)
     }
   }

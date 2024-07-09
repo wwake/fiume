@@ -1,31 +1,28 @@
 import SwiftUI
 
-enum AddType: String, CaseIterable, Identifiable {
-  var id: Self { self }
-
-  case stream, group, scenarios
-}
-
 struct AddPlanView: View {
   @Environment(Plans.self)
   var plans: Plans
 
   @Binding var plan: Plan
-  @State private var addType = AddType.stream
+  @State private var planType = PlanType.pool
 
   var body: some View {
     Text("Add to Plan")
       .font(.title)
       .padding(8)
 
-    Picker("Add New", selection: $addType) {
-      ForEach(AddType.allCases) { addType in
+    Picker("Add New", selection: $planType) {
+      ForEach(PlanType.allCases) { addType in
         Text(addType.rawValue.capitalized)
       }
     }
     .pickerStyle(.segmented)
 
-    switch addType {
+    switch planType {
+    case .pool:
+      Text("TBD")
+
     case .stream:
       EditStreamView(stream: Stream.null, buttonName: "Create") { stream in
         plans.append(parent: plan, child: Plan.makeStream(stream))

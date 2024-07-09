@@ -1,5 +1,6 @@
 Pools
 * Name, amount, start/end date
+* Asset/liability
 
 Amount
 * Make amount an overrideable value on stream
@@ -11,6 +12,7 @@ Streams
 
 Growth
 Inflation
+Add flows (in/out)
 
 Design
 * Maybe Possibilities should be a struct, regenerated as needed
@@ -25,8 +27,6 @@ Sections
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
 Calendar view (with RuleMark)
-Add assets/liabilities
-Add flows
 
 Variables?
 

@@ -1,7 +1,9 @@
 import Foundation
 
-enum PlanType: Codable {
-  case stream, and, or
+enum PlanType: String, CaseIterable, Identifiable, Codable {
+  var id: Self { self }
+
+  case pool, stream, group, scenarios
 }
 
 @Observable
@@ -29,11 +31,11 @@ class Plan: Identifiable, Codable {
   }
 
   static func makeAnd(_ name: String) -> Plan {
-    Plan(.and, name)
+    Plan(.group, name)
   }
 
   static func makeOr(_ name: String) -> Plan {
-    Plan(.or, name)
+    Plan(.scenarios, name)
   }
 
   init(_ stream: Stream) {
@@ -80,10 +82,13 @@ class Plan: Identifiable, Codable {
 
   func scenarios(_ scenarios: Scenarios) -> Scenarios {
     switch type {
+    case .pool:
+      return scenarios // TBD
+
     case .stream:
       return scenarios.add(stream!)
 
-    case .and:
+    case .group:
       guard let children else {
         return scenarios
       }
@@ -93,7 +98,7 @@ class Plan: Identifiable, Codable {
       }
       return result
 
-    case .or:
+    case .scenarios:
       guard let children else {
         return scenarios
       }
