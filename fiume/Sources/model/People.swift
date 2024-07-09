@@ -51,3 +51,9 @@ extension People: Sequence {
       .makeIterator()
   }
 }
+
+extension People {
+  func sorted() -> [Person] {
+    Array(self).sorted(by: { $0.name < $1.name })
+  }
+}

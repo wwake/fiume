@@ -30,7 +30,7 @@ struct PeopleView: View {
   var body: some View {
     List {
       Section(header: header) {
-        ForEach(people.people) { person in
+        ForEach(people.sorted()) { person in
           HStack {
             Text(person.name)
             Text("  b. \(person.birth)")
