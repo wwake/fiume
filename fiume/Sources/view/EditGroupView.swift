@@ -22,7 +22,6 @@ struct EditGroupView: View {
   var body: some View {
     Form {
       RequiredTextField(name: "Name", field: $nameField)
-        .disableAutocorrection(true)
 
       HStack {
         Spacer()

@@ -1,7 +1,5 @@
-
-Turn off spell-checking on name fields
-
 Pools
+* Name, amount, start/end date
 
 Amount
 * Make amount an overrideable value on stream
@@ -39,6 +37,7 @@ Editing
 * Clean up ThePlans use of new Plans()
 * Try starting with name value for creating new Group or Scenarios
 * Edit Persons
+* Tried to turn off spell-checking on name fields - but runtime is ignoring our request
 
 
 FI-24-30: 2024-07-08 - Edit Streams

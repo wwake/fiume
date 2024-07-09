@@ -22,7 +22,6 @@ struct RequiredTextField: View {
     VStack {
       LabeledContent {
         TextField(name, text: $field)
-          .disableAutocorrection(true)
       } label: {
         Text(name)
       }

@@ -29,6 +29,8 @@ struct FiumeApp: App {
 	var body: some Scene {
     WindowGroup {
       ContentView(startDate: startDate, people: people, plans: plans)
+        .keyboardType(.alphabet)
+        .autocorrectionDisabled(true)
     }
     .environment(people)
     .environment(plans)
