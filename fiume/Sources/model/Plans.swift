@@ -30,8 +30,13 @@ class Plans: Codable {
     wasChanged = true
   }
 
-  func replaceStream(_ plan: Plan, _ newStream: Stream) {
-    plan.replaceStream(newStream)
+  func replace(_ plan: Plan, pool newPool: Pool) {
+    plan.replace(pool: newPool)
+    wasChanged = true
+  }
+
+  func replace(_ plan: Plan, stream newStream: Stream) {
+    plan.replace(stream: newStream)
     wasChanged = true
   }
 }

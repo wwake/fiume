@@ -71,7 +71,7 @@ struct ThePlans {
     let plan = Plan.makeStream(Stream("test", Money(200), first: .unchanged, last: .unchanged))
     plans.append(parent: plans.plans, child: plan)
 
-    plans.replaceStream(plan, Stream("revised", Money(500), first: .unchanged, last: .unchanged))
+    plans.replace(plan, stream: Stream("revised", Money(500), first: .unchanged, last: .unchanged))
 
     #expect(plan.stream!.name == "revised")
     #expect(plan.stream!.monthlyAmount == 500)

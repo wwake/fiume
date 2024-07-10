@@ -8,4 +8,8 @@ struct Pool: Identifiable, Codable {
   var amount: Money
   var first: DateSpecifier
   var last: DateSpecifier
+
+  var isNonNegative: Bool {
+    amount >= 0
+  }
 }

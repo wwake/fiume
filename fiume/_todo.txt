@@ -1,6 +1,5 @@
-Pools
-* Name, amount, start/end date
-* Asset/liability
+
+* Should we show "unchanged" or just skip the dates
 
 Amount
 * Make amount an overrideable value on stream
@@ -31,6 +30,12 @@ Calendar view (with RuleMark)
 Variables?
 
 * Move streams (?)
+
+FI-24-32: 2024-07-10 - Pools
+Pools
+* Create/Edit pool (Asset/liability)
+* Display pool
+
 
 FI-24-31: 2024-07-09 - Edit People
 Editing

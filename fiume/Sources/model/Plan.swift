@@ -84,8 +84,12 @@ class Plan: Identifiable, Codable {
     name = newName
   }
 
-  func replaceStream(_ newStream: Stream) {
+  func replace(stream newStream: Stream) {
     self.stream = newStream
+  }
+
+  func replace(pool newPool: Pool) {
+    self.pool = newPool
   }
 
   private func uniqueName(_ name: String, _ child: Plan, _ index: Int) -> String {
