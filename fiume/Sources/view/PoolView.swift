@@ -50,7 +50,7 @@ struct PoolView: View {
     .padding(4)
     .background(pool.isNonNegative ? Color("Asset") : Color("Liability"))
     .sheet(isPresented: $isEditPresented) {
-      EditPoolView(pool: pool, buttonName: "Update") { stream in
+      EditPoolView(pool: pool, buttonName: "Update") { pool in
         plans.replace(plan, pool: pool)
       }
     }
@@ -60,12 +60,14 @@ struct PoolView: View {
 #Preview {
   @State var people = People()
   @State var plans = Plans()
-  @State var income = Plan.makeStream(Stream("Salary", 1_000, first: .month(2020.jan), last: .month(2025.dec)))
-  @State var expense = Plan.makeStream(Stream("Car", -300, first: .month(2030.mar), last: .unchanged))
+  @State var asset = Plan.makePool(
+    Pool(name: "Savings", amount: 1_000, first: .month(2020.jan), last: .month(2025.dec))
+  )
+  @State var liability = Plan.makePool(Pool(name: "Car", amount: -300, first: .month(2030.mar), last: .unchanged))
   return VStack {
-    StreamView(plan: $income)
+    PoolView(plan: $asset)
     Divider()
-    StreamView(plan: $expense)
+    PoolView(plan: $liability)
   }
   .environment(people)
   .environment(plans)

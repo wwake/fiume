@@ -17,6 +17,18 @@ struct EditPoolView: View {
   @State private var startMonth = DateSpecifier.unchanged
   @State private var endMonth = DateSpecifier.unchanged
 
+  init(pool: Pool, buttonName: String, action: @escaping (Pool) -> Void) {
+    self.pool = pool
+    self.buttonName = buttonName
+    self.action = action
+
+    self._isIncome = .init(initialValue: pool.isNonNegative)
+    self._name = .init(initialValue: pool.name)
+    self._amount = .init(initialValue: pool.amount)
+    self._startMonth = .init(initialValue: pool.first)
+    self._endMonth = .init(initialValue: pool.last)
+  }
+
   fileprivate func createdAmount() -> Int {
     guard let amount else { return 0 }
     let sign = isIncome ? 1 : -1
