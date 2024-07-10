@@ -12,6 +12,7 @@ class Plan: Identifiable, Codable {
     case _id = "id"
     case _type = "type"
     case _name = "name"
+    case _pool = "pool"
     case _stream = "stream"
     case _children = "children"
   }
@@ -22,9 +23,14 @@ class Plan: Identifiable, Codable {
 
   private(set) var name: String
 
+  var pool: Pool?
   var stream: Stream?
 
   var children: [Plan]?
+
+  static func makePool(_ pool: Pool) -> Plan {
+    Plan(pool)
+  }
 
   static func makeStream(_ stream: Stream) -> Plan {
     Plan(stream)
@@ -36,6 +42,12 @@ class Plan: Identifiable, Codable {
 
   static func makeScenarios(_ name: String) -> Plan {
     Plan(.scenarios, name)
+  }
+
+  init(_ pool: Pool) {
+    self.type = .pool
+    self.name = pool.name
+    self.pool = pool
   }
 
   init(_ stream: Stream) {

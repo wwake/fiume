@@ -21,11 +21,22 @@ struct ThePlans {
   }
 
   @Test
-  func changes_when_plan_is_appended() {
+  func changes_when_stream_is_appended() {
     let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
 
     plans.append(parent: plans.plans, child: stream)
     #expect(plans.plans.children![0] === stream)
+    #expect(plans.wasChanged)
+  }
+
+  @Test
+  func changes_when_pool_is_appended() {
+    let pool = Plan.makePool(Pool(name: "Savings", amount: Money(20000), first: .unchanged, last: .unchanged))
+
+    plans.append(parent: plans.plans, child: pool)
+
+    #expect(plans.plans.children![0] === pool)
+    #expect(plans.plans.children![0].pool != nil)
     #expect(plans.wasChanged)
   }
 
