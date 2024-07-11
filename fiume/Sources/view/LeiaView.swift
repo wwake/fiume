@@ -15,7 +15,7 @@ struct LeiaView: View {
 
   init(plan: Binding<Plan>) {
     self._plan = plan
-    self.stream = plan.wrappedValue.stream!
+    self.stream = plan.wrappedValue.leia!
   }
 
 	var body: some View {

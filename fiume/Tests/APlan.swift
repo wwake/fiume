@@ -98,11 +98,11 @@ struct APlan {
   @Test
   func replaces_a_pool() {
     let plan = makePool("pool1", 750)
-    let replacement = makePool("pool2", 500).stream!
+    let replacement = makePool("pool2", 500).leia!
 
     plan.replace(stream: replacement)
 
-    #expect(plan.stream!.name == "pool2")
+    #expect(plan.leia!.name == "pool2")
   }
 
   @Test
@@ -112,8 +112,8 @@ struct APlan {
 
     plan.replace(stream: stream)
 
-    #expect(plan.stream!.name == "test")
-    #expect(plan.stream!.amount == 500)
+    #expect(plan.leia!.name == "test")
+    #expect(plan.leia!.amount == 500)
   }
 
   @Test

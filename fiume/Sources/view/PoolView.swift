@@ -15,7 +15,7 @@ struct PoolView: View {
 
   init(plan: Binding<Plan>) {
     self._plan = plan
-    self.pool = plan.wrappedValue.stream!
+    self.pool = plan.wrappedValue.leia!
   }
 
   var body: some View {

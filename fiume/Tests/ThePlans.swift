@@ -36,7 +36,7 @@ struct ThePlans {
     plans.append(parent: plans.plans, child: pool)
 
     #expect(plans.plans.children![0] === pool)
-    #expect(plans.plans.children![0].stream != nil)
+    #expect(plans.plans.children![0].leia != nil)
     #expect(plans.wasChanged)
   }
 
@@ -73,8 +73,8 @@ struct ThePlans {
 
     plans.replace(plan, stream: Leia("revised", Money(500), first: .unchanged, last: .unchanged))
 
-    #expect(plan.stream!.name == "revised")
-    #expect(plan.stream!.amount == 500)
+    #expect(plan.leia!.name == "revised")
+    #expect(plan.leia!.amount == 500)
     #expect(plans.wasChanged)
   }
 }

@@ -12,8 +12,7 @@ class Plan: Identifiable, Codable {
     case _id = "id"
     case _type = "type"
     case _name = "name"
-   // case _pool = "pool"
-    case _stream = "stream"
+    case _leia = "stream"
     case _children = "children"
   }
 
@@ -23,19 +22,16 @@ class Plan: Identifiable, Codable {
 
   private(set) var name: String
 
-  //var pool: Pool?
-  var stream: Leia?
+  var leia: Leia?
 
   var children: [Plan]?
 
   static func makePool(_ pool: Leia) -> Plan {
-    //Plan(pool)
-   // let leia = Leia(pool.name, pool.amount, first: pool.first, last: pool.last)
-    return Plan(.pool, pool)
+    Plan(.pool, pool)
   }
 
   static func makeLeia(_ stream: Leia) -> Plan {
-    Plan(stream)
+    Plan(.stream, stream)
   }
 
   static func makeGroup(_ name: String) -> Plan {
@@ -46,25 +42,13 @@ class Plan: Identifiable, Codable {
     Plan(.scenarios, name)
   }
 
-//  fileprivate init(_ pool: Pool) {
-//    self.type = .pool
-//    self.name = pool.name
-//    self.pool = pool
-//  }
-
-  init(_ stream: Leia) {
-    self.type = .stream
-    self.name = stream.name
-    self.stream = stream
-  }
-
-  init(_ type: PlanType, _ stream: Leia) {
+  fileprivate init(_ type: PlanType, _ stream: Leia) {
     self.type = type
     self.name = stream.name
-    self.stream = stream
+    self.leia = stream
   }
 
-  init(_ type: PlanType, _ name: String) {
+  fileprivate init(_ type: PlanType, _ name: String) {
     self.type = type
     self.name = name
     self.children = []
@@ -93,12 +77,8 @@ class Plan: Identifiable, Codable {
   }
 
   func replace(stream newLeia: Leia) {
-    self.stream = newLeia
+    self.leia = newLeia
   }
-
-//  func replace(pool newPool: Pool) {
-//    self.pool = newPool
-//  }
 
   private func uniqueName(_ name: String, _ child: Plan, _ index: Int) -> String {
     " • \(name) (\(index + 1)) - \(child.name)"
@@ -107,10 +87,10 @@ class Plan: Identifiable, Codable {
   func scenarios(_ scenarios: Scenarios) -> Scenarios {
     switch type {
     case .pool:
-      return scenarios.addPool(stream!)
+      return scenarios.addPool(leia!)
 
     case .stream:
-      return scenarios.addStream(stream!)
+      return scenarios.addStream(leia!)
 
     case .group:
       guard let children else {
