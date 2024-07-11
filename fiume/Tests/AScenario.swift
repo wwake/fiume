@@ -114,4 +114,17 @@ struct AScenario {
     #expect(result.name == "Scenario Name")
     #expect(result.netWorthByMonth.last!.amount == Money(1_200))
   }
+
+  @Test
+  func keeps_pools_and_accumulates_streams() {
+    let scenario = Scenario("pool+stream", people: people)
+    let asset = Leia(name: "savings", amount: Money(1_000), first: .unchanged, last: .unchanged)
+    let income = Leia(name: "job", amount: Money(1), first: .unchanged, last: .unchanged)
+    scenario.add(pool: asset)
+    scenario.add(stream: income)
+
+    let result = scenario.netWorth(2025.jan...2025.feb)
+
+    // TODO - assertions
+  }
 }

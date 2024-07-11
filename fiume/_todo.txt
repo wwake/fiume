@@ -1,20 +1,22 @@
-* Plan.append() should check for pools
 * Scenarios with pools
-* Refactor: DateRange holding two DateSpecs
 
 * Try Jon's approach in https://qualitycoding.org/bypass-swiftui-app-launch-unit-testing/
 
-=====
-FI-24-33: 2024-07-11 - Pool Scenarios
-* Refactor: merge Pool and Stream => LEIA
-
-
-=====
+* Refactor: DateRange holding two DateSpecs
 
 Display/Usability
 * Label "Asset", "Income" etc.
 * Should we show "unchanged" or just skip the dates
 * Make edit pages say "Create" or "Update" "Pool"/whatever
+
+=====
+FI-24-33: 2024-07-11 - Pool Scenarios
+* Refactor: merge Pool and Stream => LEIA
+* Removed guard clause on Plan.append(); nothing uses it but it's not a problem either
+* Refactor: rename because of "Leia"
+
+=====
+
 
 Amount
 * Make amount an overrideable value on stream
