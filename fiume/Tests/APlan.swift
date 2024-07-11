@@ -18,7 +18,7 @@ struct APlan {
     Leia(name: name, amount: Money(amount), first: .month(2024.jan), last: .unchanged)
   }
 
-  private func makeLeia(
+  private func makeStream(
     _ name: String,
     _ amount: Int,
     _ first: MonthYear = 2024.jan,
@@ -44,7 +44,7 @@ struct APlan {
     return result
   }
 
-  @Test // ???
+  @Test
   func makes_a_pool() {
     let sut = makePool("Savings", 100, 2024.mar, 2024.dec)
 
@@ -54,7 +54,7 @@ struct APlan {
 
   @Test
   func makes_a_stream() throws {
-    let sut = makeLeia("Income", 100, 2024.mar, 2024.dec)
+    let sut = makeStream("Income", 100, 2024.mar, 2024.dec)
 
     #expect(sut.name == "Income")
     #expect(sut.children == nil)
@@ -62,9 +62,9 @@ struct APlan {
 
   @Test
   func makes_a_composite() {
-    let leaf1 = makeLeia("Income1", 1, 2020.jan, 2030.jan)
-    let leaf2 = makeLeia("Income2", 2, 2020.jan, 2030.jan)
-    let leaf3 = makeLeia("Income3", 3, 2020.jan, 2030.jan)
+    let leaf1 = makeStream("Income1", 1, 2020.jan, 2030.jan)
+    let leaf2 = makeStream("Income2", 2, 2020.jan, 2030.jan)
+    let leaf3 = makeStream("Income3", 3, 2020.jan, 2030.jan)
 
     let parent = makeGroup("parent", [leaf1, leaf2])
     let sut = makeGroup("grandparent", [parent, leaf3])
@@ -76,7 +76,7 @@ struct APlan {
 
   @Test
   func removes_a_descendant() {
-    let leaf1 = makeLeia("Income1", 1, 2020.jan, 2030.jan)
+    let leaf1 = makeStream("Income1", 1, 2020.jan, 2030.jan)
     let parent = makeGroup("parent", [leaf1])
     let sut = makeGroup("grandparent", [parent])
 
@@ -131,7 +131,7 @@ struct APlan {
 
   @Test
   func scenarios_for_stream() {
-    let sut = makeLeia("Income1", 1_000, 2024.jan, 2024.dec)
+    let sut = makeStream("Income1", 1_000, 2024.jan, 2024.dec)
 
     let result = sut.scenarios(Scenarios([Scenario("A", people: people), Scenario("B", people: people)]))
     let array = Array(result)
@@ -145,8 +145,8 @@ struct APlan {
 
   @Test
   func scenarios_for_and_tree() {
-    let leaf1 = makeLeia("Income1", 1_000, 2024.jan, 2024.dec)
-    let leaf2 = makeLeia("Income2", 2_000, 2024.jun, 2025.jun)
+    let leaf1 = makeStream("Income1", 1_000, 2024.jan, 2024.dec)
+    let leaf2 = makeStream("Income2", 2_000, 2024.jun, 2025.jun)
 
     let sut = makeGroup("parent", [leaf1, leaf2])
 
@@ -164,9 +164,9 @@ struct APlan {
 
   @Test
   func scenarios_for_and_tree_with_or_child() {
-    let leaf1a = makeLeia("Income1a", 1_000, 2020.jan, 2030.jan)
-   let leaf1b = makeLeia("Income1b", 1_500, 2020.jan, 2030.jan)
-    let leaf2 = makeLeia("Income2", 2_000, 2020.jan, 2030.jan)
+    let leaf1a = makeStream("Income1a", 1_000, 2020.jan, 2030.jan)
+   let leaf1b = makeStream("Income1b", 1_500, 2020.jan, 2030.jan)
+    let leaf2 = makeStream("Income2", 2_000, 2020.jan, 2030.jan)
     let orTree = makeScenarios( "scenarios", [leaf1a, leaf1b])
     let sut = makeGroup("parent", [orTree, leaf2])
 
@@ -179,8 +179,8 @@ struct APlan {
 
   @Test
   func scenarios_for_or_tree() {
-    let leaf1 = makeLeia("Income1", 1_000, 2024.jan, 2024.dec)
-    let leaf2 = makeLeia("Income2", 2_000, 2024.jun, 2025.jun)
+    let leaf1 = makeStream("Income1", 1_000, 2024.jan, 2024.dec)
+    let leaf2 = makeStream("Income2", 2_000, 2024.jun, 2025.jun)
 
     let sut = makeScenarios("parent", [leaf1, leaf2])
 
@@ -202,8 +202,8 @@ struct APlan {
     let scenario2 = Scenario("", people: people)
     scenario2.add(stream: makeLeia("annuity", 500))
 
-    let leaf1 = makeLeia("Income1", 1_000, 2020.jan, 2030.jan)
-    let leaf2 = makeLeia("Income2", 2_000, 2020.jan, 2030.jan)
+    let leaf1 = makeStream("Income1", 1_000, 2020.jan, 2030.jan)
+    let leaf2 = makeStream("Income2", 2_000, 2020.jan, 2030.jan)
 
     let sut = makeScenarios("parent", [leaf1, leaf2])
 
@@ -220,8 +220,8 @@ struct APlan {
 
   @Test
   func scenarios_for_or_tree_get_names_from_starting_scenario() {
-    let leaf1 = makeLeia("Income1", 1_000, 2020.jan, 2030.jan)
-    let leaf2 = makeLeia("Income2", 2_000, 2020.jan, 2030.jan)
+    let leaf1 = makeStream("Income1", 1_000, 2020.jan, 2030.jan)
+    let leaf2 = makeStream("Income2", 2_000, 2020.jan, 2030.jan)
 
     let sut = makeScenarios("Job", [leaf1, leaf2])
 
@@ -235,8 +235,8 @@ struct APlan {
 
   @Test
   func scenarios_for_nested_or_trees_gets_combined_name() {
-    let leaf1 = makeLeia("Income1", 1_000, 2020.jan, 2030.jan)
-    let leaf2 = makeLeia("Income2", 2_000, 2020.jan, 2030.jan)
+    let leaf1 = makeStream("Income1", 1_000, 2020.jan, 2030.jan)
+    let leaf2 = makeStream("Income2", 2_000, 2020.jan, 2030.jan)
 
     let or1 = makeScenarios("Job", [leaf1])
     let or2 = makeScenarios("Salary", [leaf2])

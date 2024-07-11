@@ -55,8 +55,6 @@ class Plan: Identifiable, Codable {
   }
 
   func append(_ child: Plan) {
-    guard type != .stream else { return }
-
     if children == nil {
       children = [child]
     } else {
