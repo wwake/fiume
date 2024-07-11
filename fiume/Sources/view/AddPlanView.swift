@@ -26,8 +26,8 @@ struct AddPlanView: View {
       }
 
     case .stream:
-      EditStreamView(stream: Stream.null, buttonName: "Create") { stream in
-        plans.append(parent: plan, child: Plan.makeStream(stream))
+      EditLeiaView(stream: Leia.null, buttonName: "Create") { stream in
+        plans.append(parent: plan, child: Plan.makeLeia(stream))
       }
 
     case .group:
@@ -45,6 +45,6 @@ struct AddPlanView: View {
 
 #Preview {
   @State var tree = Plan.makeGroup("accounts")
-  tree.append(Plan.makeStream(Stream("income", Money(100), first: .month(2024.jan), last: .unchanged)))
+  tree.append(Plan.makeLeia(Leia("income", Money(100), first: .month(2024.jan), last: .unchanged)))
   return AddPlanView(plan: $tree)
 }

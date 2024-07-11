@@ -12,7 +12,7 @@ struct PlanView: View {
       PoolView(plan: $plan)
 
     case .stream:
-      StreamView(plan: $plan)
+      LeiaView(plan: $plan)
 
     case .group:
       PlanGroupView(plan: $plan)
@@ -103,9 +103,9 @@ struct PlanCompositeView: View {
 #Preview {
   @State var plans = Plans()
 
-  let planStream = Plan.makeStream(Stream("demo", Money(100), first: .month(2020.jan), last: .unchanged))
+  let planLeia = Plan.makeLeia(Leia("demo", Money(100), first: .month(2020.jan), last: .unchanged))
   @State var planTree = Plan.makeGroup("an 'and' tree")
-  planTree.append(planStream)
+  planTree.append(planLeia)
 
   return PlanView(plan: $planTree)
     .environment(plans)

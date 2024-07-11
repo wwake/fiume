@@ -12,7 +12,7 @@ struct ThePlans {
   @Test
   func doesnt_change_when_loading() {
     let newPlans = Plans()
-    newPlans.plans = Plan.makeStream(Stream("A Stream", 1999, first: .unchanged, last: .unchanged))
+    newPlans.plans = Plan.makeLeia(Leia("A Leia", 1999, first: .unchanged, last: .unchanged))
     plans.wasChanged = true
 
     plans.load(newPlans)
@@ -22,7 +22,7 @@ struct ThePlans {
 
   @Test
   func changes_when_stream_is_appended() {
-    let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
+    let stream = Plan.makeLeia(Leia("2d job", Money(200), first: .unchanged, last: .unchanged))
 
     plans.append(parent: plans.plans, child: stream)
     #expect(plans.plans.children![0] === stream)
@@ -43,7 +43,7 @@ struct ThePlans {
   @Test
   func can_remove_a_plan() {
     let scenario = Plan.makeScenarios("my scenario")
-    let stream = Plan.makeStream(Stream("2d job", Money(200), first: .unchanged, last: .unchanged))
+    let stream = Plan.makeLeia(Leia("2d job", Money(200), first: .unchanged, last: .unchanged))
     scenario.append(stream)
     plans.append(parent: plans.plans, child: scenario)
 
@@ -68,10 +68,10 @@ struct ThePlans {
 
   @Test
   func are_changed_by_replacing_stream() {
-    let plan = Plan.makeStream(Stream("test", Money(200), first: .unchanged, last: .unchanged))
+    let plan = Plan.makeLeia(Leia("test", Money(200), first: .unchanged, last: .unchanged))
     plans.append(parent: plans.plans, child: plan)
 
-    plans.replace(plan, stream: Stream("revised", Money(500), first: .unchanged, last: .unchanged))
+    plans.replace(plan, stream: Leia("revised", Money(500), first: .unchanged, last: .unchanged))
 
     #expect(plan.stream!.name == "revised")
     #expect(plan.stream!.amount == 500)

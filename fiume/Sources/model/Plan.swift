@@ -24,7 +24,7 @@ class Plan: Identifiable, Codable {
   private(set) var name: String
 
   var pool: Pool?
-  var stream: Stream?
+  var stream: Leia?
 
   var children: [Plan]?
 
@@ -32,7 +32,7 @@ class Plan: Identifiable, Codable {
     Plan(pool)
   }
 
-  static func makeStream(_ stream: Stream) -> Plan {
+  static func makeLeia(_ stream: Leia) -> Plan {
     Plan(stream)
   }
 
@@ -50,7 +50,7 @@ class Plan: Identifiable, Codable {
     self.pool = pool
   }
 
-  init(_ stream: Stream) {
+  init(_ stream: Leia) {
     self.type = .stream
     self.name = stream.name
     self.stream = stream
@@ -84,8 +84,8 @@ class Plan: Identifiable, Codable {
     name = newName
   }
 
-  func replace(stream newStream: Stream) {
-    self.stream = newStream
+  func replace(stream newLeia: Leia) {
+    self.stream = newLeia
   }
 
   func replace(pool newPool: Pool) {

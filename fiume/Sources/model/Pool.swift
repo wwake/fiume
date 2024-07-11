@@ -14,7 +14,7 @@ struct Pool: Identifiable, Codable {
   }
 
   func amount(at month: MonthYear, people: People) -> Money {
-    Stream.amount(first: first, last: last, amount: amount, at: month, people: people)
+    Leia.amount(first: first, last: last, amount: amount, at: month, people: people)
   }
 
   func update(overriddenBy pool: Pool) -> Pool {

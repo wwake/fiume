@@ -1,8 +1,10 @@
 import Foundation
 
-struct Stream: Identifiable, Codable {
-  static var null: Stream {
-    Stream("", 0, first: .unchanged, last: .unchanged)
+// Leia = Liability/Expense/Income/Asset (ie Stream or Pool)
+//
+struct Leia: Identifiable, Codable {
+  static var null: Leia {
+    Leia("", 0, first: .unchanged, last: .unchanged)
   }
 
   var id = UUID()
@@ -71,12 +73,12 @@ struct Stream: Identifiable, Codable {
     }
   }
 
-  func update(overriddenBy stream: Stream) -> Stream {
+  func update(overriddenBy stream: Leia) -> Leia {
     if self.name != stream.name { return self }
 
     let newFirst = self.first.update(using: stream.first)
     let newLast = self.last.update(using: stream.last)
 
-    return Stream(stream.name, stream.amount, first: newFirst, last: newLast)
+    return Leia(stream.name, stream.amount, first: newFirst, last: newLast)
   }
 }

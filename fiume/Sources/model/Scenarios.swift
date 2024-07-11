@@ -17,7 +17,7 @@ class Scenarios: Sequence {
     return result
   }
 
-  func add(_ stream: Stream) -> Scenarios {
+  func add(_ stream: Leia) -> Scenarios {
     let result = Scenarios(Array(scenarios))
     scenarios.forEach {
       $0.add(stream)

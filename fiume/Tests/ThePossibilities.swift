@@ -4,8 +4,8 @@ import Testing
 struct ThePossibilities {
   private let people = People()
 
-  private func makeStream(_ name: String, _ amount: Int) -> fiume.Stream {
-    Stream(name, Money(amount), first: .month(2024.jan), last: .unchanged)
+  private func makeLeia(_ name: String, _ amount: Int) -> fiume.Leia {
+    Leia(name, Money(amount), first: .month(2024.jan), last: .unchanged)
   }
 
   private func makePossibilities() -> Possibilities {
@@ -16,7 +16,7 @@ struct ThePossibilities {
   @Test
 	func salary_builds_net_worth() throws {
 		let sut = makePossibilities()
-		sut.add(makeStream("Salary", Money(1_000)))
+		sut.add(makeLeia("Salary", Money(1_000)))
 
     let data = sut.netWorth(sut.range(12))
 
@@ -26,8 +26,8 @@ struct ThePossibilities {
   @Test
 	func salary_minus_expenses_creates_net_worth() throws {
 		let sut = makePossibilities()
-		sut.add(makeStream("Salary", Money(1_000)))
-		sut.add(makeStream("Expenses", Money(-900)))
+		sut.add(makeLeia("Salary", Money(1_000)))
+		sut.add(makeLeia("Expenses", Money(-900)))
 
 		let data = sut.netWorth(sut.range(12))
 
@@ -46,8 +46,8 @@ struct ThePossibilities {
   @Test
   func scenarios_with_only_groups() {
 		let sut = makePossibilities()
-		sut.add(makeStream("Salary", Money(1_000)))
-		sut.add(makeStream("Expenses", Money(-900)))
+		sut.add(makeLeia("Salary", Money(1_000)))
+		sut.add(makeLeia("Expenses", Money(-900)))
 
     let result = Array(sut.scenarios())
 
@@ -60,8 +60,8 @@ struct ThePossibilities {
     let sut = makePossibilities()
 
     let orTree = Plan.makeScenarios("jobs")
-    orTree.append(Plan.makeStream(makeStream("Salary1", Money(1_000))))
-    orTree.append(Plan.makeStream(makeStream("Salary2", Money(2_000))))
+    orTree.append(Plan.makeLeia(makeLeia("Salary1", Money(1_000))))
+    orTree.append(Plan.makeLeia(makeLeia("Salary2", Money(2_000))))
     sut.add(orTree)
 
     #expect(sut.scenarios().count == 2)
@@ -71,8 +71,8 @@ struct ThePossibilities {
   func computes_net_worth_for_multiple_scenarios() {
     let sut = makePossibilities()
     let orTree = Plan.makeScenarios("jobs")
-    orTree.append(Plan.makeStream(makeStream("Salary1", Money(1_000))))
-    orTree.append(Plan.makeStream(makeStream("Salary2", Money(2_000))))
+    orTree.append(Plan.makeLeia(makeLeia("Salary1", Money(1_000))))
+    orTree.append(Plan.makeLeia(makeLeia("Salary2", Money(2_000))))
     sut.add(orTree)
 
     let result = sut.netWorth(sut.range(3))

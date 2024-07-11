@@ -5,7 +5,7 @@ class Scenario: Identifiable {
   let name: String
   let people: People
 
-  var streams = [String: Stream]()
+  var streams = [String: Leia]()
   var pools = [String: Pool]()
 
   init(_ name: String, people: People) {
@@ -33,7 +33,7 @@ class Scenario: Identifiable {
     }
   }
 
-  func add(_ stream: Stream) {
+  func add(_ stream: Leia) {
     if streams[stream.name] == nil {
       streams[stream.name] = stream
     } else {

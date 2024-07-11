@@ -1,8 +1,8 @@
 @testable import fiume
 
 extension Possibilities {
-  func add(_ stream: Stream) {
-    plans[0].append(Plan.makeStream(stream))
+  func add(_ stream: Leia) {
+    plans[0].append(Plan.makeLeia(stream))
   }
 
   func add(_ tree: Plan) {

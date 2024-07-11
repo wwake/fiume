@@ -1,15 +1,15 @@
 import SwiftUI
 
-struct EditStreamView: View {
+struct EditLeiaView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  var stream: Stream
+  var stream: Leia
 
   var buttonName: String
-  var action: (Stream) -> Void
+  var action: (Leia) -> Void
 
-  init(stream: Stream, buttonName: String, action: @escaping (Stream) -> Void) {
+  init(stream: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
     self.stream = stream
     self.buttonName = buttonName
     self.action = action
@@ -76,7 +76,7 @@ struct EditStreamView: View {
       HStack {
         Spacer()
         Button(buttonName) {
-          let stream = Stream(
+          let stream = Leia(
             name,
             Money(createdAmount()),
             first: startMonth,
