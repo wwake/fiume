@@ -16,7 +16,7 @@ struct EditStreamView: View {
 
     self._isIncome = .init(initialValue: stream.isNonNegative)
     self._name = .init(initialValue: stream.name)
-    self._amount = .init(initialValue: stream.monthlyAmount)
+    self._amount = .init(initialValue: stream.amount)
     self._startMonth = .init(initialValue: stream.first)
     self._endMonth = .init(initialValue: stream.last)
   }

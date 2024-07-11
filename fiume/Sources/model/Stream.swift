@@ -7,7 +7,7 @@ struct Stream: Identifiable, Codable {
 
   var id = UUID()
   var name: String
-  var monthlyAmount: Money
+  var amount: Money
   var first: DateSpecifier
   var last: DateSpecifier
 
@@ -18,7 +18,7 @@ struct Stream: Identifiable, Codable {
     last: DateSpecifier
   ) {
     self.name = name
-    self.monthlyAmount = monthlyAmount
+    self.amount = monthlyAmount
 
     self.first = first
 
@@ -26,11 +26,11 @@ struct Stream: Identifiable, Codable {
   }
 
   var isNonNegative: Bool {
-    monthlyAmount >= 0
+    amount >= 0
   }
 
   func amount(at month: MonthYear, people: People) -> Money {
-    Self.amount(first: first, last: last, amount: monthlyAmount, at: month, people: people)
+    Self.amount(first: first, last: last, amount: amount, at: month, people: people)
   }
 
   static func amount(
@@ -77,6 +77,6 @@ struct Stream: Identifiable, Codable {
     let newFirst = self.first.update(using: stream.first)
     let newLast = self.last.update(using: stream.last)
 
-    return Stream(stream.name, stream.monthlyAmount, first: newFirst, last: newLast)
+    return Stream(stream.name, stream.amount, first: newFirst, last: newLast)
   }
 }

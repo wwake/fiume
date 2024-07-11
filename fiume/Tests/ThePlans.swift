@@ -74,7 +74,7 @@ struct ThePlans {
     plans.replace(plan, stream: Stream("revised", Money(500), first: .unchanged, last: .unchanged))
 
     #expect(plan.stream!.name == "revised")
-    #expect(plan.stream!.monthlyAmount == 500)
+    #expect(plan.stream!.amount == 500)
     #expect(plans.wasChanged)
   }
 }

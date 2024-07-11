@@ -113,7 +113,7 @@ struct APlan {
     plan.replace(stream: stream)
 
     #expect(plan.stream!.name == "test")
-    #expect(plan.stream!.monthlyAmount == 500)
+    #expect(plan.stream!.amount == 500)
   }
 
   @Test
