@@ -5,7 +5,8 @@ class Scenario: Identifiable {
   let name: String
   let people: People
 
-  var items = [String: Stream]()
+  var streams = [String: Stream]()
+  var pools = [String: Pool]()
 
   init(_ name: String, people: People) {
     self.name = name
@@ -14,21 +15,31 @@ class Scenario: Identifiable {
 
   private convenience init(_ other: Scenario, _ newName: String) {
     self.init(newName, people: other.people)
-    let copy = other.items
-    self.items = copy
+    let copy = other.streams
+    self.streams = copy
   }
 
   func copy(_ newName: String) -> Scenario {
     Scenario(self, newName)
   }
 
-  func add(_ stream: Stream) {
-    if items[stream.name] == nil {
-      items[stream.name] = stream
+  func add(_ pool: Pool) {
+    if pools[pool.name] == nil {
+      pools[pool.name] = pool
     } else {
-      let original = items[stream.name]!
+      let original = pools[pool.name]!
+      let revised = original.update(overriddenBy: pool)
+      pools[pool.name] = revised
+    }
+  }
+
+  func add(_ stream: Stream) {
+    if streams[stream.name] == nil {
+      streams[stream.name] = stream
+    } else {
+      let original = streams[stream.name]!
       let revised = original.update(overriddenBy: stream)
-      items[stream.name] = revised
+      streams[stream.name] = revised
     }
   }
 
@@ -36,15 +47,21 @@ class Scenario: Identifiable {
     var result = [MonthlyNetWorth]()
     var runningTotal = Money(0)
     range.forEach { monthYear in
-      runningTotal += net(at: monthYear)
+      runningTotal += netIncome(at: monthYear)
       result.append(MonthlyNetWorth(month: monthYear, amount: runningTotal))
     }
     return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }
 
-  func net(at month: MonthYear) -> Money {
-    items.values.reduce(Money(0)) { soFar, stream in
-      soFar + stream.amount(at: month, people: people)
+  func netIncome(at month: MonthYear) -> Money {
+    streams.values.reduce(Money(0)) { net, stream in
+      net + stream.amount(at: month, people: people)
+    }
+  }
+
+  func netAssets(at month: MonthYear) -> Money {
+    pools.values.reduce(Money(0)) { net, pool in
+      net + pool.amount(at: month, people: people)
     }
   }
 }

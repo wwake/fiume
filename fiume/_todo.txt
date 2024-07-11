@@ -1,5 +1,15 @@
+* Refactor: merge Pool and Stream => LEIA? Fin? Package? Crumb? Whit?
+* Refactor: DateRange holding two DateSpecs
 * Scenarios with pools
 
+=====
+FI-24-33: 2024-07-11 - Pool Scenarios
+
+
+=====
+
+Display/Usability
+* Label "Asset", "Income" etc.
 * Should we show "unchanged" or just skip the dates
 * Make edit pages say "Create" or "Update" "Pool"/whatever
 
@@ -31,7 +41,10 @@ Calendar view (with RuleMark)
 
 Variables?
 
+Editing
 * Move streams (?)
+
+
 
 FI-24-32: 2024-07-10 - Pools
 Pools
@@ -39,14 +52,12 @@ Pools
 * Display pool
 * Editing pools
 
-
 FI-24-31: 2024-07-09 - Edit People
 Editing
 * Clean up ThePlans use of new Plans()
 * Try starting with name value for creating new Group or Scenarios
 * Edit Persons
 * Tried to turn off spell-checking on name fields - but runtime is ignoring our request
-
 
 FI-24-30: 2024-07-08 - Edit Streams
 * [offline] Adjusted codable output to remove observable info and improve names, following https://www.hackingwithswift.com/books/ios-swiftui/adding-codable-conformance-to-an-observable-class

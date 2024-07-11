@@ -46,8 +46,8 @@ struct AScenario {
     let stream2 = makeStream(name: "Income2", 2_000, first: 2024.jan, last: 2024.dec)
     result.add(stream2)
 
-    #expect(sut.net(at: 2024.jan) == Money(1_000))
-    #expect(result.net(at: 2024.jan) == Money(3_000))
+    #expect(sut.netIncome(at: 2024.jan) == Money(1_000))
+    #expect(result.netIncome(at: 2024.jan) == Money(3_000))
     #expect(result.name == "altered name")
   }
 
@@ -57,8 +57,8 @@ struct AScenario {
       makeStream(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec)
     )
 
-    #expect(sut.net(at: 2024.dec) == Money(1_000))
-    #expect(sut.net(at: 2025.jan) == Money(0))
+    #expect(sut.netIncome(at: 2024.dec) == Money(1_000))
+    #expect(sut.netIncome(at: 2025.jan) == Money(0))
   }
 
   @Test
@@ -68,10 +68,10 @@ struct AScenario {
       makeStream(name: "Income2", 500, first: DateSpecifier.month(2024.oct), last: DateSpecifier.unchanged)
     )
 
-    #expect(sut.net(at: 2024.jan) == Money(1_000))
-    #expect(sut.net(at: 2024.oct) == Money(1_500))
-    #expect(sut.net(at: 2024.dec) == Money(1_500))
-    #expect(sut.net(at: 2025.jan) == Money(500))
+    #expect(sut.netIncome(at: 2024.jan) == Money(1_000))
+    #expect(sut.netIncome(at: 2024.oct) == Money(1_500))
+    #expect(sut.netIncome(at: 2024.dec) == Money(1_500))
+    #expect(sut.netIncome(at: 2025.jan) == Money(500))
   }
 
   @Test
@@ -81,10 +81,10 @@ struct AScenario {
       makeStream(name: "Income1", 500, first: DateSpecifier.month(2024.oct), last: DateSpecifier.unchanged)
     )
 
-    #expect(sut.net(at: 2024.jan) == Money(0))
-    #expect(sut.net(at: 2024.oct) == Money(500))
-    #expect(sut.net(at: 2024.dec) == Money(500))
-    #expect(sut.net(at: 2025.jan) == Money(0))
+    #expect(sut.netIncome(at: 2024.jan) == Money(0))
+    #expect(sut.netIncome(at: 2024.oct) == Money(500))
+    #expect(sut.netIncome(at: 2024.dec) == Money(500))
+    #expect(sut.netIncome(at: 2025.jan) == Money(0))
   }
 
   @Test
@@ -94,12 +94,12 @@ struct AScenario {
       makeStream(name: "Income1", 500, first: DateSpecifier.unchanged, last: DateSpecifier.month(2026.jan))
     )
 
-    #expect(sut.net(at: 2024.jan) == Money(0))
-    #expect(sut.net(at: 2024.feb) == Money(500))
-    #expect(sut.net(at: 2024.dec) == Money(500))
-    #expect(sut.net(at: 2025.jan) == Money(500))
-    #expect(sut.net(at: 2026.jan) == Money(500))
-    #expect(sut.net(at: 2026.feb) == Money(0))
+    #expect(sut.netIncome(at: 2024.jan) == Money(0))
+    #expect(sut.netIncome(at: 2024.feb) == Money(500))
+    #expect(sut.netIncome(at: 2024.dec) == Money(500))
+    #expect(sut.netIncome(at: 2025.jan) == Money(500))
+    #expect(sut.netIncome(at: 2026.jan) == Money(500))
+    #expect(sut.netIncome(at: 2026.feb) == Money(0))
   }
 
   @Test

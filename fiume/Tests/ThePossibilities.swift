@@ -52,7 +52,7 @@ struct ThePossibilities {
     let result = Array(sut.scenarios())
 
 		#expect(result.count == 1)
-		#expect(result.first!.net(at: 2024.jan) == Money(100))
+		#expect(result.first!.netIncome(at: 2024.jan) == Money(100))
 	}
 
   @Test

@@ -117,6 +117,19 @@ struct APlan {
   }
 
   @Test
+  func scenarios_for_pool() {
+    let sut = makePool("Savings", 1_000_000, 2024.jan, 2024.dec)
+    let result = sut.scenarios(Scenarios([Scenario("A", people: people), Scenario("B", people: people)]))
+    let array = Array(result)
+
+    #expect(array.count == 2)
+    #expect(array[0].netAssets(at: 2024.dec) == Money(1_000_000))
+    #expect(array[1].netAssets(at: 2024.dec) == Money(1_000_000))
+    #expect(array[0].netAssets(at: 2025.jan) == Money(0))
+    #expect(array[1].netAssets(at: 2025.jan) == Money(0))
+  }
+
+  @Test
   func scenarios_for_stream() {
     let sut = makeStream("Income1", 1_000, 2024.jan, 2024.dec)
 
@@ -124,10 +137,10 @@ struct APlan {
     let array = Array(result)
 
     #expect(array.count == 2)
-    #expect(array[0].net(at: 2024.dec) == Money(1_000))
-    #expect(array[1].net(at: 2024.dec) == Money(1_000))
-    #expect(array[0].net(at: 2025.jan) == Money(0))
-    #expect(array[1].net(at: 2025.jan) == Money(0))
+    #expect(array[0].netIncome(at: 2024.dec) == Money(1_000))
+    #expect(array[1].netIncome(at: 2024.dec) == Money(1_000))
+    #expect(array[0].netIncome(at: 2025.jan) == Money(0))
+    #expect(array[1].netIncome(at: 2025.jan) == Money(0))
   }
 
   @Test
@@ -141,12 +154,12 @@ struct APlan {
     let array = Array(result)
 
     #expect(array.count == 2)
-    #expect(array[0].net(at: 2024.jan) == Money(1_000))
-    #expect(array[1].net(at: 2024.jan) == Money(1_000))
-    #expect(array[0].net(at: 2024.jun) == Money(3_000))
-    #expect(array[1].net(at: 2024.jun) == Money(3_000))
-    #expect(array[0].net(at: 2025.jan) == Money(2_000))
-    #expect(array[1].net(at: 2025.jan) == Money(2_000))
+    #expect(array[0].netIncome(at: 2024.jan) == Money(1_000))
+    #expect(array[1].netIncome(at: 2024.jan) == Money(1_000))
+    #expect(array[0].netIncome(at: 2024.jun) == Money(3_000))
+    #expect(array[1].netIncome(at: 2024.jun) == Money(3_000))
+    #expect(array[0].netIncome(at: 2025.jan) == Money(2_000))
+    #expect(array[1].netIncome(at: 2025.jan) == Money(2_000))
   }
 
   @Test
@@ -158,7 +171,7 @@ struct APlan {
     let sut = makeGroup("parent", [orTree, leaf2])
 
     let result = sut.scenarios(Scenarios([Scenario("", people: people)]))
-    let resultSet = Set(result.map { $0.net(at: 2024.jan) })
+    let resultSet = Set(result.map { $0.netIncome(at: 2024.jan) })
 
     #expect(resultSet.count == 2)
     #expect(resultSet == [3_000, 3_500])
@@ -175,11 +188,11 @@ struct APlan {
     let array = Array(result)
 
     #expect(array.count == 2)
-    let (x, y) = array[0].net(at: 2024.jan) != 0 ? (array[0], array[1]) : (array[1], array[0])
-    let nets1 = [x.net(at: 2024.jan), x.net(at: 2024.jun), x.net(at: 2025.jan)]
+    let (x, y) = array[0].netIncome(at: 2024.jan) != 0 ? (array[0], array[1]) : (array[1], array[0])
+    let nets1 = [x.netIncome(at: 2024.jan), x.netIncome(at: 2024.jun), x.netIncome(at: 2025.jan)]
     #expect(nets1 == [Money(1_000), Money(1_000), Money(0)])
 
-    let nets2: [Money] = [y.net(at: 2024.jan), y.net(at: 2024.jun), y.net(at: 2025.jan)]
+    let nets2: [Money] = [y.netIncome(at: 2024.jan), y.netIncome(at: 2024.jun), y.netIncome(at: 2025.jan)]
     #expect(nets2 == [Money(0), Money(2_000), Money(2_000)])
   }
 
@@ -199,10 +212,10 @@ struct APlan {
     let month = 2024.jan
 
     #expect(result.count == 4)
-    #expect(result.contains { $0.net(at: month) == Money(1_000) })
-    #expect(result.contains { $0.net(at: month) == Money(2_000) })
-    #expect(result.contains { $0.net(at: month) == Money(1_500) })
-    #expect(result.contains { $0.net(at: month) == Money(2_500) })
+    #expect(result.contains { $0.netIncome(at: month) == Money(1_000) })
+    #expect(result.contains { $0.netIncome(at: month) == Money(2_000) })
+    #expect(result.contains { $0.netIncome(at: month) == Money(1_500) })
+    #expect(result.contains { $0.netIncome(at: month) == Money(2_500) })
   }
 
   @Test

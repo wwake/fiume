@@ -99,7 +99,7 @@ class Plan: Identifiable, Codable {
   func scenarios(_ scenarios: Scenarios) -> Scenarios {
     switch type {
     case .pool:
-      return scenarios // TBD
+      return scenarios.add(pool!)
 
     case .stream:
       return scenarios.add(stream!)
