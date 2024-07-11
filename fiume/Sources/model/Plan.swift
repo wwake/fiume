@@ -12,7 +12,7 @@ class Plan: Identifiable, Codable {
     case _id = "id"
     case _type = "type"
     case _name = "name"
-    case _leia = "stream"
+    case _leia = "leia"
     case _children = "children"
   }
 

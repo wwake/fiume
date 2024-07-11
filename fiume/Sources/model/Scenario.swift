@@ -5,8 +5,9 @@ class Scenario: Identifiable {
   let name: String
   let people: People
 
-  var streams = [String: Leia]()
-  var pools = [String: Leia]()
+  typealias NameToLeia = [String: Leia]
+  var streams = NameToLeia()
+  var pools = NameToLeia()
 
   init(_ name: String, people: People) {
     self.name = name
@@ -23,23 +24,21 @@ class Scenario: Identifiable {
     Scenario(self, newName)
   }
 
-  func addPool(_ pool: Leia) {
-    if pools[pool.name] == nil {
-      pools[pool.name] = pool
-    } else {
-      let original = pools[pool.name]!
-      let revised = original.update(overriddenBy: pool)
-      pools[pool.name] = revised
-    }
+  func addPool(_ leia: Leia) {
+    add(leia, &pools)
   }
 
-  func addStream(_ stream: Leia) {
-    if streams[stream.name] == nil {
-      streams[stream.name] = stream
+  func addStream(_ leia: Leia) {
+    add(leia, &streams)
+  }
+
+  func add(_ leia: Leia, _ map: inout NameToLeia) {
+    if map[leia.name] == nil {
+      map[leia.name] = leia
     } else {
-      let original = streams[stream.name]!
-      let revised = original.update(overriddenBy: stream)
-      streams[stream.name] = revised
+      let original = map[leia.name]!
+      let revised = original.update(overriddenBy: leia)
+      map[leia.name] = revised
     }
   }
 
