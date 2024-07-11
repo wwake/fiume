@@ -9,13 +9,13 @@ struct PoolView: View {
 
   @Binding var plan: Plan
 
-  var pool: Pool
+  var pool: Leia
 
   @State private var isEditPresented = false
 
   init(plan: Binding<Plan>) {
     self._plan = plan
-    self.pool = plan.wrappedValue.pool!
+    self.pool = plan.wrappedValue.stream!
   }
 
   var body: some View {
@@ -51,7 +51,7 @@ struct PoolView: View {
     .background(pool.isNonNegative ? Color("Asset") : Color("Liability"))
     .sheet(isPresented: $isEditPresented) {
       EditPoolView(pool: pool, buttonName: "Update") { pool in
-        plans.replace(plan, pool: pool)
+        plans.replace(plan, stream: pool)
       }
     }
   }
@@ -61,9 +61,9 @@ struct PoolView: View {
   @State var people = People()
   @State var plans = Plans()
   @State var asset = Plan.makePool(
-    Pool(name: "Savings", amount: 1_000, first: .month(2020.jan), last: .month(2025.dec))
+    Leia("Savings", 1_000, first: .month(2020.jan), last: .month(2025.dec))
   )
-  @State var liability = Plan.makePool(Pool(name: "Car", amount: -300, first: .month(2030.mar), last: .unchanged))
+  @State var liability = Plan.makePool(Leia("Car", -300, first: .month(2030.mar), last: .unchanged))
   return VStack {
     PoolView(plan: $asset)
     Divider()

@@ -9,10 +9,10 @@ class Scenarios: Sequence {
     scenarios.count
   }
 
-  func addPool(_ pool: Pool) -> Scenarios {
+  func addPool(_ pool: Leia) -> Scenarios {
     let result = Scenarios(Array(scenarios))
     scenarios.forEach {
-      $0.add(pool)
+      $0.addPool(pool)
     }
     return result
   }
@@ -20,7 +20,7 @@ class Scenarios: Sequence {
   func addStream(_ stream: Leia) -> Scenarios {
     let result = Scenarios(Array(scenarios))
     scenarios.forEach {
-      $0.add(stream)
+      $0.addStream(stream)
     }
     return result
   }

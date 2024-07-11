@@ -12,7 +12,7 @@ class Plan: Identifiable, Codable {
     case _id = "id"
     case _type = "type"
     case _name = "name"
-    case _pool = "pool"
+   // case _pool = "pool"
     case _stream = "stream"
     case _children = "children"
   }
@@ -23,15 +23,15 @@ class Plan: Identifiable, Codable {
 
   private(set) var name: String
 
-  var pool: Pool?
+  //var pool: Pool?
   var stream: Leia?
 
   var children: [Plan]?
 
-  static func makePool(_ pool: Pool) -> Plan {
-    Plan(pool)
-//    let leia = Leia(pool.name, pool.amount, first: pool.first, last: pool.last)
-//    return Plan(.pool, leia)
+  static func makePool(_ pool: Leia) -> Plan {
+    //Plan(pool)
+   // let leia = Leia(pool.name, pool.amount, first: pool.first, last: pool.last)
+    return Plan(.pool, pool)
   }
 
   static func makeLeia(_ stream: Leia) -> Plan {
@@ -46,11 +46,11 @@ class Plan: Identifiable, Codable {
     Plan(.scenarios, name)
   }
 
-  fileprivate init(_ pool: Pool) {
-    self.type = .pool
-    self.name = pool.name
-    self.pool = pool
-  }
+//  fileprivate init(_ pool: Pool) {
+//    self.type = .pool
+//    self.name = pool.name
+//    self.pool = pool
+//  }
 
   init(_ stream: Leia) {
     self.type = .stream
@@ -96,9 +96,9 @@ class Plan: Identifiable, Codable {
     self.stream = newLeia
   }
 
-  func replace(pool newPool: Pool) {
-    self.pool = newPool
-  }
+//  func replace(pool newPool: Pool) {
+//    self.pool = newPool
+//  }
 
   private func uniqueName(_ name: String, _ child: Plan, _ index: Int) -> String {
     " • \(name) (\(index + 1)) - \(child.name)"
@@ -107,7 +107,7 @@ class Plan: Identifiable, Codable {
   func scenarios(_ scenarios: Scenarios) -> Scenarios {
     switch type {
     case .pool:
-      return scenarios.addPool(pool!)
+      return scenarios.addPool(stream!)
 
     case .stream:
       return scenarios.addStream(stream!)

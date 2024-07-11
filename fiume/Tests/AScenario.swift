@@ -31,7 +31,7 @@ struct AScenario {
   private func makeScenario(_ streams: fiume.Leia...) -> Scenario {
     let result = Scenario("Scenario Name", people: people)
     streams.forEach {
-      result.add($0)
+      result.addStream($0)
     }
     return result
   }
@@ -44,7 +44,7 @@ struct AScenario {
 
     let result = sut.copy("altered name")
     let stream2 = makeLeia(name: "Income2", 2_000, first: 2024.jan, last: 2024.dec)
-    result.add(stream2)
+    result.addStream(stream2)
 
     #expect(sut.netIncome(at: 2024.jan) == Money(1_000))
     #expect(result.netIncome(at: 2024.jan) == Money(3_000))

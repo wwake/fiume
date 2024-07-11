@@ -21,7 +21,7 @@ struct AddPlanView: View {
 
     switch planType {
     case .pool:
-      EditPoolView(pool: Pool.null, buttonName: "Create") { pool in
+      EditPoolView(pool: Leia.null, buttonName: "Create") { pool in
         plans.append(parent: plan, child: Plan.makePool(pool))
       }
 

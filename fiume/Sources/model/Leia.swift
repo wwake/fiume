@@ -4,21 +4,23 @@ import Foundation
 //
 struct Leia: Identifiable, Codable {
   static var null: Leia {
-    Leia("", 0, first: .unchanged, last: .unchanged)
+    Leia(id: UUID(), "", 0, first: .unchanged, last: .unchanged)
   }
 
-  var id = UUID()
+  var id: UUID
   var name: String
   var amount: Money
   var first: DateSpecifier
   var last: DateSpecifier
 
   init(
+    id: UUID = UUID(),
     _ name: String,
     _ amount: Money,
     first: DateSpecifier,
     last: DateSpecifier
   ) {
+    self.id = id
     self.name = name
     self.amount = amount
 
@@ -79,6 +81,6 @@ struct Leia: Identifiable, Codable {
     let newFirst = self.first.update(using: stream.first)
     let newLast = self.last.update(using: stream.last)
 
-    return Leia(stream.name, stream.amount, first: newFirst, last: newLast)
+    return Leia(id: stream.id, stream.name, stream.amount, first: newFirst, last: newLast)
   }
 }

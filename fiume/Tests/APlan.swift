@@ -10,7 +10,7 @@ struct APlan {
     _ first: MonthYear = 2024.jan,
     _ last: MonthYear = 2034.dec
   ) -> Plan {
-    let pool = Pool(name: name, amount: Money(amount), first: .month(first), last: .month(last))
+    let pool = Leia(name, Money(amount), first: .month(first), last: .month(last))
     return Plan.makePool(pool)
   }
 
@@ -98,11 +98,11 @@ struct APlan {
   @Test
   func replaces_a_pool() {
     let plan = makePool("pool1", 750)
-    let replacement = makePool("pool2", 500).pool!
+    let replacement = makePool("pool2", 500).stream!
 
-    plan.replace(pool: replacement)
+    plan.replace(stream: replacement)
 
-    #expect(plan.pool!.name == "pool2")
+    #expect(plan.stream!.name == "pool2")
   }
 
   @Test
@@ -200,7 +200,7 @@ struct APlan {
   func multiple_scenarios_for_or_tree() {
     let scenario1 = Scenario("", people: people)
     let scenario2 = Scenario("", people: people)
-    scenario2.add(makeLeia("annuity", 500))
+    scenario2.addStream(makeLeia("annuity", 500))
 
     let leaf1 = makeLeia("Income1", 1_000, 2020.jan, 2030.jan)
     let leaf2 = makeLeia("Income2", 2_000, 2020.jan, 2030.jan)

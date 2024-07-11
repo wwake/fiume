@@ -4,10 +4,10 @@ struct EditPoolView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  var pool: Pool
+  var pool: Leia
 
   var buttonName: String
-  var action: (Pool) -> Void
+  var action: (Leia) -> Void
 
   @State private var isIncome = true
 
@@ -17,7 +17,7 @@ struct EditPoolView: View {
   @State private var startMonth = DateSpecifier.unchanged
   @State private var endMonth = DateSpecifier.unchanged
 
-  init(pool: Pool, buttonName: String, action: @escaping (Pool) -> Void) {
+  init(pool: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
     self.pool = pool
     self.buttonName = buttonName
     self.action = action
@@ -76,10 +76,10 @@ struct EditPoolView: View {
       HStack {
         Spacer()
         Button(buttonName) {
-          let outPool = Pool(
+          let outPool = Leia(
             id: pool.id,
-            name: name,
-            amount: Money(createdAmount()),
+            name,
+            Money(createdAmount()),
             first: startMonth,
             last: endMonth
           )
@@ -96,7 +96,7 @@ struct EditPoolView: View {
 }
 
 #Preview {
-  @State var pool = Pool(name: "", amount: 100, first: .unchanged, last: .unchanged)
+  @State var pool = Leia("", 100, first: .unchanged, last: .unchanged)
   return EditPoolView(pool: pool, buttonName: "Create") { _ in
   }
 }

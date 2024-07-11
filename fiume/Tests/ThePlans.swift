@@ -31,12 +31,12 @@ struct ThePlans {
 
   @Test
   func changes_when_pool_is_appended() {
-    let pool = Plan.makePool(Pool(name: "Savings", amount: Money(20000), first: .unchanged, last: .unchanged))
+    let pool = Plan.makePool(Leia("Savings", Money(20000), first: .unchanged, last: .unchanged))
 
     plans.append(parent: plans.plans, child: pool)
 
     #expect(plans.plans.children![0] === pool)
-    #expect(plans.plans.children![0].pool != nil)
+    #expect(plans.plans.children![0].stream != nil)
     #expect(plans.wasChanged)
   }
 
