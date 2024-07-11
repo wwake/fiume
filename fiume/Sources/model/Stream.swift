@@ -13,12 +13,12 @@ struct Stream: Identifiable, Codable {
 
   init(
     _ name: String,
-    _ monthlyAmount: Money,
+    _ amount: Money,
     first: DateSpecifier,
     last: DateSpecifier
   ) {
     self.name = name
-    self.amount = monthlyAmount
+    self.amount = amount
 
     self.first = first
 
