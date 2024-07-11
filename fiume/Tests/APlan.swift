@@ -10,12 +10,12 @@ struct APlan {
     _ first: MonthYear = 2024.jan,
     _ last: MonthYear = 2034.dec
   ) -> Plan {
-    let pool = Leia(name, Money(amount), first: .month(first), last: .month(last))
+    let pool = Leia(name: name, amount: Money(amount), first: .month(first), last: .month(last))
     return Plan.makePool(pool)
   }
 
   private func makeLeia(_ name: String, _ amount: Int) -> fiume.Leia {
-    Leia(name, Money(amount), first: .month(2024.jan), last: .unchanged)
+    Leia(name: name, amount: Money(amount), first: .month(2024.jan), last: .unchanged)
   }
 
   private func makeLeia(
@@ -24,7 +24,7 @@ struct APlan {
     _ first: MonthYear = 2024.jan,
     _ last: MonthYear = 2034.dec
   ) -> Plan {
-    let stream = Leia(name, Money(amount), first: .month(first), last: .month(last))
+    let stream = Leia(name: name, amount: Money(amount), first: .month(first), last: .month(last))
     return Plan.makeLeia(stream)
   }
 
@@ -200,7 +200,7 @@ struct APlan {
   func multiple_scenarios_for_or_tree() {
     let scenario1 = Scenario("", people: people)
     let scenario2 = Scenario("", people: people)
-    scenario2.addStream(makeLeia("annuity", 500))
+    scenario2.add(stream: makeLeia("annuity", 500))
 
     let leaf1 = makeLeia("Income1", 1_000, 2020.jan, 2030.jan)
     let leaf2 = makeLeia("Income2", 2_000, 2020.jan, 2030.jan)

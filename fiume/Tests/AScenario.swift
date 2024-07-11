@@ -16,7 +16,7 @@ struct AScenario {
     first: MonthYear,
     last: MonthYear
   ) -> fiume.Leia {
-    Leia(name, Money(amount), first: DateSpecifier.month(first), last: DateSpecifier.month(last))
+    Leia(name: name, amount: Money(amount), first: DateSpecifier.month(first), last: DateSpecifier.month(last))
   }
 
   private func makeLeia(
@@ -25,13 +25,13 @@ struct AScenario {
     first: DateSpecifier,
     last: DateSpecifier
   ) -> fiume.Leia {
-    Leia(name, Money(amount), first: first, last: last)
+    Leia(name: name, amount: Money(amount), first: first, last: last)
   }
 
   private func makeScenario(_ streams: fiume.Leia...) -> Scenario {
     let result = Scenario("Scenario Name", people: people)
     streams.forEach {
-      result.addStream($0)
+      result.add(stream: $0)
     }
     return result
   }
@@ -44,7 +44,7 @@ struct AScenario {
 
     let result = sut.copy("altered name")
     let stream2 = makeLeia(name: "Income2", 2_000, first: 2024.jan, last: 2024.dec)
-    result.addStream(stream2)
+    result.add(stream: stream2)
 
     #expect(sut.netIncome(at: 2024.jan) == Money(1_000))
     #expect(result.netIncome(at: 2024.jan) == Money(3_000))

@@ -24,15 +24,15 @@ class Scenario: Identifiable {
     Scenario(self, newName)
   }
 
-  func addPool(_ leia: Leia) {
-    add(leia, &pools)
+  func add(pool: Leia) {
+    add(pool, &pools)
   }
 
-  func addStream(_ leia: Leia) {
-    add(leia, &streams)
+  func add(stream: Leia) {
+    add(stream, &streams)
   }
 
-  func add(_ leia: Leia, _ map: inout NameToLeia) {
+  fileprivate func add(_ leia: Leia, _ map: inout NameToLeia) {
     if map[leia.name] == nil {
       map[leia.name] = leia
     } else {

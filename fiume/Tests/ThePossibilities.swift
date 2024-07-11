@@ -5,7 +5,7 @@ struct ThePossibilities {
   private let people = People()
 
   private func makeLeia(_ name: String, _ amount: Int) -> fiume.Leia {
-    Leia(name, Money(amount), first: .month(2024.jan), last: .unchanged)
+    Leia(name: name, amount: Money(amount), first: .month(2024.jan), last: .unchanged)
   }
 
   private func makePossibilities() -> Possibilities {

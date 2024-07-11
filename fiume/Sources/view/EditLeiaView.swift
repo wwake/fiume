@@ -77,8 +77,8 @@ struct EditLeiaView: View {
         Spacer()
         Button(buttonName) {
           let stream = Leia(
-            name,
-            Money(createdAmount()),
+            name: name,
+            amount: Money(createdAmount()),
             first: startMonth,
             last: endMonth
           )

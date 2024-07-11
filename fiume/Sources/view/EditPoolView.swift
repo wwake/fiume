@@ -78,8 +78,8 @@ struct EditPoolView: View {
         Button(buttonName) {
           let outPool = Leia(
             id: pool.id,
-            name,
-            Money(createdAmount()),
+            name: name,
+            amount: Money(createdAmount()),
             first: startMonth,
             last: endMonth
           )
@@ -96,7 +96,7 @@ struct EditPoolView: View {
 }
 
 #Preview {
-  @State var pool = Leia("", 100, first: .unchanged, last: .unchanged)
+  @State var pool = Leia(name: "", amount: 100, first: .unchanged, last: .unchanged)
   return EditPoolView(pool: pool, buttonName: "Create") { _ in
   }
 }

@@ -87,10 +87,10 @@ class Plan: Identifiable, Codable {
   func scenarios(_ scenarios: Scenarios) -> Scenarios {
     switch type {
     case .pool:
-      return scenarios.addPool(leia!)
+      return scenarios.add(pool: leia!)
 
     case .stream:
-      return scenarios.addStream(leia!)
+      return scenarios.add(stream: leia!)
 
     case .group:
       guard let children else {

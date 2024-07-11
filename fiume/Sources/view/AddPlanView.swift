@@ -45,6 +45,6 @@ struct AddPlanView: View {
 
 #Preview {
   @State var tree = Plan.makeGroup("accounts")
-  tree.append(Plan.makeLeia(Leia("income", Money(100), first: .month(2024.jan), last: .unchanged)))
+  tree.append(Plan.makeLeia(Leia(name: "income", amount: Money(100), first: .month(2024.jan), last: .unchanged)))
   return AddPlanView(plan: $tree)
 }

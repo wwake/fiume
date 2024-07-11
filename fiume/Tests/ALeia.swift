@@ -10,7 +10,7 @@ struct ALeia {
     first: MonthYear,
     last: MonthYear
   ) -> fiume.Leia {
-    Leia(name, Money(amount), first: DateSpecifier.month(first), last: DateSpecifier.month(last))
+    Leia(name: name, amount: Money(amount), first: DateSpecifier.month(first), last: DateSpecifier.month(last))
   }
 
   private func makeLeia(
@@ -19,7 +19,7 @@ struct ALeia {
     first: DateSpecifier,
     last: DateSpecifier
   ) -> fiume.Leia {
-    Leia(name, Money(amount), first: first, last: last)
+    Leia(name: name, amount: Money(amount), first: first, last: last)
   }
 
   @Test
