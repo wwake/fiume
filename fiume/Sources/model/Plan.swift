@@ -30,6 +30,8 @@ class Plan: Identifiable, Codable {
 
   static func makePool(_ pool: Pool) -> Plan {
     Plan(pool)
+//    let leia = Leia(pool.name, pool.amount, first: pool.first, last: pool.last)
+//    return Plan(.pool, leia)
   }
 
   static func makeLeia(_ stream: Leia) -> Plan {
@@ -44,7 +46,7 @@ class Plan: Identifiable, Codable {
     Plan(.scenarios, name)
   }
 
-  init(_ pool: Pool) {
+  fileprivate init(_ pool: Pool) {
     self.type = .pool
     self.name = pool.name
     self.pool = pool
@@ -52,6 +54,12 @@ class Plan: Identifiable, Codable {
 
   init(_ stream: Leia) {
     self.type = .stream
+    self.name = stream.name
+    self.stream = stream
+  }
+
+  init(_ type: PlanType, _ stream: Leia) {
+    self.type = type
     self.name = stream.name
     self.stream = stream
   }
