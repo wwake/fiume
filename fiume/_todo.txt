@@ -10,10 +10,8 @@ Display/Usability
 * Make edit pages say "Create" or "Update" "Pool"/whatever
 
 =====
-FI-24-33: 2024-07-11 - Pool Scenarios
-* Refactor: merge Pool and Stream => LEIA
-* Removed guard clause on Plan.append(); nothing uses it but it's not a problem either
-* Refactor: rename because of "Leia"
+FI-24-34: 2024-07-15 - Net Worth - Pools and Streams
+
 
 =====
 
@@ -49,7 +47,10 @@ Variables?
 Editing
 * Move streams (?)
 
-
+FI-24-33: 2024-07-11 - Pool Scenarios
+* Refactor: merge Pool and Stream => LEIA
+* Removed guard clause on Plan.append(); nothing uses it but it's not a problem either
+* Refactor: rename because of "Leia"
 
 FI-24-32: 2024-07-10 - Pools
 Pools
@@ -69,7 +70,6 @@ FI-24-30: 2024-07-08 - Edit Streams
 * Edit group and scenario names
 * Edit stream
 * Try starting with "null value" for creating new Stream
-
 
 FI-24-29: 2024-07-04 - Delete Streams
 * Delete streams
