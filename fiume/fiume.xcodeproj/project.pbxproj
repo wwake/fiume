@@ -21,7 +21,7 @@
 		914FEFAA2BF29399003D858E /* ThePossibilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA82BF29399003D858E /* ThePossibilities.swift */; };
 		914FEFAB2BF29399003D858E /* ALeia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA92BF29399003D858E /* ALeia.swift */; };
 		914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB42BF2AD09003D858E /* FormFields.swift */; };
-		914FEFB72BF2AD6B003D858E /* EditLeiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB62BF2AD6B003D858E /* EditLeiaView.swift */; };
+		914FEFB72BF2AD6B003D858E /* EditStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB62BF2AD6B003D858E /* EditStreamView.swift */; };
 		914FEFB92BF2AF08003D858E /* LeiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB82BF2AF08003D858E /* LeiaView.swift */; };
 		91690A7F2C12451500A6082D /* AgeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91690A7E2C12451500A6082D /* AgeSelector.swift */; };
 		918907102C3493FC0030918E /* Possibilities+add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189070F2C3493FC0030918E /* Possibilities+add.swift */; };
@@ -76,7 +76,7 @@
 		914FEFA82BF29399003D858E /* ThePossibilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThePossibilities.swift; sourceTree = "<group>"; };
 		914FEFA92BF29399003D858E /* ALeia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALeia.swift; sourceTree = "<group>"; };
 		914FEFB42BF2AD09003D858E /* FormFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFields.swift; sourceTree = "<group>"; };
-		914FEFB62BF2AD6B003D858E /* EditLeiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLeiaView.swift; sourceTree = "<group>"; };
+		914FEFB62BF2AD6B003D858E /* EditStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStreamView.swift; sourceTree = "<group>"; };
 		914FEFB82BF2AF08003D858E /* LeiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeiaView.swift; sourceTree = "<group>"; };
 		9152FC512C0AB46A000D5001 /* fiume-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "fiume-Info.plist"; sourceTree = "<group>"; };
 		91690A7E2C12451500A6082D /* AgeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelector.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				919CED532BF69C5C00ACCE2E /* EditGroupView.swift */,
 				91206E272C07BD2300D4C1CB /* EditPersonView.swift */,
 				919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */,
-				914FEFB62BF2AD6B003D858E /* EditLeiaView.swift */,
+				914FEFB62BF2AD6B003D858E /* EditStreamView.swift */,
 				91D543972C051A3800AD3592 /* DateSpecifierView.swift */,
 				914FEFB42BF2AD09003D858E /* FormFields.swift */,
 				91206E292C07BE6B00D4C1CB /* MonthYearView.swift */,
@@ -387,7 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91206E332C090B3F00D4C1CB /* PeopleView.swift in Sources */,
-				914FEFB72BF2AD6B003D858E /* EditLeiaView.swift in Sources */,
+				914FEFB72BF2AD6B003D858E /* EditStreamView.swift in Sources */,
 				914FEFA52BF2930E003D858E /* Possibilities.swift in Sources */,
 				919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */,
 				91206E2B2C07C16100D4C1CB /* MonthYear.swift in Sources */,

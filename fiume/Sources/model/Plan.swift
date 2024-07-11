@@ -26,11 +26,11 @@ class Plan: Identifiable, Codable {
 
   var children: [Plan]?
 
-  static func makePool(_ pool: Leia) -> Plan {
+  static func make(pool: Leia) -> Plan {
     Plan(.pool, pool)
   }
 
-  static func makeLeia(_ stream: Leia) -> Plan {
+  static func make(stream: Leia) -> Plan {
     Plan(.stream, stream)
   }
 
@@ -42,10 +42,10 @@ class Plan: Identifiable, Codable {
     Plan(.scenarios, name)
   }
 
-  fileprivate init(_ type: PlanType, _ stream: Leia) {
+  fileprivate init(_ type: PlanType, _ leia: Leia) {
     self.type = type
-    self.name = stream.name
-    self.leia = stream
+    self.name = leia.name
+    self.leia = leia
   }
 
   fileprivate init(_ type: PlanType, _ name: String) {
@@ -76,7 +76,7 @@ class Plan: Identifiable, Codable {
     name = newName
   }
 
-  func replace(stream newLeia: Leia) {
+  func replace(leia newLeia: Leia) {
     self.leia = newLeia
   }
 

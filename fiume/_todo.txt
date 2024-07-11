@@ -1,9 +1,12 @@
-* Refactor: merge Pool and Stream => LEIA? Fin? Package? Crumb? Whit?
-* Refactor: DateRange holding two DateSpecs
 * Scenarios with pools
+* Refactor: DateRange holding two DateSpecs
+* Plan.append() should check for pools
+
+* Try Jon's approach in https://qualitycoding.org/bypass-swiftui-app-launch-unit-testing/
 
 =====
 FI-24-33: 2024-07-11 - Pool Scenarios
+* Refactor: merge Pool and Stream => LEIA
 
 
 =====

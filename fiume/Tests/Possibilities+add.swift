@@ -2,7 +2,7 @@
 
 extension Possibilities {
   func add(_ stream: Leia) {
-    plans[0].append(Plan.makeLeia(stream))
+    plans[0].append(Plan.make(stream: stream))
   }
 
   func add(_ tree: Plan) {

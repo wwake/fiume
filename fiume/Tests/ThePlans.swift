@@ -12,7 +12,7 @@ struct ThePlans {
   @Test
   func doesnt_change_when_loading() {
     let newPlans = Plans()
-    newPlans.plans = Plan.makeLeia(Leia(name: "A Leia", amount: 1999, first: .unchanged, last: .unchanged))
+    newPlans.plans = Plan.make(stream: Leia(name: "A Leia", amount: 1999, first: .unchanged, last: .unchanged))
     plans.wasChanged = true
 
     plans.load(newPlans)
@@ -22,7 +22,7 @@ struct ThePlans {
 
   @Test
   func changes_when_stream_is_appended() {
-    let stream = Plan.makeLeia(Leia(name: "2d job", amount: Money(200), first: .unchanged, last: .unchanged))
+    let stream = Plan.make(stream: Leia(name: "2d job", amount: Money(200), first: .unchanged, last: .unchanged))
 
     plans.append(parent: plans.plans, child: stream)
     #expect(plans.plans.children![0] === stream)
@@ -31,7 +31,7 @@ struct ThePlans {
 
   @Test
   func changes_when_pool_is_appended() {
-    let pool = Plan.makePool(Leia(name: "Savings", amount: Money(20000), first: .unchanged, last: .unchanged))
+    let pool = Plan.make(pool: Leia(name: "Savings", amount: Money(20000), first: .unchanged, last: .unchanged))
 
     plans.append(parent: plans.plans, child: pool)
 
@@ -43,7 +43,7 @@ struct ThePlans {
   @Test
   func can_remove_a_plan() {
     let scenario = Plan.makeScenarios("my scenario")
-    let stream = Plan.makeLeia(Leia(name: "2d job", amount: Money(200), first: .unchanged, last: .unchanged))
+    let stream = Plan.make(stream: Leia(name: "2d job", amount: Money(200), first: .unchanged, last: .unchanged))
     scenario.append(stream)
     plans.append(parent: plans.plans, child: scenario)
 
@@ -68,10 +68,10 @@ struct ThePlans {
 
   @Test
   func are_changed_by_replacing_stream() {
-    let plan = Plan.makeLeia(Leia(name: "test", amount: Money(200), first: .unchanged, last: .unchanged))
+    let plan = Plan.make(stream: Leia(name: "test", amount: Money(200), first: .unchanged, last: .unchanged))
     plans.append(parent: plans.plans, child: plan)
 
-    plans.replace(plan, stream: Leia(name: "revised", amount: Money(500), first: .unchanged, last: .unchanged))
+    plans.replace(plan, Leia(name: "revised", amount: Money(500), first: .unchanged, last: .unchanged))
 
     #expect(plan.leia!.name == "revised")
     #expect(plan.leia!.amount == 500)

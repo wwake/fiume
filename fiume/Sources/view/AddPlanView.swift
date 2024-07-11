@@ -22,12 +22,12 @@ struct AddPlanView: View {
     switch planType {
     case .pool:
       EditPoolView(pool: Leia.null, buttonName: "Create") { pool in
-        plans.append(parent: plan, child: Plan.makePool(pool))
+        plans.append(parent: plan, child: Plan.make(pool: pool))
       }
 
     case .stream:
-      EditLeiaView(stream: Leia.null, buttonName: "Create") { stream in
-        plans.append(parent: plan, child: Plan.makeLeia(stream))
+      EditStreamView(stream: Leia.null, buttonName: "Create") { stream in
+        plans.append(parent: plan, child: Plan.make(stream: stream))
       }
 
     case .group:
@@ -45,6 +45,6 @@ struct AddPlanView: View {
 
 #Preview {
   @State var tree = Plan.makeGroup("accounts")
-  tree.append(Plan.makeLeia(Leia(name: "income", amount: Money(100), first: .month(2024.jan), last: .unchanged)))
+  tree.append(Plan.make(stream: Leia(name: "income", amount: Money(100), first: .month(2024.jan), last: .unchanged)))
   return AddPlanView(plan: $tree)
 }

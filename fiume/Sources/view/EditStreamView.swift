@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct EditLeiaView: View {
+struct EditStreamView: View {
   @Environment(\.dismiss)
   var dismiss
 

@@ -75,12 +75,12 @@ struct Leia: Identifiable, Codable {
     }
   }
 
-  func update(overriddenBy stream: Leia) -> Leia {
-    if self.name != stream.name { return self }
+  func update(overriddenBy leia: Leia) -> Leia {
+    if self.name != leia.name { return self }
 
-    let newFirst = self.first.update(using: stream.first)
-    let newLast = self.last.update(using: stream.last)
+    let newFirst = self.first.update(using: leia.first)
+    let newLast = self.last.update(using: leia.last)
 
-    return Leia(id: stream.id, name: stream.name, amount: stream.amount, first: newFirst, last: newLast)
+    return Leia(id: leia.id, name: leia.name, amount: leia.amount, first: newFirst, last: newLast)
   }
 }

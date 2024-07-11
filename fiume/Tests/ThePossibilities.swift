@@ -60,8 +60,8 @@ struct ThePossibilities {
     let sut = makePossibilities()
 
     let orTree = Plan.makeScenarios("jobs")
-    orTree.append(Plan.makeLeia(makeLeia("Salary1", Money(1_000))))
-    orTree.append(Plan.makeLeia(makeLeia("Salary2", Money(2_000))))
+    orTree.append(Plan.make(stream: makeLeia("Salary1", Money(1_000))))
+    orTree.append(Plan.make(stream: makeLeia("Salary2", Money(2_000))))
     sut.add(orTree)
 
     #expect(sut.scenarios().count == 2)
@@ -71,8 +71,8 @@ struct ThePossibilities {
   func computes_net_worth_for_multiple_scenarios() {
     let sut = makePossibilities()
     let orTree = Plan.makeScenarios("jobs")
-    orTree.append(Plan.makeLeia(makeLeia("Salary1", Money(1_000))))
-    orTree.append(Plan.makeLeia(makeLeia("Salary2", Money(2_000))))
+    orTree.append(Plan.make(stream: makeLeia("Salary1", Money(1_000))))
+    orTree.append(Plan.make(stream: makeLeia("Salary2", Money(2_000))))
     sut.add(orTree)
 
     let result = sut.netWorth(sut.range(3))

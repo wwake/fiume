@@ -18,7 +18,7 @@ struct LeiaView: View {
     self.stream = plan.wrappedValue.leia!
   }
 
-	var body: some View {
+  var body: some View {
     HStack {
       if stream.isNonNegative {
         Image(systemName: "arrow.up")
@@ -50,18 +50,20 @@ struct LeiaView: View {
     .padding(4)
     .background(stream.isNonNegative ? Color("Income") : Color("Expense"))
     .sheet(isPresented: $isEditPresented) {
-      EditLeiaView(stream: stream, buttonName: "Update") { stream in
-        plans.replace(plan, stream: stream)
+      EditStreamView(stream: stream, buttonName: "Update") { stream in
+        plans.replace(plan, stream)
       }
     }
-	}
+  }
 }
 
 #Preview {
   @State var people = People()
   @State var plans = Plans()
-  @State var income = Plan.makeLeia(Leia(name: "Salary", amount: 1_000, first: .month(2020.jan), last: .month(2025.dec)))
-  @State var expense = Plan.makeLeia(Leia(name: "Car", amount: -300, first: .month(2030.mar), last: .unchanged))
+  @State var income = Plan.make(
+    stream: Leia(name: "Salary", amount: 1_000, first: .month(2020.jan), last: .month(2025.dec))
+  )
+  @State var expense = Plan.make(stream: Leia(name: "Car", amount: -300, first: .month(2030.mar), last: .unchanged))
   return VStack {
     LeiaView(plan: $income)
     Divider()

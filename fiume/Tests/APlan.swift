@@ -11,7 +11,7 @@ struct APlan {
     _ last: MonthYear = 2034.dec
   ) -> Plan {
     let pool = Leia(name: name, amount: Money(amount), first: .month(first), last: .month(last))
-    return Plan.makePool(pool)
+    return Plan.make(pool: pool)
   }
 
   private func makeLeia(_ name: String, _ amount: Int) -> fiume.Leia {
@@ -25,7 +25,7 @@ struct APlan {
     _ last: MonthYear = 2034.dec
   ) -> Plan {
     let stream = Leia(name: name, amount: Money(amount), first: .month(first), last: .month(last))
-    return Plan.makeLeia(stream)
+    return Plan.make(stream: stream)
   }
 
   private func makeGroup(_ name: String, _ children: [Plan]) -> Plan {
@@ -100,7 +100,7 @@ struct APlan {
     let plan = makePool("pool1", 750)
     let replacement = makePool("pool2", 500).leia!
 
-    plan.replace(stream: replacement)
+    plan.replace(leia: replacement)
 
     #expect(plan.leia!.name == "pool2")
   }
@@ -108,9 +108,9 @@ struct APlan {
   @Test
   func can_replace_its_stream() {
     let stream = makeLeia("test", 500)
-    let plan = Plan.makeLeia(makeLeia("original", 20))
+    let plan = Plan.make(stream: makeLeia("original", 20))
 
-    plan.replace(stream: stream)
+    plan.replace(leia: stream)
 
     #expect(plan.leia!.name == "test")
     #expect(plan.leia!.amount == 500)
