@@ -49,7 +49,6 @@
 		91DA65012BF291F7004ADB9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65002BF291F7004ADB9B /* Assets.xcassets */; };
 		91DA65042BF291F7004ADB9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */; };
 		91EA30B32C3DCC2000FA1177 /* PoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA30B22C3DCC2000FA1177 /* PoolView.swift */; };
-		91EA30B52C3DCD9500FA1177 /* Pool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA30B42C3DCD9500FA1177 /* Pool.swift */; };
 		91F56D982C3DD266005A7E6E /* EditPoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F56D972C3DD266005A7E6E /* EditPoolView.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,7 +110,6 @@
 		91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		91DA65092BF291F8004ADB9B /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EA30B22C3DCC2000FA1177 /* PoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolView.swift; sourceTree = "<group>"; };
-		91EA30B42C3DCD9500FA1177 /* Pool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pool.swift; sourceTree = "<group>"; };
 		91F56D972C3DD266005A7E6E /* EditPoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPoolView.swift; sourceTree = "<group>"; };
 		91F950822C07B860006822AF /* MonthYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYear.swift; sourceTree = "<group>"; };
 		91F950842C07B8AB006822AF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				91F950842C07B8AB006822AF /* Person.swift */,
 				919CED482BF5492800ACCE2E /* Plan.swift */,
 				91C248D32C3337E400A1EEB3 /* Plans.swift */,
-				91EA30B42C3DCD9500FA1177 /* Pool.swift */,
 				914FEFA42BF2930E003D858E /* Possibilities.swift */,
 				914B54C42BFBDB74005A9090 /* Scenario.swift */,
 				91CDFD162BFE6AE700695E65 /* Scenarios.swift */,
@@ -395,7 +392,6 @@
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
 				919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */,
 				91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */,
-				91EA30B52C3DCD9500FA1177 /* Pool.swift in Sources */,
 				91EA30B32C3DCC2000FA1177 /* PoolView.swift in Sources */,
 				91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */,
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
