@@ -12,6 +12,7 @@ Display/Usability
 * Label "Asset", "Income" etc.
 * Should we show "unchanged" or just skip the dates
 * Make edit pages say "Create" or "Update" "Pool"/whatever
+* Delete people
 
 =====
 FI-24-34: 2024-07-15 - Net Worth - Pools and Streams

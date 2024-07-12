@@ -45,6 +45,8 @@ struct AddPlanView: View {
 
 #Preview {
   @State var tree = Plan.makeGroup("accounts")
+  @State var plans = Plans()
   tree.append(Plan.make(stream: Leia(name: "income", amount: Money(100), first: .month(2024.jan), last: .unchanged)))
   return AddPlanView(plan: $tree)
+    .environment(plans)
 }
