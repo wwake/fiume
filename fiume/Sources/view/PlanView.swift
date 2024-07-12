@@ -12,7 +12,7 @@ struct PlanView: View {
       PoolView(plan: $plan)
 
     case .stream:
-      LeiaView(plan: $plan)
+      StreamView(plan: $plan)
 
     case .group:
       PlanGroupView(plan: $plan)

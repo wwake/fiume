@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct LeiaView: View {
+struct StreamView: View {
   @Environment(People.self)
   var people: People
 
@@ -65,9 +65,9 @@ struct LeiaView: View {
   )
   @State var expense = Plan.make(stream: Leia(name: "Car", amount: -300, first: .month(2030.mar), last: .unchanged))
   return VStack {
-    LeiaView(plan: $income)
+    StreamView(plan: $income)
     Divider()
-    LeiaView(plan: $expense)
+    StreamView(plan: $expense)
   }
   .environment(people)
   .environment(plans)
