@@ -2,6 +2,10 @@
 
 * Try Jon's approach in https://qualitycoding.org/bypass-swiftui-app-launch-unit-testing/
 
+* Try framework approach to avoid simulator
+https://developer.apple.com/library/archive/technotes/tn2435/_index.html#//apple_ref/doc/uid/DTS40017543-CH1-ADD_FRAMEWORK_TARGET
+https://stackoverflow.com/questions/70055110/disable-simulator-in-swiftui-unit-test
+
 * Refactor: DateRange holding two DateSpecs
 
 Display/Usability
