@@ -1,10 +1,8 @@
-* Scenarios with pools
-
 * Try Jon's approach in https://qualitycoding.org/bypass-swiftui-app-launch-unit-testing/
 
 * Try framework approach to avoid simulator
-https://developer.apple.com/library/archive/technotes/tn2435/_index.html#//apple_ref/doc/uid/DTS40017543-CH1-ADD_FRAMEWORK_TARGET
 https://stackoverflow.com/questions/70055110/disable-simulator-in-swiftui-unit-test
+https://developer.apple.com/library/archive/technotes/tn2435/_index.html#//apple_ref/doc/uid/DTS40017543-CH1-ADD_FRAMEWORK_TARGET
 
 * Refactor: DateRange holding two DateSpecs
 
@@ -16,6 +14,7 @@ Display/Usability
 
 =====
 FI-24-34: 2024-07-15 - Net Worth - Pools and Streams
+* Scenarios with pools
 
 
 =====
@@ -46,6 +45,7 @@ Sections
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
 Calendar view (with RuleMark)
+Net Income by Month
 
 Variables?
 
