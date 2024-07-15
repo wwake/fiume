@@ -1,5 +1,4 @@
 import Foundation
-import SwiftUI
 
 struct Person: Identifiable, Equatable, Codable {
   static var null: Person {

@@ -1,4 +1,4 @@
-import SwiftUI
+import Foundation
 
 @Observable
 class People: Codable {
