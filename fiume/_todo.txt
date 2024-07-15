@@ -1,6 +1,7 @@
 
-* Try framework approach to avoid simulator
+* Take another try at framework approach to avoid simulator
 https://stackoverflow.com/questions/70055110/disable-simulator-in-swiftui-unit-test
+See if we can remove "Host" from the testing target'
 
 * Refactor: DateRange holding two DateSpecs
 
@@ -25,6 +26,8 @@ https://stackoverflow.com/questions/70055110/disable-simulator-in-swiftui-unit-t
 
 =====
 
+Growth
+Inflation
 
 Amount
 * Make amount an overrideable value on stream
@@ -34,9 +37,8 @@ Streams
 * Allow dates to depend on death day
 * Validate month is valid; end-date >= start-date
 
-Growth
-Inflation
-Add flows (in/out)
+Flows
+* Add flows (in/out)
 
 Design
 * Maybe Possibilities should be a struct, regenerated as needed
