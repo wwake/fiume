@@ -1,7 +1,22 @@
-import SwiftData
 import SwiftUI
 
+// See https://qualitycoding.org/bypass-swiftui-app-launch-unit-testing/
+
 @main
+enum MainEntryPoint {
+  static func main() {
+    if isProduction() {
+      FiumeApp.main()
+    } else {
+      TestApp.main()
+    }
+  }
+
+  private static func isProduction() -> Bool {
+      return NSClassFromString("XCTestCase") == nil
+  }
+}
+
 struct FiumeApp: App {
   @State var startDate = MonthYear(date: Date())
 
@@ -26,7 +41,7 @@ struct FiumeApp: App {
     }
   }
 
-	var body: some Scene {
+  var body: some Scene {
     WindowGroup {
       ContentView(startDate: startDate, people: people, plans: plans)
         .keyboardType(.alphabet)
@@ -34,5 +49,12 @@ struct FiumeApp: App {
     }
     .environment(people)
     .environment(plans)
-	}
+  }
+}
+
+struct TestApp: App {
+    var body: some Scene {
+        WindowGroup {
+        }
+    }
 }
