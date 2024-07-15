@@ -1,8 +1,6 @@
-* Try Jon's approach in https://qualitycoding.org/bypass-swiftui-app-launch-unit-testing/
 
 * Try framework approach to avoid simulator
 https://stackoverflow.com/questions/70055110/disable-simulator-in-swiftui-unit-test
-https://developer.apple.com/library/archive/technotes/tn2435/_index.html#//apple_ref/doc/uid/DTS40017543-CH1-ADD_FRAMEWORK_TARGET
 
 * Refactor: DateRange holding two DateSpecs
 
@@ -14,7 +12,15 @@ Display/Usability
 
 =====
 FI-24-34: 2024-07-15 - Net Worth - Pools and Streams
+Pools
 * Scenarios with pools
+
+Test/Dev Environment
+* Installed Jon's approach in https://qualitycoding.org/bypass-swiftui-app-launch-unit-testing/ - alternate main app with no persistence or view invoked
+
+* Try framework approach to avoid simulator
+https://stackoverflow.com/questions/70055110/disable-simulator-in-swiftui-unit-test
+ - still ran the simulator / reverted
 
 
 =====
