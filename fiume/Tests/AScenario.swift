@@ -125,6 +125,7 @@ struct AScenario {
 
     let result = scenario.netWorth(2025.jan...2025.feb)
 
-    // TODO - assertions
+    #expect(result.netWorthByMonth[0].amount == 1001)
+    #expect(result.netWorthByMonth[1].amount == 1002)
   }
 }

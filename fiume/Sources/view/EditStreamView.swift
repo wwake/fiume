@@ -76,13 +76,13 @@ struct EditStreamView: View {
       HStack {
         Spacer()
         Button(buttonName) {
-          let stream = Leia(
+          let leia = Leia(
             name: name,
             amount: Money(createdAmount()),
             first: startMonth,
             last: endMonth
           )
-          action(stream)
+          action(leia)
 
           dismiss()
         }

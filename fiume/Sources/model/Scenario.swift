@@ -44,10 +44,15 @@ class Scenario: Identifiable {
 
   func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
     var result = [MonthlyNetWorth]()
-    var runningTotal = Money(0)
+    var netIncomeToDate = Money(0)
     range.forEach { monthYear in
-      runningTotal += netIncome(at: monthYear)
-      result.append(MonthlyNetWorth(month: monthYear, amount: runningTotal))
+      let netIncomeForMonth = netIncome(at: monthYear)
+      netIncomeToDate += netIncomeForMonth
+
+      let netAssetsAtMonth = netAssets(at: monthYear)
+      let netWorthAtMonth = netIncomeToDate + netAssetsAtMonth
+
+      result.append(MonthlyNetWorth(month: monthYear, amount: netWorthAtMonth))
     }
     return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }
