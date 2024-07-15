@@ -1,4 +1,3 @@
-import Charts
 import Foundation
 
 private let months = [
@@ -93,17 +92,5 @@ extension MonthYear: Strideable {
 
   func range(_ numberOfMonths: Int) -> ClosedRange<MonthYear> {
     self...(self.advanced(by: numberOfMonths - 1))
-  }
-}
-
-extension MonthYear: Plottable {
-  var primitivePlottable: Date {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "MMMM, yyyy"
-    return dateFormatter.date(from: self.description)!
-  }
-
-  init?(primitivePlottable: Date) {
-    self.init(date: primitivePlottable)
   }
 }

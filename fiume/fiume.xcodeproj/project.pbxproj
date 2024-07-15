@@ -50,6 +50,7 @@
 		91DA65042BF291F7004ADB9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */; };
 		91EA30B32C3DCC2000FA1177 /* PoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA30B22C3DCC2000FA1177 /* PoolView.swift */; };
 		91F56D982C3DD266005A7E6E /* EditPoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F56D972C3DD266005A7E6E /* EditPoolView.swift */; };
+		91F6E05F2C45A29A00E5EB7E /* MonthYear+Plottable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		91DA65092BF291F8004ADB9B /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91EA30B22C3DCC2000FA1177 /* PoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolView.swift; sourceTree = "<group>"; };
 		91F56D972C3DD266005A7E6E /* EditPoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPoolView.swift; sourceTree = "<group>"; };
+		91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonthYear+Plottable.swift"; sourceTree = "<group>"; };
 		91F950822C07B860006822AF /* MonthYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYear.swift; sourceTree = "<group>"; };
 		91F950842C07B8AB006822AF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +155,7 @@
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				91EA30B22C3DCC2000FA1177 /* PoolView.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
+				91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				914FEFA52BF2930E003D858E /* Possibilities.swift in Sources */,
 				919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */,
 				91206E2B2C07C16100D4C1CB /* MonthYear.swift in Sources */,
+				91F6E05F2C45A29A00E5EB7E /* MonthYear+Plottable.swift in Sources */,
 				914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */,
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
 				919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */,
