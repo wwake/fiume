@@ -1,13 +1,13 @@
 import Foundation
 
-enum PlanType: String, CaseIterable, Identifiable, Codable {
-  var id: Self { self }
+public enum PlanType: String, CaseIterable, Identifiable, Codable {
+  public var id: Self { self }
 
   case pool, stream, group, scenarios
 }
 
 @Observable
-class Plan: Identifiable, Codable {
+public class Plan: Identifiable, Codable {
   enum CodingKeys: String, CodingKey {
     case _id = "id"
     case _type = "type"
@@ -16,7 +16,7 @@ class Plan: Identifiable, Codable {
     case _children = "children"
   }
 
-  var id = UUID()
+  public var id = UUID()
 
   var type: PlanType
 
