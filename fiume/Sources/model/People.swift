@@ -1,7 +1,7 @@
 import Foundation
 
 @Observable
-class People: Codable {
+public class People: Codable {
   enum CodingKeys: String, CodingKey {
     case _wasChanged = "wasChanged"
     case _people = "people"
@@ -45,7 +45,7 @@ class People: Codable {
 }
 
 extension People: Sequence {
-  func makeIterator() -> some IteratorProtocol<Person> {
+  public func makeIterator() -> some IteratorProtocol<Person> {
     people
       .sorted(by: { $0.name < $1.name })
       .makeIterator()

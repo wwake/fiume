@@ -1,6 +1,6 @@
 import Foundation
 
-enum DateSpecifier: Equatable, Codable {
+public enum DateSpecifier: Equatable, Codable {
   case unchanged
   case month(MonthYear)
   case age(UUID, Int)

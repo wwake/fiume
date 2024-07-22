@@ -1,11 +1,11 @@
 import Foundation
 
-struct Person: Identifiable, Equatable, Codable {
+public struct Person: Identifiable, Equatable, Codable {
   static var null: Person {
     Person(name: "", birth: 2000.jun, death: nil)
   }
 
-  var id: UUID
+  public var id: UUID
   let name: String
   let birth: MonthYear
   let death: MonthYear?
@@ -19,11 +19,11 @@ struct Person: Identifiable, Equatable, Codable {
 }
 
 extension Person: Hashable {
-  static func == (lhs: Person, rhs: Person) -> Bool {
+  public static func == (lhs: Person, rhs: Person) -> Bool {
     lhs.id == rhs.id
   }
 
-  func hash(into hasher: inout Hasher) {
+  public func hash(into hasher: inout Hasher) {
       hasher.combine(id)
   }
 }

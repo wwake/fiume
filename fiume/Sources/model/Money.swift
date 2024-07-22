@@ -1,1 +1,1 @@
-typealias Money = Int
+public typealias Money = Int
