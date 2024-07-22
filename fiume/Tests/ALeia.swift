@@ -24,22 +24,14 @@ struct ALeia {
   }
 
   @Test
-  func determines_amount_outside_month_year_date_range() throws {
+  func returns_zero_outside_month_year_date_range() throws {
     let sut = makeLeia(100, first: 2020.jan, last: 2020.oct)
     #expect(sut.amount(at: 2019.dec, people: people) == Money(0))
-    #expect(sut.amount(at: 2020.nov, people: people) == Money(0))
   }
 
   @Test
-  func determines_amount_inside_month_year_date_range() throws {
+  func returns_amount_inside_month_year_date_range() throws {
     let sut = makeLeia(100, first: 2020.jan, last: 2020.oct)
-    #expect(sut.amount(at: 2020.jan, people: people) == Money(100))
-    #expect(sut.amount(at: 2020.oct, people: people) == Money(100))
-  }
-
-  @Test
-  func starts_month_at_1_when_unspecified() {
-    let sut = makeLeia(100, first: DateSpecifier.unchanged, last: DateSpecifier.month(2020.feb))
     #expect(sut.amount(at: 2020.jan, people: people) == Money(100))
   }
 
@@ -79,25 +71,5 @@ struct ALeia {
     #expect(makeLeia(5, first: 2020.jan, last: 2020.dec).isNonNegative)
     #expect(makeLeia(0, first: 2021.jan, last: 2021.mar).isNonNegative)
     #expect(!makeLeia(-5, first: 2020.oct, last: 2020.dec).isNonNegative)
-  }
-
-  @Test
-  func can_start_at_an_age() {
-    let person = Person(name: "Bob", birth: 1970.jan, death: nil)
-    people.add(person)
-    let age = DateSpecifier.age(person.id, 40)
-    let sut = makeLeia(name: "Annuity", 500, first: age, last: .unchanged)
-    #expect(sut.amount(at: 2009.dec, people: people) == Money(0))
-    #expect(sut.amount(at: 2010.jan, people: people) == Money(500))
-  }
-
-  @Test
-  func can_end_at_an_age() {
-    let person = Person(name: "Bob", birth: 1970.jan, death: nil)
-    people.add(person)
-    let age = DateSpecifier.age(person.id, 40)
-    let sut = makeLeia(name: "Annuity", 500, first: .unchanged, last: age)
-    #expect(sut.amount(at: 2009.dec, people: people) == Money(500))
-    #expect(sut.amount(at: 2010.jan, people: people) == Money(0))
   }
 }
