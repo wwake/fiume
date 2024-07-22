@@ -40,44 +40,8 @@ public struct Leia: Identifiable, Codable {
   }
 
   public func amount(at month: MonthYear, people: People) -> Money {
-    Self.amount(dates: DateRange(first, last), amount: amount, at: month, people: people)
-  }
-
-  public static func amount(
-    dates: DateRange,
-    amount: Money,
-    at month: MonthYear,
-    people: People
-  ) -> Money {
-    switch dates.first {
-    case .unchanged:
-      break
-
-    case let .month(startMonth):
-      if month < startMonth { return Money(0) }
-
-    case let .age(id, age):
-      guard let person = people.findById(id) else { return Money(0) }
-      let birth = person.birth
-      let effectiveStart = birth.advanced(byYears: age)
-      if month < effectiveStart { return Money(0) }
-    }
-
-    switch dates.last {
-    case .unchanged:
-      return amount
-
-    case .month(let endMonth):
-      if month > endMonth { return Money(0) }
-      return amount
-
-    case let .age(id, age):
-      guard let person = people.findById(id) else { return Money(0) }
-      let birth = person.birth
-      let effectiveEnd = birth.advanced(byYears: age)
-      if month >= effectiveEnd { return Money(0) }
-      return amount
-    }
+    let dates = DateRange(first, last)
+    return dates.includes(month, people) ? amount : Money(0)
   }
 
   public func update(overriddenBy leia: Leia) -> Leia {
