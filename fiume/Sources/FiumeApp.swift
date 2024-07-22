@@ -1,20 +1,10 @@
 import fiume_model
 import SwiftUI
 
-// See https://qualitycoding.org/bypass-swiftui-app-launch-unit-testing/
-
 @main
 enum MainEntryPoint {
   static func main() {
-    if isProduction() {
       FiumeApp.main()
-    } else {
-      TestApp.main()
-    }
-  }
-
-  private static func isProduction() -> Bool {
-    NSClassFromString("XCTestCase") == nil
   }
 }
 
@@ -50,12 +40,5 @@ struct FiumeApp: App {
     }
     .environment(people)
     .environment(plans)
-  }
-}
-
-struct TestApp: App {
-  var body: some Scene {
-    WindowGroup {
-    }
   }
 }

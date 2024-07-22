@@ -3,6 +3,14 @@ import Foundation
 // Leia = Liability/Expense/Income/Asset (ie Stream or Pool)
 //
 public struct Leia: Identifiable, Codable {
+  public enum CodingKeys: String, CodingKey {
+    case id
+    case name
+    case amount
+    case first
+    case last
+  }
+
   public static var null: Leia {
     Leia(id: UUID(), name: "", amount: 0, first: .unchanged, last: .unchanged)
   }

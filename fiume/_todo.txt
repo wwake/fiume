@@ -1,16 +1,12 @@
-* Take another try at framework approach to avoid simulator
-https://stackoverflow.com/questions/70055110/disable-simulator-in-swiftui-unit-test
-See if we can remove "Host" from the testing target'
-
 * Refactor: DateRange holding two DateSpecs
+* Should we show "unchanged" or just skip the dates
+
+* Refactor: split up net worth calculation - produce raw values, then the report
 
 Display/Usability
 * Label "Asset", "Income" etc.
-* Should we show "unchanged" or just skip the dates
 * Make edit pages say "Create" or "Update" "Pool"/whatever
 * Delete people
-
-=====
 
 =====
 
@@ -48,6 +44,14 @@ Variables?
 Editing
 * Move streams (?)
 
+FI-24-35: 2024-07-22 - Testing without a Simulator?!
+* Modified model files to be public (constructors, functions, etc.)
+* Pulled model files into a new framework
+* Adjusted view and test code to the new framework
+* Turn off "run in host app" so tests run on the simulator but don't bring up the app at all. (Can even run if app is deinstalled.)
+  Result: 6-7 s. to start simulator; ~3 s. to run tests.
+  Previously - could take up to 30 seconds, almost always 10+
+  Yay!
 
 FI-24-34: 2024-07-15 - Net Worth - Pools and Streams
 Pools
