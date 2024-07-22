@@ -2,12 +2,12 @@ import Foundation
 
 // Leia = Liability/Expense/Income/Asset (ie Stream or Pool)
 //
-struct Leia: Identifiable, Codable {
+public struct Leia: Identifiable, Codable {
   static var null: Leia {
     Leia(id: UUID(), name: "", amount: 0, first: .unchanged, last: .unchanged)
   }
 
-  var id: UUID
+  public var id: UUID
   var name: String
   var amount: Money
   var first: DateSpecifier
