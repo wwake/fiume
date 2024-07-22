@@ -1,7 +1,7 @@
 import Foundation
 
 @Observable
-class Plans: Codable {
+public class Plans: Codable {
   enum CodingKeys: String, CodingKey {
     case _wasChanged = "wasChanged"
     case _plans = "plans"
