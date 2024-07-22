@@ -7,18 +7,18 @@ private let months = [
   "October", "November", "December",
 ]
 
-enum Month: Int, Codable {
+public enum Month: Int, Codable {
   case jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
 }
 
 extension Month: Comparable {
-  static func < (left: Month, right: Month) -> Bool {
+  public static func < (left: Month, right: Month) -> Bool {
     left.rawValue < right.rawValue
   }
 }
 
 extension Month: CustomStringConvertible {
-  var description: String {
+  public var description: String {
     "\(months[self.rawValue])"
   }
 }
