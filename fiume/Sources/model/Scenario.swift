@@ -1,7 +1,7 @@
 import Foundation
 
-class Scenario: Identifiable {
-  let id = UUID()
+public class Scenario: Identifiable {
+  public let id = UUID()
   let name: String
   let people: People
 
@@ -71,11 +71,11 @@ class Scenario: Identifiable {
 }
 
 extension Scenario: Hashable {
-	static func == (lhs: Scenario, rhs: Scenario) -> Bool {
+  public static func == (lhs: Scenario, rhs: Scenario) -> Bool {
     lhs.id == rhs.id
 	}
 
-	func hash(into hasher: inout Hasher) {
+  public func hash(into hasher: inout Hasher) {
 			hasher.combine(id)
 	}
 }
