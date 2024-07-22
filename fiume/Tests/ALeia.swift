@@ -11,7 +11,7 @@ struct ALeia {
     first: MonthYear,
     last: MonthYear
   ) -> Leia {
-    Leia(name: name, amount: Money(amount), first: DateSpecifier.month(first), last: DateSpecifier.month(last))
+    Leia(name: name, amount: Money(amount), dates: DateRange(.month(first), .month(last)))
   }
 
   private func makeLeia(
@@ -20,7 +20,7 @@ struct ALeia {
     first: DateSpecifier,
     last: DateSpecifier
   ) -> Leia {
-    Leia(name: name, amount: Money(amount), first: first, last: last)
+    Leia(name: name, amount: Money(amount), dates: DateRange(first, last))
   }
 
   @Test

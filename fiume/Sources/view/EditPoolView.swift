@@ -81,8 +81,7 @@ struct EditPoolView: View {
             id: pool.id,
             name: name,
             amount: Money(createdAmount()),
-            first: startMonth,
-            last: endMonth
+            dates: DateRange(startMonth, endMonth)
           )
           action(outPool)
 
@@ -97,7 +96,7 @@ struct EditPoolView: View {
 }
 
 #Preview {
-  @State var pool = Leia(name: "", amount: 100, first: .unchanged, last: .unchanged)
+  @State var pool = Leia(name: "", amount: 100, dates: DateRange.null)
   return EditPoolView(pool: pool, buttonName: "Create") { _ in
   }
 }

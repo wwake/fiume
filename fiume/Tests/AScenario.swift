@@ -17,7 +17,7 @@ struct AScenario {
     first: MonthYear,
     last: MonthYear
   ) -> Leia {
-    Leia(name: name, amount: Money(amount), first: DateSpecifier.month(first), last: DateSpecifier.month(last))
+    Leia(name: name, amount: Money(amount), dates: DateRange(.month(first), .month(last)))
   }
 
   private func makeLeia(
@@ -26,7 +26,7 @@ struct AScenario {
     first: DateSpecifier,
     last: DateSpecifier
   ) -> Leia {
-    Leia(name: name, amount: Money(amount), first: first, last: last)
+    Leia(name: name, amount: Money(amount), dates: DateRange(first, last))
   }
 
   private func makeScenario(_ streams: Leia...) -> Scenario {
@@ -119,8 +119,8 @@ struct AScenario {
   @Test
   func keeps_pools_and_accumulates_streams() {
     let scenario = Scenario("pool+stream", people: people)
-    let asset = Leia(name: "savings", amount: Money(1_000), first: .unchanged, last: .unchanged)
-    let income = Leia(name: "job", amount: Money(1), first: .unchanged, last: .unchanged)
+    let asset = Leia(name: "savings", amount: Money(1_000), dates: DateRange.null)
+    let income = Leia(name: "job", amount: Money(1), dates: DateRange.null)
     scenario.add(pool: asset)
     scenario.add(stream: income)
 

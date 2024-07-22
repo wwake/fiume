@@ -2,41 +2,46 @@ import fiume_model
 import SwiftUI
 
 struct CreateScenariosView: View {
-	@Environment(\.dismiss)
-	var dismiss
+  @Environment(\.dismiss)
+  var dismiss
 
   @Environment(Plans.self)
   var plans: Plans
 
   @Binding var plan: Plan
-	@State private var name = ""
+  @State private var name = ""
 
   func valid() -> Bool {
     !name.isEmpty
   }
 
-	var body: some View {
-		Form {
+  var body: some View {
+    Form {
       RequiredTextField(name: "Name", field: $name)
 
-			HStack {
-				Spacer()
-				Button("Create") {
+      HStack {
+        Spacer()
+        Button("Create") {
           plans.append(parent: plan, child: Plan.makeScenarios(name))
 
-					dismiss()
-				}
+          dismiss()
+        }
         .disabled(!valid())
-				Spacer()
-			}
-		}
-	}
+        Spacer()
+      }
+    }
+  }
 }
 
 #Preview {
   @State var plans = Plans()
   @State var tree = Plan.makeGroup("accounts")
-  tree.append(Plan.make(stream: Leia(name: "income", amount: Money(100), first: .month(2020.jan), last: .unchanged)))
-	return CreateScenariosView(plan: $tree)
+  let stream = Leia(
+    name: "income",
+    amount: Money(100),
+    dates: DateRange(.month(2020.jan), .unchanged)
+  )
+  tree.append(Plan.make(stream: stream))
+  return CreateScenariosView(plan: $tree)
     .environment(plans)
 }

@@ -80,8 +80,7 @@ struct EditStreamView: View {
           let leia = Leia(
             name: name,
             amount: Money(createdAmount()),
-            first: startMonth,
-            last: endMonth
+            dates: DateRange(startMonth, endMonth)
           )
           action(leia)
 

@@ -62,9 +62,17 @@ struct PoolView: View {
   @State var people = People()
   @State var plans = Plans()
   @State var asset = Plan.make(
-    pool: Leia(name: "Savings", amount: 1_000, first: .month(2020.jan), last: .month(2025.dec))
+    pool: Leia(
+      name: "Savings",
+      amount: 1_000,
+      dates: DateRange(.month(2020.jan), .month(2025.dec))
+    )
   )
-  @State var liability = Plan.make(pool: Leia(name: "Car", amount: -300, first: .month(2030.mar), last: .unchanged))
+  @State var liability = Plan.make(pool: Leia(
+    name: "Car",
+    amount: -300,
+    dates: DateRange(.month(2030.mar), .unchanged)
+  ))
   return VStack {
     PoolView(plan: $asset)
     Divider()

@@ -26,7 +26,11 @@ struct PlanListView: View {
   @State var people = People()
 
   let possibilities = Possibilities(startDate: MonthYear(date: Date()), plans: plans, people: people)
-  let stream = Plan.make(stream: Leia(name: "Annuity", amount: Money(1_000), first: .month(2020.jan), last: .unchanged))
+  let stream = Plan.make(stream: Leia(
+    name: "Annuity",
+    amount: Money(1_000),
+    dates: DateRange(.month(2020.jan), .unchanged)
+  ))
   possibilities.plans[0].append(stream)
 
   return PlanListView(possibilities: possibilities)

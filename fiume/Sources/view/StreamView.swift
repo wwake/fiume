@@ -62,9 +62,10 @@ struct StreamView: View {
   @State var people = People()
   @State var plans = Plans()
   @State var income = Plan.make(
-    stream: Leia(name: "Salary", amount: 1_000, first: .month(2020.jan), last: .month(2025.dec))
+    stream: Leia(name: "Salary", amount: 1_000, dates: DateRange(.month(2020.jan), .month(2025.dec)))
   )
-  @State var expense = Plan.make(stream: Leia(name: "Car", amount: -300, first: .month(2030.mar), last: .unchanged))
+  let stream = Leia(name: "Car", amount: -300, dates: DateRange( .month(2030.mar), .unchanged))
+  @State var expense = Plan.make(stream: stream)
   return VStack {
     StreamView(plan: $income)
     Divider()

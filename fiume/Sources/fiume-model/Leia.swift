@@ -1,5 +1,17 @@
 import Foundation
 
+public struct DateRange {
+  public var first: DateSpecifier
+  public var last: DateSpecifier
+
+  public static var null = DateRange(.unchanged, .unchanged)
+
+  public init(_ first: DateSpecifier, _ last: DateSpecifier) {
+    self.first = first
+    self.last = last
+  }
+}
+
 // Leia = Liability/Expense/Income/Asset (ie Stream or Pool)
 //
 public struct Leia: Identifiable, Codable {
@@ -12,7 +24,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public static var null: Leia {
-    Leia(id: UUID(), name: "", amount: 0, first: .unchanged, last: .unchanged)
+    Leia(id: UUID(), name: "", amount: 0, dates: DateRange.null)
   }
 
   public var id: UUID
@@ -25,16 +37,14 @@ public struct Leia: Identifiable, Codable {
     id: UUID = UUID(),
     name: String,
     amount: Money,
-    first: DateSpecifier,
-    last: DateSpecifier
+    dates: DateRange
   ) {
     self.id = id
     self.name = name
     self.amount = amount
 
-    self.first = first
-
-    self.last = last
+    self.first = dates.first
+    self.last = dates.last
   }
 
   public var isNonNegative: Bool {
@@ -42,17 +52,16 @@ public struct Leia: Identifiable, Codable {
   }
 
   public func amount(at month: MonthYear, people: People) -> Money {
-    Self.amount(first: first, last: last, amount: amount, at: month, people: people)
+    Self.amount(dates: DateRange(first, last), amount: amount, at: month, people: people)
   }
 
   public static func amount(
-    first: DateSpecifier,
-    last: DateSpecifier,
+    dates: DateRange,
     amount: Money,
     at month: MonthYear,
     people: People
   ) -> Money {
-    switch first {
+    switch dates.first {
     case .unchanged:
       break
 
@@ -66,7 +75,7 @@ public struct Leia: Identifiable, Codable {
       if month < effectiveStart { return Money(0) }
     }
 
-    switch last {
+    switch dates.last {
     case .unchanged:
       return amount
 
@@ -89,6 +98,6 @@ public struct Leia: Identifiable, Codable {
     let newFirst = self.first.update(using: leia.first)
     let newLast = self.last.update(using: leia.last)
 
-    return Leia(id: leia.id, name: leia.name, amount: leia.amount, first: newFirst, last: newLast)
+    return Leia(id: leia.id, name: leia.name, amount: leia.amount, dates: DateRange(newFirst, newLast))
   }
 }
