@@ -38,7 +38,7 @@ extension Int {
   var dec: MonthYear { MonthYear(.dec, self)}
 }
 
-struct MonthYear: Equatable, Codable {
+public struct MonthYear: Equatable, Codable {
   let month: Month
   let year: Int
 
@@ -55,7 +55,7 @@ struct MonthYear: Equatable, Codable {
 }
 
 extension MonthYear: Comparable {
-  static func < (left: MonthYear, right: MonthYear) -> Bool {
+  public static func < (left: MonthYear, right: MonthYear) -> Bool {
     if left.year == right.year {
       return left.month < right.month
     }
@@ -64,7 +64,7 @@ extension MonthYear: Comparable {
 }
 
 extension MonthYear: CustomStringConvertible {
-  var description: String {
+  public var description: String {
     "\(month), \(year)"
   }
 }
@@ -78,7 +78,7 @@ extension MonthYear: Strideable {
     MonthYear(Month(rawValue: months % 12)!, months / 12)
   }
 
-  func advanced(by n: Int) -> MonthYear {
+  public func advanced(by n: Int) -> MonthYear {
     toMonthYear(self.toMonthCount() + n)
   }
 
@@ -86,7 +86,7 @@ extension MonthYear: Strideable {
     toMonthYear(self.toMonthCount() + 12 * n)
   }
 
-  func distance(to other: MonthYear) -> Int {
+  public func distance(to other: MonthYear) -> Int {
     other.toMonthCount() - self.toMonthCount()
   }
 
