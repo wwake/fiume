@@ -1,4 +1,5 @@
 @testable import fiume
+import fiume_model
 
 extension Possibilities {
   func add(_ stream: Leia) {

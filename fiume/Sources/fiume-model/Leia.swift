@@ -3,17 +3,17 @@ import Foundation
 // Leia = Liability/Expense/Income/Asset (ie Stream or Pool)
 //
 public struct Leia: Identifiable, Codable {
-  static var null: Leia {
+  public static var null: Leia {
     Leia(id: UUID(), name: "", amount: 0, first: .unchanged, last: .unchanged)
   }
 
   public var id: UUID
-  var name: String
-  var amount: Money
-  var first: DateSpecifier
-  var last: DateSpecifier
+  public var name: String
+  public var amount: Money
+  public var first: DateSpecifier
+  public var last: DateSpecifier
 
-  init(
+  public init(
     id: UUID = UUID(),
     name: String,
     amount: Money,
@@ -29,15 +29,15 @@ public struct Leia: Identifiable, Codable {
     self.last = last
   }
 
-  var isNonNegative: Bool {
+  public var isNonNegative: Bool {
     amount >= 0
   }
 
-  func amount(at month: MonthYear, people: People) -> Money {
+  public func amount(at month: MonthYear, people: People) -> Money {
     Self.amount(first: first, last: last, amount: amount, at: month, people: people)
   }
 
-  static func amount(
+  public static func amount(
     first: DateSpecifier,
     last: DateSpecifier,
     amount: Money,
@@ -75,7 +75,7 @@ public struct Leia: Identifiable, Codable {
     }
   }
 
-  func update(overriddenBy leia: Leia) -> Leia {
+  public func update(overriddenBy leia: Leia) -> Leia {
     if self.name != leia.name { return self }
 
     let newFirst = self.first.update(using: leia.first)

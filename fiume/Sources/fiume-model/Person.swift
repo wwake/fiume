@@ -1,16 +1,16 @@
 import Foundation
 
 public struct Person: Identifiable, Equatable, Codable {
-  static var null: Person {
+  public static var null: Person {
     Person(name: "", birth: 2000.jun, death: nil)
   }
 
   public var id: UUID
-  let name: String
-  let birth: MonthYear
-  let death: MonthYear?
+  public let name: String
+  public let birth: MonthYear
+  public let death: MonthYear?
 
-  init(_ id: UUID = UUID(), name: String, birth: MonthYear, death: MonthYear?) {
+  public init(_ id: UUID = UUID(), name: String, birth: MonthYear, death: MonthYear?) {
     self.id = id
     self.name = name
     self.birth = birth
@@ -25,5 +25,14 @@ extension Person: Hashable {
 
   public func hash(into hasher: inout Hasher) {
       hasher.combine(id)
+  }
+}
+
+extension Person: Comparable {
+  public static func < (lhs: Person, rhs: Person) -> Bool {
+    if lhs.name == rhs.name {
+      return lhs.birth < rhs.birth
+    }
+    return lhs.name < rhs.name
   }
 }

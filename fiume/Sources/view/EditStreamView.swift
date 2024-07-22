@@ -1,3 +1,4 @@
+import fiume_model
 import SwiftUI
 
 struct EditStreamView: View {

@@ -2,14 +2,14 @@ import Foundation
 
 public class Scenario: Identifiable {
   public let id = UUID()
-  let name: String
-  let people: People
+  public let name: String
+  public let people: People
 
-  typealias NameToLeia = [String: Leia]
-  var streams = NameToLeia()
-  var pools = NameToLeia()
+  public typealias NameToLeia = [String: Leia]
+  public var streams = NameToLeia()
+  public var pools = NameToLeia()
 
-  init(_ name: String, people: People) {
+  public init(_ name: String, people: People) {
     self.name = name
     self.people = people
   }
@@ -20,15 +20,15 @@ public class Scenario: Identifiable {
     self.streams = copy
   }
 
-  func copy(_ newName: String) -> Scenario {
+  public func copy(_ newName: String) -> Scenario {
     Scenario(self, newName)
   }
 
-  func add(pool: Leia) {
+  public func add(pool: Leia) {
     add(pool, &pools)
   }
 
-  func add(stream: Leia) {
+  public func add(stream: Leia) {
     add(stream, &streams)
   }
 
@@ -42,7 +42,7 @@ public class Scenario: Identifiable {
     }
   }
 
-  func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
+  public func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
     var result = [MonthlyNetWorth]()
     var netIncomeToDate = Money(0)
     range.forEach { monthYear in
@@ -57,13 +57,13 @@ public class Scenario: Identifiable {
     return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }
 
-  func netIncome(at month: MonthYear) -> Money {
+  public func netIncome(at month: MonthYear) -> Money {
     streams.values.reduce(Money(0)) { net, stream in
       net + stream.amount(at: month, people: people)
     }
   }
 
-  func netAssets(at month: MonthYear) -> Money {
+  public func netAssets(at month: MonthYear) -> Money {
     pools.values.reduce(Money(0)) { net, pool in
       net + pool.amount(at: month, people: people)
     }

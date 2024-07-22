@@ -9,37 +9,42 @@
 /* Begin PBXBuildFile section */
 		91206E282C07BD2300D4C1CB /* EditPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91206E272C07BD2300D4C1CB /* EditPersonView.swift */; };
 		91206E2A2C07BE6B00D4C1CB /* MonthYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91206E292C07BE6B00D4C1CB /* MonthYearView.swift */; };
-		91206E2B2C07C16100D4C1CB /* MonthYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F950822C07B860006822AF /* MonthYear.swift */; };
-		91206E2C2C07C21300D4C1CB /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F950842C07B8AB006822AF /* Person.swift */; };
 		91206E2F2C09013C00D4C1CB /* AMonthYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91206E2D2C09011500D4C1CB /* AMonthYear.swift */; };
 		91206E332C090B3F00D4C1CB /* PeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91206E322C090B3F00D4C1CB /* PeopleView.swift */; };
-		914B54C52BFBDB74005A9090 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B54C42BFBDB74005A9090 /* Scenario.swift */; };
 		914B54C72BFBDF34005A9090 /* AScenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B54C62BFBDF34005A9090 /* AScenario.swift */; };
-		914FEFA32BF292FE003D858E /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA22BF292FE003D858E /* Money.swift */; };
-		914FEFA52BF2930E003D858E /* Possibilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA42BF2930E003D858E /* Possibilities.swift */; };
-		914FEFA72BF29317003D858E /* Leia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA62BF29317003D858E /* Leia.swift */; };
 		914FEFAA2BF29399003D858E /* ThePossibilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA82BF29399003D858E /* ThePossibilities.swift */; };
 		914FEFAB2BF29399003D858E /* ALeia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA92BF29399003D858E /* ALeia.swift */; };
 		914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB42BF2AD09003D858E /* FormFields.swift */; };
 		914FEFB72BF2AD6B003D858E /* EditStreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB62BF2AD6B003D858E /* EditStreamView.swift */; };
 		914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB82BF2AF08003D858E /* StreamView.swift */; };
+		915226DA2C4EDB980001260F /* fiume_model.h in Headers */ = {isa = PBXBuildFile; fileRef = 915226D92C4EDB980001260F /* fiume_model.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		915226DD2C4EDB980001260F /* fiume_model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915226D72C4EDB980001260F /* fiume_model.framework */; };
+		915226DE2C4EDB980001260F /* fiume_model.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 915226D72C4EDB980001260F /* fiume_model.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		915226E32C4EDBAD0001260F /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA22BF292FE003D858E /* Money.swift */; };
+		915226E42C4EDBAD0001260F /* MonthYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F950822C07B860006822AF /* MonthYear.swift */; };
+		915226E52C4EDBAD0001260F /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F950842C07B8AB006822AF /* Person.swift */; };
+		915226E62C4EDBAD0001260F /* Scenarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDFD162BFE6AE700695E65 /* Scenarios.swift */; };
+		915226E72C4EDBAD0001260F /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B54C42BFBDB74005A9090 /* Scenario.swift */; };
+		915226E82C4EDBAD0001260F /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED482BF5492800ACCE2E /* Plan.swift */; };
+		915226E92C4EDBAD0001260F /* Leia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA62BF29317003D858E /* Leia.swift */; };
+		915226EA2C4EDBAD0001260F /* DateSpecifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D543992C051B5700AD3592 /* DateSpecifier.swift */; };
+		915226EB2C4EDBAD0001260F /* Plans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D32C3337E400A1EEB3 /* Plans.swift */; };
+		915226EC2C4EDBAD0001260F /* Possibilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA42BF2930E003D858E /* Possibilities.swift */; };
+		915226ED2C4EDBAD0001260F /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248CC2C24B3CE00A1EEB3 /* People.swift */; };
+		915226EF2C4EDC060001260F /* fiume_model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915226D72C4EDB980001260F /* fiume_model.framework */; platformFilter = ios; };
+		915226F02C4EDC060001260F /* fiume_model.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 915226D72C4EDB980001260F /* fiume_model.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91690A7F2C12451500A6082D /* AgeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91690A7E2C12451500A6082D /* AgeSelector.swift */; };
 		918907102C3493FC0030918E /* Possibilities+add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189070F2C3493FC0030918E /* Possibilities+add.swift */; };
-		919CED492BF5492800ACCE2E /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED482BF5492800ACCE2E /* Plan.swift */; };
 		919CED4B2BF5499F00ACCE2E /* APlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4A2BF5499F00ACCE2E /* APlan.swift */; };
 		919CED4D2BF54D8C00ACCE2E /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4C2BF54D8C00ACCE2E /* PlanView.swift */; };
 		919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4E2BF550E300ACCE2E /* PlanListView.swift */; };
 		919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED512BF699E900ACCE2E /* AddPlanView.swift */; };
 		919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED532BF69C5C00ACCE2E /* EditGroupView.swift */; };
 		919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */; };
-		91C248CD2C24B3CE00A1EEB3 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248CC2C24B3CE00A1EEB3 /* People.swift */; };
 		91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D12C33277100A1EEB3 /* Persistence.swift */; };
-		91C248D42C3337E400A1EEB3 /* Plans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D32C3337E400A1EEB3 /* Plans.swift */; };
 		91C248D62C333DC200A1EEB3 /* ThePeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D52C333DC200A1EEB3 /* ThePeople.swift */; };
 		91C248D92C33456E00A1EEB3 /* ThePlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D72C33453E00A1EEB3 /* ThePlans.swift */; };
-		91CDFD172BFE6AE700695E65 /* Scenarios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDFD162BFE6AE700695E65 /* Scenarios.swift */; };
 		91D543982C051A3800AD3592 /* DateSpecifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D543972C051A3800AD3592 /* DateSpecifierView.swift */; };
-		91D5439A2C051B5700AD3592 /* DateSpecifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D543992C051B5700AD3592 /* DateSpecifier.swift */; };
 		91D5439C2C0523D900AD3592 /* ADateSpecifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D5439B2C0523D900AD3592 /* ADateSpecifier.swift */; };
 		91D543A02C06927900AD3592 /* Testing in Frameworks */ = {isa = PBXBuildFile; productRef = 91D5439F2C06927900AD3592 /* Testing */; };
 		91D543A32C06DE2A00AD3592 /* Scaffolding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D543A22C06DE2A00AD3592 /* Scaffolding.swift */; };
@@ -54,6 +59,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		915226DB2C4EDB980001260F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91DA64F12BF291F6004ADB9B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 915226D62C4EDB980001260F;
+			remoteInfo = "fiume-model";
+		};
+		915226F12C4EDC060001260F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 91DA64F12BF291F6004ADB9B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 915226D62C4EDB980001260F;
+			remoteInfo = "fiume-model";
+		};
 		91DA650A2BF291F8004ADB9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 91DA64F12BF291F6004ADB9B /* Project object */;
@@ -62,6 +81,31 @@
 			remoteInfo = fiume;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		915226E22C4EDB980001260F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				915226DE2C4EDB980001260F /* fiume_model.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		915226F32C4EDC060001260F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				915226F02C4EDC060001260F /* fiume_model.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		91206E272C07BD2300D4C1CB /* EditPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonView.swift; sourceTree = "<group>"; };
@@ -78,6 +122,8 @@
 		914FEFB42BF2AD09003D858E /* FormFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFields.swift; sourceTree = "<group>"; };
 		914FEFB62BF2AD6B003D858E /* EditStreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStreamView.swift; sourceTree = "<group>"; };
 		914FEFB82BF2AF08003D858E /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		915226D72C4EDB980001260F /* fiume_model.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = fiume_model.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		915226D92C4EDB980001260F /* fiume_model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fiume_model.h; sourceTree = "<group>"; };
 		9152FC512C0AB46A000D5001 /* fiume-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "fiume-Info.plist"; sourceTree = "<group>"; };
 		91690A7E2C12451500A6082D /* AgeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelector.swift; sourceTree = "<group>"; };
 		9189070F2C3493FC0030918E /* Possibilities+add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Possibilities+add.swift"; sourceTree = "<group>"; };
@@ -118,10 +164,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		915226D42C4EDB980001260F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91DA64F62BF291F6004ADB9B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915226DD2C4EDB980001260F /* fiume_model.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,12 +184,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				91D543A02C06927900AD3592 /* Testing in Frameworks */,
+				915226EF2C4EDC060001260F /* fiume_model.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		915226D82C4EDB980001260F /* fiume-model */ = {
+			isa = PBXGroup;
+			children = (
+				91D543992C051B5700AD3592 /* DateSpecifier.swift */,
+				914FEFA62BF29317003D858E /* Leia.swift */,
+				914FEFA22BF292FE003D858E /* Money.swift */,
+				91F950822C07B860006822AF /* MonthYear.swift */,
+				91C248CC2C24B3CE00A1EEB3 /* People.swift */,
+				91F950842C07B8AB006822AF /* Person.swift */,
+				919CED482BF5492800ACCE2E /* Plan.swift */,
+				91C248D32C3337E400A1EEB3 /* Plans.swift */,
+				914FEFA42BF2930E003D858E /* Possibilities.swift */,
+				914B54C42BFBDB74005A9090 /* Scenario.swift */,
+				91CDFD162BFE6AE700695E65 /* Scenarios.swift */,
+				915226D92C4EDB980001260F /* fiume_model.h */,
+			);
+			path = "fiume-model";
+			sourceTree = "<group>";
+		};
+		915226EE2C4EDC060001260F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		919CED502BF6979A00ACCE2E /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,17 +252,6 @@
 		91D5439D2C05FF3F00AD3592 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				91D543992C051B5700AD3592 /* DateSpecifier.swift */,
-				914FEFA62BF29317003D858E /* Leia.swift */,
-				914FEFA22BF292FE003D858E /* Money.swift */,
-				91F950822C07B860006822AF /* MonthYear.swift */,
-				91C248CC2C24B3CE00A1EEB3 /* People.swift */,
-				91F950842C07B8AB006822AF /* Person.swift */,
-				919CED482BF5492800ACCE2E /* Plan.swift */,
-				91C248D32C3337E400A1EEB3 /* Plans.swift */,
-				914FEFA42BF2930E003D858E /* Possibilities.swift */,
-				914B54C42BFBDB74005A9090 /* Scenario.swift */,
-				91CDFD162BFE6AE700695E65 /* Scenarios.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -206,6 +276,7 @@
 				91D867872BF3E100001B4A3D /* spike */,
 				91DA650C2BF291F8004ADB9B /* Tests */,
 				91DA64FA2BF291F6004ADB9B /* Products */,
+				915226EE2C4EDC060001260F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -214,6 +285,7 @@
 			children = (
 				91DA64F92BF291F6004ADB9B /* fiume.app */,
 				91DA65092BF291F8004ADB9B /* fiumeTests.xctest */,
+				915226D72C4EDB980001260F /* fiume_model.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,6 +295,7 @@
 			children = (
 				91DA65002BF291F7004ADB9B /* Assets.xcassets */,
 				91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */,
+				915226D82C4EDB980001260F /* fiume-model */,
 				91D5439D2C05FF3F00AD3592 /* model */,
 				91C248D02C33270F00A1EEB3 /* io */,
 				919CED502BF6979A00ACCE2E /* view */,
@@ -259,7 +332,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		915226D22C4EDB980001260F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915226DA2C4EDB980001260F /* fiume_model.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		915226D62C4EDB980001260F /* fiume-model */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 915226DF2C4EDB980001260F /* Build configuration list for PBXNativeTarget "fiume-model" */;
+			buildPhases = (
+				915226D22C4EDB980001260F /* Headers */,
+				915226D32C4EDB980001260F /* Sources */,
+				915226D42C4EDB980001260F /* Frameworks */,
+				915226D52C4EDB980001260F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "fiume-model";
+			productName = "fiume-model";
+			productReference = 915226D72C4EDB980001260F /* fiume_model.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		91DA64F82BF291F6004ADB9B /* fiume */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 91DA651D2BF291F8004ADB9B /* Build configuration list for PBXNativeTarget "fiume" */;
@@ -268,10 +370,12 @@
 				91DA64F62BF291F6004ADB9B /* Frameworks */,
 				91DA64F72BF291F6004ADB9B /* Resources */,
 				91A8C2972BFD77B000DF5AC0 /* ShellScript */,
+				915226E22C4EDB980001260F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				915226DC2C4EDB980001260F /* PBXTargetDependency */,
 			);
 			name = fiume;
 			productName = fiume;
@@ -285,11 +389,13 @@
 				91DA65052BF291F8004ADB9B /* Sources */,
 				91DA65062BF291F8004ADB9B /* Frameworks */,
 				91DA65072BF291F8004ADB9B /* Resources */,
+				915226F32C4EDC060001260F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				91DA650B2BF291F8004ADB9B /* PBXTargetDependency */,
+				915226F22C4EDC060001260F /* PBXTargetDependency */,
 			);
 			name = fiumeTests;
 			packageProductDependencies = (
@@ -309,6 +415,9 @@
 				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					915226D62C4EDB980001260F = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					91DA64F82BF291F6004ADB9B = {
 						CreatedOnToolsVersion = 15.3;
 					};
@@ -337,11 +446,19 @@
 			targets = (
 				91DA64F82BF291F6004ADB9B /* fiume */,
 				91DA65082BF291F8004ADB9B /* fiumeTests */,
+				915226D62C4EDB980001260F /* fiume-model */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		915226D52C4EDB980001260F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91DA64F72BF291F6004ADB9B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,15 +499,31 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		915226D32C4EDB980001260F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				915226E52C4EDBAD0001260F /* Person.swift in Sources */,
+				915226E62C4EDBAD0001260F /* Scenarios.swift in Sources */,
+				915226E82C4EDBAD0001260F /* Plan.swift in Sources */,
+				915226EC2C4EDBAD0001260F /* Possibilities.swift in Sources */,
+				915226E32C4EDBAD0001260F /* Money.swift in Sources */,
+				915226EB2C4EDBAD0001260F /* Plans.swift in Sources */,
+				915226E92C4EDBAD0001260F /* Leia.swift in Sources */,
+				915226ED2C4EDBAD0001260F /* People.swift in Sources */,
+				915226E72C4EDBAD0001260F /* Scenario.swift in Sources */,
+				915226EA2C4EDBAD0001260F /* DateSpecifier.swift in Sources */,
+				915226E42C4EDBAD0001260F /* MonthYear.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91DA64F52BF291F6004ADB9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				91206E332C090B3F00D4C1CB /* PeopleView.swift in Sources */,
 				914FEFB72BF2AD6B003D858E /* EditStreamView.swift in Sources */,
-				914FEFA52BF2930E003D858E /* Possibilities.swift in Sources */,
 				919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */,
-				91206E2B2C07C16100D4C1CB /* MonthYear.swift in Sources */,
 				91F6E05F2C45A29A00E5EB7E /* MonthYear+Plottable.swift in Sources */,
 				914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */,
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
@@ -399,19 +532,10 @@
 				91EA30B32C3DCC2000FA1177 /* PoolView.swift in Sources */,
 				91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */,
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
-				91206E2C2C07C21300D4C1CB /* Person.swift in Sources */,
-				914FEFA32BF292FE003D858E /* Money.swift in Sources */,
-				919CED492BF5492800ACCE2E /* Plan.swift in Sources */,
-				91C248CD2C24B3CE00A1EEB3 /* People.swift in Sources */,
 				91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */,
 				91206E282C07BD2300D4C1CB /* EditPersonView.swift in Sources */,
-				91D5439A2C051B5700AD3592 /* DateSpecifier.swift in Sources */,
 				91690A7F2C12451500A6082D /* AgeSelector.swift in Sources */,
 				91D543982C051A3800AD3592 /* DateSpecifierView.swift in Sources */,
-				91C248D42C3337E400A1EEB3 /* Plans.swift in Sources */,
-				914B54C52BFBDB74005A9090 /* Scenario.swift in Sources */,
-				91CDFD172BFE6AE700695E65 /* Scenarios.swift in Sources */,
-				914FEFA72BF29317003D858E /* Leia.swift in Sources */,
 				914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */,
 				91206E2A2C07BE6B00D4C1CB /* MonthYearView.swift in Sources */,
 				91F56D982C3DD266005A7E6E /* EditPoolView.swift in Sources */,
@@ -440,6 +564,17 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		915226DC2C4EDB980001260F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 915226D62C4EDB980001260F /* fiume-model */;
+			targetProxy = 915226DB2C4EDB980001260F /* PBXContainerItemProxy */;
+		};
+		915226F22C4EDC060001260F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 915226D62C4EDB980001260F /* fiume-model */;
+			targetProxy = 915226F12C4EDC060001260F /* PBXContainerItemProxy */;
+		};
 		91DA650B2BF291F8004ADB9B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 91DA64F82BF291F6004ADB9B /* fiume */;
@@ -448,6 +583,94 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		915226E02C4EDB980001260F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7B9VB3YTHK;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xp123.fiume-model";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		915226E12C4EDB980001260F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7B9VB3YTHK;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.5;
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xp123.fiume-model";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = auto;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		91DA651B2BF291F8004ADB9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -570,6 +793,7 @@
 		91DA651E2BF291F8004ADB9B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -603,6 +827,7 @@
 		91DA651F2BF291F8004ADB9B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -679,6 +904,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		915226DF2C4EDB980001260F /* Build configuration list for PBXNativeTarget "fiume-model" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				915226E02C4EDB980001260F /* Debug */,
+				915226E12C4EDB980001260F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		91DA64F42BF291F6004ADB9B /* Build configuration list for PBXProject "fiume" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -1,4 +1,5 @@
 import Charts
+import fiume_model
 import Foundation
 
 extension MonthYear: Plottable {

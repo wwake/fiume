@@ -1,4 +1,5 @@
 @testable import fiume
+import fiume_model
 import Testing
 
 struct ALeia {
@@ -9,7 +10,7 @@ struct ALeia {
     _ amount: Int,
     first: MonthYear,
     last: MonthYear
-  ) -> fiume.Leia {
+  ) -> Leia {
     Leia(name: name, amount: Money(amount), first: DateSpecifier.month(first), last: DateSpecifier.month(last))
   }
 
@@ -18,7 +19,7 @@ struct ALeia {
     _ amount: Int,
     first: DateSpecifier,
     last: DateSpecifier
-  ) -> fiume.Leia {
+  ) -> Leia {
     Leia(name: name, amount: Money(amount), first: first, last: last)
   }
 

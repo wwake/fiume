@@ -8,7 +8,7 @@ public enum PlanType: String, CaseIterable, Identifiable, Codable {
 
 @Observable
 public class Plan: Identifiable, Codable {
-  enum CodingKeys: String, CodingKey {
+  public enum CodingKeys: String, CodingKey {
     case _id = "id"
     case _type = "type"
     case _name = "name"
@@ -18,27 +18,27 @@ public class Plan: Identifiable, Codable {
 
   public var id = UUID()
 
-  var type: PlanType
+  public var type: PlanType
 
-  private(set) var name: String
+  public private(set) var name: String
 
-  var leia: Leia?
+  public var leia: Leia?
 
-  var children: [Plan]?
+  public var children: [Plan]?
 
-  static func make(pool: Leia) -> Plan {
+  public static func make(pool: Leia) -> Plan {
     Plan(.pool, pool)
   }
 
-  static func make(stream: Leia) -> Plan {
+  public static func make(stream: Leia) -> Plan {
     Plan(.stream, stream)
   }
 
-  static func makeGroup(_ name: String) -> Plan {
+  public static func makeGroup(_ name: String) -> Plan {
     Plan(.group, name)
   }
 
-  static func makeScenarios(_ name: String) -> Plan {
+  public static func makeScenarios(_ name: String) -> Plan {
     Plan(.scenarios, name)
   }
 
@@ -54,7 +54,7 @@ public class Plan: Identifiable, Codable {
     self.children = []
   }
 
-  func append(_ child: Plan) {
+  public func append(_ child: Plan) {
     if children == nil {
       children = [child]
     } else {
@@ -62,7 +62,7 @@ public class Plan: Identifiable, Codable {
     }
   }
 
-  func remove(_ descendant: Plan) {
+  public func remove(_ descendant: Plan) {
     guard children != nil else { return }
     children!.removeAll(where: { $0.id == descendant.id })
     children!.forEach {
@@ -70,11 +70,11 @@ public class Plan: Identifiable, Codable {
     }
   }
 
-  func rename(_ newName: String) {
+  public func rename(_ newName: String) {
     name = newName
   }
 
-  func replace(leia newLeia: Leia) {
+  public func replace(leia newLeia: Leia) {
     self.leia = newLeia
   }
 
@@ -82,7 +82,7 @@ public class Plan: Identifiable, Codable {
     " • \(name) (\(index + 1)) - \(child.name)"
   }
 
-  func scenarios(_ scenarios: Scenarios) -> Scenarios {
+  public func scenarios(_ scenarios: Scenarios) -> Scenarios {
     switch type {
     case .pool:
       return scenarios.add(pool: leia!)

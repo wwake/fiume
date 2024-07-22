@@ -1,4 +1,5 @@
 @testable import fiume
+import fiume_model
 import Testing
 
 struct APlan {
@@ -14,7 +15,7 @@ struct APlan {
     return Plan.make(pool: pool)
   }
 
-  private func makeLeia(_ name: String, _ amount: Int) -> fiume.Leia {
+  private func makeLeia(_ name: String, _ amount: Int) -> Leia {
     Leia(name: name, amount: Money(amount), first: .month(2024.jan), last: .unchanged)
   }
 

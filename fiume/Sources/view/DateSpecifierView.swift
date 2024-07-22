@@ -1,3 +1,4 @@
+import fiume_model
 import SwiftUI
 
 enum DateSpecifierType: String, CaseIterable, Identifiable {
@@ -32,6 +33,9 @@ struct DateSpecifierView: View {
 
     case .age:
       dateType = DateSpecifierType.age
+
+    default:
+      fatalError("Unknown date spec type \(dateSpec.wrappedValue)")
     }
   }
 

@@ -1,3 +1,4 @@
+import fiume_model
 import SwiftUI
 
 struct AddPlanView: View {
@@ -37,6 +38,9 @@ struct AddPlanView: View {
 
     case .scenarios:
       CreateScenariosView(plan: $plan)
+
+    default:
+      fatalError("unknown case \(planType)")
     }
 
     Spacer()

@@ -1,3 +1,4 @@
+import fiume_model
 import SwiftUI
 
 // See https://qualitycoding.org/bypass-swiftui-app-launch-unit-testing/

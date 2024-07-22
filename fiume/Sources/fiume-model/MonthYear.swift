@@ -24,30 +24,30 @@ extension Month: CustomStringConvertible {
 }
 
 extension Int {
-  var jan: MonthYear { MonthYear(.jan, self)}
-  var feb: MonthYear { MonthYear(.feb, self)}
-  var mar: MonthYear { MonthYear(.mar, self)}
-  var apr: MonthYear { MonthYear(.apr, self)}
-  var may: MonthYear { MonthYear(.may, self)}
-  var jun: MonthYear { MonthYear(.jun, self)}
-  var jul: MonthYear { MonthYear(.jul, self)}
-  var aug: MonthYear { MonthYear(.aug, self)}
-  var sep: MonthYear { MonthYear(.sep, self)}
-  var oct: MonthYear { MonthYear(.oct, self)}
-  var nov: MonthYear { MonthYear(.nov, self)}
-  var dec: MonthYear { MonthYear(.dec, self)}
+  public var jan: MonthYear { MonthYear(.jan, self)}
+  public var feb: MonthYear { MonthYear(.feb, self)}
+  public var mar: MonthYear { MonthYear(.mar, self)}
+  public var apr: MonthYear { MonthYear(.apr, self)}
+  public var may: MonthYear { MonthYear(.may, self)}
+  public var jun: MonthYear { MonthYear(.jun, self)}
+  public var jul: MonthYear { MonthYear(.jul, self)}
+  public var aug: MonthYear { MonthYear(.aug, self)}
+  public var sep: MonthYear { MonthYear(.sep, self)}
+  public var oct: MonthYear { MonthYear(.oct, self)}
+  public var nov: MonthYear { MonthYear(.nov, self)}
+  public var dec: MonthYear { MonthYear(.dec, self)}
 }
 
 public struct MonthYear: Equatable, Codable {
-  let month: Month
-  let year: Int
+  public let month: Month
+  public let year: Int
 
-  init(_ month: Month, _ year: Int) {
+  public init(_ month: Month, _ year: Int) {
     self.month = month
     self.year = year
   }
 
-  init(date: Date) {
+  public init(date: Date) {
     let calendar = Calendar.current
     self.year = calendar.component(.year, from: date)
     self.month = Month(rawValue: calendar.component(.month, from: date) - 1) ?? .jan
@@ -82,7 +82,7 @@ extension MonthYear: Strideable {
     toMonthYear(self.toMonthCount() + n)
   }
 
-  func advanced(byYears n: Int) -> MonthYear {
+  public func advanced(byYears n: Int) -> MonthYear {
     toMonthYear(self.toMonthCount() + 12 * n)
   }
 
@@ -90,7 +90,7 @@ extension MonthYear: Strideable {
     other.toMonthCount() - self.toMonthCount()
   }
 
-  func range(_ numberOfMonths: Int) -> ClosedRange<MonthYear> {
+  public func range(_ numberOfMonths: Int) -> ClosedRange<MonthYear> {
     self...(self.advanced(by: numberOfMonths - 1))
   }
 }

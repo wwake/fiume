@@ -1,4 +1,5 @@
 @testable import fiume
+import fiume_model
 import Testing
 
 struct ThePlans {

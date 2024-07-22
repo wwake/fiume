@@ -1,8 +1,9 @@
 @testable import fiume
+import fiume_model
 import Testing
 
-extension fiume.Leia: Equatable {
-  public static func == (lhs: fiume.Leia, rhs: fiume.Leia) -> Bool {
+extension Leia: Equatable {
+  public static func == (lhs: Leia, rhs: Leia) -> Bool {
     lhs.name == rhs.name && lhs.amount == rhs.amount && lhs.first == rhs.first && lhs.last == rhs.last
   }
 }
@@ -15,7 +16,7 @@ struct AScenario {
     _ amount: Int,
     first: MonthYear,
     last: MonthYear
-  ) -> fiume.Leia {
+  ) -> Leia {
     Leia(name: name, amount: Money(amount), first: DateSpecifier.month(first), last: DateSpecifier.month(last))
   }
 
@@ -24,11 +25,11 @@ struct AScenario {
     _ amount: Int,
     first: DateSpecifier,
     last: DateSpecifier
-  ) -> fiume.Leia {
+  ) -> Leia {
     Leia(name: name, amount: Money(amount), first: first, last: last)
   }
 
-  private func makeScenario(_ streams: fiume.Leia...) -> Scenario {
+  private func makeScenario(_ streams: Leia...) -> Scenario {
     let result = Scenario("Scenario Name", people: people)
     streams.forEach {
       result.add(stream: $0)

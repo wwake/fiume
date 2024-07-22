@@ -5,7 +5,7 @@ public enum DateSpecifier: Equatable, Codable {
   case month(MonthYear)
   case age(UUID, Int)
 
-  func update(using: DateSpecifier) -> DateSpecifier {
+  public func update(using: DateSpecifier) -> DateSpecifier {
     switch using {
     case .unchanged:
       return self
@@ -15,7 +15,7 @@ public enum DateSpecifier: Equatable, Codable {
     }
   }
 
-  func description(_ people: People) -> String {
+  public func description(_ people: People) -> String {
     switch self {
     case .unchanged:
       return "(unchanged)"
