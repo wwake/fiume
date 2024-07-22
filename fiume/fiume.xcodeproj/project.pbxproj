@@ -249,13 +249,6 @@
 			path = io;
 			sourceTree = "<group>";
 		};
-		91D5439D2C05FF3F00AD3592 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
 		91D867872BF3E100001B4A3D /* spike */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,7 +289,6 @@
 				91DA65002BF291F7004ADB9B /* Assets.xcassets */,
 				91DA64FC2BF291F6004ADB9B /* fiumeApp.swift */,
 				915226D82C4EDB980001260F /* fiume-model */,
-				91D5439D2C05FF3F00AD3592 /* model */,
 				91C248D02C33270F00A1EEB3 /* io */,
 				919CED502BF6979A00ACCE2E /* view */,
 				91DA65022BF291F7004ADB9B /* Preview Content */,
