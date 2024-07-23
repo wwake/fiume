@@ -1,6 +1,18 @@
 import fiume_model
 import SwiftUI
 
+struct EditDateRangeView: View {
+  @Binding var startMonth: DateSpecifier
+  @Binding var endMonth: DateSpecifier
+
+  var body: some View {
+    VStack {
+      DateSpecifierView(label: "Start Month", dateSpec: $startMonth)
+      DateSpecifierView(label: "End Month", dateSpec: $endMonth)
+    }
+  }
+}
+
 struct EditStreamView: View {
   @Environment(\.dismiss)
   var dismiss
@@ -70,9 +82,7 @@ struct EditStreamView: View {
         }
       }
 
-      DateSpecifierView(label: "Start Month", dateSpec: $startMonth)
-
-      DateSpecifierView(label: "End Month", dateSpec: $endMonth)
+      EditDateRangeView(startMonth: $startMonth, endMonth: $endMonth)
 
       HStack {
         Spacer()
