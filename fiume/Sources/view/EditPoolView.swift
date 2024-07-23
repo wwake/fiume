@@ -25,7 +25,7 @@ struct EditPoolView: View {
 
     self._isIncome = .init(initialValue: pool.isNonNegative)
     self._name = .init(initialValue: pool.name)
-    self._amount = .init(initialValue: pool.amount)
+    self._amount = .init(initialValue: abs(pool.amount))
     self._dates = .init(initialValue: pool.dates)
   }
 
