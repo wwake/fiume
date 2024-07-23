@@ -41,6 +41,14 @@ struct PeopleView: View {
             Spacer()
 
             Button(action: {
+              people.remove(person)
+            }) {
+              Image(systemName: "trash")
+                .accessibilityLabel(Text("Delete"))
+            }
+            .buttonStyle(.plain)
+
+            Button(action: {
               isEditPresented = true
             }) {
               Image(systemName: "square.and.pencil")

@@ -1,4 +1,3 @@
-* Make edit pages say "Create" or "Update" "Pool"/whatever
 * Delete people
 
 =====
@@ -44,7 +43,7 @@ FI-24-36: 2024-07-23 - Refactor DateRange
 * If date range is empty, use "". If not, use "" for an unchanged component.
 * Label Leias with "Asset", "Income" etc.
 * Negate value when editing expense or liability
-
+* Make edit pages say "Create" or "Update" "Pool"/whatever
 
 FI-24-35: 2024-07-22 - Testing without a Simulator?!
 * Modified model files to be public (constructors, functions, etc.)

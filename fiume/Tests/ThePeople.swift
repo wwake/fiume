@@ -57,6 +57,21 @@ struct ThePeople {
   }
 
   @Test
+  func changes_when_person_is_removed() {
+    let rene = Person(name: "Rene", birth: 2000.oct, death: nil)
+    let sal = Person(name: "Sal", birth: 2000.oct, death: nil)
+    people.add(rene)
+    people.add(sal)
+    people.wasChanged = false
+
+    people.remove(sal)
+
+    #expect(people.wasChanged)
+    #expect(people.findById(sal.id) == nil)
+    #expect(people.findById(rene.id)!.name == "Rene")
+  }
+
+  @Test
   func sorts_in_alphabetical_order() {
     let bob = Person(name: "Bob", birth: 2000.feb, death: nil)
     people.add(bob)
