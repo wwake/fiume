@@ -1,10 +1,10 @@
 import Foundation
 
 private let months = [
-  "January", "February", "March",
-  "April", "May", "June",
-  "July", "August", "September",
-  "October", "November", "December",
+  "Jan", "Feb", "Mar",
+  "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep",
+  "Oct", "Nov", "Dec",
 ]
 
 public enum Month: Int, Codable {
@@ -19,7 +19,10 @@ extension Month: Comparable {
 
 extension Month: CustomStringConvertible {
   public var description: String {
-    "\(months[self.rawValue])"
+    if self.rawValue < Month.jan.rawValue || self.rawValue > Month.dec.rawValue {
+      return "??? \(self.rawValue)"
+    }
+    return "\(months[self.rawValue])"
   }
 }
 
@@ -65,7 +68,7 @@ extension MonthYear: Comparable {
 
 extension MonthYear: CustomStringConvertible {
   public var description: String {
-    "\(month), \(year)"
+    "\(month) \(year)"
   }
 }
 

@@ -29,8 +29,8 @@ struct StreamView: View {
           .accessibilityLabel("expense stream")
       }
 
-      Text("\(stream.name)   $\(stream.amount)/mo" +
-           "   Months: \(stream.dates.description(people))")
+      Text("\(stream.name)   $\(stream.amount)/mo   " +
+           stream.dates.description(people))
       Spacer()
       Button(action: {
         plans.remove(plan)

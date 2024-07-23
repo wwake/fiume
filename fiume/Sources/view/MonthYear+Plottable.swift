@@ -5,7 +5,7 @@ import Foundation
 extension MonthYear: Plottable {
   public var primitivePlottable: Date {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "MMMM, yyyy"
+    dateFormatter.dateFormat = "MMM, yyyy"
     return dateFormatter.date(from: self.description)!
   }
 

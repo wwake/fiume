@@ -42,4 +42,16 @@ struct ADateRange {
     #expect(sut.includes(2009.dec, people))
     #expect(!sut.includes(2010.jan, people))
   }
+
+  @Test
+  func description_is_empty_if_range_is_empty() {
+    let sut = DateRange.null
+    #expect(sut.description(people).isEmpty)
+  }
+
+  @Test
+  func description_shows_first_and_last_if_not_empty() {
+    let sut = DateRange(.unchanged, .month(2030.jan))
+    #expect(sut.description(people) == "-Jan. 2030")
+  }
 }

@@ -42,6 +42,9 @@ public struct DateRange: Equatable {
   }
 
   public func description(_ people: People) -> String {
-    "\(first.description(people))-\(last.description(people))"
+    if self == DateRange.null {
+      return ""
+    }
+    return "\(first.description(people))-\(last.description(people))"
   }
 }

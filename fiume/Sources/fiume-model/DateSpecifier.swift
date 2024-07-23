@@ -18,7 +18,7 @@ public enum DateSpecifier: Equatable, Codable {
   public func description(_ people: People) -> String {
     switch self {
     case .unchanged:
-      return "(unchanged)"
+      return ""
 
     case .month(let monthYear):
       return monthYear.description

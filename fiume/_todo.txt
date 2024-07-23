@@ -1,4 +1,3 @@
-* DateRangeView used by EditStreamView etc?
 * Should we show "unchanged" or just skip the dates
 
 * Refactor: split up net worth calculation - produce raw values, then the report
@@ -46,6 +45,7 @@ Editing
 
 FI-24-36: 2024-07-23 - Refactor DateRange
 * DateRange description used in PoolView and StreamView
+* Extract DateRangeView used by EditStreamView and EditPoolView
 
 
 FI-24-35: 2024-07-22 - Testing without a Simulator?!

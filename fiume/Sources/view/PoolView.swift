@@ -29,8 +29,8 @@ struct PoolView: View {
           .accessibilityLabel("liability")
       }
 
-      Text("\(pool.name)   $\(pool.amount)" +
-           "   Months: \(pool.dates.description(people))")
+      Text("\(pool.name)   $\(pool.amount)   " +
+           pool.dates.description(people))
       Spacer()
       Button(action: {
         plans.remove(plan)
