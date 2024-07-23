@@ -30,7 +30,7 @@ struct StreamView: View {
       }
 
       Text("\(stream.name)   $\(stream.amount)/mo" +
-           "   Months: \(stream.first.description(people))-\(stream.last.description(people))")
+           "   Months: \(stream.dates.description(people))")
       Spacer()
       Button(action: {
         plans.remove(plan)

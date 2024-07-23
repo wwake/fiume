@@ -30,7 +30,7 @@ struct PoolView: View {
       }
 
       Text("\(pool.name)   $\(pool.amount)" +
-           "   Months: \(pool.first.description(people))-\(pool.last.description(people))")
+           "   Months: \(pool.dates.description(people))")
       Spacer()
       Button(action: {
         plans.remove(plan)
