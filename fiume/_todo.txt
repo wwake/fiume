@@ -1,4 +1,5 @@
-* Refactor: DateRange holding two DateSpecs
+* DateRangeView used by EditStreamView etc?
+* DateRange description used in PoolView and StreamView (and others?)
 * Should we show "unchanged" or just skip the dates
 
 * Refactor: split up net worth calculation - produce raw values, then the report
@@ -52,6 +53,7 @@ FI-24-35: 2024-07-22 - Testing without a Simulator?!
   Result: 6-7 s. to start simulator; ~3 s. to run tests.
   Previously - could take up to 30 seconds, almost always 10+
   Yay!
+* Refactor: DateRange holding two DateSpecs
 
 FI-24-34: 2024-07-15 - Net Worth - Pools and Streams
 Pools
