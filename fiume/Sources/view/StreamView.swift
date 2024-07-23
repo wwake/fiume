@@ -19,6 +19,10 @@ struct StreamView: View {
     self.stream = plan.wrappedValue.leia!
   }
 
+  var type: String {
+    stream.isNonNegative ? "Income" : "Expense"
+  }
+
   var body: some View {
     HStack {
       if stream.isNonNegative {
@@ -29,7 +33,7 @@ struct StreamView: View {
           .accessibilityLabel("expense stream")
       }
 
-      Text("\(stream.name)   $\(stream.amount)/mo   " +
+      Text("\(type): \(stream.name)   $\(stream.amount)/mo   " +
            stream.dates.description(people))
       Spacer()
       Button(action: {
@@ -49,7 +53,7 @@ struct StreamView: View {
       .buttonStyle(.plain)
     }
     .padding(4)
-    .background(stream.isNonNegative ? Color("Income") : Color("Expense"))
+    .background(Color(type))
     .sheet(isPresented: $isEditPresented) {
       EditStreamView(stream: stream, buttonName: "Update") { stream in
         plans.replace(plan, stream)

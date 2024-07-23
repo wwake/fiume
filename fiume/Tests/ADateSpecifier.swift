@@ -65,7 +65,7 @@ struct ADateSpecifier {
     let person = makePerson()
     people.add(person)
     #expect(DateSpecifier.unchanged.description(people).isEmpty)
-    #expect(DateSpecifier.month(2023.apr).description(people) == "Apr. 2023")
+    #expect(DateSpecifier.month(2023.apr).description(people) == "Apr 2023")
     #expect(DateSpecifier.age(person.id, 72).description(people) == "bub@72")
   }
 

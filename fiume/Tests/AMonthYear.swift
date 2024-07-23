@@ -42,7 +42,7 @@ struct AMonthYear {
     let date = dateFormatter.date(from: "2016-10")
     let sut = MonthYear(date: date!)
     #expect(sut == 2016.oct)
-    #expect(sut.description == "Oct. 2016")
+    #expect(sut.description == "Oct 2016")
   }
 
   @Test

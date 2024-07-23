@@ -52,6 +52,6 @@ struct ADateRange {
   @Test
   func description_shows_first_and_last_if_not_empty() {
     let sut = DateRange(.unchanged, .month(2030.jan))
-    #expect(sut.description(people) == "-Jan. 2030")
+    #expect(sut.description(people) == "-Jan 2030")
   }
 }

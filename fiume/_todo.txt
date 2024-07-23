@@ -1,9 +1,8 @@
-* Should we show "unchanged" or just skip the dates
+* Label Leias with "Asset", "Income" etc.
 
 * Refactor: split up net worth calculation - produce raw values, then the report
 
 Display/Usability
-* Label "Asset", "Income" etc.
 * Make edit pages say "Create" or "Update" "Pool"/whatever
 * Delete people
 
@@ -46,6 +45,7 @@ Editing
 FI-24-36: 2024-07-23 - Refactor DateRange
 * DateRange description used in PoolView and StreamView
 * Extract DateRangeView used by EditStreamView and EditPoolView
+* If date range is empty, use "". If not, use "" for an unchanged component.
 
 
 FI-24-35: 2024-07-22 - Testing without a Simulator?!

@@ -19,6 +19,10 @@ struct PoolView: View {
     self.pool = plan.wrappedValue.leia!
   }
 
+  var type: String {
+    pool.isNonNegative ? "Asset" : "Liability"
+  }
+
   var body: some View {
     HStack {
       if pool.isNonNegative {
@@ -29,7 +33,7 @@ struct PoolView: View {
           .accessibilityLabel("liability")
       }
 
-      Text("\(pool.name)   $\(pool.amount)   " +
+      Text("\(type): \(pool.name)   $\(pool.amount)   " +
            pool.dates.description(people))
       Spacer()
       Button(action: {
@@ -49,7 +53,7 @@ struct PoolView: View {
       .buttonStyle(.plain)
     }
     .padding(4)
-    .background(pool.isNonNegative ? Color("Asset") : Color("Liability"))
+    .background(Color(type))
     .sheet(isPresented: $isEditPresented) {
       EditPoolView(pool: pool, buttonName: "Update") { pool in
         plans.replace(plan, pool)
