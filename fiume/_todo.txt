@@ -1,17 +1,14 @@
-* Delete people
-
-=====
-
-Growth
-Inflation
-
 Amount
 * Make amount an overrideable value on stream
 * SS with 1/2 of spouse etc.
 
+Growth
+Inflation
+
+
 Streams
 * Allow dates to depend on death day
-* Validate month is valid; end-date >= start-date
+* Validate month is valid; end-date >= start-date [now we silently use zero for the amount]
 
 Flows
 * Add flows (in/out)
@@ -22,7 +19,7 @@ Design
 
 People
 * Require distinct people names ?
-
+* Do better when deleting a person with active Leias - at least strike through
 
 Sections
 * Add multiple sections
@@ -44,6 +41,7 @@ FI-24-36: 2024-07-23 - Refactor DateRange
 * Label Leias with "Asset", "Income" etc.
 * Negate value when editing expense or liability
 * Make edit pages say "Create" or "Update" "Pool"/whatever
+* Delete people
 
 FI-24-35: 2024-07-22 - Testing without a Simulator?!
 * Modified model files to be public (constructors, functions, etc.)
