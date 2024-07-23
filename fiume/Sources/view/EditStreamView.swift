@@ -5,12 +5,14 @@ struct EditStreamView: View {
   @Environment(\.dismiss)
   var dismiss
 
+  var title: String?
   var stream: Leia
 
   var buttonName: String
   var action: (Leia) -> Void
 
-  init(stream: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
+  init(title: String? = nil, stream: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
+    self.title = title
     self.stream = stream
     self.buttonName = buttonName
     self.action = action
@@ -51,42 +53,50 @@ struct EditStreamView: View {
   }
 
   var body: some View {
-    Form {
-      RequiredTextField(name: "Name", field: $name)
-
-      Picker(selection: $isIncome, label: Text("Type:")) {
-        Text("Income").tag(true)
-        Text("Expense").tag(false)
+    VStack {
+      if title != nil {
+        Text(title!)
+          .font(.title)
+          .padding()
       }
 
-      VStack {
-        NumberField(label: "Amount $", value: $amount)
-          .padding(2)
-          .background(backgroundColor)
-        if amount != nil && amount! < 0 {
-          Text("Amount may not be negative; choose Income or Expense instead.")
-            .foregroundStyle(Color.red)
+      Form {
+        RequiredTextField(name: "Name", field: $name)
+
+        Picker(selection: $isIncome, label: Text("Type:")) {
+          Text("Income").tag(true)
+          Text("Expense").tag(false)
+        }
+
+        VStack {
+          NumberField(label: "Amount $", value: $amount)
+            .padding(2)
+            .background(backgroundColor)
+          if amount != nil && amount! < 0 {
+            Text("Amount may not be negative; choose Income or Expense instead.")
+              .foregroundStyle(Color.red)
+          }
+        }
+
+        EditDateRangeView(dates: $dates)
+
+        HStack {
+          Spacer()
+          Button(buttonName) {
+            let leia = Leia(
+              name: name,
+              amount: Money(createdAmount()),
+              dates: dates
+            )
+            action(leia)
+
+            dismiss()
+          }
+          .disabled(!valid())
+          Spacer()
         }
       }
-
-      EditDateRangeView(dates: $dates)
-
-      HStack {
-        Spacer()
-        Button(buttonName) {
-          let leia = Leia(
-            name: name,
-            amount: Money(createdAmount()),
-            dates: dates
-          )
-          action(leia)
-
-          dismiss()
-        }
-        .disabled(!valid())
-        Spacer()
-      }
+      .autocorrectionDisabled()
     }
-    .autocorrectionDisabled()
   }
 }

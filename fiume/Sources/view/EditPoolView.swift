@@ -5,6 +5,8 @@ struct EditPoolView: View {
   @Environment(\.dismiss)
   var dismiss
 
+  var title: String?
+
   var pool: Leia
 
   var buttonName: String
@@ -18,7 +20,8 @@ struct EditPoolView: View {
 
   @State private var dates = DateRange.null
 
-  init(pool: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
+  init(title: String? = nil, pool: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
+    self.title = title
     self.pool = pool
     self.buttonName = buttonName
     self.action = action
@@ -51,44 +54,52 @@ struct EditPoolView: View {
   }
 
   var body: some View {
-    Form {
-      RequiredTextField(name: "Name", field: $name)
-
-      Picker(selection: $isIncome, label: Text("Type:")) {
-        Text("Asset").tag(true)
-        Text("Liability").tag(false)
+    VStack {
+      if title != nil {
+        Text(title!)
+          .font(.title)
+          .padding()
       }
 
-      VStack {
-        NumberField(label: "Amount $", value: $amount)
-          .padding(2)
-          .background(backgroundColor)
-        if amount != nil && amount! < 0 {
-          Text("Amount may not be negative; choose Asset or Liability instead.")
-            .foregroundStyle(Color.red)
+      Form {
+        RequiredTextField(name: "Name", field: $name)
+
+        Picker(selection: $isIncome, label: Text("Type:")) {
+          Text("Asset").tag(true)
+          Text("Liability").tag(false)
+        }
+
+        VStack {
+          NumberField(label: "Amount $", value: $amount)
+            .padding(2)
+            .background(backgroundColor)
+          if amount != nil && amount! < 0 {
+            Text("Amount may not be negative; choose Asset or Liability instead.")
+              .foregroundStyle(Color.red)
+          }
+        }
+
+        EditDateRangeView(dates: $dates)
+
+        HStack {
+          Spacer()
+          Button(buttonName) {
+            let outPool = Leia(
+              id: pool.id,
+              name: name,
+              amount: Money(createdAmount()),
+              dates: dates
+            )
+            action(outPool)
+
+            dismiss()
+          }
+          .disabled(!valid())
+          Spacer()
         }
       }
-
-      EditDateRangeView(dates: $dates)
-
-      HStack {
-        Spacer()
-        Button(buttonName) {
-          let outPool = Leia(
-            id: pool.id,
-            name: name,
-            amount: Money(createdAmount()),
-            dates: dates
-          )
-          action(outPool)
-
-          dismiss()
-        }
-        .disabled(!valid())
-        Spacer()
-      }
+      .autocorrectionDisabled()
     }
-    .autocorrectionDisabled()
   }
 }
 
