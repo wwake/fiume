@@ -18,8 +18,8 @@ public struct Leia: Identifiable, Codable {
   public var id: UUID
   public var name: String
   public var amount: Money
-  public var first: DateSpecifier
-  public var last: DateSpecifier
+  private var first: DateSpecifier
+  private var last: DateSpecifier
 
   public var dates: DateRange {
     DateRange(first, last)
