@@ -1,18 +1,6 @@
 import fiume_model
 import SwiftUI
 
-struct EditDateRangeView: View {
-  @Binding var startMonth: DateSpecifier
-  @Binding var endMonth: DateSpecifier
-
-  var body: some View {
-    VStack {
-      DateSpecifierView(label: "Start Month", dateSpec: $startMonth)
-      DateSpecifierView(label: "End Month", dateSpec: $endMonth)
-    }
-  }
-}
-
 struct EditStreamView: View {
   @Environment(\.dismiss)
   var dismiss
@@ -30,8 +18,8 @@ struct EditStreamView: View {
     self._isIncome = .init(initialValue: stream.isNonNegative)
     self._name = .init(initialValue: stream.name)
     self._amount = .init(initialValue: stream.amount)
-    self._startMonth = .init(initialValue: stream.first)
-    self._endMonth = .init(initialValue: stream.last)
+
+    self._dates = .init(initialValue: stream.dates)
   }
 
   @State private var isIncome = true
@@ -39,8 +27,7 @@ struct EditStreamView: View {
   @State private var name = ""
 
   @State private var amount: Int?
-  @State private var startMonth = DateSpecifier.unchanged
-  @State private var endMonth = DateSpecifier.unchanged
+  @State private var dates = DateRange.null
 
   fileprivate func createdAmount() -> Int {
     guard let amount else { return 0 }
@@ -82,7 +69,7 @@ struct EditStreamView: View {
         }
       }
 
-      EditDateRangeView(startMonth: $startMonth, endMonth: $endMonth)
+      EditDateRangeView(dates: $dates)
 
       HStack {
         Spacer()
@@ -90,7 +77,7 @@ struct EditStreamView: View {
           let leia = Leia(
             name: name,
             amount: Money(createdAmount()),
-            dates: DateRange(startMonth, endMonth)
+            dates: dates
           )
           action(leia)
 

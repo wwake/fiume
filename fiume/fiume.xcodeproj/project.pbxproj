@@ -55,6 +55,7 @@
 		91DA65042BF291F7004ADB9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91DA65032BF291F7004ADB9B /* Preview Assets.xcassets */; };
 		91E7BB952C4EF2CF00A328DF /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7BB942C4EF2CF00A328DF /* DateRange.swift */; };
 		91E7BB972C4EF5D800A328DF /* ADateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7BB962C4EF5D800A328DF /* ADateRange.swift */; };
+		91E7BB9A2C502C2E00A328DF /* EditDateRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7BB982C502C1100A328DF /* EditDateRangeView.swift */; };
 		91EA30B32C3DCC2000FA1177 /* PoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA30B22C3DCC2000FA1177 /* PoolView.swift */; };
 		91F56D982C3DD266005A7E6E /* EditPoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F56D972C3DD266005A7E6E /* EditPoolView.swift */; };
 		91F6E05F2C45A29A00E5EB7E /* MonthYear+Plottable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */; };
@@ -160,6 +161,7 @@
 		91DA65092BF291F8004ADB9B /* fiumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fiumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E7BB942C4EF2CF00A328DF /* DateRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
 		91E7BB962C4EF5D800A328DF /* ADateRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADateRange.swift; sourceTree = "<group>"; };
+		91E7BB982C502C1100A328DF /* EditDateRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDateRangeView.swift; sourceTree = "<group>"; };
 		91EA30B22C3DCC2000FA1177 /* PoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolView.swift; sourceTree = "<group>"; };
 		91F56D972C3DD266005A7E6E /* EditPoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPoolView.swift; sourceTree = "<group>"; };
 		91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonthYear+Plottable.swift"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				91EA30B22C3DCC2000FA1177 /* PoolView.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
 				91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */,
+				91E7BB982C502C1100A328DF /* EditDateRangeView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				914FEFB72BF2AD6B003D858E /* EditStreamView.swift in Sources */,
 				919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */,
 				91F6E05F2C45A29A00E5EB7E /* MonthYear+Plottable.swift in Sources */,
+				91E7BB9A2C502C2E00A328DF /* EditDateRangeView.swift in Sources */,
 				914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */,
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
 				919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */,

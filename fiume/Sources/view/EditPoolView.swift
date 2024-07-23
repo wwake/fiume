@@ -15,8 +15,8 @@ struct EditPoolView: View {
   @State private var name = ""
 
   @State private var amount: Int?
-  @State private var startMonth = DateSpecifier.unchanged
-  @State private var endMonth = DateSpecifier.unchanged
+
+  @State private var dates = DateRange.null
 
   init(pool: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
     self.pool = pool
@@ -26,8 +26,7 @@ struct EditPoolView: View {
     self._isIncome = .init(initialValue: pool.isNonNegative)
     self._name = .init(initialValue: pool.name)
     self._amount = .init(initialValue: pool.amount)
-    self._startMonth = .init(initialValue: pool.first)
-    self._endMonth = .init(initialValue: pool.last)
+    self._dates = .init(initialValue: pool.dates)
   }
 
   fileprivate func createdAmount() -> Int {
@@ -70,9 +69,7 @@ struct EditPoolView: View {
         }
       }
 
-      DateSpecifierView(label: "Start Month", dateSpec: $startMonth)
-
-      DateSpecifierView(label: "End Month", dateSpec: $endMonth)
+      EditDateRangeView(dates: $dates)
 
       HStack {
         Spacer()
@@ -81,7 +78,7 @@ struct EditPoolView: View {
             id: pool.id,
             name: name,
             amount: Money(createdAmount()),
-            dates: DateRange(startMonth, endMonth)
+            dates: dates
           )
           action(outPool)
 
