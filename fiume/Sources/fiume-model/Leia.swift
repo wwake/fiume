@@ -21,6 +21,10 @@ public struct Leia: Identifiable, Codable {
   public var first: DateSpecifier
   public var last: DateSpecifier
 
+  public var dates: DateRange {
+    DateRange(first, last)
+  }
+
   public init(
     id: UUID = UUID(),
     name: String,
@@ -40,8 +44,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public func amount(at month: MonthYear, people: People) -> Money {
-    let dates = DateRange(first, last)
-    return dates.includes(month, people) ? amount : Money(0)
+    dates.includes(month, people) ? amount : Money(0)
   }
 
   public func update(overriddenBy leia: Leia) -> Leia {
