@@ -21,18 +21,19 @@ struct DateSpecifierView: View {
   init(label: String, dateSpec: Binding<DateSpecifier>) {
     self.label = label
     self._dateSpec = dateSpec
-    self.monthYear = 2020.jan
 
     switch dateSpec.wrappedValue {
     case .unchanged:
-      dateType = DateSpecifierType.unchanged
+      self.monthYear = 2020.jan
+      self.dateType = DateSpecifierType.unchanged
 
     case let .month(monthYearIn):
-      dateType = DateSpecifierType.monthYear
-      monthYear = monthYearIn
+      self.dateType = DateSpecifierType.monthYear
+      self.monthYear = monthYearIn
 
     case .age:
-      dateType = DateSpecifierType.age
+      self.monthYear = 2020.jan
+      self.dateType = DateSpecifierType.age
 
     default:
       fatalError("Unknown date spec type \(dateSpec.wrappedValue)")

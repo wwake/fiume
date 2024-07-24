@@ -16,16 +16,9 @@ struct EditPoolView: View {
 
   @State private var name = ""
 
-  @State private var amount: Int
-
   @State private var amountSpec: MoneySpecifier
 
-  @State private var dates = DateRange.null
-
-  fileprivate var backgroundColor: Color {
-    if amount <= 0 { return Color("Neutral") }
-    return isIncome ? Color("Asset") : Color("Liability")
-  }
+  @State private var dates: DateRange
 
   init(title: String? = nil, pool: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
     self.title = title
@@ -35,7 +28,6 @@ struct EditPoolView: View {
 
     self._isIncome = .init(initialValue: pool.isNonNegative)
     self._name = .init(initialValue: pool.name)
-    self._amount = .init(initialValue: abs(pool.amount.value()))
     self._amountSpec = .init(initialValue: pool.amount)
     self._dates = .init(initialValue: pool.dates)
   }
@@ -71,7 +63,7 @@ struct EditPoolView: View {
           Text("Liability").tag(false)
         }
 
-        MoneySpecifierView(isIncome: isIncome, amount: $amountSpec)
+        PoolMoneySpecifierView(isIncome: isIncome, amount: $amountSpec)
 
         EditDateRangeView(dates: $dates)
 

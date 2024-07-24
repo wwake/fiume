@@ -19,8 +19,7 @@ struct EditStreamView: View {
 
     self._isIncome = .init(initialValue: stream.isNonNegative)
     self._name = .init(initialValue: stream.name)
-    self._amount = .init(initialValue: abs(stream.amount_original))
-
+    self._amountSpec = .init(initialValue: stream.amount)
     self._dates = .init(initialValue: stream.dates)
   }
 
@@ -28,16 +27,17 @@ struct EditStreamView: View {
 
   @State private var name = ""
 
-  @State private var amount: Int
+  @State private var amountSpec: MoneySpecifier
+
   @State private var dates = DateRange.null
 
   fileprivate func createdAmount() -> Int {
     let sign = isIncome ? 1 : -1
-    return sign * amount
+    return sign * amountSpec.value()
   }
 
   fileprivate func valid() -> Bool {
-    if amount < 0 {
+    if amountSpec.value() < 0 {
       return false
     }
     if name.isEmpty {
@@ -47,7 +47,7 @@ struct EditStreamView: View {
   }
 
   fileprivate var backgroundColor: Color {
-    if amount <= 0 { return Color("Neutral") }
+    if amountSpec.value() <= 0 { return Color("Neutral") }
     return isIncome ? Color("Income") : Color("Expense")
   }
 
@@ -67,15 +67,7 @@ struct EditStreamView: View {
           Text("Expense").tag(false)
         }
 
-        VStack {
-          NumberField(label: "Amount $", value: $amount)
-            .padding(2)
-            .background(backgroundColor)
-          if amount < 0 {
-            Text("Amount may not be negative; choose Income or Expense instead.")
-              .foregroundStyle(Color.red)
-          }
-        }
+        StreamMoneySpecifierView(isIncome: isIncome, amount: $amountSpec)
 
         EditDateRangeView(dates: $dates)
 
@@ -84,7 +76,7 @@ struct EditStreamView: View {
           Button(buttonName) {
             let leia = Leia(
               name: name,
-              amount: Money(createdAmount()),
+              amount: .amount(createdAmount()),
               dates: dates
             )
             action(leia)
