@@ -90,7 +90,7 @@ struct EditPoolView: View {
 }
 
 #Preview {
-  @State var pool = Leia(name: "", amount: 100, dates: DateRange.null)
+  @State var pool = Leia(name: "", amount: .amount(100), dates: DateRange.null)
   return EditPoolView(pool: pool, buttonName: "Create") { _ in
   }
 }

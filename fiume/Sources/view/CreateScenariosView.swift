@@ -38,7 +38,7 @@ struct CreateScenariosView: View {
   @State var tree = Plan.makeGroup("accounts")
   let stream = Leia(
     name: "income",
-    amount: Money(100),
+    amount: .amount(100),
     dates: DateRange(.month(2020.jan), .unchanged)
   )
   tree.append(Plan.make(stream: stream))

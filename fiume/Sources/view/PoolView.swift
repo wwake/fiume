@@ -68,13 +68,13 @@ struct PoolView: View {
   @State var asset = Plan.make(
     pool: Leia(
       name: "Savings",
-      amount: 1_000,
+      amount: .amount(1_000),
       dates: DateRange(.month(2020.jan), .month(2025.dec))
     )
   )
   @State var liability = Plan.make(pool: Leia(
     name: "Car",
-    amount: -300,
+    amount: .amount(-300),
     dates: DateRange(.month(2030.mar), .unchanged)
   ))
   return VStack {

@@ -52,7 +52,7 @@ struct AddPlanView: View {
   @State var plans = Plans()
   let stream = Leia(
     name: "income",
-    amount: Money(100),
+    amount: .amount(100),
     dates: DateRange(.month(2024.jan), .unchanged)
   )
   tree.append(Plan.make(stream: stream))

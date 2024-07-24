@@ -1,4 +1,5 @@
 
+* Remove original Leia init()
 * Make amount an overrideable value on stream
 * SS with 1/2 of spouse etc.
 * Don't break persistence

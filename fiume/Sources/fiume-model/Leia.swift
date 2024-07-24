@@ -13,7 +13,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public static var null: Leia {
-    Leia(id: UUID(), name: "", amount: 0, dates: DateRange.null)
+    Leia(id: UUID(), name: "", amount: .amount(0), dates: DateRange.null)
   }
 
   public var id: UUID
