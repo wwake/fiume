@@ -9,6 +9,7 @@ public struct Leia: Identifiable, Codable {
     case amount_original = "amount"  // original JSON field name
     case first
     case last
+    case amountSpec
   }
 
   public static var null: Leia {

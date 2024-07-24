@@ -1,4 +1,4 @@
-public enum MoneySpecifier: Equatable {
+public enum MoneySpecifier: Equatable, Codable {
   case amount(Money)
 
   public func value() -> Money {
