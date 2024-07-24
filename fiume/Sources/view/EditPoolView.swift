@@ -18,7 +18,14 @@ struct EditPoolView: View {
 
   @State private var amount: Int
 
+  @State private var amountSpec: MoneySpecifier
+
   @State private var dates = DateRange.null
+
+  fileprivate var backgroundColor: Color {
+    if amount <= 0 { return Color("Neutral") }
+    return isIncome ? Color("Asset") : Color("Liability")
+  }
 
   init(title: String? = nil, pool: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
     self.title = title
@@ -28,28 +35,24 @@ struct EditPoolView: View {
 
     self._isIncome = .init(initialValue: pool.isNonNegative)
     self._name = .init(initialValue: pool.name)
-    self._amount = .init(initialValue: abs(pool.amount_original))
+    self._amount = .init(initialValue: abs(pool.amount.value()))
+    self._amountSpec = .init(initialValue: pool.amount)
     self._dates = .init(initialValue: pool.dates)
   }
 
   fileprivate func createdAmount() -> Int {
     let sign = isIncome ? 1 : -1
-    return sign * amount
+    return sign * amountSpec.value()
   }
 
   fileprivate func valid() -> Bool {
-    if amount < 0 {
+    if amountSpec.value() < 0 {
       return false
     }
     if name.isEmpty {
       return false
     }
     return true
-  }
-
-  fileprivate var backgroundColor: Color {
-    if amount <= 0 { return Color("Neutral") }
-    return isIncome ? Color("Asset") : Color("Liability")
   }
 
   var body: some View {
@@ -68,15 +71,7 @@ struct EditPoolView: View {
           Text("Liability").tag(false)
         }
 
-        VStack {
-          NumberField(label: "Amount $", value: $amount)
-            .padding(2)
-            .background(backgroundColor)
-          if amount < 0 {
-            Text("Amount may not be negative; choose Asset or Liability instead.")
-              .foregroundStyle(Color.red)
-          }
-        }
+        MoneySpecifierView(isIncome: isIncome, amount: $amountSpec)
 
         EditDateRangeView(dates: $dates)
 
@@ -86,7 +81,7 @@ struct EditPoolView: View {
             let outPool = Leia(
               id: pool.id,
               name: name,
-              amount: Money(createdAmount()),
+              amount: .amount(createdAmount()),
               dates: dates
             )
             action(outPool)

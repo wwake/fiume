@@ -42,7 +42,24 @@ public struct Leia: Identifiable, Codable {
   ) {
     self.id = id
     self.name = name
+
     self.amount_original = amount
+    self.amountSpec = .amount(amount)
+
+    self.first = dates.first
+    self.last = dates.last
+  }
+
+  public init(
+    id: UUID = UUID(),
+    name: String,
+    amount: MoneySpecifier,
+    dates: DateRange
+  ) {
+    self.id = id
+    self.name = name
+    self.amount_original = amount.value()
+    self.amountSpec = amount
 
     self.first = dates.first
     self.last = dates.last
