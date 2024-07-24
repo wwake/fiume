@@ -23,7 +23,7 @@ struct ThePlans {
 
   @Test
   func changes_when_stream_is_appended() {
-    let stream = Plan.make(stream: Leia(name: "2d job", amount: Money(200), dates: DateRange.null))
+    let stream = Plan.make(stream: Leia(name: "2d job", amount: .amount(200), dates: DateRange.null))
 
     plans.append(parent: plans.plans, child: stream)
     #expect(plans.plans.children![0] === stream)
