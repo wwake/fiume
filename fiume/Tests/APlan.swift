@@ -114,7 +114,7 @@ struct APlan {
     plan.replace(leia: stream)
 
     #expect(plan.leia!.name == "test")
-    #expect(plan.leia!.amount_original == 500)
+    #expect(plan.leia!.amount.value() == 500)
   }
 
   @Test

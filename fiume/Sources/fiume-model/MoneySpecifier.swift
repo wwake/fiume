@@ -1,4 +1,4 @@
-public enum MoneySpecifier {
+public enum MoneySpecifier: Equatable {
   case amount(Money)
 
   public func value() -> Money {

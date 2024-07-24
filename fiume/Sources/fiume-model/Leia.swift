@@ -66,11 +66,11 @@ public struct Leia: Identifiable, Codable {
   }
 
   public var isNonNegative: Bool {
-    amount_original >= 0
+    amount.value() >= 0
   }
 
   public func amount(at month: MonthYear, people: People) -> Money {
-    dates.includes(month, people) ? amount_original : Money(0)
+    dates.includes(month, people) ? amount.value() : Money(0)
   }
 
   public func update(overriddenBy leia: Leia) -> Leia {
@@ -79,6 +79,6 @@ public struct Leia: Identifiable, Codable {
     let newFirst = self.first.update(using: leia.first)
     let newLast = self.last.update(using: leia.last)
 
-    return Leia(id: leia.id, name: leia.name, amount: leia.amount_original, dates: DateRange(newFirst, newLast))
+    return Leia(id: leia.id, name: leia.name, amount: leia.amount, dates: DateRange(newFirst, newLast))
   }
 }
