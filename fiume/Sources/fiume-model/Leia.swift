@@ -17,7 +17,7 @@ public struct Leia: Identifiable, Codable {
 
   public var id: UUID
   public var name: String
-  public var amount_original: Money
+  private var amount_original: Money
   private var first: DateSpecifier
   private var last: DateSpecifier
 
