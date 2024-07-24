@@ -6,7 +6,7 @@ public struct Leia: Identifiable, Codable {
   public enum CodingKeys: String, CodingKey {
     case id
     case name
-    case amount
+    case amount_original = "amount"  // original JSON field name
     case first
     case last
   }
@@ -17,12 +17,21 @@ public struct Leia: Identifiable, Codable {
 
   public var id: UUID
   public var name: String
-  public var amount: Money
+  public var amount_original: Money
   private var first: DateSpecifier
   private var last: DateSpecifier
 
   public var dates: DateRange {
     DateRange(first, last)
+  }
+
+  private var amountSpec: MoneySpecifier?
+
+  public var amount: MoneySpecifier {
+    guard let result = amountSpec else {
+      return MoneySpecifier.amount(amount_original)
+    }
+    return result
   }
 
   public init(
@@ -33,18 +42,18 @@ public struct Leia: Identifiable, Codable {
   ) {
     self.id = id
     self.name = name
-    self.amount = amount
+    self.amount_original = amount
 
     self.first = dates.first
     self.last = dates.last
   }
 
   public var isNonNegative: Bool {
-    amount >= 0
+    amount_original >= 0
   }
 
   public func amount(at month: MonthYear, people: People) -> Money {
-    dates.includes(month, people) ? amount : Money(0)
+    dates.includes(month, people) ? amount_original : Money(0)
   }
 
   public func update(overriddenBy leia: Leia) -> Leia {
@@ -53,6 +62,6 @@ public struct Leia: Identifiable, Codable {
     let newFirst = self.first.update(using: leia.first)
     let newLast = self.last.update(using: leia.last)
 
-    return Leia(id: leia.id, name: leia.name, amount: leia.amount, dates: DateRange(newFirst, newLast))
+    return Leia(id: leia.id, name: leia.name, amount: leia.amount_original, dates: DateRange(newFirst, newLast))
   }
 }

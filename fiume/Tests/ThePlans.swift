@@ -75,7 +75,7 @@ struct ThePlans {
     plans.replace(plan, Leia(name: "revised", amount: Money(500), dates: DateRange.null))
 
     #expect(plan.leia!.name == "revised")
-    #expect(plan.leia!.amount == 500)
+    #expect(plan.leia!.amount_original == 500)
     #expect(plans.wasChanged)
   }
 }

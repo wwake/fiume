@@ -33,7 +33,7 @@ struct StreamView: View {
           .accessibilityLabel("expense stream")
       }
 
-      Text("\(type): \(stream.name)   $\(stream.amount)/mo   " +
+      Text("\(type): \(stream.name)   $\(stream.amount_original)/mo   " +
            stream.dates.description(people))
       Spacer()
       Button(action: {

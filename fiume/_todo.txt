@@ -1,6 +1,7 @@
-Amount
+
 * Make amount an overrideable value on stream
 * SS with 1/2 of spouse etc.
+* Don't break persistence
 
 Growth
 Inflation
@@ -15,7 +16,10 @@ Flows
 
 Design
 * Maybe Possibilities should be a struct, regenerated as needed
+
+Reports
 * Refactor: split up net worth calculation - produce raw values, then the report
+Net Income by Month
 
 People
 * Require distinct people names ?
@@ -27,7 +31,6 @@ Sections
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
 Calendar view (with RuleMark)
-Net Income by Month
 
 Variables?
 
@@ -40,8 +43,9 @@ FI-24-36: 2024-07-23 - Refactor DateRange
 * If date range is empty, use "". If not, use "" for an unchanged component.
 * Label Leias with "Asset", "Income" etc.
 * Negate value when editing expense or liability
-* Make edit pages say "Create" or "Update" "Pool"/whatever
+* Make edit pages say "Update" "Pool"/whatever
 * Delete people
+* Create MoneySpecifier (simple amount only)
 
 FI-24-35: 2024-07-22 - Testing without a Simulator?!
 * Modified model files to be public (constructors, functions, etc.)

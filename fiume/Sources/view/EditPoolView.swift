@@ -16,7 +16,7 @@ struct EditPoolView: View {
 
   @State private var name = ""
 
-  @State private var amount: Int?
+  @State private var amount: Int
 
   @State private var dates = DateRange.null
 
@@ -28,18 +28,17 @@ struct EditPoolView: View {
 
     self._isIncome = .init(initialValue: pool.isNonNegative)
     self._name = .init(initialValue: pool.name)
-    self._amount = .init(initialValue: abs(pool.amount))
+    self._amount = .init(initialValue: abs(pool.amount_original))
     self._dates = .init(initialValue: pool.dates)
   }
 
   fileprivate func createdAmount() -> Int {
-    guard let amount else { return 0 }
     let sign = isIncome ? 1 : -1
     return sign * amount
   }
 
   fileprivate func valid() -> Bool {
-    if amount != nil && amount! < 0 {
+    if amount < 0 {
       return false
     }
     if name.isEmpty {
@@ -49,7 +48,7 @@ struct EditPoolView: View {
   }
 
   fileprivate var backgroundColor: Color {
-    if amount == nil || amount! <= 0 { return Color("Neutral") }
+    if amount <= 0 { return Color("Neutral") }
     return isIncome ? Color("Asset") : Color("Liability")
   }
 
@@ -73,7 +72,7 @@ struct EditPoolView: View {
           NumberField(label: "Amount $", value: $amount)
             .padding(2)
             .background(backgroundColor)
-          if amount != nil && amount! < 0 {
+          if amount < 0 {
             Text("Amount may not be negative; choose Asset or Liability instead.")
               .foregroundStyle(Color.red)
           }

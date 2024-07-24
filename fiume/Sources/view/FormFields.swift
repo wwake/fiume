@@ -2,7 +2,7 @@ import SwiftUI
 
 struct NumberField: View {
 	var label: String
-	@Binding var value: Int?
+	@Binding var value: Int
 
 	var body: some View {
 		LabeledContent {
