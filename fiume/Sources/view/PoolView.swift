@@ -33,7 +33,7 @@ struct PoolView: View {
           .accessibilityLabel("liability")
       }
 
-      Text("\(type): \(pool.name)   $\(pool.amount.value())   " +
+      Text("\(type): \(pool.name)   \(pool.amount)   " +
            pool.dates.description(people))
       Spacer()
       Button(action: {
