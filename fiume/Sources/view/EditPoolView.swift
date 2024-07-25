@@ -16,7 +16,7 @@ struct EditPoolView: View {
 
   @State private var name = ""
 
-  @State private var amountSpec: MoneySpecifier
+  @State private var amountSpec: Amount
 
   @State private var dates: DateRange
 
@@ -73,7 +73,7 @@ struct EditPoolView: View {
             let outPool = Leia(
               id: pool.id,
               name: name,
-              amount: .amount(createdAmount()),
+              amount: .money(createdAmount()),
               dates: dates
             )
             action(outPool)
@@ -90,7 +90,7 @@ struct EditPoolView: View {
 }
 
 #Preview {
-  @State var pool = Leia(name: "", amount: .amount(100), dates: DateRange.null)
+  @State var pool = Leia(name: "", amount: .money(100), dates: DateRange.null)
   return EditPoolView(pool: pool, buttonName: "Create") { _ in
   }
 }

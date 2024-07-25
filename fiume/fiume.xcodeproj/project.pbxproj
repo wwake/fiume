@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		91042FDE2C50494E00FFC65F /* MoneySpecifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91042FDD2C50494E00FFC65F /* MoneySpecifier.swift */; };
-		91042FE02C50496800FFC65F /* AMoneySpecifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91042FDF2C50496800FFC65F /* AMoneySpecifier.swift */; };
+		91042FDE2C50494E00FFC65F /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91042FDD2C50494E00FFC65F /* Amount.swift */; };
+		91042FE02C50496800FFC65F /* AnAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91042FDF2C50496800FFC65F /* AnAmount.swift */; };
 		91042FE32C51822B00FFC65F /* MoneySpecifierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91042FE12C51821200FFC65F /* MoneySpecifierView.swift */; };
 		91206E282C07BD2300D4C1CB /* EditPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91206E272C07BD2300D4C1CB /* EditPersonView.swift */; };
 		91206E2A2C07BE6B00D4C1CB /* MonthYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91206E292C07BE6B00D4C1CB /* MonthYearView.swift */; };
@@ -114,8 +114,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		91042FDD2C50494E00FFC65F /* MoneySpecifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySpecifier.swift; sourceTree = "<group>"; };
-		91042FDF2C50496800FFC65F /* AMoneySpecifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMoneySpecifier.swift; sourceTree = "<group>"; };
+		91042FDD2C50494E00FFC65F /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		91042FDF2C50496800FFC65F /* AnAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnAmount.swift; sourceTree = "<group>"; };
 		91042FE12C51821200FFC65F /* MoneySpecifierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySpecifierView.swift; sourceTree = "<group>"; };
 		91206E272C07BD2300D4C1CB /* EditPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonView.swift; sourceTree = "<group>"; };
 		91206E292C07BE6B00D4C1CB /* MonthYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearView.swift; sourceTree = "<group>"; };
@@ -206,7 +206,10 @@
 		915226D82C4EDB980001260F /* fiume-model */ = {
 			isa = PBXGroup;
 			children = (
+				91042FDD2C50494E00FFC65F /* Amount.swift */,
+				91E7BB942C4EF2CF00A328DF /* DateRange.swift */,
 				91D543992C051B5700AD3592 /* DateSpecifier.swift */,
+				915226D92C4EDB980001260F /* fiume_model.h */,
 				914FEFA62BF29317003D858E /* Leia.swift */,
 				914FEFA22BF292FE003D858E /* Money.swift */,
 				91F950822C07B860006822AF /* MonthYear.swift */,
@@ -217,9 +220,6 @@
 				914FEFA42BF2930E003D858E /* Possibilities.swift */,
 				914B54C42BFBDB74005A9090 /* Scenario.swift */,
 				91CDFD162BFE6AE700695E65 /* Scenarios.swift */,
-				915226D92C4EDB980001260F /* fiume_model.h */,
-				91E7BB942C4EF2CF00A328DF /* DateRange.swift */,
-				91042FDD2C50494E00FFC65F /* MoneySpecifier.swift */,
 			);
 			path = "fiume-model";
 			sourceTree = "<group>";
@@ -239,20 +239,20 @@
 				91DA64FE2BF291F6004ADB9B /* ContentView.swift */,
 				919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */,
 				91D543972C051A3800AD3592 /* DateSpecifierView.swift */,
+				91E7BB982C502C1100A328DF /* EditDateRangeView.swift */,
 				919CED532BF69C5C00ACCE2E /* EditGroupView.swift */,
 				91206E272C07BD2300D4C1CB /* EditPersonView.swift */,
 				91F56D972C3DD266005A7E6E /* EditPoolView.swift */,
 				914FEFB62BF2AD6B003D858E /* EditStreamView.swift */,
 				914FEFB42BF2AD09003D858E /* FormFields.swift */,
+				91042FE12C51821200FFC65F /* MoneySpecifierView.swift */,
+				91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */,
 				91206E292C07BE6B00D4C1CB /* MonthYearView.swift */,
 				91206E322C090B3F00D4C1CB /* PeopleView.swift */,
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				91EA30B22C3DCC2000FA1177 /* PoolView.swift */,
 				914FEFB82BF2AF08003D858E /* StreamView.swift */,
-				91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */,
-				91E7BB982C502C1100A328DF /* EditDateRangeView.swift */,
-				91042FE12C51821200FFC65F /* MoneySpecifierView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -323,19 +323,19 @@
 		91DA650C2BF291F8004ADB9B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				91D543A12C0692B500AD3592 /* Package.swift */,
-				91D543A22C06DE2A00AD3592 /* Scaffolding.swift */,
 				91E7BB962C4EF5D800A328DF /* ADateRange.swift */,
 				91D5439B2C0523D900AD3592 /* ADateSpecifier.swift */,
+				914FEFA92BF29399003D858E /* ALeia.swift */,
 				91206E2D2C09011500D4C1CB /* AMonthYear.swift */,
+				91042FDF2C50496800FFC65F /* AnAmount.swift */,
 				919CED4A2BF5499F00ACCE2E /* APlan.swift */,
 				914B54C62BFBDF34005A9090 /* AScenario.swift */,
-				914FEFA92BF29399003D858E /* ALeia.swift */,
+				91D543A12C0692B500AD3592 /* Package.swift */,
 				9189070F2C3493FC0030918E /* Possibilities+add.swift */,
+				91D543A22C06DE2A00AD3592 /* Scaffolding.swift */,
 				91C248D52C333DC200A1EEB3 /* ThePeople.swift */,
 				91C248D72C33453E00A1EEB3 /* ThePlans.swift */,
 				914FEFA82BF29399003D858E /* ThePossibilities.swift */,
-				91042FDF2C50496800FFC65F /* AMoneySpecifier.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -521,7 +521,7 @@
 				915226EB2C4EDBAD0001260F /* Plans.swift in Sources */,
 				915226E92C4EDBAD0001260F /* Leia.swift in Sources */,
 				915226ED2C4EDBAD0001260F /* People.swift in Sources */,
-				91042FDE2C50494E00FFC65F /* MoneySpecifier.swift in Sources */,
+				91042FDE2C50494E00FFC65F /* Amount.swift in Sources */,
 				915226E72C4EDBAD0001260F /* Scenario.swift in Sources */,
 				915226EA2C4EDBAD0001260F /* DateSpecifier.swift in Sources */,
 				915226E42C4EDBAD0001260F /* MonthYear.swift in Sources */,
@@ -564,7 +564,7 @@
 				919CED4B2BF5499F00ACCE2E /* APlan.swift in Sources */,
 				91D5439C2C0523D900AD3592 /* ADateSpecifier.swift in Sources */,
 				914B54C72BFBDF34005A9090 /* AScenario.swift in Sources */,
-				91042FE02C50496800FFC65F /* AMoneySpecifier.swift in Sources */,
+				91042FE02C50496800FFC65F /* AnAmount.swift in Sources */,
 				91C248D92C33456E00A1EEB3 /* ThePlans.swift in Sources */,
 				91206E2F2C09013C00D4C1CB /* AMonthYear.swift in Sources */,
 				918907102C3493FC0030918E /* Possibilities+add.swift in Sources */,

@@ -3,7 +3,7 @@ import SwiftUI
 
 struct StreamMoneySpecifierView: View {
   var isIncome: Bool
-  @Binding var amount: MoneySpecifier
+  @Binding var amount: Amount
 
   var body: some View {
     MoneySpecifierView(
@@ -17,7 +17,7 @@ struct StreamMoneySpecifierView: View {
 
 struct PoolMoneySpecifierView: View {
   var isIncome: Bool
-  @Binding var amount: MoneySpecifier
+  @Binding var amount: Amount
 
   var body: some View {
     MoneySpecifierView(
@@ -33,7 +33,7 @@ struct MoneySpecifierView: View {
   var isIncome: Bool
   var positiveColor: String
   var negativeColor: String
-  @Binding var amount: MoneySpecifier
+  @Binding var amount: Amount
 
   @State var dollars: Int
 
@@ -41,7 +41,7 @@ struct MoneySpecifierView: View {
     isIncome: Bool,
     positiveColor: String,
     negativeColor: String,
-    amount: Binding<MoneySpecifier>
+    amount: Binding<Amount>
   ) {
     self.isIncome = isIncome
     self.positiveColor = positiveColor
@@ -66,13 +66,13 @@ struct MoneySpecifierView: View {
       }
     }
     .onChange(of: dollars) {
-      amount = MoneySpecifier.amount(dollars)
+      amount = Amount.money(dollars)
     }
   }
 }
 
 #Preview {
   let isIncome = true
-  @State var moneySpec = MoneySpecifier.amount(1000)
+  @State var moneySpec = Amount.money(1000)
   return PoolMoneySpecifierView(isIncome: isIncome, amount: $moneySpec)
 }

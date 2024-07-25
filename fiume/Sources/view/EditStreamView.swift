@@ -27,7 +27,7 @@ struct EditStreamView: View {
 
   @State private var name = ""
 
-  @State private var amountSpec: MoneySpecifier
+  @State private var amountSpec: Amount
 
   @State private var dates = DateRange.null
 
@@ -76,7 +76,7 @@ struct EditStreamView: View {
           Button(buttonName) {
             let leia = Leia(
               name: name,
-              amount: .amount(createdAmount()),
+              amount: .money(createdAmount()),
               dates: dates
             )
             action(leia)

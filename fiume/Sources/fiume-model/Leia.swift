@@ -13,7 +13,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public static var null: Leia {
-    Leia(id: UUID(), name: "", amount: .amount(0), dates: DateRange.null)
+    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.null)
   }
 
   public var id: UUID
@@ -26,11 +26,11 @@ public struct Leia: Identifiable, Codable {
     DateRange(first, last)
   }
 
-  private var amountSpec: MoneySpecifier?
+  private var amountSpec: Amount?
 
-  public var amount: MoneySpecifier {
+  public var amount: Amount {
     guard let result = amountSpec else {
-      return MoneySpecifier.amount(amount_original)
+      return Amount.money(amount_original)
     }
     return result
   }
@@ -38,7 +38,7 @@ public struct Leia: Identifiable, Codable {
   public init(
     id: UUID = UUID(),
     name: String,
-    amount: MoneySpecifier,
+    amount: Amount,
     dates: DateRange
   ) {
     self.id = id
