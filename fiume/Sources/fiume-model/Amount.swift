@@ -1,4 +1,9 @@
 public enum Amount: Equatable {
+  public enum CodingKeys: String, CodingKey {
+    case money = "amount"
+    case relative
+  }
+
   case money(Money)
   case relative(Double, String)
 
