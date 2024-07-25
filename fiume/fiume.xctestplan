@@ -14,7 +14,7 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:fiume.xcodeproj",
+        "containerPath" : "container:..\/..\/..\/..\/..\/..\/..\/..\/Desktop\/Twitch\/fiume\/fiume\/fiume.xcodeproj",
         "identifier" : "91DA65082BF291F8004ADB9B",
         "name" : "fiumeTests"
       }
