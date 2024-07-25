@@ -46,17 +46,6 @@
                ReferencedContainer = "container:fiume.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91DA65122BF291F8004ADB9B"
-               BuildableName = "fiumeUITests.xctest"
-               BlueprintName = "fiumeUITests"
-               ReferencedContainer = "container:fiume.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
