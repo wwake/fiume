@@ -30,7 +30,7 @@ public struct Leia: Identifiable, Codable {
 
   public var amount: Amount {
     guard let result = amountSpec else {
-      return Amount.money(amount_original)
+      return Amount(amount_original)
     }
     return result
   }

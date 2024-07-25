@@ -73,6 +73,6 @@ struct MoneySpecifierView: View {
 
 #Preview {
   let isIncome = true
-  @State var moneySpec = Amount.money(1000)
+  @State var moneySpec = Amount(1000)
   return PoolMoneySpecifierView(isIncome: isIncome, amount: $moneySpec)
 }
