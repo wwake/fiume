@@ -7,6 +7,10 @@ public enum Amount: Equatable {
       return amount
     }
   }
+
+  public init(_ money: Money) {
+    self = .money(money)
+  }
 }
 
 extension Amount: Codable { }
