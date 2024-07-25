@@ -67,7 +67,7 @@ struct EditStreamView: View {
           Text("Expense").tag(false)
         }
 
-        StreamMoneySpecifierView(isIncome: isIncome, amount: $amountSpec)
+        StreamAmountView(isIncome: isIncome, amount: $amountSpec)
 
         EditDateRangeView(dates: $dates)
 

@@ -63,7 +63,7 @@ struct EditPoolView: View {
           Text("Liability").tag(false)
         }
 
-        PoolMoneySpecifierView(isIncome: isIncome, amount: $amountSpec)
+        PoolAmountView(isIncome: isIncome, amount: $amountSpec)
 
         EditDateRangeView(dates: $dates)
 

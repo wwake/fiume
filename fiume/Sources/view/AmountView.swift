@@ -1,12 +1,12 @@
 import fiume_model
 import SwiftUI
 
-struct StreamMoneySpecifierView: View {
+struct StreamAmountView: View {
   var isIncome: Bool
   @Binding var amount: Amount
 
   var body: some View {
-    MoneySpecifierView(
+    AmountView(
       isIncome: isIncome,
       positiveColor: "Income",
       negativeColor: "Expense",
@@ -15,12 +15,12 @@ struct StreamMoneySpecifierView: View {
   }
 }
 
-struct PoolMoneySpecifierView: View {
+struct PoolAmountView: View {
   var isIncome: Bool
   @Binding var amount: Amount
 
   var body: some View {
-    MoneySpecifierView(
+    AmountView(
       isIncome: isIncome,
       positiveColor: "Asset",
       negativeColor: "Liability",
@@ -29,7 +29,7 @@ struct PoolMoneySpecifierView: View {
   }
 }
 
-struct MoneySpecifierView: View {
+struct AmountView: View {
   var isIncome: Bool
   var positiveColor: String
   var negativeColor: String
@@ -73,6 +73,6 @@ struct MoneySpecifierView: View {
 
 #Preview {
   let isIncome = true
-  @State var moneySpec = Amount(1000)
-  return PoolMoneySpecifierView(isIncome: isIncome, amount: $moneySpec)
+  @State var amount = Amount(1000)
+  return PoolAmountView(isIncome: isIncome, amount: $amount)
 }
