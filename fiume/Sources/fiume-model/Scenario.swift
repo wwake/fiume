@@ -57,6 +57,10 @@ public class Scenario: Identifiable {
     return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }
 
+  public func find(stream: String) -> Leia? {
+    streams[stream]
+  }
+
   public func netIncome(at month: MonthYear) -> Money {
     streams.values.reduce(Money(0)) { net, stream in
       net + stream.amount(at: month, people: people)

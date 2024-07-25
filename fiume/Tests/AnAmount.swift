@@ -9,14 +9,14 @@ struct AnAmount {
     #expect(sut.value() == 100)
   }
 
-  //@Test
-  func know_relative_amount() {
+  @Test
+  func knows_relative_amount() {
     let scenario = Scenario("the scenario", people: People())
     let stream = Leia(name: "source stream", amount: Amount(100), dates: DateRange.null)
     scenario.add(stream: stream)
 
     let sut = Amount(0.5, "source stream")
 
-    #expect(sut.value(scenario) == Money(50))
+    #expect(sut.value(at: 2025.jan, scenario) == Money(50))
   }
 }

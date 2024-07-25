@@ -2,13 +2,17 @@ public enum Amount: Equatable {
   case money(Money)
   case relative(Double, String)
 
-  public func value(_ scenario: Scenario? = nil) -> Money {
+  public func value(at: MonthYear? = nil, _ scenario: Scenario? = nil) -> Money {
     switch self {
     case .money(let amount):
       return amount
 
     case let .relative(ratio, streamName):
-      return Money(52)
+      let base = scenario!.find(stream: streamName)
+      guard at != nil && base != nil else {
+        return Money(0)
+      }
+      return Money(ratio * Double(base!.amount(at: at!, people: People(), scenario: scenario!)))
     }
   }
 

@@ -129,4 +129,20 @@ struct AScenario {
     #expect(result.netWorthByMonth[0].amount == 1001)
     #expect(result.netWorthByMonth[1].amount == 1002)
   }
+
+  @Test
+  func finds_named_stream() {
+    let sut = Scenario("my scenario", people: People())
+    let income = Leia(name: "job", amount: .money(1000), dates: DateRange.null)
+    sut.add(stream: income)
+
+    #expect(sut.find(stream: "job")!.amount.value() == Money(1000))
+  }
+
+  @Test
+  func cant_find_missing_stream() {
+    let sut = Scenario("my scenario", people: People())
+
+    #expect(sut.find(stream: "missing stream") == nil)
+  }
 }
