@@ -1,4 +1,3 @@
-* MoneySpecifier constructor
 * SS with 1/2 of spouse etc.
 * Make amount an overrideable value on stream (?)
 Amount
@@ -39,6 +38,8 @@ Editing
 * Move streams (?)
 
 FI-24-38: 2024-07-25 - Relative Amounts
+* Rename MoneySpecifier to Amount
+* Add Amount helper constructor
 
 FI-24-37: 2024-07-24 - MoneySpecifier
 * Make everybody who previously used Leia.amount work with a MoneySpecifier

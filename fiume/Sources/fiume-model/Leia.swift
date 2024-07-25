@@ -54,7 +54,7 @@ public struct Leia: Identifiable, Codable {
     amount.value() >= 0
   }
 
-  public func amount(at month: MonthYear, people: People) -> Money {
+  public func amount(at month: MonthYear, people: People, scenario: Scenario? = nil) -> Money {
     dates.includes(month, people) ? amount.value() : Money(0)
   }
 
