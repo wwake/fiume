@@ -1,12 +1,9 @@
 
-* Remove original Leia init()
 * Make amount an overrideable value on stream
 * SS with 1/2 of spouse etc.
-* Don't break persistence
 
 Growth
 Inflation
-
 
 Streams
 * Allow dates to depend on death day
@@ -37,6 +34,12 @@ Variables?
 
 Editing
 * Move streams (?)
+
+FI-24-37: 2024-07-24 - MoneySpecifier
+* Make everybody who previously used Leia.amount work with a MoneySpecifier
+* Remove original Leia init()
+* Don't break persistence with this change
+* Fixed initialization problem for our DateRangeView - turns out setting the same field twice in the init didn't update view
 
 FI-24-36: 2024-07-23 - Refactor DateRange
 * DateRange description used in PoolView and StreamView
