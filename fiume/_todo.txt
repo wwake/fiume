@@ -2,6 +2,8 @@
 * Make amount an overrideable value on stream
 * SS with 1/2 of spouse etc.
 
+Variables?
+
 Growth
 Inflation
 
@@ -29,8 +31,6 @@ Sections
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
 Calendar view (with RuleMark)
-
-Variables?
 
 Editing
 * Move streams (?)

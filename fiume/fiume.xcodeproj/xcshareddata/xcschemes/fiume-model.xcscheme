@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91DA64F82BF291F6004ADB9B"
-               BuildableName = "fiume.app"
-               BlueprintName = "fiume"
+               BlueprintIdentifier = "915226D62C4EDB980001260F"
+               BuildableName = "fiume_model.framework"
+               BlueprintName = "fiume-model"
                ReferencedContainer = "container:fiume.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,47 +27,19 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <TestPlans>
-         <TestPlanReference
-            reference = "container:fiume.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-      </TestPlans>
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91DA65082BF291F8004ADB9B"
-               BuildableName = "fiumeTests.xctest"
-               BlueprintName = "fiumeTests"
-               ReferencedContainer = "container:fiume.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
-      selectedDebuggerIdentifier = ""
-      selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "91DA64F82BF291F6004ADB9B"
-            BuildableName = "fiume.app"
-            BlueprintName = "fiume"
-            ReferencedContainer = "container:fiume.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "IDEPreferLogStreaming"
@@ -82,16 +54,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "91DA64F82BF291F6004ADB9B"
-            BuildableName = "fiume.app"
-            BlueprintName = "fiume"
+            BlueprintIdentifier = "915226D62C4EDB980001260F"
+            BuildableName = "fiume_model.framework"
+            BlueprintName = "fiume-model"
             ReferencedContainer = "container:fiume.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
