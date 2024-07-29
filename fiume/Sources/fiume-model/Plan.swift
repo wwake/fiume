@@ -8,7 +8,7 @@ public enum PlanType: String, CaseIterable, Identifiable, Codable {
 
 @Observable
 public class Plan: Identifiable, Codable {
-  public enum CodingKeys: String, CodingKey {
+  enum CodingKeys: String, CodingKey {
     case _id = "id"
     case _type = "type"
     case _name = "name"

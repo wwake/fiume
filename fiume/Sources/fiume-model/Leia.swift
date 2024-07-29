@@ -3,7 +3,7 @@ import Foundation
 // Leia = Liability/Expense/Income/Asset (ie Stream or Pool)
 //
 public struct Leia: Identifiable, Codable {
-  public enum CodingKeys: String, CodingKey {
+  enum CodingKeys: String, CodingKey {
     case id
     case name
     case amount_original = "amount"  // original JSON field name

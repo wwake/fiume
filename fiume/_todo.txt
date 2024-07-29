@@ -1,8 +1,12 @@
+
 * SS with 1/2 of spouse etc.
+* Show as % - double.formatted(.percent.precision(.fractionLength(1)))
 * Make amount an overrideable value on stream (?)
 Amount
 
 Remove override of entry by same name?
+
+Make DateRange.includes split out "<=" and ">" conditions
 
 Variables
 
@@ -40,6 +44,7 @@ Editing
 FI-24-38: 2024-07-25 - Relative Amounts
 * Rename MoneySpecifier to Amount
 * Add Amount helper constructor
+* Work toward stream as % of another one
 
 FI-24-37: 2024-07-24 - MoneySpecifier
 * Make everybody who previously used Leia.amount work with a MoneySpecifier
