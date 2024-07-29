@@ -1,7 +1,9 @@
-
+* Amount creation/editing
+* Make date and scenario required for value computation
 * SS with 1/2 of spouse etc.
 * Show as % - double.formatted(.percent.precision(.fractionLength(1)))
 * Make amount an overrideable value on stream (?)
+* What if stream A depends on B and vice versa?
 Amount
 
 Remove override of entry by same name?
