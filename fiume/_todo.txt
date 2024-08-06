@@ -1,7 +1,6 @@
-* Storing a relative amount seems to require scenario, and doesn't save properly
-* EditStreamView.createdAmount should be able to return a relative amount
-* Check how valid and description are done in DateSpecifierView and EditStreamView (& Pool) - can't get value() without a scenario
+* Relative amount type is not preserved for editing
 * Amount creation/editing
+* Check signs when editing liability / expense
 * Make date and scenario required for value computation
 * SS with 1/2 of spouse etc.
 * Show as % - double.formatted(.percent.precision(.fractionLength(1)))
@@ -50,7 +49,10 @@ Editing
 
 FI-24-40: 2024-08-06 - View % of Stream
 * Preserve relative vs money in EditStream[Pool]View
+* EditStream[Pool]View.createdAmount returns a relative amount
 * Make Leia default amount_original to $0 on construction
+* Relative amounts no longer need a scenario to edit/save them
+
 
 FI-24-39: 2024-07-29 - % of Stream
 * AmountView switches between MoneyAmountView and RelativeAmountView

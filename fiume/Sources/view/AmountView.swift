@@ -113,7 +113,7 @@ struct AmountView: View {
   var negativeColor: String
   @Binding var amount: Amount
 
-  @State var amountType: AmountType = .money
+  @State var amountType: AmountType
 
   @State var dollars: Int
   @State var percent: Double

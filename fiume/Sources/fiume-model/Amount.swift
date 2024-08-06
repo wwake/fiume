@@ -15,6 +15,16 @@ public enum Amount: Equatable {
     self = .relative(ratio, name)
   }
 
+  public var isNonNegative: Bool {
+    switch self {
+    case .money(let amount):
+      return amount >= 0
+
+    case .relative:
+      return true
+    }
+  }
+
   public func value(at: MonthYear? = nil, _ scenario: Scenario? = nil) -> Money {
     switch self {
     case .money(let amount):

@@ -4,10 +4,25 @@ import Testing
 
 struct AnAmount {
   @Test
-  func knows_simple_amount() {
+  func knows_simple_amount_for_positive() {
     let sut = Amount(100)
     #expect(sut.value() == 100)
+    #expect(sut.isNonNegative)
     #expect(sut.description == "$100/mo")
+  }
+
+  @Test
+  func knows_simple_amount_for_negative() {
+    let sut = Amount(-100)
+    #expect(sut.value() == -100)
+    #expect(!sut.isNonNegative)
+    #expect(sut.description == "$-100/mo")
+  }
+
+  @Test
+  func always_is_nonnegative_if_relative() {
+    let sut = Amount(0.67, "source stream")
+    #expect(sut.isNonNegative)
   }
 
   @Test

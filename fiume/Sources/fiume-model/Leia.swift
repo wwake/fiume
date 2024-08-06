@@ -50,7 +50,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public var isNonNegative: Bool {
-    amount.value() >= 0
+    amount.isNonNegative
   }
 
   public func amount(at month: MonthYear, people: People, scenario: Scenario? = nil) -> Money {
