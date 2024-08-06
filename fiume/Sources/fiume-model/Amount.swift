@@ -11,8 +11,8 @@ public enum Amount: Equatable {
     self = .money(money)
   }
 
-  public init(_ ratio: Double, _ streamName: String) {
-    self = .relative(ratio, streamName)
+  public init(_ ratio: Double, _ name: String) {
+    self = .relative(ratio, name)
   }
 
   public func value(at: MonthYear? = nil, _ scenario: Scenario? = nil) -> Money {
