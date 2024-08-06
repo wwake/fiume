@@ -71,11 +71,38 @@ struct MoneyAmountView: View {
       NumberField(label: "Amount $", value: $dollars)
         .padding(2)
         .background(backgroundColor)
-
+        .onChange(of: dollars) {
+          amount = .money(dollars)
+        }
       if dollars < 0 {
         Text("Amount may not be negative; choose Asset or Liability instead.")
           .foregroundStyle(Color.red)
       }
+    }
+  }
+}
+
+struct RelativeAmountView: View {
+  @Binding var amount: Amount
+  @Binding var percent: Double
+  @Binding var name: String
+
+  func updateValues() {
+    amount = .relative(percent, name)
+  }
+
+  var body: some View {
+    VStack {
+      PercentField(label: "Percent", value: $percent)
+        .padding(2)
+
+      RequiredTextField(name: "Source", field: $name)
+    }
+    .onChange(of: percent) {
+      updateValues()
+    }
+    .onChange(of: name) {
+      updateValues()
     }
   }
 }
@@ -89,6 +116,8 @@ struct AmountView: View {
   @State var amountType: AmountType = .money
 
   @State var dollars: Int
+  @State var percent: Double
+  @State var name: String
 
   init(
     isIncome: Bool,
@@ -104,14 +133,28 @@ struct AmountView: View {
     switch amount.wrappedValue {
     case .money(let dollars):
       self.dollars = dollars
+      self.percent = 1.0
+      self.name = ""
       amountType = .money
 
     case let .relative(ratio, stream):
       self.dollars = 0
+      self.percent = ratio
+      self.name = stream
       amountType = .relative
 
     @unknown default:
       fatalError("Amount View unknown type \(amount.wrappedValue)")
+    }
+  }
+
+  func updateValues() {
+    switch amountType {
+    case .money:
+      amount = .money(Money(self.dollars))
+
+    case .relative:
+      amount = .relative(self.percent, self.name)
     }
   }
 
@@ -128,17 +171,27 @@ struct AmountView: View {
         }
       }
       .pickerStyle(.segmented)
-      //      .onChange(of: dateType) { _, newValue in
-      //        updateDateSpec(newValue)
-      //      }
+      .onChange(of: amountType) {
+        updateValues()
+      }
 
       switch amountType {
       case .money:
-        MoneyAmountView(isIncome: isIncome, positiveColor: positiveColor, negativeColor: negativeColor, amount: $amount, dollars: $dollars)
-          .frame(height: 100)
+        MoneyAmountView(
+          isIncome: isIncome,
+          positiveColor: positiveColor,
+          negativeColor: negativeColor,
+          amount: $amount,
+          dollars: $dollars
+        )
+        .frame(height: 100)
 
       case .relative:
-        EmptyView()
+        RelativeAmountView(
+          amount: $amount,
+          percent: $percent,
+          name: $name
+        )
           .frame(height: 100)
       }
     }

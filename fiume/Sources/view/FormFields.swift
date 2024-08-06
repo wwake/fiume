@@ -14,6 +14,20 @@ struct NumberField: View {
 	}
 }
 
+struct PercentField: View {
+  var label: String
+  @Binding var value: Double
+
+  var body: some View {
+    LabeledContent {
+      TextField(label, value: $value, format: .percent)
+        .keyboardType(.decimalPad)
+    } label: {
+      Text(label)
+    }
+  }
+}
+
 struct RequiredTextField: View {
   var name: String
   @Binding var field: String

@@ -21,12 +21,12 @@ public struct Leia: Identifiable, Codable {
   private var amount_original: Money
   private var first: DateSpecifier
   private var last: DateSpecifier
+  private var amountSpec: Amount?
 
   public var dates: DateRange {
     DateRange(first, last)
   }
 
-  private var amountSpec: Amount?
 
   public var amount: Amount {
     guard let result = amountSpec else {
@@ -43,7 +43,7 @@ public struct Leia: Identifiable, Codable {
   ) {
     self.id = id
     self.name = name
-    self.amount_original = amount.value()
+    self.amount_original = 0
     self.amountSpec = amount
 
     self.first = dates.first

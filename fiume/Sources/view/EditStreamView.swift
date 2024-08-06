@@ -31,15 +31,24 @@ struct EditStreamView: View {
 
   @State private var dates = DateRange.null
 
-  fileprivate func createdAmount() -> Int {
-    let sign = isIncome ? 1 : -1
-    return sign * amountSpec.value()
+  fileprivate func createdAmount() -> Amount {
+    switch amountSpec {
+    case .money(let money):
+      let sign = isIncome ? 1 : -1
+      return .money(sign * amountSpec.value())
+
+    case .relative(let double, let string):
+      return amountSpec
+
+    @unknown default:
+      fatalError("EditStreamView.createdAmount - unknown amount type")
+    }
   }
 
   fileprivate func valid() -> Bool {
-    if amountSpec.value() < 0 {
-      return false
-    }
+//    if amountSpec.value() < 0 {
+//      return false
+//    }
     if name.isEmpty {
       return false
     }
@@ -76,7 +85,7 @@ struct EditStreamView: View {
           Button(buttonName) {
             let leia = Leia(
               name: name,
-              amount: .money(createdAmount()),
+              amount: createdAmount(),
               dates: dates
             )
             action(leia)
