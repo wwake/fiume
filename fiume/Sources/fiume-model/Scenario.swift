@@ -57,8 +57,8 @@ public class Scenario: Identifiable {
     return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }
 
-  public func find(stream: String) -> Leia? {
-    streams[stream]
+  public func find(_ stream: String) -> Leia? {
+    streams[stream] ?? pools[stream]
   }
 
   public func netIncome(at month: MonthYear) -> Money {
@@ -69,7 +69,7 @@ public class Scenario: Identifiable {
 
   public func netAssets(at month: MonthYear) -> Money {
     pools.values.reduce(Money(0)) { net, pool in
-      net + pool.amount(at: month, people: people)
+      net + pool.amount(at: month, people: people, scenario: self)
     }
   }
 }

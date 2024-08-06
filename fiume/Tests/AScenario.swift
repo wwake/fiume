@@ -136,18 +136,18 @@ struct AScenario {
     let income = Leia(name: "job", amount: .money(1000), dates: DateRange.null)
     sut.add(stream: income)
 
-    #expect(sut.find(stream: "job")!.amount.value() == Money(1000))
+    #expect(sut.find("job")!.amount.value() == Money(1000))
   }
 
   @Test
   func cant_find_missing_stream() {
     let sut = Scenario("my scenario", people: People())
 
-    #expect(sut.find(stream: "missing stream") == nil)
+    #expect(sut.find("missing stream") == nil)
   }
 
   @Test
-  func calculates_relative_amount() {
+  func calculates_relative_amount_of_a_stream() {
     let sut = Scenario("My scenario", people: People())
     let income = Leia(name: "job", amount: .money(1000), dates: DateRange.null)
     sut.add(stream: income)
@@ -155,5 +155,16 @@ struct AScenario {
     sut.add(stream: relative)
 
     #expect(sut.netIncome(at: 2024.jan) == Money(1500))
+  }
+
+  @Test
+  func calculates_relative_amount_of_a_pool() {
+    let sut = Scenario("My scenario", people: People())
+    let house = Leia(name: "house", amount: .money(100_000), dates: DateRange.null)
+    sut.add(pool: house)
+    let relative = Leia(name: "rel", amount: .relative(0.5, "house"), dates: DateRange.null)
+    sut.add(pool: relative)
+
+    #expect(sut.netAssets(at: 2024.jan) == Money(150_000))
   }
 }

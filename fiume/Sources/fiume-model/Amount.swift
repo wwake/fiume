@@ -20,8 +20,8 @@ public enum Amount: Equatable {
     case .money(let amount):
       return amount
 
-    case let .relative(ratio, streamName):
-      let base = scenario!.find(stream: streamName)
+    case let .relative(ratio, leiaName):
+      let base = scenario!.find(leiaName)
       guard at != nil && base != nil else {
         return Money(0)
       }

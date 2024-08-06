@@ -33,11 +33,11 @@ struct EditStreamView: View {
 
   fileprivate func createdAmount() -> Amount {
     switch amountSpec {
-    case .money(let money):
+    case .money:
       let sign = isIncome ? 1 : -1
       return .money(sign * amountSpec.value())
 
-    case .relative(let double, let string):
+    case .relative:
       return amountSpec
 
     @unknown default:

@@ -27,7 +27,6 @@ public struct Leia: Identifiable, Codable {
     DateRange(first, last)
   }
 
-
   public var amount: Amount {
     guard let result = amountSpec else {
       return Amount(amount_original)
