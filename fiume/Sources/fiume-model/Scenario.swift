@@ -63,7 +63,7 @@ public class Scenario: Identifiable {
 
   public func netIncome(at month: MonthYear) -> Money {
     streams.values.reduce(Money(0)) { net, stream in
-      net + stream.amount(at: month, people: people)
+      net + stream.amount(at: month, people: people, scenario: self)
     }
   }
 

@@ -145,4 +145,15 @@ struct AScenario {
 
     #expect(sut.find(stream: "missing stream") == nil)
   }
+
+  @Test
+  func calculates_relative_amount() {
+    let sut = Scenario("My scenario", people: People())
+    let income = Leia(name: "job", amount: .money(1000), dates: DateRange.null)
+    sut.add(stream: income)
+    let relative = Leia(name: "rel", amount: .relative(0.5, "job"), dates: DateRange.null)
+    sut.add(stream: relative)
+
+    #expect(sut.netIncome(at: 2024.jan) == Money(1500))
+  }
 }
