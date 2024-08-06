@@ -34,6 +34,6 @@ struct AnAmount {
     let sut = Amount(0.67, "source stream")
 
     #expect(sut.value(at: 2025.jan, scenario) == Money(67))
-    #expect(sut.description == "0.67 of source stream")
+    #expect(sut.description == "67% of source stream")
   }
 }

@@ -49,7 +49,7 @@ extension Amount: CustomStringConvertible {
       return "$\(amount)/mo"
 
     case let .relative(ratio, streamName):
-      return "\(ratio) of \(streamName)"
+      return "\(ratio.formatted(.percent.precision(.fractionLength(0)))) of \(streamName)"
     }
   }
 }

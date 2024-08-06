@@ -1,13 +1,12 @@
-* Relative amount type is not preserved for editing
-* Amount creation/editing
-* Check signs when editing liability / expense
-* Make date and scenario required for value computation
-* SS with 1/2 of spouse etc.
 * Show as % - double.formatted(.percent.precision(.fractionLength(1)))
+* Make date and scenario required for value computation
 * What if stream A depends on B and vice versa?
 * Best UI for stream name since they might not exist yet but probably do
 * Make amount an overrideable value on stream (?)
+* Should Relative amounts be a separate top-level entity? (like Asset)
 Amount
+
+* Check signs when editing liability / expense
 
 Remove override of entry by same name?
 Error Reporting?    
@@ -52,7 +51,8 @@ FI-24-40: 2024-08-06 - View % of Stream
 * EditStream[Pool]View.createdAmount returns a relative amount
 * Make Leia default amount_original to $0 on construction
 * Relative amounts no longer need a scenario to edit/save them
-
+* Preserve relative amount type when editing
+* Now have relative amounts for streams or pools
 
 FI-24-39: 2024-07-29 - % of Stream
 * AmountView switches between MoneyAmountView and RelativeAmountView
