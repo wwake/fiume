@@ -12,6 +12,14 @@ public struct Leia: Identifiable, Codable {
     case amountSpec
   }
 
+  public enum LeiaType {
+    case unspecified,
+         asset,
+         liability,
+         income,
+         expense
+  }
+
   public static var null: Leia {
     Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.null)
   }
@@ -22,6 +30,7 @@ public struct Leia: Identifiable, Codable {
   private var first: DateSpecifier
   private var last: DateSpecifier
   private var amountSpec: Amount?
+  private var leiaType: LeiaType?
 
   public var dates: DateRange {
     DateRange(first, last)
@@ -34,11 +43,16 @@ public struct Leia: Identifiable, Codable {
     return result
   }
 
+  public var type: LeiaType {
+    leiaType ?? .unspecified
+  }
+
   public init(
     id: UUID = UUID(),
     name: String,
     amount: Amount,
-    dates: DateRange
+    dates: DateRange,
+    leiaType: LeiaType = .unspecified
   ) {
     self.id = id
     self.name = name
