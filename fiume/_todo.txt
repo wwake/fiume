@@ -1,4 +1,3 @@
-* Preserve relative vs money in EditStreamView
 * Storing a relative amount seems to require scenario, and doesn't save properly
 * EditStreamView.createdAmount should be able to return a relative amount
 * Check how valid and description are done in DateSpecifierView and EditStreamView (& Pool) - can't get value() without a scenario
@@ -48,6 +47,10 @@ Calendar view (with RuleMark)
 
 Editing
 * Move streams (?)
+
+FI-24-40: 2024-08-06 - View % of Stream
+* Preserve relative vs money in EditStream[Pool]View
+* Make Leia default amount_original to $0 on construction
 
 FI-24-39: 2024-07-29 - % of Stream
 * AmountView switches between MoneyAmountView and RelativeAmountView

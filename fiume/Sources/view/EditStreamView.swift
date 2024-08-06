@@ -55,11 +55,6 @@ struct EditStreamView: View {
     return true
   }
 
-  fileprivate var backgroundColor: Color {
-    if amountSpec.value() <= 0 { return Color("Neutral") }
-    return isIncome ? Color("Income") : Color("Expense")
-  }
-
   var body: some View {
     VStack {
       if title != nil {
