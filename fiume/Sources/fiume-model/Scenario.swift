@@ -62,14 +62,16 @@ public class Scenario: Identifiable {
   }
 
   public func netIncome(at month: MonthYear) -> Money {
-    streams.values.reduce(Money(0)) { net, stream in
-      net + stream.amount(at: month, people: people, scenario: self)
-    }
+    net(at: month, in: streams)
   }
 
   public func netAssets(at month: MonthYear) -> Money {
-    pools.values.reduce(Money(0)) { net, pool in
-      net + pool.amount(at: month, people: people, scenario: self)
+    net(at: month, in: pools)
+  }
+
+  fileprivate func net(at month: MonthYear, in collection: NameToLeia) -> Money {
+    collection.values.reduce(Money(0)) { net, leia in
+      net + leia.amount(at: month, people: people, scenario: self)
     }
   }
 }
