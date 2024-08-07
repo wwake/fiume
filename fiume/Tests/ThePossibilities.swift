@@ -5,8 +5,8 @@ import Testing
 struct ThePossibilities {
   private let people = People()
 
-  private func makeLeia(_ name: String, _ amount: Int) -> Leia {
-    Leia(name: name, amount: .money(amount), dates: DateRange(.month(2024.jan), .unchanged), leiaType: .income)
+  private func makeLeia(_ name: String, _ amount: Int, _ leiaType: LeiaType = .income) -> Leia {
+    Leia(name: name, amount: .money(amount), dates: DateRange(.month(2024.jan), .unchanged), leiaType: leiaType)
   }
 
   private func makePossibilities() -> Possibilities {
@@ -28,7 +28,7 @@ struct ThePossibilities {
 	func salary_minus_expenses_creates_net_worth() throws {
 		let sut = makePossibilities()
 		sut.add(makeLeia("Salary", Money(1_000)))
-		sut.add(makeLeia("Expenses", Money(-900)))
+    sut.add(makeLeia("Expenses", Money(-900), .expense))
 
 		let data = sut.netWorth(sut.range(12))
 
@@ -48,7 +48,7 @@ struct ThePossibilities {
   func scenarios_with_only_groups() {
 		let sut = makePossibilities()
 		sut.add(makeLeia("Salary", Money(1_000)))
-		sut.add(makeLeia("Expenses", Money(-900)))
+    sut.add(makeLeia("Expenses", Money(-900), .expense))
 
     let result = Array(sut.scenarios())
 

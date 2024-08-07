@@ -24,9 +24,10 @@ struct AScenario {
     name: String = "Sample",
     _ amount: Int,
     first: DateSpecifier,
-    last: DateSpecifier
+    last: DateSpecifier,
+    leiaType: LeiaType = .income
   ) -> Leia {
-    Leia(name: name, amount: .money(amount), dates: DateRange(first, last), leiaType: .income)
+    Leia(name: name, amount: .money(amount), dates: DateRange(first, last), leiaType: leiaType)
   }
 
   private func makeScenario(_ streams: Leia...) -> Scenario {
@@ -107,7 +108,13 @@ struct AScenario {
   func salary_minus_expenses_creates_net_worth() throws {
     let sut = makeScenario(
       makeLeia(name: "Salary", 1_000, first: DateSpecifier.unchanged, last: DateSpecifier.unchanged),
-      makeLeia(name: "Expenses", -900, first: DateSpecifier.unchanged, last: DateSpecifier.unchanged)
+      makeLeia(
+        name: "Expenses",
+        -900,
+        first: DateSpecifier.unchanged, 
+        last: DateSpecifier.unchanged,
+        leiaType: .expense
+      )
     )
 
     let result = sut.netWorth(2024.jan...2024.dec)

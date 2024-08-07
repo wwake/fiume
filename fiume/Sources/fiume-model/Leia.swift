@@ -2,6 +2,16 @@ import Foundation
 
 // Leia = Liability/Expense/Income/Asset (ie Stream or Pool)
 //
+
+public enum LeiaType {
+  case
+    asset,
+    liability,
+    income,
+    expense,
+    unspecified
+}
+
 public struct Leia: Identifiable, Codable {
   enum CodingKeys: String, CodingKey {
     case id
@@ -10,15 +20,6 @@ public struct Leia: Identifiable, Codable {
     case first
     case last
     case amountSpec
-  }
-
-  public enum LeiaType {
-    case
-      asset,
-      liability,
-      income,
-      expense,
-      unspecified
   }
 
   public static var null: Leia {
@@ -62,6 +63,8 @@ public struct Leia: Identifiable, Codable {
 
     self.first = dates.first
     self.last = dates.last
+
+    self.leiaType = leiaType
   }
 
   public var isNonNegative: Bool {
@@ -72,7 +75,17 @@ public struct Leia: Identifiable, Codable {
     guard dates.includes(month, people) else {
       return Money(0)
     }
-    return amount.value(at: month, scenario)
+
+    switch type {
+    case .asset, .income:
+      return abs(amount.value(at: month, scenario))
+
+    case .liability, .expense:
+      return -abs(amount.value(at: month, scenario))
+
+    case .unspecified:
+      return Money(0)
+    }
   }
 
   public func update(overriddenBy leia: Leia) -> Leia {
