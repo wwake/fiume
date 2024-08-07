@@ -13,11 +13,12 @@ public struct Leia: Identifiable, Codable {
   }
 
   public enum LeiaType {
-    case unspecified,
-         asset,
-         liability,
-         income,
-         expense
+    case
+      asset,
+      liability,
+      income,
+      expense,
+      unspecified
   }
 
   public static var null: Leia {
