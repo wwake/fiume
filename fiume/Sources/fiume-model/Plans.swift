@@ -14,7 +14,30 @@ public class Plans: Codable {
 
   public func load(_ newPlans: Plans) {
     plans = newPlans.plans
+    update(plans)
     wasChanged = false
+  }
+
+  fileprivate func update(_ plan: Plan) {
+    switch plan.type {
+    case .pool:
+      let leia = plan.leia!
+      let newType = leia.amount.isNonNegative ? LeiaType.asset : LeiaType.liability
+      let newLeia = Leia(id: leia.id, name: leia.name, amount: leia.amount, dates: leia.dates, leiaType: newType)
+      replace(plan, newLeia)
+
+    case .stream:
+      let leia = plan.leia!
+      let newType = leia.amount.isNonNegative ? LeiaType.income : LeiaType.expense
+      let newLeia = Leia(id: leia.id, name: leia.name, amount: leia.amount, dates: leia.dates, leiaType: newType)
+      replace(plan, newLeia)
+
+    case .group, .scenarios:
+      if plan.children == nil { return }
+      plan.children!.forEach { child in
+        update(child)
+      }
+    }
   }
 
   public func append(parent: Plan, child: Plan) {

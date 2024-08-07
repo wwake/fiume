@@ -54,7 +54,7 @@ public struct Leia: Identifiable, Codable {
     name: String,
     amount: Amount,
     dates: DateRange,
-    leiaType: LeiaType
+    leiaType: LeiaType?
   ) {
     self.id = id
     self.name = name

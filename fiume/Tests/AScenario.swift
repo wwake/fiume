@@ -111,7 +111,7 @@ struct AScenario {
       makeLeia(
         name: "Expenses",
         -900,
-        first: DateSpecifier.unchanged, 
+        first: DateSpecifier.unchanged,
         last: DateSpecifier.unchanged,
         leiaType: .expense
       )

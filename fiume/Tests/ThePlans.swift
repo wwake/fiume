@@ -5,13 +5,23 @@ import Testing
 struct ThePlans {
   let plans = Plans()
 
+  fileprivate static func makeStream(_ amount: Int) -> Plan {
+    let leia = Leia(name: "No type", amount: .money(amount), dates: DateRange.null, leiaType: nil)
+    return Plan.make(stream: leia)
+  }
+
+  fileprivate static func makePool(_ amount: Int) -> Plan {
+    let leia = Leia(name: "No type", amount: .money(amount), dates: DateRange.null, leiaType: nil)
+    return Plan.make(pool: leia)
+  }
+
   @Test
   func starts_unchanged() {
     #expect(!plans.wasChanged)
   }
 
   @Test
-  func doesnt_change_when_loading() {
+  func marked_unchanged_when_loading() {
     let newPlans = Plans()
     newPlans.plans = Plan.make(stream: Leia(
       name: "A Leia",
@@ -24,6 +34,49 @@ struct ThePlans {
     plans.load(newPlans)
 
     #expect(plans.wasChanged == false)
+  }
+
+  func keeps_empty_group_when_loading() {
+    let initialPlans = Plans()
+    let plans = Plans()
+
+    plans.load(initialPlans)
+
+    #expect(plans.plans.children == nil)
+  }
+
+  @Test(arguments: [
+    (makeStream(-100), LeiaType.expense),
+    (makeStream(4230), LeiaType.income),
+    (makePool(-999), LeiaType.liability),
+    (makePool(100), LeiaType.asset),
+  ])
+  func sets_leiaType_when_loading(_ planExpected: (Plan, LeiaType)) {
+    let plan = planExpected.0
+    let expected = planExpected.1
+
+    let initialPlans = Plans()
+    initialPlans.append(parent: initialPlans.plans, child: plan)
+
+    let plans = Plans()
+    plans.load(initialPlans)
+
+    let newLeia = plans.plans.children![0].leia
+    #expect(newLeia!.type == expected)
+  }
+
+  @Test
+  func sets_leiaType_for_children_of_scenarios() {
+    let plan = Plan.makeScenarios("scenarios")
+    let leia = ThePlans.makeStream(-100)
+    plan.append(leia)
+    let initialPlans = Plans()
+    initialPlans.append(parent: initialPlans.plans, child: plan)
+
+    let plans = Plans()
+    plans.load(initialPlans)
+
+    #expect(plans.plans.children![0].children![0].leia!.type == .expense)
   }
 
   @Test
