@@ -22,7 +22,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public static var null: Leia {
-    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.null)
+    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.null, leiaType: .asset)
   }
 
   public var id: UUID

@@ -39,7 +39,8 @@ struct CreateScenariosView: View {
   let stream = Leia(
     name: "income",
     amount: .money(100),
-    dates: DateRange(.month(2020.jan), .unchanged)
+    dates: DateRange(.month(2020.jan), .unchanged),
+    leiaType: .income
   )
   tree.append(Plan.make(stream: stream))
   return CreateScenariosView(plan: $tree)

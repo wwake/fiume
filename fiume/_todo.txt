@@ -1,8 +1,8 @@
-* Make Leia know its type
-* Set leiaType when creating Leia
+* Set leiaType when creating Leia in prod code
 * Check signs when editing liability / expense
 * Should "relative" be on Leia rather than Amount?
 * Remove default type of unspecified
+Make Leia know its type
 
 
 * What if stream A depends on B and vice versa?
@@ -53,6 +53,7 @@ Editing
 * Move streams (?)
 
 FI-24-41: 2024-08-07 - Make LEIA Know Its Type
+* Set leiaType when creating Leia in tests
 
 
 FI-24-40: 2024-08-06 - View % of Stream

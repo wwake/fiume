@@ -110,7 +110,8 @@ struct PlanCompositeView: View {
   let planLeia = Plan.make(stream: Leia(
     name: "demo",
     amount: .money(100),
-    dates: DateRange( .month(2020.jan), .unchanged)
+    dates: DateRange( .month(2020.jan), .unchanged),
+    leiaType: .income
   ))
   @State var planTree = Plan.makeGroup("an 'and' tree")
   planTree.append(planLeia)
