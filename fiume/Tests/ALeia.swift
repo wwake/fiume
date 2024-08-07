@@ -20,7 +20,7 @@ struct ALeia {
     first: DateSpecifier,
     last: DateSpecifier
   ) -> Leia {
-    Leia(name: name, amount: .money(amount), dates: DateRange(first, last))
+    Leia(name: name, amount: .money(amount), dates: DateRange(first, last), leiaType: .income)
   }
 
   @Test

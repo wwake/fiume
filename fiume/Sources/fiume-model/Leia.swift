@@ -53,7 +53,7 @@ public struct Leia: Identifiable, Codable {
     name: String,
     amount: Amount,
     dates: DateRange,
-    leiaType: LeiaType = .unspecified
+    leiaType: LeiaType
   ) {
     self.id = id
     self.name = name
@@ -78,6 +78,12 @@ public struct Leia: Identifiable, Codable {
     let newFirst = self.first.update(using: leia.first)
     let newLast = self.last.update(using: leia.last)
 
-    return Leia(id: leia.id, name: leia.name, amount: leia.amount, dates: DateRange(newFirst, newLast))
+    return Leia(
+      id: leia.id,
+      name: leia.name,
+      amount: leia.amount,
+      dates: DateRange(newFirst, newLast),
+      leiaType: leia.type
+    )
   }
 }
