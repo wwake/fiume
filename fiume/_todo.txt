@@ -1,6 +1,7 @@
 * Check signs when editing liability / expense
 * Should "relative" be on Leia rather than Amount?
 * Remove default type of unspecified
+* Once "all" customers have updated, remove the input transformation
 Make Leia know its type
 
 * What if stream A depends on B and vice versa?

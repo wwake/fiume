@@ -32,9 +32,6 @@ struct EditStreamView: View {
   @State private var dates = DateRange.null
 
   fileprivate func valid() -> Bool {
-//    if amountSpec.value() < 0 {
-//      return false
-//    }
     if name.isEmpty {
       return false
     }

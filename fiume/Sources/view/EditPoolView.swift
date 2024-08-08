@@ -47,9 +47,6 @@ struct EditPoolView: View {
   }
 
   fileprivate func valid() -> Bool {
-//    if amountSpec.value() < 0 {
-//      return false
-//    }
     if name.isEmpty {
       return false
     }
