@@ -91,19 +91,4 @@ public struct Leia: Identifiable, Codable {
     }
     return type.signed(amount.value(at: month, scenario))
   }
-
-  public func update(overriddenBy leia: Leia) -> Leia {
-    if self.name != leia.name { return self }
-
-    let newFirst = self.first.update(using: leia.first)
-    let newLast = self.last.update(using: leia.last)
-
-    return Leia(
-      id: leia.id,
-      name: leia.name,
-      amount: leia.amount,
-      dates: DateRange(newFirst, newLast),
-      leiaType: leia.type
-    )
-  }
 }

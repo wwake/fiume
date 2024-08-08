@@ -36,29 +36,6 @@ struct ALeia {
   }
 
   @Test
-  func merges_when_values_are_omitted() {
-    let stream1 = makeLeia(name: "Salary", 500, first: 2030.jan, last: MonthYear(.dec, 2030))
-    let stream2 = makeLeia(
-      name: "Salary",
-      500,
-      first: DateSpecifier.month(2030.may),
-      last: DateSpecifier.unchanged
-    )
-
-    let sut = stream1.update(overriddenBy: stream2)
-
-    #expect(sut == makeLeia(name: "Salary", 500, first: 2030.may, last: MonthYear(.dec, 2030)))
-  }
-
-  @Test
-  func doesnt_merge_when_names_differ() {
-    let stream1 = makeLeia(name: "Salary", 500, first: 2020.jan, last: 2020.dec)
-    let stream2 = makeLeia(name: "Different", 1_500, first: 2020.may, last: 2021.dec)
-    let merged = stream1.update(overriddenBy: stream2)
-    #expect(merged == makeLeia(name: "Salary", 500, first: 2020.jan, last: 2020.dec))
-  }
-
-  @Test
   func knows_its_sign() {
     #expect(makeLeia(5, first: 2020.jan, last: 2020.dec).isNonNegative)
     #expect(makeLeia(0, first: 2021.jan, last: 2021.mar).isNonNegative)

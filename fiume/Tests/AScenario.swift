@@ -4,7 +4,7 @@ import Testing
 
 extension Leia: Equatable {
   public static func == (lhs: Leia, rhs: Leia) -> Bool {
-    lhs.name == rhs.name && lhs.amount == rhs.amount && lhs.dates == rhs.dates
+    lhs.name == rhs.name && lhs.amount == rhs.amount && lhs.dates == rhs.dates && lhs.type == rhs.type
   }
 }
 
@@ -77,31 +77,12 @@ struct AScenario {
   }
 
   @Test
-  func scenario_for_alternate_streams_with_last_date_unchanged() {
+  func retains_last_leia_with_duplicate_names() {
     let sut = makeScenario(
-      makeLeia(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec),
-      makeLeia(name: "Income1", 500, first: DateSpecifier.month(2024.oct), last: DateSpecifier.unchanged)
+      makeLeia(name: "Salary", 1_000, first: 2020.jan, last: 2020.dec),
+      makeLeia(name: "Salary", 2_000, first: .unchanged, last: .unchanged)
     )
-
-    #expect(sut.netIncome(at: 2024.jan) == Money(0))
-    #expect(sut.netIncome(at: 2024.oct) == Money(500))
-    #expect(sut.netIncome(at: 2024.dec) == Money(500))
-    #expect(sut.netIncome(at: 2025.jan) == Money(0))
-  }
-
-  @Test
-  func scenario_for_alternate_streams_with_first_date_unchanged() {
-    let sut = makeScenario(
-      makeLeia(name: "Income1", 1_000, first: 2024.feb, last: 2024.dec),
-      makeLeia(name: "Income1", 500, first: DateSpecifier.unchanged, last: DateSpecifier.month(2026.jan))
-    )
-
-    #expect(sut.netIncome(at: 2024.jan) == Money(0))
-    #expect(sut.netIncome(at: 2024.feb) == Money(500))
-    #expect(sut.netIncome(at: 2024.dec) == Money(500))
-    #expect(sut.netIncome(at: 2025.jan) == Money(500))
-    #expect(sut.netIncome(at: 2026.jan) == Money(500))
-    #expect(sut.netIncome(at: 2026.feb) == Money(0))
+    #expect(sut.find("Salary")!.amount(at: 2024.aug, people: People()) == 2_000)
   }
 
   @Test
