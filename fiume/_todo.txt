@@ -1,4 +1,3 @@
-* Transform amount to positive value on input
 * Enforce positive value in edit*View
 * Check signs when editing liability / expense
 * Should "relative" be on Leia rather than Amount?
@@ -53,6 +52,7 @@ Editing
 
 FI-24-42: 2024-08-08 - Refactor Sign Calculations
 * Store and read leiaType in Leia (Codable)
+* Transform amount to positive value on input
 
 FI-24-41: 2024-08-07 - Make LEIA Know Its Type
 * Set leiaType when creating Leia in tests

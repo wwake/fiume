@@ -16,7 +16,7 @@ struct EditPoolView: View {
 
   @State private var name = ""
 
-  @State private var amountSpec: Amount
+  @State private var amount: Amount
 
   @State private var dates: DateRange
 
@@ -28,18 +28,18 @@ struct EditPoolView: View {
 
     self._isIncome = .init(initialValue: pool.type == .asset)
     self._name = .init(initialValue: pool.name)
-    self._amountSpec = .init(initialValue: pool.amount)
+    self._amount = .init(initialValue: pool.amount)
     self._dates = .init(initialValue: pool.dates)
   }
 
   fileprivate func createdAmount() -> Amount {
-    switch amountSpec {
+    switch amount {
     case .money:
       let sign = isIncome ? 1 : -1
-      return .money(sign * amountSpec.value())
+      return .money(sign * amount.value())
 
     case .relative:
-      return amountSpec
+      return amount
 
     @unknown default:
       fatalError("EditPoolView.createdAmount - unknown amount type")
@@ -47,6 +47,9 @@ struct EditPoolView: View {
   }
 
   fileprivate func valid() -> Bool {
+    if !amount.isNonNegative {
+      return false
+    }
     if name.isEmpty {
       return false
     }
@@ -69,7 +72,7 @@ struct EditPoolView: View {
           Text("Liability").tag(false)
         }
 
-        PoolAmountView(isIncome: isIncome, amount: $amountSpec)
+        PoolAmountView(isIncome: isIncome, amount: $amount)
 
         EditDateRangeView(dates: $dates)
 

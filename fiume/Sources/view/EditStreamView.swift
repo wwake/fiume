@@ -19,7 +19,7 @@ struct EditStreamView: View {
 
     self._isIncome = .init(initialValue: stream.type == .income)
     self._name = .init(initialValue: stream.name)
-    self._amountSpec = .init(initialValue: stream.amount)
+    self._amount = .init(initialValue: stream.amount)
     self._dates = .init(initialValue: stream.dates)
   }
 
@@ -27,11 +27,14 @@ struct EditStreamView: View {
 
   @State private var name = ""
 
-  @State private var amountSpec: Amount
+  @State private var amount: Amount
 
   @State private var dates = DateRange.null
 
   fileprivate func valid() -> Bool {
+    if !amount.isNonNegative {
+      return false
+    }
     if name.isEmpty {
       return false
     }
@@ -54,7 +57,7 @@ struct EditStreamView: View {
           Text("Expense").tag(false)
         }
 
-        StreamAmountView(isIncome: isIncome, amount: $amountSpec)
+        StreamAmountView(isIncome: isIncome, amount: $amount)
 
         EditDateRangeView(dates: $dates)
 
@@ -63,7 +66,7 @@ struct EditStreamView: View {
           Button(buttonName) {
             let leia = Leia(
               name: name,
-              amount: amountSpec,
+              amount: amount,
               dates: dates,
               leiaType: isIncome ? .income : .expense
             )
