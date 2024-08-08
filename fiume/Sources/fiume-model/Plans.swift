@@ -33,31 +33,26 @@ public class Plans: Codable {
     }
   }
 
+  fileprivate func replaceLeia(_ plan: Plan, _ positive: LeiaType, _ negative: LeiaType) {
+    let leia = plan.leia!
+    let newType = leiaType(leia, positive, negative)
+    let newLeia = Leia(
+      id: leia.id,
+      name: leia.name,
+      amount: forceNonNegative(leia.amount),
+      dates: leia.dates,
+      leiaType: newType
+    )
+    replace(plan, newLeia)
+  }
+
   fileprivate func update(_ plan: Plan) {
     switch plan.type {
     case .pool:
-      let leia = plan.leia!
-      let newType = leiaType(leia, .asset, .liability)
-      let newLeia = Leia(
-        id: leia.id,
-        name: leia.name,
-        amount: forceNonNegative(leia.amount),
-        dates: leia.dates,
-        leiaType: newType
-      )
-      replace(plan, newLeia)
+      replaceLeia(plan, .asset, .liability)
 
     case .stream:
-      let leia = plan.leia!
-      let newType = leiaType(leia, .income, .expense)
-      let newLeia = Leia(
-        id: leia.id,
-        name: leia.name,
-        amount: forceNonNegative(leia.amount),
-        dates: leia.dates,
-        leiaType: newType
-      )
-      replace(plan, newLeia)
+      replaceLeia(plan, .income, .expense)
 
     case .group, .scenarios:
       if plan.children == nil { return }
