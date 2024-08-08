@@ -11,15 +11,11 @@ Make Leia know its type
 * What if stream A depends on B and vice versa?
 * Make date and scenario required for value computation
 * Best UI for stream name since they might not exist yet but probably do
-* Make amount an overrideable value on stream (?)
 * Should Relative amounts be a separate top-level entity? (like Asset)
 Amount
 
-Remove override of entry by same name
 
 Error Reporting?    
-
-Make DateRange.includes split out "<=" and ">" conditions
 
 Variables
 
@@ -58,6 +54,8 @@ FI-24-42: 2024-08-08 - Refactor Sign Calculations
 * Store and read leiaType in Leia (Codable)
 * Transform amount to positive value on input
 * Enforce positive value in edit*View
+* Remove override of entry by same name
+* Make DateRange.includes split out "<=" and ">=" conditions
 
 FI-24-41: 2024-08-07 - Make LEIA Know Its Type
 * Set leiaType when creating Leia in tests

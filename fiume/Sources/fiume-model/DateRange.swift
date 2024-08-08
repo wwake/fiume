@@ -10,35 +10,7 @@ public struct DateRange: Equatable {
   }
 
   public func includes(_ month: MonthYear, _ people: People) -> Bool {
-    switch first {
-    case .unchanged:
-      break
-
-    case let .month(startMonth):
-      if month < startMonth { return false }
-
-    case let .age(id, age):
-      guard let person = people.findById(id) else { return false }
-      let birth = person.birth
-      let effectiveStart = birth.advanced(byYears: age)
-      if month < effectiveStart { return false }
-    }
-
-    switch last {
-    case .unchanged:
-      return true
-
-    case .month(let endMonth):
-      if month > endMonth { return false }
-      return true
-
-    case let .age(id, age):
-      guard let person = people.findById(id) else { return false }
-      let birth = person.birth
-      let effectiveEnd = birth.advanced(byYears: age)
-      if month >= effectiveEnd { return false }
-      return true
-    }
+    first.leq(month, people) && last.geq(month, people)
   }
 
   public func description(_ people: People) -> String {

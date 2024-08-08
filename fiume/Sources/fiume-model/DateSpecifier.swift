@@ -29,4 +29,36 @@ public enum DateSpecifier: Equatable, Codable {
       return "\(name)@\(age)"
     }
   }
+
+  public func leq(_ monthYear: MonthYear, _ people: People) -> Bool {
+    switch self {
+    case .unchanged:
+      return true
+
+    case let .month(startMonth):
+      return startMonth <= monthYear
+
+    case let .age(id, age):
+      guard let person = people.findById(id) else { return false }
+      let birth = person.birth
+      let effectiveStart = birth.advanced(byYears: age)
+      return effectiveStart <= monthYear
+    }
+  }
+
+  public func geq(_ monthYear: MonthYear, _ people: People) -> Bool {
+    switch self {
+    case .unchanged:
+      return true
+
+    case .month(let endMonth):
+      return endMonth >= monthYear
+
+    case let .age(id, age):
+      guard let person = people.findById(id) else { return false }
+      let birth = person.birth
+      let effectiveEnd = birth.advanced(byYears: age)
+      return effectiveEnd > monthYear
+    }
+  }
 }
