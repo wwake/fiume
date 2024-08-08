@@ -7,7 +7,6 @@ Make Leia know its type
 
 * Make "relative" be on Leia rather than Amount
 
-
 * What if stream A depends on B and vice versa?
 * Make date and scenario required for value computation
 * Best UI for stream name since they might not exist yet but probably do
@@ -15,7 +14,7 @@ Make Leia know its type
 Amount
 
 
-Error Reporting?    
+Error Reporting when Leia name is reused in a given scenario
 
 Variables
 
