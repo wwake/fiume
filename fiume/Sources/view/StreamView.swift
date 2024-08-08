@@ -19,19 +19,25 @@ struct StreamView: View {
     self.stream = plan.wrappedValue.leia!
   }
 
+  let typeColors = [
+    LeiaType.income: "Income",
+    LeiaType.expense: "Expense",
+  ]
+
   var type: String {
-    stream.isNonNegative ? "Income" : "Expense"
+    typeColors[stream.type] ?? ""
   }
+
+  let icons = [
+    LeiaType.income: Image(systemName: "arrow.up")
+      .accessibilityLabel("income stream"),
+    LeiaType.expense: Image(systemName: "arrow.down")
+      .accessibilityLabel("expense stream"),
+  ]
 
   var body: some View {
     HStack {
-      if stream.isNonNegative {
-        Image(systemName: "arrow.up")
-          .accessibilityLabel("income stream")
-      } else {
-        Image(systemName: "arrow.down")
-          .accessibilityLabel("expense stream")
-      }
+      icons[stream.type] ?? Image(systemName: "questionMark.circle")      .accessibilityLabel("unknown type")
 
       Text("\(type): \(stream.name)   \(stream.amount)   " +
            stream.dates.description(people))

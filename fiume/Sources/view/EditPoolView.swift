@@ -26,7 +26,7 @@ struct EditPoolView: View {
     self.buttonName = buttonName
     self.action = action
 
-    self._isIncome = .init(initialValue: pool.isNonNegative)
+    self._isIncome = .init(initialValue: pool.type == .asset)
     self._name = .init(initialValue: pool.name)
     self._amountSpec = .init(initialValue: pool.amount)
     self._dates = .init(initialValue: pool.dates)

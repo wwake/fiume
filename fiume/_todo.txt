@@ -3,15 +3,12 @@
 * Remove default type of unspecified
 Make Leia know its type
 
-
 * What if stream A depends on B and vice versa?
 * Make date and scenario required for value computation
 * Best UI for stream name since they might not exist yet but probably do
 * Make amount an overrideable value on stream (?)
 * Should Relative amounts be a separate top-level entity? (like Asset)
 Amount
-
-
 
 Remove override of entry by same name?
 Error Reporting?    
@@ -51,10 +48,13 @@ Calendar view (with RuleMark)
 Editing
 * Move streams (?)
 
+FI-24-42: 2024-08-08 - Refactor Sign Calculations
+* Store and read leiaType in Leia (Codable)
+
 FI-24-41: 2024-08-07 - Make LEIA Know Its Type
 * Set leiaType when creating Leia in tests
 * Set leiaType when creating Leia in prod code
-
+* Update Leia on load so all have a leiaType (even if in old file format)
 
 FI-24-40: 2024-08-06 - View % of Stream
 * Preserve relative vs money in EditStream[Pool]View

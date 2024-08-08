@@ -18,17 +18,22 @@ public class Plans: Codable {
     wasChanged = false
   }
 
+  fileprivate func leiaType(_ leia: Leia, _ positive: LeiaType, _ negative: LeiaType) -> LeiaType {
+    if leia.type != .unspecified { return leia.type }
+    return leia.amount.isNonNegative ? positive : negative
+  }
+
   fileprivate func update(_ plan: Plan) {
     switch plan.type {
     case .pool:
       let leia = plan.leia!
-      let newType = leia.amount.isNonNegative ? LeiaType.asset : LeiaType.liability
+      let newType = leiaType(leia, .asset, .liability)
       let newLeia = Leia(id: leia.id, name: leia.name, amount: leia.amount, dates: leia.dates, leiaType: newType)
       replace(plan, newLeia)
 
     case .stream:
       let leia = plan.leia!
-      let newType = leia.amount.isNonNegative ? LeiaType.income : LeiaType.expense
+      let newType = leiaType(leia, .income, .expense)
       let newLeia = Leia(id: leia.id, name: leia.name, amount: leia.amount, dates: leia.dates, leiaType: newType)
       replace(plan, newLeia)
 

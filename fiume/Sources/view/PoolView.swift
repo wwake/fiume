@@ -20,12 +20,12 @@ struct PoolView: View {
   }
 
   var type: String {
-    pool.isNonNegative ? "Asset" : "Liability"
+    pool.type == .asset ? "Asset" : "Liability"
   }
 
   var body: some View {
     HStack {
-      if pool.isNonNegative {
+      if pool.type == .asset {
         Image(systemName: "arrowtriangle.up")
           .accessibilityLabel("asset")
       } else {

@@ -3,7 +3,7 @@ import Foundation
 // Leia = Liability/Expense/Income/Asset (ie Stream or Pool)
 //
 
-public enum LeiaType {
+public enum LeiaType: Codable {
   case
     asset,
     liability,
@@ -20,6 +20,7 @@ public struct Leia: Identifiable, Codable {
     case first
     case last
     case amountSpec
+    case leiaType
   }
 
   public static var null: Leia {
