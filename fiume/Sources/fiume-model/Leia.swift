@@ -10,6 +10,19 @@ public enum LeiaType: Codable {
     income,
     expense,
     unspecified
+
+  public func signed(_ money: Money) -> Money {
+    switch self {
+    case .asset, .income:
+      return abs(money)
+
+    case .liability, .expense:
+      return -abs(money)
+
+    case .unspecified:
+      return Money(0)
+    }
+  }
 }
 
 public struct Leia: Identifiable, Codable {
@@ -76,17 +89,7 @@ public struct Leia: Identifiable, Codable {
     guard dates.includes(month, people) else {
       return Money(0)
     }
-
-    switch type {
-    case .asset, .income:
-      return abs(amount.value(at: month, scenario))
-
-    case .liability, .expense:
-      return -abs(amount.value(at: month, scenario))
-
-    case .unspecified:
-      return Money(0)
-    }
+    return type.signed(amount.value(at: month, scenario))
   }
 
   public func update(overriddenBy leia: Leia) -> Leia {
