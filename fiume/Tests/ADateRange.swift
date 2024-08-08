@@ -45,7 +45,7 @@ struct ADateRange {
 
   @Test
   func description_is_empty_if_range_is_empty() {
-    let sut = DateRange.null
+    let sut = DateRange.always
     #expect(sut.description(people).isEmpty)
   }
 

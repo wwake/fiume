@@ -29,7 +29,7 @@ struct EditStreamView: View {
 
   @State private var amount: Amount
 
-  @State private var dates = DateRange.null
+  @State private var dates = DateRange.always
 
   fileprivate func valid() -> Bool {
     if !amount.isNonNegative {

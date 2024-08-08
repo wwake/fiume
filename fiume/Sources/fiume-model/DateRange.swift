@@ -2,7 +2,7 @@ public struct DateRange: Equatable {
   public var first: DateSpecifier
   public var last: DateSpecifier
 
-  public static var null = DateRange(.unchanged, .unchanged)
+  public static var always = DateRange(.unchanged, .unchanged)
 
   public init(_ first: DateSpecifier, _ last: DateSpecifier) {
     self.first = first
@@ -42,7 +42,7 @@ public struct DateRange: Equatable {
   }
 
   public func description(_ people: People) -> String {
-    if self == DateRange.null {
+    if self == DateRange.always {
       return ""
     }
     return "\(first.description(people))-\(last.description(people))"

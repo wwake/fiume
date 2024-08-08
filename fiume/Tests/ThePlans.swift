@@ -6,12 +6,12 @@ struct ThePlans {
   let plans = Plans()
 
   fileprivate static func makeStream(_ amount: Int) -> Plan {
-    let leia = Leia(name: "No type", amount: .money(amount), dates: DateRange.null, leiaType: nil)
+    let leia = Leia(name: "No type", amount: .money(amount), dates: DateRange.always, leiaType: nil)
     return Plan.make(stream: leia)
   }
 
   fileprivate static func makePool(_ amount: Int) -> Plan {
-    let leia = Leia(name: "No type", amount: .money(amount), dates: DateRange.null, leiaType: nil)
+    let leia = Leia(name: "No type", amount: .money(amount), dates: DateRange.always, leiaType: nil)
     return Plan.make(pool: leia)
   }
 
@@ -26,7 +26,7 @@ struct ThePlans {
     newPlans.plans = Plan.make(stream: Leia(
       name: "A Leia",
       amount: .money(1999),
-      dates: DateRange.null,
+      dates: DateRange.always,
       leiaType: .income
     ))
     plans.wasChanged = true
@@ -67,7 +67,7 @@ struct ThePlans {
 
   @Test
   func uses_stream_leiaType_if_present_when_loading() {
-    let leia = Leia(name: "Already typed", amount: .money(500), dates: DateRange.null, leiaType: .expense)
+    let leia = Leia(name: "Already typed", amount: .money(500), dates: DateRange.always, leiaType: .expense)
     let plan = Plan.make(stream: leia)
     let initialPlans = Plans()
     initialPlans.append(parent: initialPlans.plans, child: plan)
@@ -81,7 +81,7 @@ struct ThePlans {
 
   @Test
   func uses_pool_leiaType_if_present_when_loading() {
-    let leia = Leia(name: "Already typed", amount: .money(500), dates: DateRange.null, leiaType: .liability)
+    let leia = Leia(name: "Already typed", amount: .money(500), dates: DateRange.always, leiaType: .liability)
     let plan = Plan.make(pool: leia)
     let initialPlans = Plans()
     initialPlans.append(parent: initialPlans.plans, child: plan)
@@ -95,7 +95,7 @@ struct ThePlans {
 
   @Test
   func makes_amount_positive_when_loading() {
-    let leia = Leia(name: "Already typed", amount: .money(-500), dates: DateRange.null, leiaType: .expense)
+    let leia = Leia(name: "Already typed", amount: .money(-500), dates: DateRange.always, leiaType: .expense)
     let plan = Plan.make(stream: leia)
     let initialPlans = Plans()
     initialPlans.append(parent: initialPlans.plans, child: plan)
@@ -123,7 +123,7 @@ struct ThePlans {
 
   @Test
   func changes_when_stream_is_appended() {
-    let stream = Plan.make(stream: Leia(name: "2d job", amount: .money(200), dates: DateRange.null, leiaType: .income))
+    let stream = Plan.make(stream: Leia(name: "2d job", amount: .money(200), dates: DateRange.always, leiaType: .income))
 
     plans.append(parent: plans.plans, child: stream)
     #expect(plans.plans.children![0] === stream)
@@ -132,7 +132,7 @@ struct ThePlans {
 
   @Test
   func changes_when_pool_is_appended() {
-    let pool = Plan.make(pool: Leia(name: "Savings", amount: .money(20000), dates: DateRange.null, leiaType: .asset))
+    let pool = Plan.make(pool: Leia(name: "Savings", amount: .money(20000), dates: DateRange.always, leiaType: .asset))
 
     plans.append(parent: plans.plans, child: pool)
 
@@ -144,7 +144,7 @@ struct ThePlans {
   @Test
   func can_remove_a_plan() {
     let scenario = Plan.makeScenarios("my scenario")
-    let stream = Plan.make(stream: Leia(name: "2d job", amount: .money(200), dates: DateRange.null, leiaType: .income))
+    let stream = Plan.make(stream: Leia(name: "2d job", amount: .money(200), dates: DateRange.always, leiaType: .income))
     scenario.append(stream)
     plans.append(parent: plans.plans, child: scenario)
 
@@ -169,10 +169,10 @@ struct ThePlans {
 
   @Test
   func are_changed_by_replacing_stream() {
-    let plan = Plan.make(stream: Leia(name: "test", amount: .money(200), dates: DateRange.null, leiaType: .income))
+    let plan = Plan.make(stream: Leia(name: "test", amount: .money(200), dates: DateRange.always, leiaType: .income))
     plans.append(parent: plans.plans, child: plan)
 
-    plans.replace(plan, Leia(name: "revised", amount: .money(500), dates: DateRange.null, leiaType: .income))
+    plans.replace(plan, Leia(name: "revised", amount: .money(500), dates: DateRange.always, leiaType: .income))
 
     #expect(plan.leia!.name == "revised")
     #expect(plan.leia!.amount.value() == 500)
