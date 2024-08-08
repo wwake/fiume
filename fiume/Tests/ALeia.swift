@@ -36,14 +36,6 @@ struct ALeia {
   }
 
   @Test
-  func merges_when_values_change() {
-    let stream1 = makeLeia(500, first: 2020.jan, last: 2020.oct)
-    let stream2 = makeLeia(1_000, first: 2020.may, last: 2020.dec)
-    let sut = stream1.update(overriddenBy: stream2)
-    #expect(sut == makeLeia(1_000, first: 2020.may, last: 2020.dec))
-  }
-
-  @Test
   func merges_when_values_are_omitted() {
     let stream1 = makeLeia(name: "Salary", 500, first: 2030.jan, last: MonthYear(.dec, 2030))
     let stream2 = makeLeia(

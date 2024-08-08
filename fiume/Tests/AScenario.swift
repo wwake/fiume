@@ -54,7 +54,7 @@ struct AScenario {
   }
 
   @Test
-  func built_for_one_stream() {
+  func computes_netIncome_for_one_stream() {
     let sut = makeScenario(
       makeLeia(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec)
     )
@@ -64,7 +64,7 @@ struct AScenario {
   }
 
   @Test
-  func scenario_for_distinct_streams() {
+  func computes_netIncome_for_distinct_streams() {
     let sut = makeScenario(
       makeLeia(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec),
       makeLeia(name: "Income2", 500, first: DateSpecifier.month(2024.oct), last: DateSpecifier.unchanged)
@@ -77,7 +77,7 @@ struct AScenario {
   }
 
   @Test
-  func scenario_for_merged_streams_with_last_date_unchanged() {
+  func scenario_for_alternate_streams_with_last_date_unchanged() {
     let sut = makeScenario(
       makeLeia(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec),
       makeLeia(name: "Income1", 500, first: DateSpecifier.month(2024.oct), last: DateSpecifier.unchanged)
@@ -90,7 +90,7 @@ struct AScenario {
   }
 
   @Test
-  func scenario_for_merged_streams_with_first_date_unchanged() {
+  func scenario_for_alternate_streams_with_first_date_unchanged() {
     let sut = makeScenario(
       makeLeia(name: "Income1", 1_000, first: 2024.feb, last: 2024.dec),
       makeLeia(name: "Income1", 500, first: DateSpecifier.unchanged, last: DateSpecifier.month(2026.jan))
@@ -105,7 +105,7 @@ struct AScenario {
   }
 
   @Test
-  func salary_minus_expenses_creates_net_worth() throws {
+  func computes_netWorth_from_salary_minus_expenses() throws {
     let sut = makeScenario(
       makeLeia(name: "Salary", 1_000, first: DateSpecifier.unchanged, last: DateSpecifier.unchanged),
       makeLeia(
