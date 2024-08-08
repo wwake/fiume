@@ -32,20 +32,6 @@ struct EditPoolView: View {
     self._dates = .init(initialValue: pool.dates)
   }
 
-  fileprivate func createdAmount() -> Amount {
-    switch amount {
-    case .money:
-      let sign = isIncome ? 1 : -1
-      return .money(sign * amount.value())
-
-    case .relative:
-      return amount
-
-    @unknown default:
-      fatalError("EditPoolView.createdAmount - unknown amount type")
-    }
-  }
-
   fileprivate func valid() -> Bool {
     if !amount.isNonNegative {
       return false
@@ -82,7 +68,7 @@ struct EditPoolView: View {
             let outPool = Leia(
               id: pool.id,
               name: name,
-              amount: createdAmount(),
+              amount: amount,
               dates: dates,
               leiaType: isIncome ? .asset : .liability
             )
