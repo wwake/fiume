@@ -123,7 +123,9 @@ struct ThePlans {
 
   @Test
   func changes_when_stream_is_appended() {
-    let stream = Plan.make(stream: Leia(name: "2d job", amount: .money(200), dates: DateRange.always, leiaType: .income))
+    let stream = Plan.make(stream: Leia(
+      name: "2d job", amount: .money(200), dates: DateRange.always, leiaType: .income
+    ))
 
     plans.append(parent: plans.plans, child: stream)
     #expect(plans.plans.children![0] === stream)
@@ -144,7 +146,9 @@ struct ThePlans {
   @Test
   func can_remove_a_plan() {
     let scenario = Plan.makeScenarios("my scenario")
-    let stream = Plan.make(stream: Leia(name: "2d job", amount: .money(200), dates: DateRange.always, leiaType: .income))
+    let stream = Plan.make(stream: Leia(
+      name: "2d job", amount: .money(200), dates: DateRange.always, leiaType: .income
+    ))
     scenario.append(stream)
     plans.append(parent: plans.plans, child: scenario)
 

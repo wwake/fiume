@@ -4,7 +4,7 @@ import SwiftUI
 enum DateSpecifierType: String, CaseIterable, Identifiable {
   var id: Self { self }
 
-  case unchanged = "Unchanged",
+  case unchanged = "Unspecified",
        monthYear = "Month-Year",
        age = "Age"
 }
@@ -73,7 +73,7 @@ struct DateSpecifierView: View {
       Group {
         switch dateType {
         case .unchanged:
-          Text("Leave any previous date in effect.")
+          Text("Unbounded start or end date.")
 
         case .monthYear:
           MonthYearView(monthYear: $monthYear)
