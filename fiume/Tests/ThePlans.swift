@@ -94,6 +94,20 @@ struct ThePlans {
   }
 
   @Test
+  func makes_amount_positive_when_loading() {
+    let leia = Leia(name: "Already typed", amount: .money(-500), dates: DateRange.null, leiaType: .expense)
+    let plan = Plan.make(stream: leia)
+    let initialPlans = Plans()
+    initialPlans.append(parent: initialPlans.plans, child: plan)
+
+    let plans = Plans()
+    plans.load(initialPlans)
+
+    let newLeia = plans.plans.children![0].leia
+    #expect(newLeia!.amount.isNonNegative)
+  }
+
+  @Test
   func sets_leiaType_for_children_of_scenarios() {
     let plan = Plan.makeScenarios("scenarios")
     let leia = ThePlans.makeStream(-100)

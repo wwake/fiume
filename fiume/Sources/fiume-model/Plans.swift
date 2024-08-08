@@ -23,18 +23,40 @@ public class Plans: Codable {
     return leia.amount.isNonNegative ? positive : negative
   }
 
+  fileprivate func forceNonNegative(_ amount: Amount) -> Amount {
+    switch amount {
+    case .money(let money):
+      return .money(abs(money))
+
+    case .relative:
+      return amount
+    }
+  }
+
   fileprivate func update(_ plan: Plan) {
     switch plan.type {
     case .pool:
       let leia = plan.leia!
       let newType = leiaType(leia, .asset, .liability)
-      let newLeia = Leia(id: leia.id, name: leia.name, amount: leia.amount, dates: leia.dates, leiaType: newType)
+      let newLeia = Leia(
+        id: leia.id,
+        name: leia.name,
+        amount: forceNonNegative(leia.amount),
+        dates: leia.dates,
+        leiaType: newType
+      )
       replace(plan, newLeia)
 
     case .stream:
       let leia = plan.leia!
       let newType = leiaType(leia, .income, .expense)
-      let newLeia = Leia(id: leia.id, name: leia.name, amount: leia.amount, dates: leia.dates, leiaType: newType)
+      let newLeia = Leia(
+        id: leia.id,
+        name: leia.name,
+        amount: forceNonNegative(leia.amount),
+        dates: leia.dates,
+        leiaType: newType
+      )
       replace(plan, newLeia)
 
     case .group, .scenarios:

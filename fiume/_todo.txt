@@ -1,3 +1,5 @@
+* Transform amount to positive value on input
+* Enforce positive value in edit*View
 * Check signs when editing liability / expense
 * Should "relative" be on Leia rather than Amount?
 * Remove default type of unspecified
