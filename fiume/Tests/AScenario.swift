@@ -124,7 +124,7 @@ struct AScenario {
     let income = Leia(name: "job", amount: .money(1000), dates: DateRange.always, leiaType: .income)
     sut.add(stream: income)
 
-    #expect(sut.find("job")!.amount.value() == Money(1000))
+    #expect(sut.find("job")!.amount.value(People()) == Money(1000))
   }
 
   @Test

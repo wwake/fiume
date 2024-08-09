@@ -89,6 +89,6 @@ public struct Leia: Identifiable, Codable {
     guard dates.includes(month, people) else {
       return Money(0)
     }
-    return type.signed(amount.value(at: month, scenario))
+    return type.signed(amount.value(at: month, people, scenario))
   }
 }

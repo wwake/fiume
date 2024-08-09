@@ -25,7 +25,7 @@ public enum Amount: Equatable {
     }
   }
 
-  public func value(at: MonthYear? = nil, _ scenario: Scenario? = nil) -> Money {
+  public func value(at: MonthYear? = nil, _ people: People, _ scenario: Scenario? = nil) -> Money {
     switch self {
     case .money(let amount):
       return amount
@@ -35,7 +35,7 @@ public enum Amount: Equatable {
       guard at != nil && base != nil else {
         return Money(0)
       }
-      return Money(ratio * Double(base!.amount(at: at!, people: People(), scenario: scenario!)))
+      return Money(ratio * Double(base!.amount(at: at!, people: people, scenario: scenario!)))
     }
   }
 }
