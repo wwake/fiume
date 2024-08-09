@@ -18,18 +18,19 @@ public class Plans: Codable {
     wasChanged = false
   }
 
-  fileprivate func leiaType(_ leia: Leia, _ positive: LeiaType, _ negative: LeiaType) -> LeiaType {
-    if leia.type != .unspecified { return leia.type }
-    return leia.amount.isNonNegative ? positive : negative
-  }
+  fileprivate func update(_ plan: Plan) {
+    switch plan.type {
+    case .pool:
+      replaceLeia(plan, .asset, .liability)
 
-  fileprivate func forceNonNegative(_ amount: Amount) -> Amount {
-    switch amount {
-    case .money(let money):
-      return .money(abs(money))
+    case .stream:
+      replaceLeia(plan, .income, .expense)
 
-    case .relative:
-      return amount
+    case .group, .scenarios:
+      if plan.children == nil { return }
+      plan.children!.forEach { child in
+        update(child)
+      }
     }
   }
 
@@ -46,19 +47,18 @@ public class Plans: Codable {
     replace(plan, newLeia)
   }
 
-  fileprivate func update(_ plan: Plan) {
-    switch plan.type {
-    case .pool:
-      replaceLeia(plan, .asset, .liability)
+  fileprivate func leiaType(_ leia: Leia, _ positive: LeiaType, _ negative: LeiaType) -> LeiaType {
+    if leia.type != .unspecified { return leia.type }
+    return leia.amount.isNonNegative ? positive : negative
+  }
 
-    case .stream:
-      replaceLeia(plan, .income, .expense)
+  fileprivate func forceNonNegative(_ amount: Amount) -> Amount {
+    switch amount {
+    case .money(let money):
+      return .money(abs(money))
 
-    case .group, .scenarios:
-      if plan.children == nil { return }
-      plan.children!.forEach { child in
-        update(child)
-      }
+    case .relative:
+      return amount
     }
   }
 

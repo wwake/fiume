@@ -10,7 +10,6 @@ Make Leia know its type
 * What if stream A depends on B and vice versa?
 * Make date and scenario required for value computation
 * Best UI for stream name since they might not exist yet but probably do
-* Should Relative amounts be a separate top-level entity? (like Asset)
 Amount
 
 
