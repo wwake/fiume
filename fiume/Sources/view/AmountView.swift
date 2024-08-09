@@ -184,7 +184,7 @@ struct AmountView: View {
           amount: $amount,
           dollars: $dollars
         )
-        .frame(height: 100)
+        .frame(height: 80)
 
       case .relative:
         RelativeAmountView(
@@ -192,7 +192,7 @@ struct AmountView: View {
           percent: $percent,
           name: $name
         )
-          .frame(height: 100)
+          .frame(height: 80)
       }
     }
   }
