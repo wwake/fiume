@@ -6,7 +6,7 @@ struct AnAmount {
   @Test
   func knows_simple_amount_for_positive() {
     let sut = Amount(100)
-    #expect(sut.value(People()) == 100)
+    #expect(sut.value(at: 2024.apr, People()) == 100)
     #expect(sut.isNonNegative)
     #expect(sut.description == "$100/mo")
   }
@@ -14,7 +14,7 @@ struct AnAmount {
   @Test
   func knows_simple_amount_for_negative() {
     let sut = Amount(-100)
-    #expect(sut.value(People()) == -100)
+    #expect(sut.value(at: 2024.jun, People()) == -100)
     #expect(!sut.isNonNegative)
     #expect(sut.description == "$-100/mo")
   }
