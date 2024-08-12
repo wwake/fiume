@@ -22,7 +22,7 @@ struct AddPlanView: View {
 
     switch planType {
     case .stream:
-      EditLeiaView(stream: Leia.null, buttonName: "Create") { stream in
+      EditLeiaView(leia: Leia.null, buttonName: "Create") { stream in
         plans.append(parent: plan, child: Plan.make(stream: stream))
       }
 

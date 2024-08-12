@@ -19,27 +19,25 @@ struct LeiaView: View {
     self.leia = plan.wrappedValue.leia!
   }
 
-  let typeColors = [
-    LeiaType.income: "Income",
-    LeiaType.expense: "Expense",
-  ]
-
-  var type: String {
-    typeColors[leia.type] ?? ""
-  }
-
   let icons = [
+    LeiaType.asset: Image(systemName: "arrowtriangle.up")
+      .accessibilityLabel("asset"),
+
     LeiaType.income: Image(systemName: "arrow.up")
       .accessibilityLabel("income stream"),
+
     LeiaType.expense: Image(systemName: "arrow.down")
       .accessibilityLabel("expense stream"),
+
+    LeiaType.liability: Image(systemName: "arrowtriangle.down")
+      .accessibilityLabel("liability"),
   ]
 
   var body: some View {
     HStack {
-      icons[leia.type] ?? Image(systemName: "questionMark.circle")      .accessibilityLabel("unknown type")
+      icons[leia.type]!
 
-      Text("\(type): \(leia.name)   \(leia.amount)   " +
+      Text("\(leia.type.name): \(leia.name)   \(leia.amount)   " +
            leia.dates.description(people))
       Spacer()
       Button(action: {
@@ -59,9 +57,9 @@ struct LeiaView: View {
       .buttonStyle(.plain)
     }
     .padding(4)
-    .background(Color(type))
+    .background(Color(leia.type.name))
     .sheet(isPresented: $isEditPresented) {
-      EditLeiaView(title: "Edit Stream", stream: leia, buttonName: "Update") { stream in
+      EditLeiaView(title: "Edit Money Source", leia: leia, buttonName: "Update") { stream in
         plans.replace(plan, stream)
       }
     }

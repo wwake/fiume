@@ -6,7 +6,7 @@ struct EditLeiaView: View {
   var dismiss
 
   var title: String?
-  var stream: Leia
+  var leia: Leia
 
   var buttonName: String
   var action: (Leia) -> Void
@@ -19,16 +19,16 @@ struct EditLeiaView: View {
 
   @State private var dates = DateRange.always
 
-  init(title: String? = nil, stream: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
+  init(title: String? = nil, leia: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
     self.title = title
-    self.stream = stream
+    self.leia = leia
     self.buttonName = buttonName
     self.action = action
 
-    self._leiaType = .init(initialValue: stream.type)
-    self._name = .init(initialValue: stream.name)
-    self._amount = .init(initialValue: stream.amount)
-    self._dates = .init(initialValue: stream.dates)
+    self._leiaType = .init(initialValue: leia.type)
+    self._name = .init(initialValue: leia.name)
+    self._amount = .init(initialValue: leia.amount)
+    self._dates = .init(initialValue: leia.dates)
   }
 
   fileprivate func valid() -> Bool {
