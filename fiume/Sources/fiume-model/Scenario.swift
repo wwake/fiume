@@ -7,7 +7,6 @@ public class Scenario: Identifiable {
 
   public typealias NameToLeia = [String: Leia]
   private var streams = NameToLeia()
-  private var pools = NameToLeia()
 
   public init(_ name: String, people: People) {
     self.name = name
@@ -25,7 +24,7 @@ public class Scenario: Identifiable {
   }
 
   public func add(pool: Leia) {
-    add(pool, &pools)
+    add(pool, &streams) // was pools
   }
 
   public func add(stream: Leia) {
@@ -52,13 +51,11 @@ public class Scenario: Identifiable {
   }
 
   public func find(_ name: String) -> Leia? {
-    streams[name] ?? pools[name]
+    leias[name]
   }
 
   private var leias: NameToLeia {
-    streams.merging(pools) { value1, _ in
-      value1
-    }
+    streams
   }
 
   public func netIncome(at month: MonthYear) -> Money {
