@@ -39,6 +39,7 @@ public struct Leia: Identifiable, Codable {
   public var name: String
   private var first: DateSpecifier
   private var last: DateSpecifier
+
   public private(set) var amount: Amount
   public private(set) var type: LeiaType
 
@@ -61,10 +62,6 @@ public struct Leia: Identifiable, Codable {
     self.last = dates.last
 
     self.type = leiaType
-  }
-
-  public var isNonNegative: Bool {
-    amount.isNonNegative
   }
 
   public func signedAmount(at month: MonthYear, people: People, scenario: Scenario? = nil) -> Money {

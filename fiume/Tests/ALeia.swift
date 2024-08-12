@@ -34,11 +34,4 @@ struct ALeia {
     let sut = makeLeia(100, first: 2020.jan, last: 2020.oct)
     #expect(sut.signedAmount(at: 2020.jan, people: people) == Money(100))
   }
-
-  @Test
-  func knows_its_sign() {
-    #expect(makeLeia(5, first: 2020.jan, last: 2020.dec).isNonNegative)
-    #expect(makeLeia(0, first: 2021.jan, last: 2021.mar).isNonNegative)
-    #expect(!makeLeia(-5, first: 2020.oct, last: 2020.dec).isNonNegative)
-  }
 }
