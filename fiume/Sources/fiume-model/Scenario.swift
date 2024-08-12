@@ -6,7 +6,7 @@ public class Scenario: Identifiable {
   public let people: People
 
   public typealias NameToLeia = [String: Leia]
-  private var streams = NameToLeia()
+  private var leias = NameToLeia()
 
   public init(_ name: String, people: People) {
     self.name = name
@@ -15,8 +15,8 @@ public class Scenario: Identifiable {
 
   private convenience init(_ other: Scenario, _ newName: String) {
     self.init(newName, people: other.people)
-    let copy = other.streams
-    self.streams = copy
+    let copy = other.leias
+    self.leias = copy
   }
 
   public func copy(_ newName: String) -> Scenario {
@@ -24,11 +24,11 @@ public class Scenario: Identifiable {
   }
 
   public func add(pool: Leia) {
-    add(pool, &streams) // was pools
+    add(pool, &leias) // was pools
   }
 
   public func add(stream: Leia) {
-    add(stream, &streams)
+    add(stream, &leias)
   }
 
   fileprivate func add(_ leia: Leia, _ map: inout NameToLeia) {
@@ -52,10 +52,6 @@ public class Scenario: Identifiable {
 
   public func find(_ name: String) -> Leia? {
     leias[name]
-  }
-
-  private var leias: NameToLeia {
-    streams
   }
 
   public func netIncome(at month: MonthYear) -> Money {
