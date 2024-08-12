@@ -55,12 +55,22 @@ public class Scenario: Identifiable {
     streams[name] ?? pools[name]
   }
 
+  private var leias: NameToLeia {
+    streams.merging(pools) { value1, _ in
+      value1
+    }
+  }
+
   public func netIncome(at month: MonthYear) -> Money {
-    net(at: month, in: streams)
+    net(at: month, in: leias.filter { _, value in
+      value.type == .income || value.type == .expense
+    })
   }
 
   public func netAssets(at month: MonthYear) -> Money {
-    net(at: month, in: pools)
+    net(at: month, in: leias.filter { _, value in
+      value.type == .asset || value.type == .liability
+    })
   }
 
   fileprivate func net(at month: MonthYear, in collection: NameToLeia) -> Money {
