@@ -28,7 +28,7 @@ public struct Leia: Identifiable, Codable {
     case first
     case last
     case amountSpec
-    case leiaType
+    case type = "leiaType"
   }
 
   public static var null: Leia {
@@ -40,7 +40,7 @@ public struct Leia: Identifiable, Codable {
   private var first: DateSpecifier
   private var last: DateSpecifier
   private var amountSpec: Amount
-  private var leiaType: LeiaType
+  public private(set) var type: LeiaType
 
   public var dates: DateRange {
     DateRange(first, last)
@@ -48,10 +48,6 @@ public struct Leia: Identifiable, Codable {
 
   public var amount: Amount {
     amountSpec
-  }
-
-  public var type: LeiaType {
-    leiaType
   }
 
   public init(
@@ -68,7 +64,7 @@ public struct Leia: Identifiable, Codable {
     self.first = dates.first
     self.last = dates.last
 
-    self.leiaType = leiaType
+    self.type = leiaType
   }
 
   public var isNonNegative: Bool {
