@@ -65,7 +65,7 @@ public class Scenario: Identifiable {
 
   fileprivate func net(at month: MonthYear, in collection: NameToLeia) -> Money {
     collection.values.reduce(Money(0)) { net, leia in
-      net + leia.amount(at: month, people: people, scenario: self)
+      net + leia.signedAmount(at: month, people: people, scenario: self)
     }
   }
 }

@@ -82,7 +82,7 @@ struct AScenario {
       makeLeia(name: "Salary", 1_000, first: 2020.jan, last: 2020.dec),
       makeLeia(name: "Salary", 2_000, first: .unchanged, last: .unchanged)
     )
-    #expect(sut.find("Salary")!.amount(at: 2024.aug, people: People()) == 2_000)
+    #expect(sut.find("Salary")!.signedAmount(at: 2024.aug, people: People()) == 2_000)
   }
 
   @Test

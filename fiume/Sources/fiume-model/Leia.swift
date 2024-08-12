@@ -71,7 +71,7 @@ public struct Leia: Identifiable, Codable {
     amount.isNonNegative
   }
 
-  public func amount(at month: MonthYear, people: People, scenario: Scenario? = nil) -> Money {
+  public func signedAmount(at month: MonthYear, people: People, scenario: Scenario? = nil) -> Money {
     guard dates.includes(month, people) else {
       return Money(0)
     }

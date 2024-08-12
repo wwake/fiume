@@ -35,7 +35,7 @@ public enum Amount: Equatable {
       guard base != nil else {
         return Money(0)
       }
-      return Money(ratio * Double(base!.amount(at: at, people: people, scenario: scenario!)))
+      return Money(ratio * Double(base!.signedAmount(at: at, people: people, scenario: scenario!)))
     }
   }
 }
