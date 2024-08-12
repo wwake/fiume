@@ -12,7 +12,7 @@ public class Scenarios: Sequence {
   public func add(pool: Leia) -> Scenarios {
     let result = Scenarios(Array(scenarios))
     scenarios.forEach {
-      $0.add(pool: pool)
+      $0.add(pool)
     }
     return result
   }
@@ -20,7 +20,7 @@ public class Scenarios: Sequence {
   public func add(stream: Leia) -> Scenarios {
     let result = Scenarios(Array(scenarios))
     scenarios.forEach {
-      $0.add(stream: stream)
+      $0.add(stream)
     }
     return result
   }

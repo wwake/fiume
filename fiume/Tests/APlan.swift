@@ -206,7 +206,7 @@ struct APlan {
   func multiple_scenarios_for_or_tree() {
     let scenario1 = Scenario("", people: people)
     let scenario2 = Scenario("", people: people)
-    scenario2.add(stream: makeLeia("annuity", 500))
+    scenario2.add(makeLeia("annuity", 500))
 
     let leaf1 = makeStream("Income1", 1_000, 2020.jan, 2030.jan)
     let leaf2 = makeStream("Income2", 2_000, 2020.jan, 2030.jan)

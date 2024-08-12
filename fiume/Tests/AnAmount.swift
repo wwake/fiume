@@ -29,7 +29,7 @@ struct AnAmount {
   func knows_relative_amount() {
     let scenario = Scenario("the scenario", people: People())
     let stream = Leia(name: "source stream", amount: Amount(100), dates: DateRange.always, type: .income)
-    scenario.add(stream: stream)
+    scenario.add(stream)
 
     let sut = Amount(0.67, "source stream")
 

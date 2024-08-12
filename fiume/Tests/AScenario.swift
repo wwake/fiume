@@ -33,7 +33,7 @@ struct AScenario {
   private func makeScenario(_ streams: Leia...) -> Scenario {
     let result = Scenario("Scenario Name", people: people)
     streams.forEach {
-      result.add(stream: $0)
+      result.add($0)
     }
     return result
   }
@@ -46,7 +46,7 @@ struct AScenario {
 
     let result = sut.copy("altered name")
     let stream2 = makeLeia(name: "Income2", 2_000, first: 2024.jan, last: 2024.dec)
-    result.add(stream: stream2)
+    result.add(stream2)
 
     #expect(sut.netIncome(at: 2024.jan) == Money(1_000))
     #expect(result.netIncome(at: 2024.jan) == Money(3_000))
@@ -109,8 +109,8 @@ struct AScenario {
     let scenario = Scenario("pool+stream", people: people)
     let asset = Leia(name: "savings", amount: .money(1_000), dates: DateRange.always, type: .asset)
     let income = Leia(name: "job", amount: .money(1), dates: DateRange.always, type: .income)
-    scenario.add(pool: asset)
-    scenario.add(stream: income)
+    scenario.add(asset)
+    scenario.add(income)
 
     let result = scenario.netWorth(2025.jan...2025.feb)
 
@@ -122,7 +122,7 @@ struct AScenario {
   func finds_named_stream() {
     let sut = Scenario("my scenario", people: People())
     let income = Leia(name: "job", amount: .money(1000), dates: DateRange.always, type: .income)
-    sut.add(stream: income)
+    sut.add(income)
 
     #expect(sut.find("job")!.amount.value(at: 2024.dec, People()) == Money(1000))
   }
@@ -138,9 +138,9 @@ struct AScenario {
   func calculates_relative_amount_of_a_stream() {
     let sut = Scenario("My scenario", people: People())
     let income = Leia(name: "job", amount: .money(1000), dates: DateRange.always, type: .income)
-    sut.add(stream: income)
+    sut.add(income)
     let relative = Leia(name: "rel", amount: .relative(0.5, "job"), dates: DateRange.always, type: .income)
-    sut.add(stream: relative)
+    sut.add(relative)
 
     #expect(sut.netIncome(at: 2024.jan) == Money(1500))
   }
@@ -149,9 +149,9 @@ struct AScenario {
   func calculates_relative_amount_of_a_pool() {
     let sut = Scenario("My scenario", people: People())
     let house = Leia(name: "house", amount: .money(100_000), dates: DateRange.always, type: .asset)
-    sut.add(pool: house)
+    sut.add(house)
     let relative = Leia(name: "rel", amount: .relative(0.5, "house"), dates: DateRange.always, type: .asset)
-    sut.add(pool: relative)
+    sut.add(relative)
 
     #expect(sut.netAssets(at: 2024.jan) == Money(150_000))
   }

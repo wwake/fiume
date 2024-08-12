@@ -23,16 +23,8 @@ public class Scenario: Identifiable {
     Scenario(self, newName)
   }
 
-  public func add(pool: Leia) {
-    add(pool, &leias) // was pools
-  }
-
-  public func add(stream: Leia) {
-    add(stream, &leias)
-  }
-
-  fileprivate func add(_ leia: Leia, _ map: inout NameToLeia) {
-    map[leia.name] = leia
+  public func add(_ leia: Leia) {
+    leias[leia.name] = leia
   }
 
   public func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
@@ -54,16 +46,18 @@ public class Scenario: Identifiable {
     leias[name]
   }
 
+  fileprivate func filterBy(_ type1: LeiaType, _ type2: LeiaType) -> NameToLeia {
+    leias.filter { _, value in
+      value.type == type1 || value.type == type2
+    }
+  }
+
   public func netIncome(at month: MonthYear) -> Money {
-    net(at: month, in: leias.filter { _, value in
-      value.type == .income || value.type == .expense
-    })
+    net(at: month, in: filterBy(.income, .expense))
   }
 
   public func netAssets(at month: MonthYear) -> Money {
-    net(at: month, in: leias.filter { _, value in
-      value.type == .asset || value.type == .liability
-    })
+    net(at: month, in: filterBy(.asset, .liability))
   }
 
   fileprivate func net(at month: MonthYear, in collection: NameToLeia) -> Money {
