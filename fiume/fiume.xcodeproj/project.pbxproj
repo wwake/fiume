@@ -19,7 +19,7 @@
 		914FEFAB2BF29399003D858E /* ALeia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFA92BF29399003D858E /* ALeia.swift */; };
 		914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB42BF2AD09003D858E /* FormFields.swift */; };
 		914FEFB72BF2AD6B003D858E /* EditLeiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB62BF2AD6B003D858E /* EditLeiaView.swift */; };
-		914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB82BF2AF08003D858E /* StreamView.swift */; };
+		914FEFB92BF2AF08003D858E /* LeiaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914FEFB82BF2AF08003D858E /* LeiaView.swift */; };
 		915226DA2C4EDB980001260F /* fiume_model.h in Headers */ = {isa = PBXBuildFile; fileRef = 915226D92C4EDB980001260F /* fiume_model.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		915226DD2C4EDB980001260F /* fiume_model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915226D72C4EDB980001260F /* fiume_model.framework */; };
 		915226DE2C4EDB980001260F /* fiume_model.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 915226D72C4EDB980001260F /* fiume_model.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -129,7 +129,7 @@
 		914FEFA92BF29399003D858E /* ALeia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ALeia.swift; sourceTree = "<group>"; };
 		914FEFB42BF2AD09003D858E /* FormFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFields.swift; sourceTree = "<group>"; };
 		914FEFB62BF2AD6B003D858E /* EditLeiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLeiaView.swift; sourceTree = "<group>"; };
-		914FEFB82BF2AF08003D858E /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		914FEFB82BF2AF08003D858E /* LeiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeiaView.swift; sourceTree = "<group>"; };
 		915226D72C4EDB980001260F /* fiume_model.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = fiume_model.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		915226D92C4EDB980001260F /* fiume_model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fiume_model.h; sourceTree = "<group>"; };
 		9152FC512C0AB46A000D5001 /* fiume-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "fiume-Info.plist"; sourceTree = "<group>"; };
@@ -243,13 +243,13 @@
 				91206E272C07BD2300D4C1CB /* EditPersonView.swift */,
 				914FEFB62BF2AD6B003D858E /* EditLeiaView.swift */,
 				914FEFB42BF2AD09003D858E /* FormFields.swift */,
+				914FEFB82BF2AF08003D858E /* LeiaView.swift */,
 				91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */,
 				91206E292C07BE6B00D4C1CB /* MonthYearView.swift */,
 				91206E322C090B3F00D4C1CB /* PeopleView.swift */,
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				91EA30B22C3DCC2000FA1177 /* PoolView.swift */,
-				914FEFB82BF2AF08003D858E /* StreamView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -534,7 +534,7 @@
 				919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */,
 				91F6E05F2C45A29A00E5EB7E /* MonthYear+Plottable.swift in Sources */,
 				91E7BB9A2C502C2E00A328DF /* EditDateRangeView.swift in Sources */,
-				914FEFB92BF2AF08003D858E /* StreamView.swift in Sources */,
+				914FEFB92BF2AF08003D858E /* LeiaView.swift in Sources */,
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
 				919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */,
 				91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */,

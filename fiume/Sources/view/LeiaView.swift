@@ -1,7 +1,7 @@
 import fiume_model
 import SwiftUI
 
-struct StreamView: View {
+struct LeiaView: View {
   @Environment(People.self)
   var people: People
 
@@ -10,13 +10,13 @@ struct StreamView: View {
 
   @Binding var plan: Plan
 
-  var stream: Leia
+  var leia: Leia
 
   @State private var isEditPresented = false
 
   init(plan: Binding<Plan>) {
     self._plan = plan
-    self.stream = plan.wrappedValue.leia!
+    self.leia = plan.wrappedValue.leia!
   }
 
   let typeColors = [
@@ -25,7 +25,7 @@ struct StreamView: View {
   ]
 
   var type: String {
-    typeColors[stream.type] ?? ""
+    typeColors[leia.type] ?? ""
   }
 
   let icons = [
@@ -37,10 +37,10 @@ struct StreamView: View {
 
   var body: some View {
     HStack {
-      icons[stream.type] ?? Image(systemName: "questionMark.circle")      .accessibilityLabel("unknown type")
+      icons[leia.type] ?? Image(systemName: "questionMark.circle")      .accessibilityLabel("unknown type")
 
-      Text("\(type): \(stream.name)   \(stream.amount)   " +
-           stream.dates.description(people))
+      Text("\(type): \(leia.name)   \(leia.amount)   " +
+           leia.dates.description(people))
       Spacer()
       Button(action: {
         plans.remove(plan)
@@ -61,7 +61,7 @@ struct StreamView: View {
     .padding(4)
     .background(Color(type))
     .sheet(isPresented: $isEditPresented) {
-      EditLeiaView(title: "Edit Stream", stream: stream, buttonName: "Update") { stream in
+      EditLeiaView(title: "Edit Stream", stream: leia, buttonName: "Update") { stream in
         plans.replace(plan, stream)
       }
     }
@@ -87,9 +87,9 @@ struct StreamView: View {
   )
   @State var expense = Plan.make(stream: stream)
   return VStack {
-    StreamView(plan: $income)
+    LeiaView(plan: $income)
     Divider()
-    StreamView(plan: $expense)
+    LeiaView(plan: $expense)
   }
   .environment(people)
   .environment(plans)
