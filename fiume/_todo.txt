@@ -1,8 +1,5 @@
-
 * Once "all" customers have updated
-  * remove the input transformation
   * remove "abs" in Leia
-  * Remove default type of unspecified
 Make Leia know its type
 
 * Make "relative" be on Leia rather than Amount
@@ -47,6 +44,11 @@ Calendar view (with RuleMark)
 
 Editing
 * Move streams (?)
+
+FI-24-43: 2024-08-12 - Update Persistence
+* Once "all" customers have updated
+  * remove the input transformation
+  * Remove default type of unspecified
 
 FI-24-42: 2024-08-08 - Refactor Sign Calculations
 * Store and read leiaType in Leia (Codable)

@@ -13,10 +13,10 @@ public enum LeiaType: Codable {
   public func signed(_ money: Money) -> Money {
     switch self {
     case .asset, .income:
-      return abs(money)
+      return money
 
     case .liability, .expense:
-      return -abs(money)
+      return -money
     }
   }
 }

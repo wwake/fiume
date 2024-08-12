@@ -34,13 +34,6 @@ public class Scenario: Identifiable {
 
   fileprivate func add(_ leia: Leia, _ map: inout NameToLeia) {
     map[leia.name] = leia
-//    if map[leia.name] == nil {
-//      map[leia.name] = leia
-//    } else {
-//      let original = map[leia.name]!
-//      let revised = original.update(overriddenBy: leia)
-//      map[leia.name] = revised
-//    }
   }
 
   public func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {

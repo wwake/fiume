@@ -27,8 +27,8 @@ struct ThePossibilities {
   @Test
 	func salary_minus_expenses_creates_net_worth() throws {
 		let sut = makePossibilities()
-		sut.add(makeLeia("Salary", Money(1_000)))
-    sut.add(makeLeia("Expenses", Money(-900), .expense))
+    sut.add(makeLeia("Salary", Money(1_000), .income))
+    sut.add(makeLeia("Expenses", Money(900), .expense))
 
 		let data = sut.netWorth(sut.range(12))
 
@@ -47,8 +47,8 @@ struct ThePossibilities {
   @Test
   func scenarios_with_only_groups() {
 		let sut = makePossibilities()
-		sut.add(makeLeia("Salary", Money(1_000)))
-    sut.add(makeLeia("Expenses", Money(-900), .expense))
+    sut.add(makeLeia("Salary", Money(1_000), .income))
+    sut.add(makeLeia("Expenses", Money(900), .expense))
 
     let result = Array(sut.scenarios())
 
