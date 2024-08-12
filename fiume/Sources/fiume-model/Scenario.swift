@@ -6,8 +6,8 @@ public class Scenario: Identifiable {
   public let people: People
 
   public typealias NameToLeia = [String: Leia]
-  public var streams = NameToLeia()
-  public var pools = NameToLeia()
+  private var streams = NameToLeia()
+  private var pools = NameToLeia()
 
   public init(_ name: String, people: People) {
     self.name = name
