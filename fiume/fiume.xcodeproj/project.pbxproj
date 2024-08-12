@@ -60,7 +60,6 @@
 		91E7BB972C4EF5D800A328DF /* ADateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7BB962C4EF5D800A328DF /* ADateRange.swift */; };
 		91E7BB9A2C502C2E00A328DF /* EditDateRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7BB982C502C1100A328DF /* EditDateRangeView.swift */; };
 		91EA30B32C3DCC2000FA1177 /* PoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA30B22C3DCC2000FA1177 /* PoolView.swift */; };
-		91F56D982C3DD266005A7E6E /* EditPoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F56D972C3DD266005A7E6E /* EditPoolView.swift */; };
 		91F6E05F2C45A29A00E5EB7E /* MonthYear+Plottable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */; };
 /* End PBXBuildFile section */
 
@@ -169,7 +168,6 @@
 		91E7BB962C4EF5D800A328DF /* ADateRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADateRange.swift; sourceTree = "<group>"; };
 		91E7BB982C502C1100A328DF /* EditDateRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDateRangeView.swift; sourceTree = "<group>"; };
 		91EA30B22C3DCC2000FA1177 /* PoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolView.swift; sourceTree = "<group>"; };
-		91F56D972C3DD266005A7E6E /* EditPoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPoolView.swift; sourceTree = "<group>"; };
 		91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonthYear+Plottable.swift"; sourceTree = "<group>"; };
 		91F950822C07B860006822AF /* MonthYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYear.swift; sourceTree = "<group>"; };
 		91F950842C07B8AB006822AF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 				91E7BB982C502C1100A328DF /* EditDateRangeView.swift */,
 				919CED532BF69C5C00ACCE2E /* EditGroupView.swift */,
 				91206E272C07BD2300D4C1CB /* EditPersonView.swift */,
-				91F56D972C3DD266005A7E6E /* EditPoolView.swift */,
 				914FEFB62BF2AD6B003D858E /* EditLeiaView.swift */,
 				914FEFB42BF2AD09003D858E /* FormFields.swift */,
 				91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */,
@@ -551,7 +548,6 @@
 				914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */,
 				91206E2A2C07BE6B00D4C1CB /* MonthYearView.swift in Sources */,
 				91042FE32C51822B00FFC65F /* OldAmountView.swift in Sources */,
-				91F56D982C3DD266005A7E6E /* EditPoolView.swift in Sources */,
 				919CED4D2BF54D8C00ACCE2E /* PlanView.swift in Sources */,
 				919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */,
 			);
