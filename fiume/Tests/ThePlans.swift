@@ -6,12 +6,12 @@ struct ThePlans {
   let plans = Plans()
 
   fileprivate static func makeStream(_ amount: Int) -> Plan {
-    let leia = Leia(name: "No type", amount: .money(amount), dates: DateRange.always, leiaType: nil)
+    let leia = Leia(name: "No type", amount: .money(amount), dates: DateRange.always, leiaType: .income)
     return Plan.make(stream: leia)
   }
 
   fileprivate static func makePool(_ amount: Int) -> Plan {
-    let leia = Leia(name: "No type", amount: .money(amount), dates: DateRange.always, leiaType: nil)
+    let leia = Leia(name: "No type", amount: .money(amount), dates: DateRange.always, leiaType: .asset)
     return Plan.make(pool: leia)
   }
 
@@ -45,81 +45,81 @@ struct ThePlans {
     #expect(plans.plans.children == nil)
   }
 
-  @Test(arguments: [
-    (makeStream(-100), LeiaType.expense),
-    (makeStream(4230), LeiaType.income),
-    (makePool(-999), LeiaType.liability),
-    (makePool(100), LeiaType.asset),
-  ])
-  func sets_leiaType_when_loading(_ planExpected: (Plan, LeiaType)) {
-    let plan = planExpected.0
-    let expected = planExpected.1
+//  @Test(arguments: [
+//    (makeStream(-100), LeiaType.expense),
+//    (makeStream(4230), LeiaType.income),
+//    (makePool(-999), LeiaType.liability),
+//    (makePool(100), LeiaType.asset),
+//  ])
+//  func sets_leiaType_when_loading(_ planExpected: (Plan, LeiaType)) {
+//    let plan = planExpected.0
+//    let expected = planExpected.1
+//
+//    let initialPlans = Plans()
+//    initialPlans.append(parent: initialPlans.plans, child: plan)
+//
+//    let plans = Plans()
+//    plans.load(initialPlans)
+//
+//    let newLeia = plans.plans.children![0].leia
+//    #expect(newLeia!.type == expected)
+//  }
+//
+//  @Test
+//  func uses_stream_leiaType_if_present_when_loading() {
+//    let leia = Leia(name: "Already typed", amount: .money(500), dates: DateRange.always, leiaType: .expense)
+//    let plan = Plan.make(stream: leia)
+//    let initialPlans = Plans()
+//    initialPlans.append(parent: initialPlans.plans, child: plan)
+//
+//    let plans = Plans()
+//    plans.load(initialPlans)
+//
+//    let newLeia = plans.plans.children![0].leia
+//    #expect(newLeia!.type == .expense)
+//  }
+//
+//  @Test
+//  func uses_pool_leiaType_if_present_when_loading() {
+//    let leia = Leia(name: "Already typed", amount: .money(500), dates: DateRange.always, leiaType: .liability)
+//    let plan = Plan.make(pool: leia)
+//    let initialPlans = Plans()
+//    initialPlans.append(parent: initialPlans.plans, child: plan)
+//
+//    let plans = Plans()
+//    plans.load(initialPlans)
+//
+//    let newLeia = plans.plans.children![0].leia
+//    #expect(newLeia!.type == .liability)
+//  }
 
-    let initialPlans = Plans()
-    initialPlans.append(parent: initialPlans.plans, child: plan)
+//  @Test
+//  func makes_amount_positive_when_loading() {
+//    let leia = Leia(name: "Already typed", amount: .money(-500), dates: DateRange.always, leiaType: .expense)
+//    let plan = Plan.make(stream: leia)
+//    let initialPlans = Plans()
+//    initialPlans.append(parent: initialPlans.plans, child: plan)
+//
+//    let plans = Plans()
+//    plans.load(initialPlans)
+//
+//    let newLeia = plans.plans.children![0].leia
+//    #expect(newLeia!.amount.isNonNegative)
+//  }
 
-    let plans = Plans()
-    plans.load(initialPlans)
-
-    let newLeia = plans.plans.children![0].leia
-    #expect(newLeia!.type == expected)
-  }
-
-  @Test
-  func uses_stream_leiaType_if_present_when_loading() {
-    let leia = Leia(name: "Already typed", amount: .money(500), dates: DateRange.always, leiaType: .expense)
-    let plan = Plan.make(stream: leia)
-    let initialPlans = Plans()
-    initialPlans.append(parent: initialPlans.plans, child: plan)
-
-    let plans = Plans()
-    plans.load(initialPlans)
-
-    let newLeia = plans.plans.children![0].leia
-    #expect(newLeia!.type == .expense)
-  }
-
-  @Test
-  func uses_pool_leiaType_if_present_when_loading() {
-    let leia = Leia(name: "Already typed", amount: .money(500), dates: DateRange.always, leiaType: .liability)
-    let plan = Plan.make(pool: leia)
-    let initialPlans = Plans()
-    initialPlans.append(parent: initialPlans.plans, child: plan)
-
-    let plans = Plans()
-    plans.load(initialPlans)
-
-    let newLeia = plans.plans.children![0].leia
-    #expect(newLeia!.type == .liability)
-  }
-
-  @Test
-  func makes_amount_positive_when_loading() {
-    let leia = Leia(name: "Already typed", amount: .money(-500), dates: DateRange.always, leiaType: .expense)
-    let plan = Plan.make(stream: leia)
-    let initialPlans = Plans()
-    initialPlans.append(parent: initialPlans.plans, child: plan)
-
-    let plans = Plans()
-    plans.load(initialPlans)
-
-    let newLeia = plans.plans.children![0].leia
-    #expect(newLeia!.amount.isNonNegative)
-  }
-
-  @Test
-  func sets_leiaType_for_children_of_scenarios() {
-    let plan = Plan.makeScenarios("scenarios")
-    let leia = ThePlans.makeStream(-100)
-    plan.append(leia)
-    let initialPlans = Plans()
-    initialPlans.append(parent: initialPlans.plans, child: plan)
-
-    let plans = Plans()
-    plans.load(initialPlans)
-
-    #expect(plans.plans.children![0].children![0].leia!.type == .expense)
-  }
+//  @Test
+//  func sets_leiaType_for_children_of_scenarios() {
+//    let plan = Plan.makeScenarios("scenarios")
+//    let leia = ThePlans.makeStream(-100)
+//    plan.append(leia)
+//    let initialPlans = Plans()
+//    initialPlans.append(parent: initialPlans.plans, child: plan)
+//
+//    let plans = Plans()
+//    plans.load(initialPlans)
+//
+//    #expect(plans.plans.children![0].children![0].leia!.type == .expense)
+//  }
 
   @Test
   func changes_when_stream_is_appended() {

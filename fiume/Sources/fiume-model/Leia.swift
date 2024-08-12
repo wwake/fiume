@@ -8,8 +8,7 @@ public enum LeiaType: Codable {
     asset,
     liability,
     income,
-    expense,
-    unspecified
+    expense
 
   public func signed(_ money: Money) -> Money {
     switch self {
@@ -18,9 +17,6 @@ public enum LeiaType: Codable {
 
     case .liability, .expense:
       return -abs(money)
-
-    case .unspecified:
-      return Money(0)
     }
   }
 }
@@ -46,7 +42,7 @@ public struct Leia: Identifiable, Codable {
   private var first: DateSpecifier
   private var last: DateSpecifier
   private var amountSpec: Amount?
-  private var leiaType: LeiaType?
+  private var leiaType: LeiaType
 
   public var dates: DateRange {
     DateRange(first, last)
@@ -60,7 +56,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public var type: LeiaType {
-    leiaType ?? .unspecified
+    leiaType
   }
 
   public init(
@@ -68,7 +64,7 @@ public struct Leia: Identifiable, Codable {
     name: String,
     amount: Amount,
     dates: DateRange,
-    leiaType: LeiaType?
+    leiaType: LeiaType
   ) {
     self.id = id
     self.name = name

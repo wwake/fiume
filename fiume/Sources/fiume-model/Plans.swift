@@ -36,7 +36,7 @@ public class Plans: Codable {
 
   fileprivate func replaceLeia(_ plan: Plan, _ positive: LeiaType, _ negative: LeiaType) {
     let leia = plan.leia!
-    let newType = leiaType(leia, positive, negative)
+    let newType = leia.type
     let newLeia = Leia(
       id: leia.id,
       name: leia.name,
@@ -45,11 +45,6 @@ public class Plans: Codable {
       leiaType: newType
     )
     replace(plan, newLeia)
-  }
-
-  fileprivate func leiaType(_ leia: Leia, _ positive: LeiaType, _ negative: LeiaType) -> LeiaType {
-    if leia.type != .unspecified { return leia.type }
-    return leia.amount.isNonNegative ? positive : negative
   }
 
   fileprivate func forceNonNegative(_ amount: Amount) -> Amount {
