@@ -9,18 +9,10 @@ public class Scenarios: Sequence {
     scenarios.count
   }
 
-  public func add(pool: Leia) -> Scenarios {
+  public func add(_ leia: Leia) -> Scenarios {
     let result = Scenarios(Array(scenarios))
     scenarios.forEach {
-      $0.add(pool)
-    }
-    return result
-  }
-
-  public func add(stream: Leia) -> Scenarios {
-    let result = Scenarios(Array(scenarios))
-    scenarios.forEach {
-      $0.add(stream)
+      $0.add(leia)
     }
     return result
   }
