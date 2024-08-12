@@ -25,7 +25,6 @@ public struct Leia: Identifiable, Codable {
   enum CodingKeys: String, CodingKey {
     case id
     case name
-    case amount_original = "amount"  // original JSON field name
     case first
     case last
     case amountSpec
@@ -38,10 +37,9 @@ public struct Leia: Identifiable, Codable {
 
   public var id: UUID
   public var name: String
-  private var amount_original: Money
   private var first: DateSpecifier
   private var last: DateSpecifier
-  private var amountSpec: Amount?
+  private var amountSpec: Amount
   private var leiaType: LeiaType
 
   public var dates: DateRange {
@@ -49,10 +47,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public var amount: Amount {
-    guard let result = amountSpec else {
-      return Amount(amount_original)
-    }
-    return result
+    amountSpec
   }
 
   public var type: LeiaType {
@@ -68,7 +63,6 @@ public struct Leia: Identifiable, Codable {
   ) {
     self.id = id
     self.name = name
-    self.amount_original = 0
     self.amountSpec = amount
 
     self.first = dates.first
