@@ -5,7 +5,7 @@ public class Scenario: Identifiable {
   public let name: String
   public let people: People
 
-  public typealias NameToLeia = [String: Leia]
+  fileprivate typealias NameToLeia = [String: Leia]
   private var leias = NameToLeia()
 
   public init(_ name: String, people: People) {
