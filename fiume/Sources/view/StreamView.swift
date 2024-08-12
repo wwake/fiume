@@ -76,14 +76,14 @@ struct StreamView: View {
       name: "Salary",
       amount: .money(1_000),
       dates: DateRange(.month(2020.jan), .month(2025.dec)),
-      leiaType: .income
+      type: .income
     )
   )
   let stream = Leia(
     name: "Car",
     amount: .money(-300),
     dates: DateRange(.month(2030.mar), .unchanged),
-    leiaType: .expense
+    type: .expense
   )
   @State var expense = Plan.make(stream: stream)
   return VStack {

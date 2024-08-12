@@ -30,7 +30,7 @@ struct PlanListView: View {
     name: "Annuity",
     amount: .money(1_000),
     dates: DateRange(.month(2020.jan), .unchanged),
-    leiaType: .income
+    type: .income
   ))
   possibilities.plans[0].append(stream)
 

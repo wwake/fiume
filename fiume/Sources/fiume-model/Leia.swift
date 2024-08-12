@@ -32,7 +32,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public static var null: Leia {
-    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.always, leiaType: .asset)
+    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.always, type: .asset)
   }
 
   public var id: UUID
@@ -52,7 +52,7 @@ public struct Leia: Identifiable, Codable {
     name: String,
     amount: Amount,
     dates: DateRange,
-    leiaType: LeiaType
+    type: LeiaType
   ) {
     self.id = id
     self.name = name
@@ -61,7 +61,7 @@ public struct Leia: Identifiable, Codable {
     self.first = dates.first
     self.last = dates.last
 
-    self.type = leiaType
+    self.type = type
   }
 
   public func signedAmount(at month: MonthYear, people: People, scenario: Scenario? = nil) -> Money {

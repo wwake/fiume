@@ -11,12 +11,12 @@ struct APlan {
     _ first: MonthYear = 2024.jan,
     _ last: MonthYear = 2034.dec
   ) -> Plan {
-    let pool = Leia(name: name, amount: .money(amount), dates: DateRange(.month(first), .month(last)), leiaType: .asset)
+    let pool = Leia(name: name, amount: .money(amount), dates: DateRange(.month(first), .month(last)), type: .asset)
     return Plan.make(pool: pool)
   }
 
   private func makeLeia(_ name: String, _ amount: Int) -> Leia {
-    Leia(name: name, amount: .money(amount), dates: DateRange(.month(2024.jan), .unchanged), leiaType: .income)
+    Leia(name: name, amount: .money(amount), dates: DateRange(.month(2024.jan), .unchanged), type: .income)
   }
 
   private func makeStream(
@@ -29,7 +29,7 @@ struct APlan {
       name: name,
       amount: .money(amount),
       dates: DateRange(.month(first), .month(last)),
-      leiaType: .income
+      type: .income
     )
     return Plan.make(stream: stream)
   }

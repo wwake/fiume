@@ -70,7 +70,7 @@ struct EditPoolView: View {
               name: name,
               amount: amount,
               dates: dates,
-              leiaType: isIncome ? .asset : .liability
+              type: isIncome ? .asset : .liability
             )
             action(outPool)
 
@@ -86,7 +86,7 @@ struct EditPoolView: View {
 }
 
 #Preview {
-  @State var pool = Leia(name: "", amount: .money(100), dates: DateRange.always, leiaType: .asset)
+  @State var pool = Leia(name: "", amount: .money(100), dates: DateRange.always, type: .asset)
   return EditPoolView(pool: pool, buttonName: "Create") { _ in
   }
 }

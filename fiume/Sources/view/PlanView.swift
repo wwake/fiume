@@ -111,7 +111,7 @@ struct PlanCompositeView: View {
     name: "demo",
     amount: .money(100),
     dates: DateRange( .month(2020.jan), .unchanged),
-    leiaType: .income
+    type: .income
   ))
   @State var planTree = Plan.makeGroup("an 'and' tree")
   planTree.append(planLeia)

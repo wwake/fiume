@@ -54,7 +54,7 @@ struct AddPlanView: View {
     name: "income",
     amount: .money(100),
     dates: DateRange(.month(2024.jan), .unchanged),
-    leiaType: .income
+    type: .income
   )
   tree.append(Plan.make(stream: stream))
   return AddPlanView(plan: $tree)

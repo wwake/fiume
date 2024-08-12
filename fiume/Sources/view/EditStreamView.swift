@@ -68,7 +68,7 @@ struct EditStreamView: View {
               name: name,
               amount: amount,
               dates: dates,
-              leiaType: isIncome ? .income : .expense
+              type: isIncome ? .income : .expense
             )
             action(leia)
 
