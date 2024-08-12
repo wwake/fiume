@@ -59,7 +59,7 @@ struct EditLeiaView: View {
           Text(LeiaType.liability.name).tag(LeiaType.liability)
         }
 
-        StreamAmountView(leiaType: leiaType, amount: $amount)
+        AmountView(leiaType: leiaType, amount: $amount)
 
         EditDateRangeView(dates: $dates)
 

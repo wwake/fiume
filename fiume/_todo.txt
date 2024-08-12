@@ -9,6 +9,9 @@ Make Leia know its type
 Amount
 
 
+* Give PlanType "money source" or "money" or "leia", delete pool & stream
+Persistence
+
 Error Reporting when Leia name is reused in a given scenario
 
 Variables

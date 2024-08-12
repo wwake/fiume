@@ -6,7 +6,7 @@ struct AddPlanView: View {
   var plans: Plans
 
   @Binding var plan: Plan
-  @State private var planType = PlanType.pool
+  @State private var planType = PlanType.stream
 
   var body: some View {
     Text("Add to Plan")
@@ -14,14 +14,14 @@ struct AddPlanView: View {
       .padding(8)
 
     Picker("Add New", selection: $planType) {
-      ForEach(PlanType.allCases) { addType in
-        Text(addType.rawValue.capitalized)
-      }
+      Text("Money Source").tag(PlanType.stream)
+      Text("Group").tag(PlanType.group)
+      Text("Scenarios").tag(PlanType.scenarios)
     }
     .pickerStyle(.segmented)
 
     switch planType {
-    case .pool, .stream:
+    case .stream:
       EditLeiaView(stream: Leia.null, buttonName: "Create") { stream in
         plans.append(parent: plan, child: Plan.make(stream: stream))
       }
