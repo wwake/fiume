@@ -1,7 +1,7 @@
 import fiume_model
 import SwiftUI
 
-struct EditStreamView: View {
+struct EditLeiaView: View {
   @Environment(\.dismiss)
   var dismiss
 
@@ -11,25 +11,25 @@ struct EditStreamView: View {
   var buttonName: String
   var action: (Leia) -> Void
 
-  init(title: String? = nil, stream: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
-    self.title = title
-    self.stream = stream
-    self.buttonName = buttonName
-    self.action = action
-
-    self._isIncome = .init(initialValue: stream.type == .income)
-    self._name = .init(initialValue: stream.name)
-    self._amount = .init(initialValue: stream.amount)
-    self._dates = .init(initialValue: stream.dates)
-  }
-
-  @State private var isIncome = true
+  @State private var leiaType = LeiaType.income
 
   @State private var name = ""
 
   @State private var amount: Amount
 
   @State private var dates = DateRange.always
+
+  init(title: String? = nil, stream: Leia, buttonName: String, action: @escaping (Leia) -> Void) {
+    self.title = title
+    self.stream = stream
+    self.buttonName = buttonName
+    self.action = action
+
+    self._leiaType = .init(initialValue: stream.type)
+    self._name = .init(initialValue: stream.name)
+    self._amount = .init(initialValue: stream.amount)
+    self._dates = .init(initialValue: stream.dates)
+  }
 
   fileprivate func valid() -> Bool {
     if !amount.isNonNegative {
@@ -52,12 +52,14 @@ struct EditStreamView: View {
       Form {
         RequiredTextField(name: "Name", field: $name)
 
-        Picker(selection: $isIncome, label: Text("Type:")) {
-          Text("Income").tag(true)
-          Text("Expense").tag(false)
+        Picker(selection: $leiaType, label: Text("Type:")) {
+          Text(LeiaType.asset.name).tag(LeiaType.asset)
+          Text(LeiaType.income.name).tag(LeiaType.income)
+          Text(LeiaType.expense.name).tag(LeiaType.expense)
+          Text(LeiaType.liability.name).tag(LeiaType.liability)
         }
 
-        StreamAmountView(isIncome: isIncome, amount: $amount)
+        StreamAmountView(leiaType: leiaType, amount: $amount)
 
         EditDateRangeView(dates: $dates)
 
@@ -68,7 +70,7 @@ struct EditStreamView: View {
               name: name,
               amount: amount,
               dates: dates,
-              type: isIncome ? .income : .expense
+              type: leiaType
             )
             action(leia)
 

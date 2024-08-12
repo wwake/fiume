@@ -55,7 +55,7 @@ struct PoolView: View {
     .padding(4)
     .background(Color(type))
     .sheet(isPresented: $isEditPresented) {
-      EditPoolView(title: "Edit Pool", pool: pool, buttonName: "Update") { pool in
+      EditLeiaView(title: "Edit Pool", stream: pool, buttonName: "Update") { pool in
         plans.replace(plan, pool)
       }
     }

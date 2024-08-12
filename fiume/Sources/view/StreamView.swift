@@ -61,7 +61,7 @@ struct StreamView: View {
     .padding(4)
     .background(Color(type))
     .sheet(isPresented: $isEditPresented) {
-      EditStreamView(title: "Edit Stream", stream: stream, buttonName: "Update") { stream in
+      EditLeiaView(title: "Edit Stream", stream: stream, buttonName: "Update") { stream in
         plans.replace(plan, stream)
       }
     }

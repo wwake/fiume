@@ -21,13 +21,8 @@ struct AddPlanView: View {
     .pickerStyle(.segmented)
 
     switch planType {
-    case .pool:
-      EditPoolView(pool: Leia.null, buttonName: "Create") { pool in
-        plans.append(parent: plan, child: Plan.make(pool: pool))
-      }
-
-    case .stream:
-      EditStreamView(stream: Leia.null, buttonName: "Create") { stream in
+    case .pool, .stream:
+      EditLeiaView(stream: Leia.null, buttonName: "Create") { stream in
         plans.append(parent: plan, child: Plan.make(stream: stream))
       }
 

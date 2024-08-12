@@ -19,6 +19,22 @@ public enum LeiaType: Codable {
       return -money
     }
   }
+
+  public var name: String {
+    switch self {
+    case .asset:
+      return "Asset"
+
+    case .liability:
+      return "Liability"
+
+    case .income:
+      return "Income"
+
+    case .expense:
+      return "Expense"
+    }
+  }
 }
 
 public struct Leia: Identifiable, Codable {
@@ -32,7 +48,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public static var null: Leia {
-    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.always, type: .asset)
+    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.always, type: .income)
   }
 
   public var id: UUID
