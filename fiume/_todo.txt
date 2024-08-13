@@ -1,6 +1,6 @@
-* Basic UI for viewing assumptions
+
 * UI for editing assumptions
-* Create a % assumption
+* UI to create a % assumption
 * Create a client of assumptions e.g., "Growth"
 Assumptions
 
@@ -49,6 +49,12 @@ Calendar view (with RuleMark)
 
 Editing
 * Move streams (?)
+
+FI-24-44: 2024-08-13 - Variables/Assumptions
+* Create Assumption & Assumptions objects
+* Basic UI for viewing assumptions
+* UI to update when changing slider on assumptions
+* UI for deleting assumptions
 
 FI-24-43: 2024-08-12 - Update Persistence
 * Once "all" customers have updated

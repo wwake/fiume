@@ -33,9 +33,15 @@ struct AssumptionsView: View {
     List {
       Section(header: header) {
         ForEach(assumptions.sorted()) { assumption in
-          AssumptionView(assumption: assumption) { revisedAssumption in
-            assumptions.replace(revisedAssumption)
-          }
+          AssumptionView(
+            assumption: assumption,
+            updateAction: { revisedAssumption in
+              assumptions.replace(revisedAssumption)
+            },
+            deleteAction: { name in
+              assumptions.remove(name)
+            }
+          )
         }
       }
     }
