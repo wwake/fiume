@@ -1,14 +1,24 @@
-public enum Assumption: Identifiable {
-  case percent(String, Double, Double, Double)
+import Foundation
 
-  public var name: String {
-    switch self {
-    case .percent(let name, _, _, _):
-      return name
-    }
-  }
+public enum AssumptionType {
+  case percent
+}
 
-  public var id: String {
-    name
+public struct Assumption: Identifiable {
+  public var id = UUID()
+  public var type: AssumptionType
+  public var name: String
+
+  public var min: Int
+  public var current: Int
+  public var max: Int
+
+  public init(id: UUID = UUID(), type: AssumptionType, name: String, min: Int, max: Int, current: Int) {
+    self.id = id
+    self.type = type
+    self.name = name
+    self.min = min
+    self.max = max
+    self.current = current
   }
 }

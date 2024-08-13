@@ -5,7 +5,7 @@ public class Assumptions {
   public var assumptions: [Assumption]
 
   public init() {
-    assumptions = [Assumption.percent("ROI", 0.0, 8.0, 15.0)]
+    assumptions = [Assumption(type: .percent, name: "ROI", min: 0, max: 8, current: 5)]
   }
 }
 

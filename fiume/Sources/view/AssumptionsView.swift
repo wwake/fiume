@@ -32,7 +32,8 @@ struct AssumptionsView: View {
     List {
       Section(header: header) {
         ForEach(assumptions.sorted()) { assumption in
-          Text(assumption.name)
+          AssumptionView(assumption: assumption) { _ in
+          }
         }
       }
     }
