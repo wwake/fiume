@@ -1,4 +1,8 @@
-Make Leia know its type
+* Basic UI for viewing assumptions
+* UI for editing assumptions
+* Create a % assumption
+* Create a client of assumptions e.g., "Growth"
+Assumptions
 
 * Make "relative" be on Leia rather than Amount
 

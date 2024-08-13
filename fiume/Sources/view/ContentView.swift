@@ -11,6 +11,7 @@ struct ContentView: View {
   @Bindable var plans: Plans
 
   @State var isShowingPeople = false
+  @State var isShowingAssumptions = false
 
   @State private var saveError: Error?
   @State private var showSaveAlert = false
@@ -50,12 +51,12 @@ struct ContentView: View {
         Button("People") {
           isShowingPeople.toggle()
         }
-        .padding(12)
-        .background(Color("ThemeDark"))
-        .foregroundStyle(Color.white)
-        .bold()
-        .clipShape(Capsule())
-        .padding(.leading, 20)
+        .buttonStyle(CapsuleButtonStyle())
+
+        Button("Assumptions") {
+          isShowingAssumptions.toggle()
+        }
+        .buttonStyle(CapsuleButtonStyle())
 
         Spacer()
       }
@@ -70,6 +71,9 @@ struct ContentView: View {
     }
     .sheet(isPresented: $isShowingPeople) {
       PeopleView()
+    }
+    .sheet(isPresented: $isShowingAssumptions) {
+      AssumptionsView()
     }
     .onChange(of: people.wasChanged) {
       if !people.wasChanged { return }
