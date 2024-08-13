@@ -15,6 +15,15 @@ public class Assumptions {
   public func find(_ name: String) -> Assumption? {
     assumptions.first { $0.name == name }
   }
+
+  public func remove(_ name: String) {
+    assumptions.removeAll { $0.name == name }
+  }
+
+  public func replace(_ assumption: Assumption) {
+    remove(assumption.name)
+    add(assumption)
+  }
 }
 
 extension Assumptions: Sequence {
