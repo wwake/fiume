@@ -5,7 +5,13 @@ struct AssumptionView: View {
   var assumption: Assumption
   var action: (Assumption) -> Void
 
-  @State var value: Double = 0.0
+  @State var value: Double
+
+  init(assumption: Assumption, action: @escaping (Assumption) -> Void) {
+    self.assumption = assumption
+    self.action = action
+    self.value = Double(assumption.current)
+  }
 
   var body: some View {
     HStack {
@@ -16,11 +22,12 @@ struct AssumptionView: View {
         value: $value,
         in: Double(assumption.min)...Double(assumption.max),
         onEditingChanged: { _ in
-          action(Assumption(assumption, Int(value)))
+          if assumption.current != Int(value) {
+            action(Assumption(assumption, Int(value)))
+          }
         }
       )
-      .onChange(of: value) { _, _ in
-      }
+      .onChange(of: value) { }
     }
   }
 }

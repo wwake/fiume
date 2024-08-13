@@ -34,7 +34,7 @@ struct AssumptionsView: View {
       Section(header: header) {
         ForEach(assumptions.sorted()) { assumption in
           AssumptionView(assumption: assumption) { revisedAssumption in
-            
+            assumptions.replace(revisedAssumption)
           }
         }
       }
