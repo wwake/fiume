@@ -1,3 +1,4 @@
+import fiume_model
 import SwiftUI
 
 struct AssumptionsView: View {
@@ -32,7 +33,8 @@ struct AssumptionsView: View {
     List {
       Section(header: header) {
         ForEach(assumptions.sorted()) { assumption in
-          AssumptionView(assumption: assumption) { _ in
+          AssumptionView(assumption: assumption) { revisedAssumption in
+            
           }
         }
       }

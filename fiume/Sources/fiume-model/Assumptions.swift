@@ -7,6 +7,14 @@ public class Assumptions {
   public init() {
     assumptions = [Assumption(type: .percent, name: "ROI", min: 0, max: 8, current: 5)]
   }
+
+  public func add(_ assumption: Assumption) {
+    assumptions.append(assumption)
+  }
+
+  public func find(_ name: String) -> Assumption? {
+    assumptions.first { $0.name == name }
+  }
 }
 
 extension Assumptions: Sequence {

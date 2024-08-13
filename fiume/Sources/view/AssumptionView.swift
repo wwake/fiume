@@ -1,8 +1,9 @@
+import fiume_model
 import SwiftUI
 
 struct AssumptionView: View {
   var assumption: Assumption
-  var action: (Int) -> Void
+  var action: (Assumption) -> Void
 
   @State var value: Double = 0.0
 
@@ -15,7 +16,7 @@ struct AssumptionView: View {
         value: $value,
         in: Double(assumption.min)...Double(assumption.max),
         onEditingChanged: { _ in
-          action(Int(value))
+          action(Assumption(assumption, Int(value)))
         }
       )
       .onChange(of: value) { _, _ in
