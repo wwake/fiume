@@ -13,6 +13,7 @@ struct FiumeApp: App {
 
   @State var people = People()
   @State var plans = Plans()
+  @State var assumptions = Assumptions()
 
   init() {
     print("Document path: \(URL.documentsDirectory)")
@@ -40,5 +41,6 @@ struct FiumeApp: App {
     }
     .environment(people)
     .environment(plans)
+    .environment(assumptions)
   }
 }

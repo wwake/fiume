@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct AssumptionsView: View {
+  @Environment(Assumptions.self)
+  var assumptions: Assumptions
+
   @State var isShowingCreateView = false
   @State var isEditPresented = false
 
@@ -28,7 +31,9 @@ struct AssumptionsView: View {
   var body: some View {
     List {
       Section(header: header) {
-        Text("No assumptions yet")
+        ForEach(assumptions.sorted()) { assumption in
+          Text(assumption.name)
+        }
       }
     }
   }
