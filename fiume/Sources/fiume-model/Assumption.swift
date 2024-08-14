@@ -5,6 +5,10 @@ public enum AssumptionType {
 }
 
 public struct Assumption: Identifiable {
+  public static var null: Assumption {
+    Assumption(type: .percent, name: "", min: 1, max: 100, current: 50)
+  }
+
   public var id = UUID()
   public var type: AssumptionType
   public var name: String

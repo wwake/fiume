@@ -50,6 +50,7 @@
 		919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED512BF699E900ACCE2E /* AddPlanView.swift */; };
 		919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED532BF69C5C00ACCE2E /* EditGroupView.swift */; };
 		919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */; };
+		91B7CE552C6D29790000FD7A /* EditAssumptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B7CE542C6D29790000FD7A /* EditAssumptionsView.swift */; };
 		91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D12C33277100A1EEB3 /* Persistence.swift */; };
 		91C248D62C333DC200A1EEB3 /* ThePeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D52C333DC200A1EEB3 /* ThePeople.swift */; };
 		91C248D92C33456E00A1EEB3 /* ThePlans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D72C33453E00A1EEB3 /* ThePlans.swift */; };
@@ -157,6 +158,7 @@
 		919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateScenariosView.swift; sourceTree = "<group>"; };
 		91A8C2962BFD773100DF5AC0 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		91A8C2982BFD7C5400DF5AC0 /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
+		91B7CE542C6D29790000FD7A /* EditAssumptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAssumptionsView.swift; sourceTree = "<group>"; };
 		91C248CC2C24B3CE00A1EEB3 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		91C248D12C33277100A1EEB3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		91C248D32C3337E400A1EEB3 /* Plans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plans.swift; sourceTree = "<group>"; };
@@ -248,10 +250,12 @@
 				91690A7E2C12451500A6082D /* AgeSelector.swift */,
 				91042FE12C51821200FFC65F /* AmountView.swift */,
 				91753E422C6BD9D2001B02F6 /* AssumptionsView.swift */,
+				91753E482C6BE04A001B02F6 /* AssumptionView.swift */,
 				91753E402C6BD892001B02F6 /* CapsuleButtonStyle.swift */,
 				91DA64FE2BF291F6004ADB9B /* ContentView.swift */,
 				919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */,
 				91D543972C051A3800AD3592 /* DateSpecifierView.swift */,
+				91B7CE542C6D29790000FD7A /* EditAssumptionsView.swift */,
 				91E7BB982C502C1100A328DF /* EditDateRangeView.swift */,
 				919CED532BF69C5C00ACCE2E /* EditGroupView.swift */,
 				91206E272C07BD2300D4C1CB /* EditPersonView.swift */,
@@ -263,7 +267,6 @@
 				91206E322C090B3F00D4C1CB /* PeopleView.swift */,
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
-				91753E482C6BE04A001B02F6 /* AssumptionView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				91206E332C090B3F00D4C1CB /* PeopleView.swift in Sources */,
 				914FEFB72BF2AD6B003D858E /* EditLeiaView.swift in Sources */,
 				919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */,
+				91B7CE552C6D29790000FD7A /* EditAssumptionsView.swift in Sources */,
 				91F6E05F2C45A29A00E5EB7E /* MonthYear+Plottable.swift in Sources */,
 				91E7BB9A2C502C2E00A328DF /* EditDateRangeView.swift in Sources */,
 				914FEFB92BF2AF08003D858E /* LeiaView.swift in Sources */,

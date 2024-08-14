@@ -1,7 +1,7 @@
-
-* UI for editing assumptions
 * UI to create a % assumption
+* UI for editing assumptions
 * Create a client of assumptions e.g., "Growth"
+* Improve display of assumption - show min & max values
 Assumptions
 
 * Make "relative" be on Leia rather than Amount

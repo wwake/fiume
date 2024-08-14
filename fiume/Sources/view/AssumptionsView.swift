@@ -22,10 +22,9 @@ struct AssumptionsView: View {
       }
     }
     .sheet(isPresented: $isShowingCreateView) {
-      Text("Create an assumption")
-//      EditAssumptionsView(person: Person.null, buttonName: "Create") { person in
-//        people.add(person)
-//      }
+      EditAssumptionsView(assumption: Assumption.null, buttonName: "Create") { _ in
+       // people.add(person)
+      }
     }
   }
 

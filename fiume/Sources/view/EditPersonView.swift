@@ -5,13 +5,12 @@ struct EditPersonView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  @State private var name = ""
-  @State private var born: MonthYear = 2024.jan
-
   var person: Person
-
   var buttonName: String
   var action: (Person) -> Void
+
+  @State private var name = ""
+  @State private var born: MonthYear = 2024.jan
 
   init(person: Person, buttonName: String, action: @escaping (Person) -> Void) {
     self.person = person

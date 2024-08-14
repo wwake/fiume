@@ -50,5 +50,5 @@ struct AssumptionView: View {
 
 #Preview {
   let assumption = Assumption(type: AssumptionType.percent, name: "ROI", min: 0, max: 20, current: 5)
-  return AssumptionView(assumption: assumption, deleteAction: { _ in })
+  return AssumptionView(assumption: assumption)
 }
