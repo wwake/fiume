@@ -47,17 +47,6 @@ struct ThePlans {
   }
 
   @Test
-  func changes_when_pool_is_appended() {
-    let pool = Plan.make(pool: Leia(name: "Savings", amount: .money(20000), dates: DateRange.always, type: .asset))
-
-    plans.append(parent: plans.plans, child: pool)
-
-    #expect(plans.plans.children![0] === pool)
-    #expect(plans.plans.children![0].leia != nil)
-    #expect(plans.wasChanged)
-  }
-
-  @Test
   func can_remove_a_plan() {
     let scenario = Plan.makeScenarios("my scenario")
     let stream = Plan.make(stream: Leia(

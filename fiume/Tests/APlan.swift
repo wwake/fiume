@@ -5,14 +5,14 @@ import Testing
 struct APlan {
   let people = People()
 
-  private func makePool(
+  private func makePlanWithAsset(
     _ name: String,
     _ amount: Int,
     _ first: MonthYear = 2024.jan,
     _ last: MonthYear = 2034.dec
   ) -> Plan {
-    let pool = Leia(name: name, amount: .money(amount), dates: DateRange(.month(first), .month(last)), type: .asset)
-    return Plan.make(pool: pool)
+    let asset = Leia(name: name, amount: .money(amount), dates: DateRange(.month(first), .month(last)), type: .asset)
+    return Plan.make(stream: asset)
   }
 
   private func makeLeia(_ name: String, _ amount: Int) -> Leia {
@@ -48,14 +48,6 @@ struct APlan {
       result.append($0)
     }
     return result
-  }
-
-  @Test
-  func makes_a_pool() {
-    let sut = makePool("Savings", 100, 2024.mar, 2024.dec)
-
-    #expect(sut.name == "Savings")
-    #expect(sut.children == nil)
   }
 
   @Test
@@ -102,17 +94,7 @@ struct APlan {
   }
 
   @Test
-  func replaces_a_pool() {
-    let plan = makePool("pool1", 750)
-    let replacement = makePool("pool2", 500).leia!
-
-    plan.replace(leia: replacement)
-
-    #expect(plan.leia!.name == "pool2")
-  }
-
-  @Test
-  func can_replace_its_stream() {
+  func replaces_a_stream() {
     let stream = makeLeia("test", 500)
     let plan = Plan.make(stream: makeLeia("original", 20))
 
@@ -124,7 +106,7 @@ struct APlan {
 
   @Test
   func scenarios_for_pool() {
-    let sut = makePool("Savings", 1_000_000, 2024.jan, 2024.dec)
+    let sut = makePlanWithAsset("Savings", 1_000_000, 2024.jan, 2024.dec)
     let result = sut.scenarios(Scenarios([Scenario("A", people: people), Scenario("B", people: people)]))
     let array = Array(result)
 

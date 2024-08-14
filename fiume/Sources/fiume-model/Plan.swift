@@ -26,10 +26,6 @@ public class Plan: Identifiable, Codable {
 
   public var children: [Plan]?
 
-  public static func make(pool: Leia) -> Plan {
-    Plan(.pool, pool)
-  }
-
   public static func make(stream: Leia) -> Plan {
     Plan(.stream, stream)
   }
