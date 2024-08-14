@@ -124,7 +124,7 @@ struct MoneyAmountView: View {
         }
       if dollars < 0 {
         Text("Amount may not be negative; choose Asset or Liability instead.")
-          .foregroundStyle(Color.red)
+          .foregroundStyle(Color("Error"))
       }
     }
   }

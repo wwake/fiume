@@ -25,8 +25,12 @@ struct EditAssumptionsView: View {
     _current = .init(wrappedValue: assumption.current)
   }
 
+  var rangeOk: Bool {
+    min <= current && current <= max
+  }
+
   func valid() -> Bool {
-    !name.isEmpty
+    !name.isEmpty && rangeOk
   }
 
   var body: some View {
@@ -39,6 +43,11 @@ struct EditAssumptionsView: View {
       NumberField(label: "Min", value: $min)
       NumberField(label: "Max", value: $max)
       NumberField(label: "Current", value: $current)
+
+      if !rangeOk {
+        Text("Must have Min <= Current and Current <= Max")
+          .foregroundStyle(Color("Error"))
+      }
 
       HStack {
         Spacer()

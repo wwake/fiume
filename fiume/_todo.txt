@@ -1,4 +1,4 @@
-* UI to create a % assumption
+* Enforce min <= current <= max
 * UI for editing assumptions
 * Create a client of assumptions e.g., "Growth"
 * Improve display of assumption - show min & max values
@@ -49,6 +49,9 @@ Calendar view (with RuleMark)
 
 Editing
 * Move streams (?)
+
+FI-24-45: 2024-08-14 - Create and Edit Assumptions
+* UI to create a % assumption
 
 FI-24-44: 2024-08-13 - Variables/Assumptions
 * Create Assumption & Assumptions objects
