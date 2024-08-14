@@ -14,7 +14,12 @@ public class Plans: Codable {
 
   public func load(_ newPlans: Plans) {
     plans = newPlans.plans
+    update()
     wasChanged = false
+  }
+
+  private func update() {
+    
   }
 
   public func append(parent: Plan, child: Plan) {

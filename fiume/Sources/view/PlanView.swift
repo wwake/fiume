@@ -9,7 +9,7 @@ struct PlanView: View {
 
   var body: some View {
     switch plan.type {
-    case .pool, .stream:
+    case .stream, .leia:
       LeiaView(plan: $plan)
 
     case .group:
