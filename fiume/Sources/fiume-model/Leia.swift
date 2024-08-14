@@ -56,11 +56,13 @@ public struct Leia: Identifiable, Codable {
   private var first: DateSpecifier
   private var last: DateSpecifier
 
+  private var dates: DateRange?
+
   public private(set) var amount: Amount
   public private(set) var type: LeiaType
 
-  public var dates: DateRange {
-    DateRange(first, last)
+  public var dates_: DateRange {
+    dates ?? DateRange(first, last)
   }
 
   public init(
@@ -81,7 +83,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public func signedAmount(at month: MonthYear, people: People, scenario: Scenario? = nil) -> Money {
-    guard dates.includes(month, people) else {
+    guard dates_.includes(month, people) else {
       return Money(0)
     }
     return type.signed(amount.value(at: month, people, scenario))

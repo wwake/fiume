@@ -28,7 +28,7 @@ struct EditLeiaView: View {
     self._leiaType = .init(initialValue: leia.type)
     self._name = .init(initialValue: leia.name)
     self._amount = .init(initialValue: leia.amount)
-    self._dates = .init(initialValue: leia.dates)
+    self._dates = .init(initialValue: leia.dates_)
   }
 
   fileprivate func valid() -> Bool {
