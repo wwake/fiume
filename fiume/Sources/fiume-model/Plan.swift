@@ -26,8 +26,8 @@ public class Plan: Identifiable, Codable {
 
   public var children: [Plan]?
 
-  public static func make(stream: Leia) -> Plan {
-    Plan(.stream, stream)
+  public static func make(_ leia: Leia) -> Plan {
+    Plan(.stream, leia)
   }
 
   public static func makeGroup(_ name: String) -> Plan {

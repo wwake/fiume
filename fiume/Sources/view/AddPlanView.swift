@@ -23,7 +23,7 @@ struct AddPlanView: View {
     switch planType {
     case .stream:
       EditLeiaView(leia: Leia.null, buttonName: "Create") { stream in
-        plans.append(parent: plan, child: Plan.make(stream: stream))
+        plans.append(parent: plan, child: Plan.make(stream))
       }
 
     case .group:
@@ -51,7 +51,7 @@ struct AddPlanView: View {
     dates: DateRange(.month(2024.jan), .unchanged),
     type: .income
   )
-  tree.append(Plan.make(stream: stream))
+  tree.append(Plan.make(stream))
   return AddPlanView(plan: $tree)
     .environment(plans)
 }

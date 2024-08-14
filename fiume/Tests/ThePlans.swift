@@ -13,7 +13,7 @@ struct ThePlans {
   @Test
   func marked_unchanged_when_loading() {
     let newPlans = Plans()
-    newPlans.plans = Plan.make(stream: Leia(
+    newPlans.plans = Plan.make(Leia(
       name: "A Leia",
       amount: .money(1999),
       dates: DateRange.always,
@@ -37,7 +37,7 @@ struct ThePlans {
 
   @Test
   func changes_when_stream_is_appended() {
-    let stream = Plan.make(stream: Leia(
+    let stream = Plan.make(Leia(
       name: "2d job", amount: .money(200), dates: DateRange.always, type: .income
     ))
 
@@ -49,7 +49,7 @@ struct ThePlans {
   @Test
   func can_remove_a_plan() {
     let scenario = Plan.makeScenarios("my scenario")
-    let stream = Plan.make(stream: Leia(
+    let stream = Plan.make(Leia(
       name: "2d job", amount: .money(200), dates: DateRange.always, type: .income
     ))
     scenario.append(stream)
@@ -76,7 +76,7 @@ struct ThePlans {
 
   @Test
   func are_changed_by_replacing_stream() {
-    let plan = Plan.make(stream: Leia(name: "test", amount: .money(200), dates: DateRange.always, type: .income))
+    let plan = Plan.make(Leia(name: "test", amount: .money(200), dates: DateRange.always, type: .income))
     plans.append(parent: plans.plans, child: plan)
 
     plans.replace(plan, Leia(name: "revised", amount: .money(500), dates: DateRange.always, type: .income))

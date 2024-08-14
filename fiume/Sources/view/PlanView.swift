@@ -104,7 +104,7 @@ struct PlanCompositeView: View {
 #Preview {
   @State var plans = Plans()
 
-  let planLeia = Plan.make(stream: Leia(
+  let planLeia = Plan.make(Leia(
     name: "demo",
     amount: .money(100),
     dates: DateRange( .month(2020.jan), .unchanged),

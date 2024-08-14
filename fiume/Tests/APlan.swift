@@ -12,7 +12,7 @@ struct APlan {
     _ last: MonthYear = 2034.dec
   ) -> Plan {
     let asset = Leia(name: name, amount: .money(amount), dates: DateRange(.month(first), .month(last)), type: .asset)
-    return Plan.make(stream: asset)
+    return Plan.make(asset)
   }
 
   private func makeLeia(_ name: String, _ amount: Int) -> Leia {
@@ -31,7 +31,7 @@ struct APlan {
       dates: DateRange(.month(first), .month(last)),
       type: .income
     )
-    return Plan.make(stream: stream)
+    return Plan.make(stream)
   }
 
   private func makeGroup(_ name: String, _ children: [Plan]) -> Plan {
@@ -96,7 +96,7 @@ struct APlan {
   @Test
   func replaces_a_stream() {
     let stream = makeLeia("test", 500)
-    let plan = Plan.make(stream: makeLeia("original", 20))
+    let plan = Plan.make(makeLeia("original", 20))
 
     plan.replace(leia: stream)
 
