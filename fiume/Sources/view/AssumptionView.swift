@@ -7,6 +7,7 @@ struct AssumptionView: View {
   var deleteAction: (String) -> Void
 
   @State var value: Double
+  @State var isEditing: Bool = false
 
   init(
     assumption: Assumption,
@@ -44,6 +45,19 @@ struct AssumptionView: View {
           .accessibilityLabel(Text("Delete"))
       }
       .buttonStyle(.plain)
+
+      Button(action: {
+        isEditing = true
+      }) {
+        Image(systemName: "square.and.pencil")
+          .accessibilityLabel(Text("Edit"))
+      }
+      .buttonStyle(.plain)
+    }
+    .sheet(isPresented: $isEditing) {
+      EditAssumptionView(assumption: assumption, buttonName: "Update") { assumption in
+        updateAction(assumption)
+      }
     }
   }
 }

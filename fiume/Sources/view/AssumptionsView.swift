@@ -6,7 +6,6 @@ struct AssumptionsView: View {
   var assumptions: Assumptions
 
   @State var isShowingCreateView = false
-  @State var isEditPresented = false
 
   var header: some View {
     HStack {
@@ -22,7 +21,7 @@ struct AssumptionsView: View {
       }
     }
     .sheet(isPresented: $isShowingCreateView) {
-      EditAssumptionsView(assumption: Assumption.null, buttonName: "Create") { assumption in
+      EditAssumptionView(assumption: Assumption.null, buttonName: "Create") { assumption in
        assumptions.add(assumption)
       }
     }

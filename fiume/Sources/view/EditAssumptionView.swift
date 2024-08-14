@@ -1,7 +1,7 @@
 import fiume_model
 import SwiftUI
 
-struct EditAssumptionsView: View {
+struct EditAssumptionView: View {
   @Environment(\.dismiss)
   var dismiss
 
@@ -65,5 +65,5 @@ struct EditAssumptionsView: View {
 
 #Preview {
   let assumption = Assumption.null
-  return EditAssumptionsView(assumption: assumption, buttonName: "Create") { _ in }
+  return EditAssumptionView(assumption: assumption, buttonName: "Create") { _ in }
 }
