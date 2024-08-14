@@ -65,6 +65,7 @@ public class Plan: Identifiable, Codable {
 
     case .pool, .stream:
       type = .leia
+      leia!.dates = leia!.dates_
 
     case .group, .scenarios:
       if children != nil {

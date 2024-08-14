@@ -1,4 +1,4 @@
-public struct DateRange: Equatable {
+public struct DateRange: Equatable, Codable {
   public var first: DateSpecifier
   public var last: DateSpecifier
 

@@ -242,10 +242,12 @@ struct APlan {
     let income = Leia(name: "salary", amount: .money(50_000), dates: DateRange.always, type: .income)
     let sut = Plan.make(income)
     sut.type = .stream
+    sut.leia!.dates = nil
 
     sut.update()
 
     #expect(sut.type == .leia)
+    #expect(sut.leia!.dates == DateRange.always)
   }
 
   @Test
