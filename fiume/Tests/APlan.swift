@@ -153,7 +153,7 @@ struct APlan {
   @Test
   func scenarios_for_and_tree_with_or_child() {
     let leaf1a = makeStream("Income1a", 1_000, 2020.jan, 2030.jan)
-   let leaf1b = makeStream("Income1b", 1_500, 2020.jan, 2030.jan)
+    let leaf1b = makeStream("Income1b", 1_500, 2020.jan, 2030.jan)
     let leaf2 = makeStream("Income2", 2_000, 2020.jan, 2030.jan)
     let orTree = makeScenarios( "scenarios", [leaf1a, leaf1b])
     let sut = makeGroup("parent", [orTree, leaf2])
@@ -235,5 +235,55 @@ struct APlan {
 
     #expect(array.count == 1)
     #expect(array.first!.name == "Start • Job (1) - Income1 • Salary (1) - Income2")
+  }
+
+  @Test
+  func update_turns_stream_into_leia() {
+    let income = Leia(name: "salary", amount: .money(50_000), dates: DateRange.always, type: .income)
+    let sut = Plan.make(income)
+    sut.type = .stream
+
+    sut.update()
+
+    #expect(sut.type == .leia)
+  }
+
+  @Test
+  func update_turns_pool_into_leia() {
+    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset)
+    let sut = Plan.make(asset)
+    sut.type = .pool
+
+    sut.update()
+
+    #expect(sut.type == .leia)
+  }
+
+  @Test
+  func update_updates_descendants_of_group() {
+    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset)
+    let plan = Plan.make(asset)
+    plan.type = .pool
+    let sut = Plan.makeGroup("my group")
+    sut.append(plan)
+    #expect(sut.children![0].type == .pool)
+
+    sut.update()
+
+    #expect(sut.children![0].type == .leia)
+  }
+
+  @Test
+  func update_updates_descendants_of_scenario() {
+    let leia = Leia(name: "leia", amount: .money(50_000), dates: DateRange.always, type: .income)
+    let plan = Plan.make(leia)
+    plan.type = .stream
+    let sut = Plan.makeScenarios("my scenarios")
+    sut.append(plan)
+    #expect(sut.children![0].type == .stream)
+
+    sut.update()
+
+    #expect(sut.children![0].type == .leia)
   }
 }

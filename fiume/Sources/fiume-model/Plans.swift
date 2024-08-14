@@ -18,8 +18,7 @@ public class Plans: Codable {
     wasChanged = false
   }
 
-  private func update() {
-    
+  public func update() {
   }
 
   public func append(parent: Plan, child: Plan) {

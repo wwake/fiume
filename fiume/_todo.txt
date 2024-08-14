@@ -1,4 +1,7 @@
-* UI for editing assumptions
+* Make Plans.load() update all Plan objects
+* Once users update, delete Plan.pool and .stream
+Persistence updates
+
 * Create a client of assumptions e.g., "Growth"
 * Improve display of assumption - show min & max values
 Assumptions
@@ -50,8 +53,14 @@ Editing
 * Move streams (?)
 
 FI-24-45: 2024-08-14 - Create and Edit Assumptions
+Assumptions
 * UI to create a % assumption
 * Enforce min <= current <= max
+* UI for editing assumptions
+
+Persistence Update
+* Added .leia to Plan to replace .stream and .pool
+* Added Plan.update to always use .leia
 
 FI-24-44: 2024-08-13 - Variables/Assumptions
 * Create Assumption & Assumptions objects

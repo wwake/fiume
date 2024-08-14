@@ -58,6 +58,23 @@ public class Plan: Identifiable, Codable {
     }
   }
 
+  public func update() {
+    switch type {
+    case .leia:
+      break
+
+    case .pool, .stream:
+      type = .leia
+
+    case .group, .scenarios:
+      if children != nil {
+        children!.forEach {
+          $0.update()
+        }
+      }
+    }
+  }
+
   public func remove(_ descendant: Plan) {
     guard children != nil else { return }
     children!.removeAll(where: { $0.id == descendant.id })
