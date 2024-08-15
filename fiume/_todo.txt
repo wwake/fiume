@@ -1,12 +1,12 @@
-* Add a Growth field to Leia
-* Add a Growth field to create/edit view
-* Create a client of assumptions e.g., "Growth"
-* Improve display of assumption - show min & max values
-Assumptions
-
-
-* Once users update, delete Plan.pool and .stream; delete Leia.first and last
+* Once users update, delete Plan.pool and .stream; delete Leia.first and last, make .growth non-nullable
+* Remove Person.death (will be assumption-based)
 Persistence updates
+
+* Make growth (interest) work!
+* Improve display of assumption - show min & max values
+Percent-Based Assumptions
+
+Date-Based Assumptions
 
 * Make "relative" be on Leia rather than Amount
 
@@ -15,16 +15,7 @@ Persistence updates
 * Best UI for stream name since they might not exist yet but probably do
 Amount
 
-
-* Give PlanType "money source" or "money" or "leia", delete pool & stream
-Persistence
-
 Error Reporting when Leia name is reused in a given scenario
-
-Variables
-
-Growth
-Inflation
 
 Streams
 * Allow dates to depend on death day
@@ -58,6 +49,11 @@ FI-24-46: 2024-08-15 - Update Dates
 Persistence
 * Update Leia to use dates field (check Plan.swift:63)
 
+Assumptions
+* Add a Growth field to Leia
+* Add a Growth field to create/edit view
+* Make Assumptions persistent
+
 FI-24-45: 2024-08-14 - Create and Edit Assumptions
 Assumptions
 * UI to create a % assumption
@@ -65,6 +61,7 @@ Assumptions
 * UI for editing assumptions
 * Make Plans.load() update all Plan objects
 * Started update of Leia to use dates field (not working yet)
+
 Persistence Update
 * Added .leia to Plan to replace .stream and .pool
 * Added Plan.update to always use .leia
@@ -82,6 +79,7 @@ FI-24-43: 2024-08-12 - Update Persistence
   * remove "abs" in Leia
 * Remove distinction of pool vs stream from Scenario and Scenarios
 * Remove distinction of pool vs stream from views
+* Give PlanType .leia, delete pool & stream
 
 FI-24-42: 2024-08-08 - Refactor Sign Calculations
 * Store and read leiaType in Leia (Codable)
