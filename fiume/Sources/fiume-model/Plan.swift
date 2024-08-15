@@ -67,7 +67,7 @@ public class Plan: Identifiable, Codable {
         amount: leia!.amount,
         dates: leia!.dates_,
         type: leia!.type,
-        growth: leia!.growth ?? "(none)"
+        growth: leia!.growth ?? Assumption.flatGrowth
       )
 
     case .group, .scenarios:

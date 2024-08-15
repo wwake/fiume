@@ -5,6 +5,9 @@ struct EditLeiaView: View {
   @Environment(\.dismiss)
   var dismiss
 
+  @Environment(Assumptions.self)
+  var assumptions: Assumptions
+
   var title: String?
   var leia: Leia
 
@@ -13,7 +16,8 @@ struct EditLeiaView: View {
 
   @State private var leiaType = LeiaType.income
 
-  @State private var name = ""
+  @State private var name: String
+  @State private var growth: String
 
   @State private var amount: Amount
 
@@ -27,12 +31,16 @@ struct EditLeiaView: View {
 
     self._leiaType = .init(initialValue: leia.type)
     self._name = .init(initialValue: leia.name)
+    self._growth = .init(initialValue: leia.growth!)
     self._amount = .init(initialValue: leia.amount)
     self._dates = .init(initialValue: leia.dates_)
   }
 
   fileprivate func valid() -> Bool {
     if !amount.isNonNegative {
+      return false
+    }
+    if growth.isEmpty {
       return false
     }
     if name.isEmpty {
@@ -59,6 +67,8 @@ struct EditLeiaView: View {
           Text(LeiaType.liability.name).tag(LeiaType.liability)
         }
 
+        RequiredTextField(name: "Growth", field: $growth)
+
         AmountView(leiaType: leiaType, amount: $amount)
 
         EditDateRangeView(dates: $dates)
@@ -71,7 +81,7 @@ struct EditLeiaView: View {
               amount: amount,
               dates: dates,
               type: leiaType,
-              growth: "TBD"
+              growth: growth
             )
             action(leia)
 

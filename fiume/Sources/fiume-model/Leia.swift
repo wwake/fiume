@@ -50,7 +50,7 @@ public struct Leia: Identifiable, Codable {
   }
 
   public static var null: Leia {
-    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.always, type: .income, growth: "(none)")
+    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.always, type: .income, growth: Assumption.flatGrowth)
   }
 
   public var id: UUID

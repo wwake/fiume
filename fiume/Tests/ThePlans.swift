@@ -18,7 +18,7 @@ struct ThePlans {
       amount: .money(1999),
       dates: DateRange.always,
       type: .income,
-      growth: "(none)"
+      growth: Assumption.flatGrowth
     ))
     plans.wasChanged = true
 
@@ -39,7 +39,7 @@ struct ThePlans {
   @Test
   func changes_when_stream_is_appended() {
     let stream = Plan.make(Leia(
-      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income, growth: "(none)"
+      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income, growth: Assumption.flatGrowth
     ))
 
     plans.append(parent: plans.plans, child: stream)
@@ -51,7 +51,7 @@ struct ThePlans {
   func can_remove_a_plan() {
     let scenario = Plan.makeScenarios("my scenario")
     let stream = Plan.make(Leia(
-      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income, growth: "(none)"
+      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income, growth: Assumption.flatGrowth
     ))
     scenario.append(stream)
     plans.append(parent: plans.plans, child: scenario)
@@ -82,7 +82,7 @@ struct ThePlans {
       amount: .money(200),
       dates: DateRange.always,
       type: .income,
-      growth: "(none)"
+      growth: Assumption.flatGrowth
     ))
     plans.append(parent: plans.plans, child: plan)
 
@@ -91,7 +91,7 @@ struct ThePlans {
       amount: .money(500),
       dates: DateRange.always,
       type: .income,
-      growth: "(none)"
+      growth: Assumption.flatGrowth
     ))
 
     #expect(plan.leia!.name == "revised")
@@ -101,7 +101,7 @@ struct ThePlans {
 
   @Test
   func update_updates_children() {
-    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset, growth: "(none)")
+    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset, growth: Assumption.flatGrowth)
     let plan = Plan.make(asset)
     plan.type = .pool
     let sut = Plans()

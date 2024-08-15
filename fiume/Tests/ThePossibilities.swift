@@ -11,7 +11,7 @@ struct ThePossibilities {
       amount: .money(amount),
       dates: DateRange(.month(2024.jan), .unchanged),
       type: leiaType,
-      growth: "(none)"
+      growth: Assumption.flatGrowth
     )
   }
 

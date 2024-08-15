@@ -16,7 +16,7 @@ struct ALeia {
       amount: .money(amount),
       dates: DateRange(.month(first), .month(last)),
       type: .income,
-      growth: "(none)"
+      growth: Assumption.flatGrowth
     )
   }
 
@@ -26,7 +26,7 @@ struct ALeia {
     first: DateSpecifier,
     last: DateSpecifier
   ) -> Leia {
-    Leia(name: name, amount: .money(amount), dates: DateRange(first, last), type: .income, growth: "(none)")
+    Leia(name: name, amount: .money(amount), dates: DateRange(first, last), type: .income, growth: Assumption.flatGrowth)
   }
 
   @Test
