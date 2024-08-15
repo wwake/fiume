@@ -17,7 +17,7 @@ struct EditLeiaView: View {
   @State private var leiaType = LeiaType.income
 
   @State private var name: String
-  @State private var growth: String
+  @State private var growth = Assumption.flatGrowth
 
   @State private var amount: Amount
 
@@ -31,7 +31,6 @@ struct EditLeiaView: View {
 
     self._leiaType = .init(initialValue: leia.type)
     self._name = .init(initialValue: leia.name)
-    self._growth = .init(initialValue: leia.growth!)
     self._amount = .init(initialValue: leia.amount)
     self._dates = .init(initialValue: leia.dates_)
   }
@@ -67,7 +66,11 @@ struct EditLeiaView: View {
           Text(LeiaType.liability.name).tag(LeiaType.liability)
         }
 
-        RequiredTextField(name: "Growth", field: $growth)
+        Picker(selection: $growth, label: Text("Growth:")) {
+          ForEach(Array(assumptions)) {
+            Text($0.name).tag($0.name)
+          }
+        }
 
         AmountView(leiaType: leiaType, amount: $amount)
 
@@ -92,6 +95,9 @@ struct EditLeiaView: View {
         }
       }
       .autocorrectionDisabled()
+    }
+    .onAppear {
+      growth = assumptions.verified(leia.growth!)
     }
   }
 }

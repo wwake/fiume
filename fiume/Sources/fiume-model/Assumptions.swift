@@ -24,17 +24,19 @@ public class Assumptions {
     remove(assumption.name)
     add(assumption)
   }
+
+  public func verified(_ name: String) -> String {
+    guard find(name) != nil else {
+      return Assumption.flatGrowth
+    }
+    return name
+  }
 }
 
 extension Assumptions: Sequence {
   public func makeIterator() -> some IteratorProtocol<Assumption> {
     assumptions
+      .sorted(by: { $0.name < $1.name })
       .makeIterator()
-  }
-}
-
-extension Assumptions {
-  func sorted() -> [Assumption] {
-    Array(self).sorted(by: { $0.name < $1.name })
   }
 }
