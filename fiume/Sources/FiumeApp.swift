@@ -31,6 +31,15 @@ struct FiumeApp: App {
     } catch {
       // Fail => no file => first open => everything starts empty
     }
+
+    do {
+      let newAssumptions = try open(
+        Persistence.assumptionsFilename,
+        Assumptions.self
+      )
+    } catch {
+      // Fail => no file => first open => everything starts empty
+    }
   }
 
   var body: some Scene {

@@ -1,10 +1,10 @@
 import Foundation
 
-public enum AssumptionType {
+public enum AssumptionType: Codable {
   case percent
 }
 
-public struct Assumption: Identifiable {
+public struct Assumption: Identifiable, Codable {
   public static var flatGrowth = "(none)"
 
   public static var null: Assumption {

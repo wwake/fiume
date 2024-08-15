@@ -1,6 +1,7 @@
 import Foundation
 
 enum Persistence {
+  static let assumptionsFilename = "assumptions.json"
   static let peopleFilename = "people.json"
   static let plansFilename = "plans.json"
 }

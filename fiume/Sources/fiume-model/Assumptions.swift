@@ -1,11 +1,19 @@
 import Foundation
 
 @Observable
-public class Assumptions {
+public class Assumptions: Codable {
+  enum CodingKeys: String, CodingKey {
+    case _assumptions = "assumptions"
+  }
+
   public var assumptions: [Assumption]
 
   public init() {
     assumptions = [Assumption(type: .percent, name: "(none)", min: 0, max: 0, current: 0)]
+  }
+
+  public func load(_ original: Assumptions) {
+    assumptions = original.assumptions
   }
 
   public func add(_ assumption: Assumption) {

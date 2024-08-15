@@ -32,4 +32,16 @@ struct TheAssumptions {
     let assumptions = Assumptions()
     #expect(assumptions.verified("missing") == Assumption.flatGrowth)
   }
+
+  @Test
+  func load_replaces_assumptions() {
+    let assumptions = Assumptions()
+    let assumption = Assumption(type: .percent, name: "the one", min: 1, max: 10, current: 5)
+    assumptions.add(assumption)
+
+    let sut = Assumptions()
+    sut.load(assumptions)
+
+    #expect(sut.find("the one") != nil)
+  }
 }
