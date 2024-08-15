@@ -17,7 +17,13 @@ struct AScenario {
     first: MonthYear,
     last: MonthYear
   ) -> Leia {
-    Leia(name: name, amount: .money(amount), dates: DateRange(.month(first), .month(last)), type: .income, growth: "(none)")
+    Leia(
+      name: name,
+      amount: .money(amount),
+      dates: DateRange(.month(first), .month(last)),
+      type: .income,
+      growth: "(none)"
+    )
   }
 
   private func makeLeia(

@@ -37,8 +37,7 @@ struct LeiaView: View {
     HStack {
       icons[leia.type]!
 
-      Text("\(leia.type.name): \(leia.name)   \(leia.amount)   " +
-           leia.dates_.description(people))
+      Text("\(leia.type.name): \(leia.name)   \(leia.amount)   \(leia.dates_.description(people))    Growth: \(leia.growth!)")
       Spacer()
       Button(action: {
         plans.remove(plan)
@@ -80,7 +79,7 @@ struct LeiaView: View {
   )
   let stream = Leia(
     name: "Car",
-    amount: .money(-300),
+    amount: .money(300),
     dates: DateRange(.month(2030.mar), .unchanged),
     type: .expense,
     growth: "(none)"

@@ -11,7 +11,13 @@ struct APlan {
     _ first: MonthYear = 2024.jan,
     _ last: MonthYear = 2034.dec
   ) -> Plan {
-    let asset = Leia(name: name, amount: .money(amount), dates: DateRange(.month(first), .month(last)), type: .asset, growth: "(none)")
+    let asset = Leia(
+      name: name,
+      amount: .money(amount),
+      dates: DateRange(.month(first), .month(last)),
+      type: .asset,
+      growth: "(none)"
+    )
     return Plan.make(asset)
   }
 

@@ -77,10 +77,22 @@ struct ThePlans {
 
   @Test
   func are_changed_by_replacing_stream() {
-    let plan = Plan.make(Leia(name: "test", amount: .money(200), dates: DateRange.always, type: .income, growth: "(none)"))
+    let plan = Plan.make(Leia(
+      name: "test",
+      amount: .money(200),
+      dates: DateRange.always,
+      type: .income,
+      growth: "(none)"
+    ))
     plans.append(parent: plans.plans, child: plan)
 
-    plans.replace(plan, Leia(name: "revised", amount: .money(500), dates: DateRange.always, type: .income, growth: "(none)"))
+    plans.replace(plan, Leia(
+      name: "revised",
+      amount: .money(500),
+      dates: DateRange.always,
+      type: .income,
+      growth: "(none)"
+    ))
 
     #expect(plan.leia!.name == "revised")
     #expect(plan.leia!.amount.value(at: 2024.aug, People()) == 500)
