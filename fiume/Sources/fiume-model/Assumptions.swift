@@ -5,7 +5,7 @@ public class Assumptions {
   public var assumptions: [Assumption]
 
   public init() {
-    assumptions = [Assumption(type: .percent, name: "ROI", min: 0, max: 8, current: 5)]
+    assumptions = [Assumption(type: .percent, name: "(none)", min: 0, max: 0, current: 0)]
   }
 
   public func add(_ assumption: Assumption) {

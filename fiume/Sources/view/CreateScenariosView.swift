@@ -40,7 +40,8 @@ struct CreateScenariosView: View {
     name: "income",
     amount: .money(100),
     dates: DateRange(.month(2020.jan), .unchanged),
-    type: .income
+    type: .income,
+    growth: "(none)"
   )
   tree.append(Plan.make(stream))
   return CreateScenariosView(plan: $tree)

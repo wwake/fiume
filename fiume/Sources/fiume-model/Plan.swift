@@ -60,12 +60,15 @@ public class Plan: Identifiable, Codable {
 
   public func update() {
     switch type {
-    case .leia:
-      break
-
-    case .pool, .stream:
+    case .pool, .stream, .leia:
       type = .leia
-      leia!.dates = leia!.dates_
+      leia = Leia(
+        name: leia!.name,
+        amount: leia!.amount,
+        dates: leia!.dates_,
+        type: leia!.type,
+        growth: leia!.growth ?? "(none)"
+      )
 
     case .group, .scenarios:
       if children != nil {

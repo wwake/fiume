@@ -70,7 +70,8 @@ struct EditLeiaView: View {
               name: name,
               amount: amount,
               dates: dates,
-              type: leiaType
+              type: leiaType,
+              growth: "TBD"
             )
             action(leia)
 

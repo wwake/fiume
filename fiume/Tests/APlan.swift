@@ -11,12 +11,12 @@ struct APlan {
     _ first: MonthYear = 2024.jan,
     _ last: MonthYear = 2034.dec
   ) -> Plan {
-    let asset = Leia(name: name, amount: .money(amount), dates: DateRange(.month(first), .month(last)), type: .asset)
+    let asset = Leia(name: name, amount: .money(amount), dates: DateRange(.month(first), .month(last)), type: .asset, growth: "(none)")
     return Plan.make(asset)
   }
 
   private func makeLeia(_ name: String, _ amount: Int) -> Leia {
-    Leia(name: name, amount: .money(amount), dates: DateRange(.month(2024.jan), .unchanged), type: .income)
+    Leia(name: name, amount: .money(amount), dates: DateRange(.month(2024.jan), .unchanged), type: .income, growth: "(none)")
   }
 
   private func makeStream(
@@ -29,7 +29,8 @@ struct APlan {
       name: name,
       amount: .money(amount),
       dates: DateRange(.month(first), .month(last)),
-      type: .income
+      type: .income,
+      growth: "(none)"
     )
     return Plan.make(stream)
   }
@@ -239,20 +240,22 @@ struct APlan {
 
   @Test
   func update_turns_stream_into_leia() {
-    let income = Leia(name: "salary", amount: .money(50_000), dates: DateRange.always, type: .income)
+    let income = Leia(name: "salary", amount: .money(50_000), dates: DateRange.always, type: .income, growth: "(none)")
     let sut = Plan.make(income)
     sut.type = .stream
     sut.leia!.dates = nil
+    sut.leia!.growth = nil
 
     sut.update()
 
     #expect(sut.type == .leia)
     #expect(sut.leia!.dates == DateRange.always)
+    #expect(sut.leia!.growth == "(none)")
   }
 
   @Test
   func update_turns_pool_into_leia() {
-    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset)
+    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset, growth: "(none)")
     let sut = Plan.make(asset)
     sut.type = .pool
 
@@ -263,7 +266,7 @@ struct APlan {
 
   @Test
   func update_updates_descendants_of_group() {
-    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset)
+    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset, growth: "(none)")
     let plan = Plan.make(asset)
     plan.type = .pool
     let sut = Plan.makeGroup("my group")
@@ -277,7 +280,7 @@ struct APlan {
 
   @Test
   func update_updates_descendants_of_scenario() {
-    let leia = Leia(name: "leia", amount: .money(50_000), dates: DateRange.always, type: .income)
+    let leia = Leia(name: "leia", amount: .money(50_000), dates: DateRange.always, type: .income, growth: "(none)")
     let plan = Plan.make(leia)
     plan.type = .stream
     let sut = Plan.makeScenarios("my scenarios")

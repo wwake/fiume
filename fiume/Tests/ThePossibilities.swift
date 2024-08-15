@@ -6,7 +6,13 @@ struct ThePossibilities {
   private let people = People()
 
   private func makeLeia(_ name: String, _ amount: Int, _ leiaType: LeiaType = .income) -> Leia {
-    Leia(name: name, amount: .money(amount), dates: DateRange(.month(2024.jan), .unchanged), type: leiaType)
+    Leia(
+      name: name,
+      amount: .money(amount),
+      dates: DateRange(.month(2024.jan), .unchanged),
+      type: leiaType,
+      growth: "(none)"
+    )
   }
 
   private func makePossibilities() -> Possibilities {

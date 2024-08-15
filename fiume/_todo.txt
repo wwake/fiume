@@ -1,10 +1,12 @@
-* Make Plans.load() update all Plan objects
-* Once users update, delete Plan.pool and .stream
-Persistence updates
-
+* Add a Growth field to Leia
+* Add a Growth field to create/edit view
 * Create a client of assumptions e.g., "Growth"
 * Improve display of assumption - show min & max values
 Assumptions
+
+
+* Once users update, delete Plan.pool and .stream; delete Leia.first and last
+Persistence updates
 
 * Make "relative" be on Leia rather than Amount
 
@@ -52,12 +54,17 @@ Calendar view (with RuleMark)
 Editing
 * Move streams (?)
 
+FI-24-46: 2024-08-15 - Update Dates
+Persistence
+* Update Leia to use dates field (check Plan.swift:63)
+
 FI-24-45: 2024-08-14 - Create and Edit Assumptions
 Assumptions
 * UI to create a % assumption
 * Enforce min <= current <= max
 * UI for editing assumptions
-
+* Make Plans.load() update all Plan objects
+* Started update of Leia to use dates field (not working yet)
 Persistence Update
 * Added .leia to Plan to replace .stream and .pool
 * Added Plan.update to always use .leia

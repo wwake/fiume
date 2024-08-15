@@ -46,10 +46,11 @@ public struct Leia: Identifiable, Codable {
     case dates
     case amount = "amountSpec"
     case type = "leiaType"
+    case growth
   }
 
   public static var null: Leia {
-    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.always, type: .income)
+    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.always, type: .income, growth: "(none)")
   }
 
   public var id: UUID
@@ -62,6 +63,8 @@ public struct Leia: Identifiable, Codable {
   public private(set) var amount: Amount
   public private(set) var type: LeiaType
 
+  public var growth: String?
+
   public var dates_: DateRange {
     dates ?? DateRange(first, last)
   }
@@ -71,7 +74,8 @@ public struct Leia: Identifiable, Codable {
     name: String,
     amount: Amount,
     dates: DateRange,
-    type: LeiaType
+    type: LeiaType,
+    growth: String?
   ) {
     self.id = id
     self.name = name
@@ -83,6 +87,7 @@ public struct Leia: Identifiable, Codable {
     self.dates = dates
 
     self.type = type
+    self.growth = growth
   }
 
   public func signedAmount(at month: MonthYear, people: People, scenario: Scenario? = nil) -> Money {

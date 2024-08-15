@@ -17,7 +17,8 @@ struct ThePlans {
       name: "A Leia",
       amount: .money(1999),
       dates: DateRange.always,
-      type: .income
+      type: .income,
+      growth: "(none)"
     ))
     plans.wasChanged = true
 
@@ -38,7 +39,7 @@ struct ThePlans {
   @Test
   func changes_when_stream_is_appended() {
     let stream = Plan.make(Leia(
-      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income
+      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income, growth: "(none)"
     ))
 
     plans.append(parent: plans.plans, child: stream)
@@ -50,7 +51,7 @@ struct ThePlans {
   func can_remove_a_plan() {
     let scenario = Plan.makeScenarios("my scenario")
     let stream = Plan.make(Leia(
-      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income
+      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income, growth: "(none)"
     ))
     scenario.append(stream)
     plans.append(parent: plans.plans, child: scenario)
@@ -76,10 +77,10 @@ struct ThePlans {
 
   @Test
   func are_changed_by_replacing_stream() {
-    let plan = Plan.make(Leia(name: "test", amount: .money(200), dates: DateRange.always, type: .income))
+    let plan = Plan.make(Leia(name: "test", amount: .money(200), dates: DateRange.always, type: .income, growth: "(none)"))
     plans.append(parent: plans.plans, child: plan)
 
-    plans.replace(plan, Leia(name: "revised", amount: .money(500), dates: DateRange.always, type: .income))
+    plans.replace(plan, Leia(name: "revised", amount: .money(500), dates: DateRange.always, type: .income, growth: "(none)"))
 
     #expect(plan.leia!.name == "revised")
     #expect(plan.leia!.amount.value(at: 2024.aug, People()) == 500)
@@ -88,7 +89,7 @@ struct ThePlans {
 
   @Test
   func update_updates_children() {
-    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset)
+    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset, growth: "(none)")
     let plan = Plan.make(asset)
     plan.type = .pool
     let sut = Plans()
