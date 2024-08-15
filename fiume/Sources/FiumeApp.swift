@@ -37,6 +37,7 @@ struct FiumeApp: App {
         Persistence.assumptionsFilename,
         Assumptions.self
       )
+      assumptions.load(newAssumptions)
     } catch {
       // Fail => no file => first open => everything starts empty
     }
