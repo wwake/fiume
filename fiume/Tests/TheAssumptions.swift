@@ -5,18 +5,38 @@ import Testing
 struct TheAssumptions {
   @Test
   func adds_an_assumption() {
-    let assumptions = Assumptions()
-    assumptions.add(Assumption(type: .percent, name: "the one", min: 1, max: 10, current: 5))
-    #expect(assumptions.find("the one")!.name == "the one")
+    let sut = Assumptions()
+    sut.wasChanged = false
+
+    sut.add(Assumption(type: .percent, name: "the one", min: 1, max: 10, current: 5))
+
+    #expect(sut.wasChanged)
+    #expect(sut.find("the one")!.name == "the one")
+  }
+
+  @Test
+  func remove_removes_assumption() {
+    let sut = Assumptions()
+    sut.add(Assumption(type: .percent, name: "the one", min: 1, max: 10, current: 5))
+    sut.wasChanged = false
+
+    sut.remove("the one")
+
+    #expect(sut.wasChanged)
+    #expect(sut.find("the one") == nil)
   }
 
   @Test
   func replaces_an_assumption() {
-    let assumptions = Assumptions()
+    let sut = Assumptions()
     let assumption = Assumption(type: .percent, name: "the one", min: 1, max: 10, current: 5)
-    assumptions.add(assumption)
-    assumptions.replace(Assumption(assumption, 7))
-    #expect(assumptions.find("the one")!.current == 7)
+    sut.add(assumption)
+    sut.wasChanged = false
+
+    sut.replace(Assumption(assumption, 7))
+
+    #expect(sut.wasChanged)
+    #expect(sut.find("the one")!.current == 7)
   }
 
   @Test
@@ -40,8 +60,10 @@ struct TheAssumptions {
     assumptions.add(assumption)
 
     let sut = Assumptions()
+    sut.wasChanged = true
     sut.load(assumptions)
 
+    #expect(!sut.wasChanged)
     #expect(sut.find("the one") != nil)
   }
 }

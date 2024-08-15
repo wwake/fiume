@@ -3,9 +3,11 @@ import Foundation
 @Observable
 public class Assumptions: Codable {
   enum CodingKeys: String, CodingKey {
+    case _wasChanged = "wasChanged"
     case _assumptions = "assumptions"
   }
 
+  public var wasChanged = false
   public var assumptions: [Assumption]
 
   public init() {
@@ -14,10 +16,12 @@ public class Assumptions: Codable {
 
   public func load(_ original: Assumptions) {
     assumptions = original.assumptions
+    wasChanged = false
   }
 
   public func add(_ assumption: Assumption) {
     assumptions.append(assumption)
+    wasChanged = true
   }
 
   public func find(_ name: String) -> Assumption? {
@@ -26,11 +30,13 @@ public class Assumptions: Codable {
 
   public func remove(_ name: String) {
     assumptions.removeAll { $0.name == name }
+    wasChanged = true
   }
 
   public func replace(_ assumption: Assumption) {
     remove(assumption.name)
     add(assumption)
+    wasChanged = true
   }
 
   public func verified(_ name: String) -> String {

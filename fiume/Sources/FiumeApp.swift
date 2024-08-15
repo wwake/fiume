@@ -45,7 +45,7 @@ struct FiumeApp: App {
 
   var body: some Scene {
     WindowGroup {
-      ContentView(startDate: startDate, people: people, plans: plans)
+      ContentView(startDate: startDate, people: people, plans: plans, assumptions: assumptions)
         .keyboardType(.alphabet)
         .autocorrectionDisabled(true)
     }

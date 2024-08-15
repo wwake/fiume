@@ -6,9 +6,12 @@ struct ContentView: View {
   let numberOfMonths = 360
 
   var startDate: MonthYear
+
   @Bindable var people: People
 
   @Bindable var plans: Plans
+
+  @Bindable var assumptions: Assumptions
 
   @State var isShowingPeople = false
   @State var isShowingAssumptions = false
@@ -16,10 +19,11 @@ struct ContentView: View {
   @State private var saveError: Error?
   @State private var showSaveAlert = false
 
-  init(startDate: MonthYear, people: People, plans: Plans) {
+  init(startDate: MonthYear, people: People, plans: Plans, assumptions: Assumptions) {
     self.startDate = startDate
     self.people = people
     self.plans = plans
+    self.assumptions = assumptions
   }
 
   var body: some View {
@@ -95,13 +99,26 @@ struct ContentView: View {
         showSaveAlert = true
       }
     }
+    .onChange(of: assumptions.wasChanged) {
+     if !assumptions.wasChanged { return }
+      do {
+        assumptions.wasChanged = false
+        try save(Persistence.assumptionsFilename, assumptions)
+      } catch {
+        saveError = error
+        showSaveAlert = true
+      }
+    }
   }
 }
 
 #Preview {
   @State var people = People()
   @State var plans = Plans()
-  return ContentView(startDate: MonthYear(date: Date()), people: people, plans: plans)
+  @State var assumptions = Assumptions()
+
+  return ContentView(startDate: MonthYear(date: Date()), people: people, plans: plans, assumptions: assumptions)
     .environment(people)
     .environment(plans)
+    .environment(assumptions)
 }
