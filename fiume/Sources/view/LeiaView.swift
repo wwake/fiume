@@ -37,7 +37,9 @@ struct LeiaView: View {
     HStack {
       icons[leia.type]!
 
-      Text("\(leia.type.name): \(leia.name)   \(leia.amount)   \(leia.dates_.description(people))    Growth: \(leia.growth!)")
+      Text("\(leia.type.name): \(leia.name)"
+           + "   \(leia.amount)   \(leia.dates_.description(people))"
+           + "    Growth: \(leia.growth!)")
       Spacer()
       Button(action: {
         plans.remove(plan)

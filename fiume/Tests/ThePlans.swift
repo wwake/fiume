@@ -101,7 +101,13 @@ struct ThePlans {
 
   @Test
   func update_updates_children() {
-    let asset = Leia(name: "house", amount: .money(50_000), dates: DateRange.always, type: .asset, growth: Assumption.flatGrowth)
+    let asset = Leia(
+      name: "house",
+      amount: .money(50_000),
+      dates: DateRange.always,
+      type: .asset,
+      growth: Assumption.flatGrowth
+    )
     let plan = Plan.make(asset)
     plan.type = .pool
     let sut = Plans()

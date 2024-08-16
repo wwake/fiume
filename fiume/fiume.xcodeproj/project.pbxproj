@@ -50,6 +50,7 @@
 		919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED512BF699E900ACCE2E /* AddPlanView.swift */; };
 		919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED532BF69C5C00ACCE2E /* EditGroupView.swift */; };
 		919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED552BF69CB600ACCE2E /* CreateScenariosView.swift */; };
+		91AC450F2C6F8033001500BA /* Leia+make.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B7CE562C6EC2770000FD7A /* Leia+make.swift */; };
 		91B7CE552C6D29790000FD7A /* EditAssumptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B7CE542C6D29790000FD7A /* EditAssumptionView.swift */; };
 		91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D12C33277100A1EEB3 /* Persistence.swift */; };
 		91C248D62C333DC200A1EEB3 /* ThePeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248D52C333DC200A1EEB3 /* ThePeople.swift */; };
@@ -159,6 +160,7 @@
 		91A8C2962BFD773100DF5AC0 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		91A8C2982BFD7C5400DF5AC0 /* fiume.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = fiume.xctestplan; sourceTree = "<group>"; };
 		91B7CE542C6D29790000FD7A /* EditAssumptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAssumptionView.swift; sourceTree = "<group>"; };
+		91B7CE562C6EC2770000FD7A /* Leia+make.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Leia+make.swift"; sourceTree = "<group>"; };
 		91C248CC2C24B3CE00A1EEB3 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		91C248D12C33277100A1EEB3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		91C248D32C3337E400A1EEB3 /* Plans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plans.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				91042FDF2C50496800FFC65F /* AnAmount.swift */,
 				919CED4A2BF5499F00ACCE2E /* APlan.swift */,
 				914B54C62BFBDF34005A9090 /* AScenario.swift */,
+				91B7CE562C6EC2770000FD7A /* Leia+make.swift */,
 				91D543A12C0692B500AD3592 /* Package.swift */,
 				9189070F2C3493FC0030918E /* Possibilities+add.swift */,
 				91D543A22C06DE2A00AD3592 /* Scaffolding.swift */,
@@ -584,6 +587,7 @@
 				91D5439C2C0523D900AD3592 /* ADateSpecifier.swift in Sources */,
 				914B54C72BFBDF34005A9090 /* AScenario.swift in Sources */,
 				91753E4B2C6BED32001B02F6 /* TheAssumptions.swift in Sources */,
+				91AC450F2C6F8033001500BA /* Leia+make.swift in Sources */,
 				91042FE02C50496800FFC65F /* AnAmount.swift in Sources */,
 				91C248D92C33456E00A1EEB3 /* ThePlans.swift in Sources */,
 				91206E2F2C09013C00D4C1CB /* AMonthYear.swift in Sources */,
