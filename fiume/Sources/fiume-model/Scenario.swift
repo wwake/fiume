@@ -27,16 +27,19 @@ public class Scenario: Identifiable {
     leias[leia.name] = leia
   }
 
-  public func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
-    ScenarioNetWorth(name: name, netWorthByMonth: NetWorth(scenario: self, range: range).compute())
-  }
-
   public func find(_ name: String) -> Leia? {
     leias[name]
   }
 
-  fileprivate func filterBy(_ type1: LeiaType, _ type2: LeiaType) -> NameToLeia {
-    leias.filter { _, value in
+  public func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
+    ScenarioNetWorth(
+      name: name,
+      netWorthByMonth: NetWorth(scenario: self, range: range).compute()
+    )
+  }
+
+  fileprivate func filterBy(_ type1: LeiaType, _ type2: LeiaType) -> [Leia] {
+    leias.values.filter { value in
       value.type == type1 || value.type == type2
     }
   }
@@ -49,8 +52,8 @@ public class Scenario: Identifiable {
     net(at: month, in: filterBy(.asset, .liability))
   }
 
-  fileprivate func net(at month: MonthYear, in collection: NameToLeia) -> Money {
-    collection.values.reduce(Money(0)) { net, leia in
+  fileprivate func net(at month: MonthYear, in collection: [Leia]) -> Money {
+    collection.reduce(Money(0)) { net, leia in
       net + leia.signedAmount(at: month, people: people, scenario: self)
     }
   }
