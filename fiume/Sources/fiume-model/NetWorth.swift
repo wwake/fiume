@@ -1,14 +1,14 @@
-struct NetWorth {
+public struct NetWorth {
   let scenario: Scenario
 
   let range: ClosedRange<MonthYear>
 
-  init(scenario: Scenario, range: ClosedRange<MonthYear>) {
+  public init(scenario: Scenario, range: ClosedRange<MonthYear>) {
     self.scenario = scenario
     self.range = range
   }
 
-  func compute() -> ScenarioNetWorth {
+  public func compute() -> [MonthlyNetWorth] {
     var result = [MonthlyNetWorth]()
     var netIncomeToDate = Money(0)
     range.forEach { monthYear in
@@ -18,9 +18,8 @@ struct NetWorth {
       let netAssetsAtMonth = scenario.netAssets(at: monthYear)
       let netWorthAtMonth = netIncomeToDate + netAssetsAtMonth
 
-      let extractedExpr: MonthlyNetWorth = MonthlyNetWorth(month: monthYear, amount: netWorthAtMonth)
-      result.append(extractedExpr)
+      result.append(MonthlyNetWorth(month: monthYear, amount: netWorthAtMonth))
     }
-    return ScenarioNetWorth(name: scenario.name, netWorthByMonth: result)
+    return result
   }
 }
