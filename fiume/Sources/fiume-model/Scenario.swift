@@ -28,19 +28,20 @@ public class Scenario: Identifiable {
   }
 
   public func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
-    var result = [MonthlyNetWorth]()
-    var netIncomeToDate = Money(0)
-    range.forEach { monthYear in
-      let netIncomeForMonth = netIncome(at: monthYear)
-      netIncomeToDate += netIncomeForMonth
-
-      let netAssetsAtMonth = netAssets(at: monthYear)
-      let netWorthAtMonth = netIncomeToDate + netAssetsAtMonth
-
-      let extractedExpr: MonthlyNetWorth = MonthlyNetWorth(month: monthYear, amount: netWorthAtMonth)
-      result.append(extractedExpr)
-    }
-    return ScenarioNetWorth(name: name, netWorthByMonth: result)
+    NetWorth(scenario: self, range: range).compute()
+//    var result = [MonthlyNetWorth]()
+//    var netIncomeToDate = Money(0)
+//    range.forEach { monthYear in
+//      let netIncomeForMonth = netIncome(at: monthYear)
+//      netIncomeToDate += netIncomeForMonth
+//
+//      let netAssetsAtMonth = netAssets(at: monthYear)
+//      let netWorthAtMonth = netIncomeToDate + netAssetsAtMonth
+//
+//      let extractedExpr: MonthlyNetWorth = MonthlyNetWorth(month: monthYear, amount: netWorthAtMonth)
+//      result.append(extractedExpr)
+//    }
+//    return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }
 
   public func find(_ name: String) -> Leia? {
