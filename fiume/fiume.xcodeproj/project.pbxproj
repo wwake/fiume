@@ -45,6 +45,7 @@
 		91753E4D2C6BEEA9001B02F6 /* Assumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91753E462C6BDC4C001B02F6 /* Assumptions.swift */; };
 		918907102C3493FC0030918E /* Possibilities+add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189070F2C3493FC0030918E /* Possibilities+add.swift */; };
 		918939562C73C5320058C0DA /* NetWorth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918939552C73C5320058C0DA /* NetWorth.swift */; };
+		918939582C73CF350058C0DA /* ANetWorth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918939572C73CF350058C0DA /* ANetWorth.swift */; };
 		919CED4B2BF5499F00ACCE2E /* APlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4A2BF5499F00ACCE2E /* APlan.swift */; };
 		919CED4D2BF54D8C00ACCE2E /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4C2BF54D8C00ACCE2E /* PlanView.swift */; };
 		919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4E2BF550E300ACCE2E /* PlanListView.swift */; };
@@ -150,6 +151,7 @@
 		91753E4A2C6BED32001B02F6 /* TheAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheAssumptions.swift; sourceTree = "<group>"; };
 		9189070F2C3493FC0030918E /* Possibilities+add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Possibilities+add.swift"; sourceTree = "<group>"; };
 		918939552C73C5320058C0DA /* NetWorth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorth.swift; sourceTree = "<group>"; };
+		918939572C73CF350058C0DA /* ANetWorth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANetWorth.swift; sourceTree = "<group>"; };
 		919070D82C4059F50028B5BB /* _todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
 		919070D92C4059FD0028B5BB /* fiume.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = fiume.key; sourceTree = "<group>"; };
 		919CED482BF5492800ACCE2E /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				91C248D72C33453E00A1EEB3 /* ThePlans.swift */,
 				914FEFA82BF29399003D858E /* ThePossibilities.swift */,
 				91753E4A2C6BED32001B02F6 /* TheAssumptions.swift */,
+				918939572C73CF350058C0DA /* ANetWorth.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				91C248D92C33456E00A1EEB3 /* ThePlans.swift in Sources */,
 				91206E2F2C09013C00D4C1CB /* AMonthYear.swift in Sources */,
 				918907102C3493FC0030918E /* Possibilities+add.swift in Sources */,
+				918939582C73CF350058C0DA /* ANetWorth.swift in Sources */,
 				91C248D62C333DC200A1EEB3 /* ThePeople.swift in Sources */,
 				914FEFAA2BF29399003D858E /* ThePossibilities.swift in Sources */,
 				91E7BB972C4EF5D800A328DF /* ADateRange.swift in Sources */,

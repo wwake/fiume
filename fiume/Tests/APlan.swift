@@ -21,22 +21,6 @@ struct APlan {
     return Plan.make(asset)
   }
 
-  private func makeStream(
-    _ name: String,
-    _ amount: Int,
-    _ first: MonthYear = 2024.jan,
-    _ last: MonthYear = 2034.dec
-  ) -> Plan {
-    let stream = Leia(
-      name: name,
-      amount: .money(amount),
-      dates: DateRange(.month(first), .month(last)),
-      type: .income,
-      growth: Assumption.flatGrowth
-    )
-    return Plan.make(stream)
-  }
-
   private func makeGroup(_ name: String, _ children: [Plan]) -> Plan {
     let result = Plan.makeGroup(name)
     children.forEach {
@@ -51,6 +35,22 @@ struct APlan {
       result.append($0)
     }
     return result
+  }
+
+  private func makeStream(
+    _ name: String,
+    _ amount: Int,
+    _ first: MonthYear = 2024.jan,
+    _ last: MonthYear = 2034.dec
+  ) -> Plan {
+    let stream = Leia(
+      name: name,
+      amount: .money(amount),
+      dates: DateRange(.month(first), .month(last)),
+      type: .income,
+      growth: Assumption.flatGrowth
+    )
+    return Plan.make(stream)
   }
 
   @Test
@@ -105,33 +105,6 @@ struct APlan {
 
     #expect(plan.leia!.name == "test")
     #expect(plan.leia!.amount.value(at: 2024.jan, People()) == 500)
-  }
-
-  @Test
-  func scenarios_for_pool() {
-    let sut = makePlanWithAsset("Savings", 1_000_000, 2024.jan, 2024.dec)
-    let result = sut.scenarios(Scenarios([Scenario("A", people: people), Scenario("B", people: people)]))
-    let array = Array(result)
-
-    #expect(array.count == 2)
-    #expect(array[0].netAssets(at: 2024.dec) == Money(1_000_000))
-    #expect(array[1].netAssets(at: 2024.dec) == Money(1_000_000))
-    #expect(array[0].netAssets(at: 2025.jan) == Money(0))
-    #expect(array[1].netAssets(at: 2025.jan) == Money(0))
-  }
-
-  @Test
-  func scenarios_for_stream() {
-    let sut = makeStream("Income1", 1_000, 2024.jan, 2024.dec)
-
-    let result = sut.scenarios(Scenarios([Scenario("A", people: people), Scenario("B", people: people)]))
-    let array = Array(result)
-
-    #expect(array.count == 2)
-    #expect(array[0].netIncome(at: 2024.dec) == Money(1_000))
-    #expect(array[1].netIncome(at: 2024.dec) == Money(1_000))
-    #expect(array[0].netIncome(at: 2025.jan) == Money(0))
-    #expect(array[1].netIncome(at: 2025.jan) == Money(0))
   }
 
   @Test
