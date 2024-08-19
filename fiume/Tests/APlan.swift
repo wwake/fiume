@@ -118,12 +118,10 @@ struct APlan {
     let array = Array(result)
 
     #expect(array.count == 2)
-    #expect(array[0].netIncome(at: 2024.jan) == Money(1_000))
-    #expect(array[1].netIncome(at: 2024.jan) == Money(1_000))
-    #expect(array[0].netIncome(at: 2024.jun) == Money(3_000))
-    #expect(array[1].netIncome(at: 2024.jun) == Money(3_000))
-    #expect(array[0].netIncome(at: 2025.jan) == Money(2_000))
-    #expect(array[1].netIncome(at: 2025.jan) == Money(2_000))
+    let netWorth0 = array[0].netWorth(2024.jan...2025.jun).netWorthByMonth
+    let netWorth1 = array[1].netWorth(2024.jan...2025.jun).netWorthByMonth
+    #expect(netWorth0.last!.amount == 12 * 1_000 + 13 * 2_000)
+    #expect(netWorth0.last!.amount == netWorth1.last!.amount)
   }
 
   @Test
@@ -135,7 +133,8 @@ struct APlan {
     let sut = makeGroup("parent", [orTree, leaf2])
 
     let result = sut.scenarios(Scenarios([Scenario("", people: people)]))
-    let resultSet = Set(result.map { $0.netIncome(at: 2024.jan) })
+
+    let resultSet = Set(result.map { netWorth($0, 2024.jan) })
 
     #expect(resultSet.count == 2)
     #expect(resultSet == [3_000, 3_500])
@@ -152,11 +151,11 @@ struct APlan {
     let array = Array(result)
 
     #expect(array.count == 2)
-    let (x, y) = array[0].netIncome(at: 2024.jan) != 0 ? (array[0], array[1]) : (array[1], array[0])
-    let nets1 = [x.netIncome(at: 2024.jan), x.netIncome(at: 2024.jun), x.netIncome(at: 2025.jan)]
+    let (x, y) = netWorth(array[0], 2024.jan) != 0 ? (array[0], array[1]) : (array[1], array[0])
+    let nets1 = [netWorth(x, 2024.jan), netWorth(x, 2024.jun), netWorth(x, 2025.jan)]
     #expect(nets1 == [Money(1_000), Money(1_000), Money(0)])
 
-    let nets2: [Money] = [y.netIncome(at: 2024.jan), y.netIncome(at: 2024.jun), y.netIncome(at: 2025.jan)]
+    let nets2: [Money] = [netWorth(y, 2024.jan), netWorth(y, 2024.jun), netWorth(y, 2025.jan)]
     #expect(nets2 == [Money(0), Money(2_000), Money(2_000)])
   }
 
@@ -176,10 +175,10 @@ struct APlan {
     let month = 2024.jan
 
     #expect(result.count == 4)
-    #expect(result.contains { $0.netIncome(at: month) == Money(1_000) })
-    #expect(result.contains { $0.netIncome(at: month) == Money(2_000) })
-    #expect(result.contains { $0.netIncome(at: month) == Money(1_500) })
-    #expect(result.contains { $0.netIncome(at: month) == Money(2_500) })
+    #expect(result.contains { netWorth($0, month) == Money(1_000) })
+    #expect(result.contains { netWorth($0, month) == Money(2_000) })
+    #expect(result.contains { netWorth($0, month) == Money(1_500) })
+    #expect(result.contains { netWorth($0, month) == Money(2_500) })
   }
 
   @Test

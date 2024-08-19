@@ -46,6 +46,7 @@
 		918907102C3493FC0030918E /* Possibilities+add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189070F2C3493FC0030918E /* Possibilities+add.swift */; };
 		918939562C73C5320058C0DA /* NetWorth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918939552C73C5320058C0DA /* NetWorth.swift */; };
 		918939582C73CF350058C0DA /* ANetWorth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918939572C73CF350058C0DA /* ANetWorth.swift */; };
+		9189395A2C73DEA40058C0DA /* Scenario+netWorth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918939592C73DEA40058C0DA /* Scenario+netWorth.swift */; };
 		919CED4B2BF5499F00ACCE2E /* APlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4A2BF5499F00ACCE2E /* APlan.swift */; };
 		919CED4D2BF54D8C00ACCE2E /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4C2BF54D8C00ACCE2E /* PlanView.swift */; };
 		919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CED4E2BF550E300ACCE2E /* PlanListView.swift */; };
@@ -152,6 +153,7 @@
 		9189070F2C3493FC0030918E /* Possibilities+add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Possibilities+add.swift"; sourceTree = "<group>"; };
 		918939552C73C5320058C0DA /* NetWorth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorth.swift; sourceTree = "<group>"; };
 		918939572C73CF350058C0DA /* ANetWorth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANetWorth.swift; sourceTree = "<group>"; };
+		918939592C73DEA40058C0DA /* Scenario+netWorth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scenario+netWorth.swift"; sourceTree = "<group>"; };
 		919070D82C4059F50028B5BB /* _todo.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = _todo.txt; sourceTree = "<group>"; };
 		919070D92C4059FD0028B5BB /* fiume.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = fiume.key; sourceTree = "<group>"; };
 		919CED482BF5492800ACCE2E /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
@@ -349,17 +351,18 @@
 				914FEFA92BF29399003D858E /* ALeia.swift */,
 				91206E2D2C09011500D4C1CB /* AMonthYear.swift */,
 				91042FDF2C50496800FFC65F /* AnAmount.swift */,
+				918939572C73CF350058C0DA /* ANetWorth.swift */,
 				919CED4A2BF5499F00ACCE2E /* APlan.swift */,
 				914B54C62BFBDF34005A9090 /* AScenario.swift */,
 				91B7CE562C6EC2770000FD7A /* Leia+make.swift */,
 				91D543A12C0692B500AD3592 /* Package.swift */,
 				9189070F2C3493FC0030918E /* Possibilities+add.swift */,
 				91D543A22C06DE2A00AD3592 /* Scaffolding.swift */,
+				918939592C73DEA40058C0DA /* Scenario+netWorth.swift */,
 				91C248D52C333DC200A1EEB3 /* ThePeople.swift */,
 				91C248D72C33453E00A1EEB3 /* ThePlans.swift */,
 				914FEFA82BF29399003D858E /* ThePossibilities.swift */,
 				91753E4A2C6BED32001B02F6 /* TheAssumptions.swift */,
-				918939572C73CF350058C0DA /* ANetWorth.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				918939582C73CF350058C0DA /* ANetWorth.swift in Sources */,
 				91C248D62C333DC200A1EEB3 /* ThePeople.swift in Sources */,
 				914FEFAA2BF29399003D858E /* ThePossibilities.swift in Sources */,
+				9189395A2C73DEA40058C0DA /* Scenario+netWorth.swift in Sources */,
 				91E7BB972C4EF5D800A328DF /* ADateRange.swift in Sources */,
 				91D543A32C06DE2A00AD3592 /* Scaffolding.swift in Sources */,
 				914FEFAB2BF29399003D858E /* ALeia.swift in Sources */,

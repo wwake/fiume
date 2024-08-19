@@ -29,8 +29,8 @@ struct AScenario {
     let stream2 = makeLeia(name: "Income2", 2_000, first: 2024.jan, last: 2024.dec, .income)
     result.add(stream2)
 
-    #expect(sut.netIncome(at: 2024.jan) == Money(1_000))
-    #expect(result.netIncome(at: 2024.jan) == Money(3_000))
+    #expect(netWorth(sut, 2024.jan) == Money(1_000))
+    #expect(netWorth(result, 2024.jan) == Money(3_000))
     #expect(result.name == "altered name")
   }
 
@@ -106,7 +106,7 @@ struct AScenario {
     )
     sut.add(relative)
 
-    #expect(sut.netIncome(at: 2024.jan) == Money(1500))
+    #expect(netWorth(sut, 2024.jan) == Money(1500))
   }
 
   @Test
@@ -123,6 +123,6 @@ struct AScenario {
     )
     sut.add(relative)
 
-    #expect(sut.netAssets(at: 2024.jan) == Money(150_000))
+    #expect(netWorth(sut, 2024.jan) == Money(150_000))
   }
 }
