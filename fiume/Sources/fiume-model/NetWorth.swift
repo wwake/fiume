@@ -3,19 +3,22 @@ public struct NetWorth {
   let leias: any Sequence<Leia>
   let range: ClosedRange<MonthYear>
 
-  public func compute() -> [MonthlyNetWorth] {
+  public func compute() -> ScenarioNetWorth {
     var result = [MonthlyNetWorth]()
     var netIncomeToDate = Money(0)
     range.forEach { monthYear in
-      let netIncomeForMonth = scenario.netIncome(at: monthYear)
+      let netIncomeForMonth = netIncome(at: monthYear)
       netIncomeToDate += netIncomeForMonth
 
-      let netAssetsAtMonth = scenario.netAssets(at: monthYear)
+      let netAssetsAtMonth = netAssets(at: monthYear)
       let netWorthAtMonth = netIncomeToDate + netAssetsAtMonth
 
       result.append(MonthlyNetWorth(month: monthYear, amount: netWorthAtMonth))
     }
-    return result
+    return ScenarioNetWorth(
+      name: scenario.name,
+      netWorthByMonth: result
+    )
   }
 
   public func netIncome(at month: MonthYear) -> Money {

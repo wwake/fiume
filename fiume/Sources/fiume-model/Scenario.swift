@@ -32,10 +32,11 @@ public class Scenario: Identifiable {
   }
 
   public func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
-    ScenarioNetWorth(
-      name: name,
-      netWorthByMonth: NetWorth(scenario: self, leias: leias.values, range: range).compute()
-    )
+    NetWorth(
+      scenario: self,
+      leias: leias.values,
+      range: range
+    ).compute()
   }
 
   fileprivate func filterBy(_ type1: LeiaType, _ type2: LeiaType) -> [Leia] {
