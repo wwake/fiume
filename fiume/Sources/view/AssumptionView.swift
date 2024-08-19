@@ -24,7 +24,7 @@ struct AssumptionView: View {
   var body: some View {
     HStack {
       Text(assumption.name)
-      Text(": \(Int(value))")
+      Text(": \(Int(value))%")
       Spacer()
       Slider(
         value: $value,
@@ -35,7 +35,9 @@ struct AssumptionView: View {
           }
         }
       )
-      .onChange(of: value) { }
+      .onChange(of: value) {
+        /* triggers real-time updates */
+      }
 
       Spacer()
       Button(action: {

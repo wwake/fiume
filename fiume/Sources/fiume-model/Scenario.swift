@@ -37,7 +37,8 @@ public class Scenario: Identifiable {
       let netAssetsAtMonth = netAssets(at: monthYear)
       let netWorthAtMonth = netIncomeToDate + netAssetsAtMonth
 
-      result.append(MonthlyNetWorth(month: monthYear, amount: netWorthAtMonth))
+      let extractedExpr: MonthlyNetWorth = MonthlyNetWorth(month: monthYear, amount: netWorthAtMonth)
+      result.append(extractedExpr)
     }
     return ScenarioNetWorth(name: name, netWorthByMonth: result)
   }

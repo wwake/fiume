@@ -41,12 +41,16 @@ struct EditAssumptionView: View {
 
       RequiredTextField(name: "Name", field: $name)
       NumberField(label: "Min", value: $min)
-      NumberField(label: "Max", value: $max)
       NumberField(label: "Current", value: $current)
+      NumberField(label: "Max", value: $max)
 
       if !rangeOk {
-        Text("Must have Min <= Current and Current <= Max")
-          .foregroundStyle(Color("Error"))
+        HStack {
+          Spacer()
+          Text("Must have Min <= Current and Current <= Max")
+            .foregroundStyle(Color("Error"))
+          Spacer()
+        }
       }
 
       HStack {

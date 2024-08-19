@@ -47,5 +47,9 @@ struct AssumptionsView: View {
 }
 
 #Preview {
-  AssumptionsView()
+  @State var assumptions = Assumptions()
+  assumptions.add(Assumption(type: .percent, name: "ROI", min: 1, max: 20, current: 7))
+
+  return AssumptionsView()
+    .environment(assumptions)
 }
