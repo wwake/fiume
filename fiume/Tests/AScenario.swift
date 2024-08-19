@@ -10,6 +10,7 @@ extension Leia: Equatable {
 
 struct AScenario {
   private let people = People()
+  let ignoredScenario = Scenario("ignored", people: People())
 
   static func makeScenario(_ streams: Leia...) -> Scenario {
     let result = Scenario("Scenario Name", people: People())
@@ -82,7 +83,7 @@ struct AScenario {
     let income = makeLeia(name: "job", 1000)
     sut.add(income)
 
-    #expect(sut.find("job")!.amount.value(at: 2024.dec, People()) == Money(1000))
+    #expect(sut.find("job")!.amount.value(at: 2024.dec, People(), ignoredScenario) == Money(1000))
   }
 
   @Test

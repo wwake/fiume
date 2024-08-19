@@ -4,6 +4,7 @@ import Testing
 
 struct APlan {
   let people = People()
+  let ignoredScenario = Scenario("ignored", people: People())
 
   private func makePlanWithAsset(
     _ name: String,
@@ -104,7 +105,7 @@ struct APlan {
     plan.replace(leia: stream)
 
     #expect(plan.leia!.name == "test")
-    #expect(plan.leia!.amount.value(at: 2024.jan, People()) == 500)
+    #expect(plan.leia!.amount.value(at: 2024.jan, People(), ignoredScenario) == 500)
   }
 
   @Test

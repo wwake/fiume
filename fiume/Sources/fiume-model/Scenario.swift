@@ -38,26 +38,6 @@ public class Scenario: Identifiable {
       range: range
     ).compute()
   }
-
-//  fileprivate func filterBy(_ type1: LeiaType, _ type2: LeiaType) -> [Leia] {
-//    leias.values.filter { value in
-//      value.type == type1 || value.type == type2
-//    }
-//  }
-//
-//  public func netIncome(at month: MonthYear) -> Money {
-//    net(at: month, in: filterBy(.income, .expense))
-//  }
-//
-//  public func netAssets(at month: MonthYear) -> Money {
-//    net(at: month, in: filterBy(.asset, .liability))
-//  }
-//
-//  fileprivate func net(at month: MonthYear, in collection: [Leia]) -> Money {
-//    collection.reduce(Money(0)) { net, leia in
-//      net + leia.signedAmount(at: month, people: people, scenario: self)
-//    }
-//  }
 }
 
 extension Scenario: Hashable {

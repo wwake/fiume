@@ -1,4 +1,12 @@
 
+to calculate month n in the range start...n:
+  value * r ^ age
+
+to calculate month n in the range start...n:
+  value[n-1] * r
+
+* Do we need to pass people to value - since Scenario has it?
+
 * Make growth (interest) work!
 * Improve display of assumption - show min & max values
 Percent-Based Assumptions

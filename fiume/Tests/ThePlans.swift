@@ -4,6 +4,7 @@ import Testing
 
 struct ThePlans {
   let plans = Plans()
+  let ignoredScenario = Scenario("ignored", people: People())
 
   @Test
   func starts_unchanged() {
@@ -95,7 +96,7 @@ struct ThePlans {
     ))
 
     #expect(plan.leia!.name == "revised")
-    #expect(plan.leia!.amount.value(at: 2024.aug, People()) == 500)
+    #expect(plan.leia!.amount.value(at: 2024.aug, People(), ignoredScenario) == 500)
     #expect(plans.wasChanged)
   }
 
