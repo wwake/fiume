@@ -1,10 +1,11 @@
 public struct NetWorth {
   let scenario: Scenario
-
+  let leias: any Sequence<Leia>
   let range: ClosedRange<MonthYear>
 
-  public init(scenario: Scenario, range: ClosedRange<MonthYear>) {
+  public init(scenario: Scenario, leias: any Sequence<Leia>, range: ClosedRange<MonthYear>) {
     self.scenario = scenario
+    self.leias = leias
     self.range = range
   }
 
@@ -21,5 +22,25 @@ public struct NetWorth {
       result.append(MonthlyNetWorth(month: monthYear, amount: netWorthAtMonth))
     }
     return result
+  }
+
+  public func netIncome(at month: MonthYear) -> Money {
+    net(at: month, in: filterBy(.income, .expense))
+  }
+
+  public func netAssets(at month: MonthYear) -> Money {
+    net(at: month, in: filterBy(.asset, .liability))
+  }
+
+  fileprivate func filterBy(_ type1: LeiaType, _ type2: LeiaType) -> [Leia] {
+    leias.filter { value in
+      value.type == type1 || value.type == type2
+    }
+  }
+
+  fileprivate func net(at month: MonthYear, in collection: [Leia]) -> Money {
+    collection.reduce(Money(0)) { net, leia in
+      net + leia.signedAmount(at: month, people: scenario.people, scenario: scenario)
+    }
   }
 }

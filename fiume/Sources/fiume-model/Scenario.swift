@@ -34,7 +34,7 @@ public class Scenario: Identifiable {
   public func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
     ScenarioNetWorth(
       name: name,
-      netWorthByMonth: NetWorth(scenario: self, range: range).compute()
+      netWorthByMonth: NetWorth(scenario: self, leias: leias.values, range: range).compute()
     )
   }
 
