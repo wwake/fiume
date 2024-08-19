@@ -11,8 +11,8 @@ extension Leia: Equatable {
 struct AScenario {
   private let people = People()
 
-  private func makeScenario(_ streams: Leia...) -> Scenario {
-    let result = Scenario("Scenario Name", people: people)
+  static func makeScenario(_ streams: Leia...) -> Scenario {
+    let result = Scenario("Scenario Name", people: People())
     streams.forEach {
       result.add($0)
     }
@@ -21,12 +21,12 @@ struct AScenario {
 
   @Test
   func makes_independent_copies() {
-    let sut = makeScenario(
-      makeLeia(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec)
+    let sut = Self.makeScenario(
+      makeLeia(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec, .income)
     )
 
     let result = sut.copy("altered name")
-    let stream2 = makeLeia(name: "Income2", 2_000, first: 2024.jan, last: 2024.dec)
+    let stream2 = makeLeia(name: "Income2", 2_000, first: 2024.jan, last: 2024.dec, .income)
     result.add(stream2)
 
     #expect(sut.netIncome(at: 2024.jan) == Money(1_000))
@@ -35,40 +35,17 @@ struct AScenario {
   }
 
   @Test
-  func computes_netIncome_for_one_stream() {
-    let sut = makeScenario(
-      makeLeia(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec)
-    )
-
-    #expect(sut.netIncome(at: 2024.dec) == Money(1_000))
-    #expect(sut.netIncome(at: 2025.jan) == Money(0))
-  }
-
-  @Test
-  func computes_netIncome_for_distinct_streams() {
-    let sut = makeScenario(
-      makeLeia(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec),
-      makeLeia(name: "Income2", 500, first: DateSpecifier.month(2024.oct), last: DateSpecifier.unchanged)
-    )
-
-    #expect(sut.netIncome(at: 2024.jan) == Money(1_000))
-    #expect(sut.netIncome(at: 2024.oct) == Money(1_500))
-    #expect(sut.netIncome(at: 2024.dec) == Money(1_500))
-    #expect(sut.netIncome(at: 2025.jan) == Money(500))
-  }
-
-  @Test
   func retains_last_leia_with_duplicate_names() {
-    let sut = makeScenario(
-      makeLeia(name: "Salary", 1_000, first: 2020.jan, last: 2020.dec),
-      makeLeia(name: "Salary", 2_000, first: .unchanged, last: .unchanged)
+    let sut = Self.makeScenario(
+      makeLeia(name: "Salary", 1_000, first: 2020.jan, last: 2020.dec, .income),
+      makeLeia(name: "Salary", 2_000, first: .unchanged, last: .unchanged, leiaType: .income)
     )
     #expect(sut.find("Salary")!.signedAmount(at: 2024.aug, people: People()) == 2_000)
   }
 
   @Test
   func computes_netWorth_from_salary_minus_expenses() throws {
-    let sut = makeScenario(
+    let sut = Self.makeScenario(
       makeLeia(name: "Salary", 1_000, first: DateSpecifier.unchanged, last: DateSpecifier.unchanged),
       makeLeia(
         name: "Expenses",

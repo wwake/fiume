@@ -28,4 +28,27 @@ struct ANetWorth {
     #expect(result.netWorthByMonth.first!.amount == Money(1_000))
     #expect(result.netWorthByMonth.last!.amount == Money(12_000))
   }
+
+  @Test
+  func computes_netIncome_for_distinct_streams() {
+    let scenario = AScenario.makeScenario(
+      makeLeia(name: "Income1", 1_000, first: 2024.jan, last: 2024.dec, .income),
+      makeLeia(name: "Income2", 500, first: DateSpecifier.month(2024.oct), last: DateSpecifier.unchanged)
+    )
+
+    let result = NetWorth(
+      scenario: scenario,
+      leias: [scenario.find("Income1")!, scenario.find("Income2")!],
+      range: 2024.jan...2025.jan
+    ).compute()
+
+    #expect(result.netWorthByMonth[0].month == 2024.jan)
+    #expect(result.netWorthByMonth[0].amount == 1_000)
+
+    #expect(result.netWorthByMonth[9].month == 2024.oct)
+    #expect(result.netWorthByMonth[9].amount == 9_000 + 1_500)
+
+    #expect(result.netWorthByMonth[12].month == 2025.jan)
+    #expect(result.netWorthByMonth[12].amount == 9_000 + 3 * 1_500 + 500)
+  }
 }

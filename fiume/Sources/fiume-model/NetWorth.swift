@@ -3,6 +3,12 @@ public struct NetWorth {
   let leias: any Sequence<Leia>
   let range: ClosedRange<MonthYear>
 
+  public init(scenario: Scenario, leias: any Sequence<Leia>, range: ClosedRange<MonthYear>) {
+    self.scenario = scenario
+    self.leias = leias
+    self.range = range
+  }
+
   public func compute() -> ScenarioNetWorth {
     var result = [MonthlyNetWorth]()
     var netIncomeToDate = Money(0)

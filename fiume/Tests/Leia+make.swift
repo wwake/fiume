@@ -5,13 +5,14 @@ public func makeLeia(
   name: String = "Sample",
   _ amount: Int,
   first: MonthYear,
-  last: MonthYear
+  last: MonthYear,
+  _ leiaType: LeiaType
 ) -> Leia {
   Leia(
     name: name,
     amount: .money(amount),
     dates: DateRange(.month(first), .month(last)),
-    type: .income,
+    type: leiaType,
     growth: Assumption.flatGrowth
   )
 }
