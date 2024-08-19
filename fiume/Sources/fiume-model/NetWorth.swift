@@ -27,11 +27,11 @@ public struct NetWorth {
     )
   }
 
-  public func netIncome(at month: MonthYear) -> Money {
+  fileprivate func netIncome(at month: MonthYear) -> Money {
     net(at: month, in: filterBy(.income, .expense))
   }
 
-  public func netAssets(at month: MonthYear) -> Money {
+  fileprivate func netAssets(at month: MonthYear) -> Money {
     net(at: month, in: filterBy(.asset, .liability))
   }
 
