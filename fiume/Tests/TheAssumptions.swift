@@ -66,4 +66,24 @@ struct TheAssumptions {
     #expect(!sut.wasChanged)
     #expect(sut.find("the one") != nil)
   }
+
+  @Test
+  func returns_0_percent_if_name_is_null() {
+    let assumptions = Assumptions()
+    #expect(assumptions.findPercent(nil) == 0.0)
+  }
+
+  @Test
+  func returns_0_percent_for_unknown_name() {
+    let assumptions = Assumptions()
+    #expect(assumptions.findPercent("unknown") == 0.0)
+  }
+
+  @Test
+  func returns_percent_for_known_name() {
+    let assumptions = Assumptions()
+    assumptions.add(Assumption(type: .percent, name: "ROI", min: 1, max: 100, current: 25))
+
+    #expect(assumptions.findPercent("ROI") == 0.25)
+  }
 }
