@@ -100,6 +100,10 @@ public struct Leia: Identifiable, Codable {
       return Money(0)
     }
 
-    return type.signed(amount.value(monthlyInterest: 0.0, start: start, at: month, people, scenario))
+    var monthlyInterest = 0.0
+    if growth != nil {
+      monthlyInterest = Double( Assumptions.shared.find(growth!)?.current ?? 0) / 100
+    }
+    return type.signed(amount.value(monthlyInterest: monthlyInterest, start: start, at: month, people, scenario))
   }
 }

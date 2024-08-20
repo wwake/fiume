@@ -24,4 +24,20 @@ struct ALeia {
 
     #expect(sut.signedAmount(start: 2020.jan, at: 2020.jan, people: people, scenario: ignoredScenario) == Money(100))
   }
+
+  @Test
+  func applies_growth() {
+    Assumptions.shared.add(
+      Assumption(type: .percent, name: "Inflation", min: 0, max: 100, current: 50)
+    )
+    var sut = makeLeia(name: "income", 1000, dates: DateRange.always, leiaType: .income)
+    sut.growth = "Inflation"
+
+    #expect(sut.signedAmount(
+      start: 2020.jan,
+      at: 2020.feb,
+      people: People(),
+      scenario: ignoredScenario
+    ) == 1500)
+  }
 }
