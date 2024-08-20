@@ -4,6 +4,9 @@ start     current
   1         10
 
        5   10
+
+12th root of (1 + annual %)
+
 better - to calculate month n in the range start...n:
   value * mr ^ age
 

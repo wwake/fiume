@@ -48,6 +48,6 @@ struct AnAmount {
   @Test
   func adds_interest_based_on_number_of_months() {
     let sut = Amount(1000)
-    #expect(sut.value(monthlyInterest: 0.25, start: 2024.jan, at: 2024.apr, People(), ignoredScenario) == 1953)
+    #expect(sut.value(monthlyInterest: 1.25, start: 2024.jan, at: 2024.apr, People(), ignoredScenario) == 1953)
   }
 }

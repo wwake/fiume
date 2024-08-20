@@ -30,11 +30,11 @@ public class Assumptions: Codable {
     assumptions.first { $0.name == name }
   }
 
-  public func findPercent(_ name: String?) -> Double {
+  public func findMonthlyRate(_ name: String?) -> Double {
     guard name != nil, let assumption = find(name!) else {
       return 0.0
     }
-    return Double(assumption.current) / 100.0
+    return pow(1 + Double(assumption.current) / 100.0, 1.0 / 12.0)
   }
 
   public func remove(_ name: String) {

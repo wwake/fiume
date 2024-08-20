@@ -29,12 +29,12 @@ public enum Amount: Equatable {
 
   fileprivate func principalPlusInterest(
     _ amount: (Money),
-    _ monthlyInterest: Double?,
+    _ monthlyRate: Double?,
     _ start: MonthYear?,
     _ at: MonthYear
   ) -> Money {
     let numberOfMonths = Double(start!.distance(to: at))
-    let rateFactor = pow(1 + monthlyInterest!, numberOfMonths)
+    let rateFactor = pow(monthlyRate!, numberOfMonths)
     return Money(Double(amount) * rateFactor)
   }
 

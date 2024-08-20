@@ -70,20 +70,21 @@ struct TheAssumptions {
   @Test
   func returns_0_percent_if_name_is_null() {
     let assumptions = Assumptions()
-    #expect(assumptions.findPercent(nil) == 0.0)
+    #expect(assumptions.findMonthlyRate(nil) == 0.0)
   }
 
   @Test
   func returns_0_percent_for_unknown_name() {
     let assumptions = Assumptions()
-    #expect(assumptions.findPercent("unknown") == 0.0)
+    #expect(assumptions.findMonthlyRate("unknown") == 0.0)
   }
 
   @Test
   func returns_percent_for_known_name() {
     let assumptions = Assumptions()
-    assumptions.add(Assumption(type: .percent, name: "ROI", min: 1, max: 100, current: 25))
+    assumptions.add(Assumption(type: .percent, name: "ROI", min: 1, max: 100, current: 100))
 
-    #expect(assumptions.findPercent("ROI") == 0.25)
+    #expect(assumptions.findMonthlyRate("ROI") >= 1.059463094)
+    #expect(assumptions.findMonthlyRate("ROI") <= 1.059463095)
   }
 }

@@ -101,7 +101,7 @@ public struct Leia: Identifiable, Codable {
     }
 
     return type.signed(amount.value(
-      monthlyInterest: Assumptions.shared.findPercent(growth),
+      monthlyInterest: Assumptions.shared.findMonthlyRate(growth),
       start: start,
       at: month,
       people,

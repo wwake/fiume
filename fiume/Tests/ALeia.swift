@@ -30,6 +30,7 @@ struct ALeia {
     Assumptions.shared.add(
       Assumption(type: .percent, name: "Inflation", min: 0, max: 100, current: 50)
     )
+    // Yearly interest at 50% ~~ monthly interest at 34%
     var sut = makeLeia(name: "income", 1000, dates: DateRange.always, leiaType: .income)
     sut.growth = "Inflation"
 
@@ -38,6 +39,6 @@ struct ALeia {
       at: 2020.feb,
       people: People(),
       scenario: ignoredScenario
-    ) == 1500)
+    ) == 1034)
   }
 }
