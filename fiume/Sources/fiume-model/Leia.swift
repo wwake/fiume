@@ -90,7 +90,7 @@ public struct Leia: Identifiable, Codable {
     self.growth = growth
   }
 
-  public func signedAmount(at month: MonthYear, people: People, scenario: Scenario? = nil) -> Money {
+  public func signedAmount(at month: MonthYear, people: People, scenario: Scenario) -> Money {
     guard dates_.includes(month, people) else {
       return Money(0)
     }

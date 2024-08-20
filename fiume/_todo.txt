@@ -5,7 +5,8 @@ to calculate month n in the range start...n:
 to calculate month n in the range start...n:
   value[n-1] * r
 
-* Do we need to pass people to value - since Scenario has it?
+* Do we need to pass people to Amount.value() - since Scenario has it?
+* Make scenario required for value()
 
 * Make growth (interest) work!
 * Improve display of assumption - show min & max values
@@ -55,7 +56,8 @@ Editing
 * Move streams (?)
 
 FI-24-47: 2024-08-18 - Compute Interest!
-* Extracted NetWorth class, updated tests to not use private methods
+* Extracted NetWorth class, updated tests to not use now-private methods
+* Added scenario to value() calls, as it's needed in general
 
 FI-24-46: 2024-08-15 - Update Dates
 Persistence
