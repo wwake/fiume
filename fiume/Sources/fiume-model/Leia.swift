@@ -91,7 +91,6 @@ public struct Leia: Identifiable, Codable {
   }
 
   public func signedAmount(
-    monthlyInterest: Double? = nil,
     start: MonthYear? = nil,
     at month: MonthYear,
     people: People,

@@ -59,7 +59,6 @@ public enum Amount: Equatable {
         return Money(0)
       }
       return Money(ratio * Double(base!.signedAmount(
-        monthlyInterest: monthlyInterest,
         start: start,
         at: at,
         people: people,
