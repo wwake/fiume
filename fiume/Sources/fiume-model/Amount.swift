@@ -27,7 +27,12 @@ public enum Amount: Equatable {
     }
   }
 
-  fileprivate func principalPlusInterest(_ amount: (Money), _ monthlyInterest: Double?, _ start: MonthYear?, _ at: MonthYear) -> Money {
+  fileprivate func principalPlusInterest(
+    _ amount: (Money),
+    _ monthlyInterest: Double?,
+    _ start: MonthYear?,
+    _ at: MonthYear
+  ) -> Money {
     let numberOfMonths = Double(start!.distance(to: at))
     let rateFactor = pow(1 + monthlyInterest!, numberOfMonths)
     return Money(Double(amount) * rateFactor)
@@ -53,7 +58,13 @@ public enum Amount: Equatable {
       guard base != nil else {
         return Money(0)
       }
-      return Money(ratio * Double(base!.signedAmount(at: at, people: people, scenario: scenario)))
+      return Money(ratio * Double(base!.signedAmount(
+        monthlyInterest: monthlyInterest,
+        start: start,
+        at: at,
+        people: people,
+        scenario: scenario
+      )))
     }
   }
 }
