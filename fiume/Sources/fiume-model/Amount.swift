@@ -1,3 +1,5 @@
+import Foundation
+
 public enum Amount: Equatable {
   enum CodingKeys: String, CodingKey {
     case money = "amount"
@@ -25,13 +27,25 @@ public enum Amount: Equatable {
     }
   }
 
-  public func value(start: MonthYear? = nil, at: MonthYear, _ people: People, _ scenario: Scenario) -> Money {
+  fileprivate func principalPlusInterest(_ amount: (Money), _ monthlyInterest: Double?, _ start: MonthYear?, _ at: MonthYear) -> Money {
+    let numberOfMonths = Double(start!.distance(to: at))
+    let rateFactor = pow(1 + monthlyInterest!, numberOfMonths)
+    return Money(Double(amount) * rateFactor)
+  }
+
+  public func value(
+    monthlyInterest: Double? = nil,
+    start: MonthYear? = nil,
+    at: MonthYear,
+    _ people: People,
+    _ scenario: Scenario
+  ) -> Money {
     switch self {
     case .money(let amount):
       if start == nil {
         return amount
       } else {
-        return amount
+        return principalPlusInterest(amount, monthlyInterest, start, at)
       }
 
     case let .relative(ratio, leiaName):

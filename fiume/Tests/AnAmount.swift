@@ -44,4 +44,10 @@ struct AnAmount {
     #expect(sut.value(at: 2025.jan, People(), scenario) == Money(67))
     #expect(sut.description == "67% of source stream")
   }
+
+  @Test
+  func adds_interest_based_on_number_of_months() {
+    let sut = Amount(1000)
+    #expect(sut.value(monthlyInterest: 0.25, start: 2024.jan, at: 2024.apr, People(), ignoredScenario) == 1953)
+  }
 }
