@@ -1,12 +1,15 @@
 
-to calculate month n in the range start...n:
-  value * r ^ age
+start     current
+  1         10
 
-to calculate month n in the range start...n:
-  value[n-1] * r
+       5   10
+better - to calculate month n in the range start...n:
+  value * mr ^ age
+
+worse - to calculate month n in the range start...n:
+  value[n-1] * mr
 
 * Do we need to pass people to Amount.value() - since Scenario has it?
-* Make scenario required for value()
 
 * Make growth (interest) work!
 * Improve display of assumption - show min & max values
@@ -55,7 +58,10 @@ Calendar view (with RuleMark)
 Editing
 * Move streams (?)
 
-FI-24-47: 2024-08-18 - Compute Interest!
+FI-24-48: 2024-08-20 - Really - Compute Interest!
+* Refactor: Make scenario required for value() in Leia and Amount
+
+FI-24-47: 2024-08-19 - Compute Interest!
 * Extracted NetWorth class, updated tests to not use now-private methods
 * Added scenario to value() calls, as it's needed in general
 

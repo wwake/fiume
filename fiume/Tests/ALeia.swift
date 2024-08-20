@@ -17,4 +17,11 @@ struct ALeia {
     let sut = makeLeia(100, first: 2020.jan, last: 2020.oct, .income)
     #expect(sut.signedAmount(at: 2020.jan, people: people, scenario: ignoredScenario) == Money(100))
   }
+
+  @Test
+  func adds_no_interest_for_start_month() {
+    let sut = makeLeia(name: "income", 100, dates: DateRange.always, leiaType: .income)
+
+    #expect(sut.signedAmount(start: 2020.jan, at: 2020.jan, people: people, scenario: ignoredScenario) == Money(100))
+  }
 }

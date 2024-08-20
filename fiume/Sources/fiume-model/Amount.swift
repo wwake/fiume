@@ -25,10 +25,14 @@ public enum Amount: Equatable {
     }
   }
 
-  public func value(at: MonthYear, _ people: People, _ scenario: Scenario) -> Money {
+  public func value(start: MonthYear? = nil, at: MonthYear, _ people: People, _ scenario: Scenario) -> Money {
     switch self {
     case .money(let amount):
-      return amount
+      if start == nil {
+        return amount
+      } else {
+        return amount
+      }
 
     case let .relative(ratio, leiaName):
       let base = scenario.find(leiaName)
