@@ -34,7 +34,7 @@ public enum Amount: Equatable {
   }
 
   public func value(
-    monthlyInterest: Double? = nil,
+    monthlyInterest: Double,
     start: MonthYear? = nil,
     at: MonthYear,
     _ people: People,
@@ -42,7 +42,7 @@ public enum Amount: Equatable {
   ) -> Money {
     switch self {
     case .money(let amount):
-      if start == nil {
+      if monthlyInterest == 0.0 || start == nil {
         return amount
       } else {
         return principalPlusInterest(amount, monthlyInterest, start, at)

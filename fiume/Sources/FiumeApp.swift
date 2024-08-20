@@ -13,8 +13,7 @@ struct FiumeApp: App {
 
   @State var people = People()
   @State var plans = Plans()
-  @State var assumptions = Assumptions()
-
+  @State var assumptions = Assumptions.shared
   init() {
     print("Document path: \(URL.documentsDirectory)")
 
