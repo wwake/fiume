@@ -95,6 +95,6 @@ public struct Leia: Identifiable, Codable {
       return Money(0)
     }
 
-    return type.signed(amount.value(monthlyInterest: 0.0, at: month, people, scenario))
+    return type.signed(amount.value(monthlyInterest: 0.0, start: start, at: month, people, scenario))
   }
 }
