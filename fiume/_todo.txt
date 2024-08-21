@@ -1,7 +1,6 @@
 
 * Do we need to pass people to Amount.value() - since Scenario has it?
 * Make rates respond to slider real-time
-* Make rates use right start date when dates are set
 * Make assumption display half as tall so we can see the impact
 * Improve display of assumption - show min & max values
 Percent-Based Assumptions
@@ -51,7 +50,9 @@ Editing
 * Move streams (?)
 
 FI-24-49: 2024-08-21 - Real-Time Updates
+Assumptions
 * Verify interest is correct graphically
+* Make rates use right start date when dates are set
 
 Persistence updates
 * Once users update:

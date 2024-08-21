@@ -17,6 +17,6 @@ public struct DateRange: Equatable, Codable {
     if self == DateRange.always {
       return ""
     }
-    return "\(first.description(people))-\(last.description(people))"
+    return "\(first.description)-\(last.description)"
   }
 }

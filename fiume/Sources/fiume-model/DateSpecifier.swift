@@ -15,7 +15,11 @@ public enum DateSpecifier: Equatable, Codable {
     }
   }
 
-  public func description(_ people: People) -> String {
+  private var people: People {
+    People.shared
+  }
+
+  public var description: String {
     switch self {
     case .unchanged:
       return ""
@@ -39,7 +43,6 @@ public enum DateSpecifier: Equatable, Codable {
       return monthYear
 
     case let .age(id, age):
-      let people = People.shared
       guard let person = people.findById(id) else { return 9999.dec }
       let birth = person.birth
       return birth.advanced(byYears: age)

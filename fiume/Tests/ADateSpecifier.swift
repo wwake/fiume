@@ -61,18 +61,18 @@ struct ADateSpecifier {
 
   @Test
   func description_from_found_person() {
-    let people = People()
+    let people = People.shared
     let person = makePerson()
     people.add(person)
-    #expect(DateSpecifier.unchanged.description(people).isEmpty)
-    #expect(DateSpecifier.month(2023.apr).description(people) == "Apr 2023")
-    #expect(DateSpecifier.age(person.id, 72).description(people) == "bub@72")
+    #expect(DateSpecifier.unchanged.description.isEmpty)
+    #expect(DateSpecifier.month(2023.apr).description == "Apr 2023")
+    #expect(DateSpecifier.age(person.id, 72).description == "bub@72")
   }
 
   @Test
   func description_from_person_not_found() {
     let people = People()
-    #expect(DateSpecifier.age(UUID(), 72).description(people) == "<person not found>@72")
+    #expect(DateSpecifier.age(UUID(), 72).description == "<person not found>@72")
   }
 
   @Test
