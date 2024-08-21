@@ -41,7 +41,7 @@ struct AScenario {
       makeLeia(name: "Salary", 1_000, first: 2020.jan, last: 2020.dec, .income),
       makeLeia(name: "Salary", 2_000, first: .unchanged, last: .unchanged, leiaType: .income)
     )
-    #expect(sut.find("Salary")!.signedAmount(at: 2024.aug, people: People(), scenario: ignoredScenario) == 2_000)
+    #expect(sut.find("Salary")!.signedAmount(at: 2024.aug, scenario: ignoredScenario) == 2_000)
   }
 
   @Test
@@ -83,7 +83,7 @@ struct AScenario {
     let income = makeLeia(name: "job", 1000)
     sut.add(income)
 
-    #expect(sut.find("job")!.amount.value(monthlyInterest: 0.0, at: 2024.dec, People(), ignoredScenario) == Money(1000))
+    #expect(sut.find("job")!.amount.value(monthlyInterest: 0.0, at: 2024.dec, ignoredScenario) == Money(1000))
   }
 
   @Test

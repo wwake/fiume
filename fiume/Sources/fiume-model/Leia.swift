@@ -82,10 +82,9 @@ public struct Leia: Identifiable, Codable {
   public func signedAmount(
     start: MonthYear? = nil,
     at month: MonthYear,
-    people: People,
     scenario: Scenario
   ) -> Money {
-    guard dates.includes(month, people) else {
+    guard dates.includes(month) else {
       return Money(0)
     }
 
@@ -95,7 +94,6 @@ public struct Leia: Identifiable, Codable {
       monthlyInterest: Assumptions.shared.findMonthlyRate(growth),
       start: effectiveStart,
       at: month,
-      people,
       scenario
     ))
   }

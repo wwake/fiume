@@ -42,7 +42,6 @@ public enum Amount: Equatable {
     monthlyInterest: Double,
     start: MonthYear? = nil,
     at: MonthYear,
-    _ people: People,
     _ scenario: Scenario
   ) -> Money {
     switch self {
@@ -61,7 +60,6 @@ public enum Amount: Equatable {
       return Money(ratio * Double(base!.signedAmount(
         start: start,
         at: at,
-        people: people,
         scenario: scenario
       )))
     }

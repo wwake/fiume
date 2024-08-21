@@ -43,7 +43,7 @@ public struct NetWorth {
 
   fileprivate func net(at month: MonthYear, in collection: [Leia]) -> Money {
     collection.reduce(Money(0)) { net, leia in
-      net + leia.signedAmount(start: range.lowerBound, at: month, people: scenario.people, scenario: scenario)
+      net + leia.signedAmount(start: range.lowerBound, at: month, scenario: scenario)
     }
   }
 }

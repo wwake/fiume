@@ -9,11 +9,11 @@ public struct DateRange: Equatable, Codable {
     self.last = last
   }
 
-  public func includes(_ month: MonthYear, _ people: People) -> Bool {
+  public func includes(_ month: MonthYear) -> Bool {
     first.leq(month) && last.geq(month)
   }
 
-  public func description(_ people: People) -> String {
+  public var description: String {
     if self == DateRange.always {
       return ""
     }

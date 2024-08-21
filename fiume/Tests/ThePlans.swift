@@ -96,7 +96,7 @@ struct ThePlans {
     ))
 
     #expect(plan.leia!.name == "revised")
-    #expect(plan.leia!.amount.value(monthlyInterest: 0.0, at: 2024.aug, People(), ignoredScenario) == 500)
+    #expect(plan.leia!.amount.value(monthlyInterest: 0.0, at: 2024.aug, ignoredScenario) == 500)
     #expect(plans.wasChanged)
   }
 }
