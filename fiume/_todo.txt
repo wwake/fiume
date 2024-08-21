@@ -1,27 +1,14 @@
-
-* Check rounding on our interest computation
-start     current
-  1         10
-
-       5   10
-
-12th root of (1 + annual %)
-
-better - to calculate month n in the range start...n:
-  value * mr ^ age
-
-worse - to calculate month n in the range start...n:
-  value[n-1] * mr
-
-* Do we need to pass people to Amount.value() - since Scenario has it?
-
-* Make growth (interest) work!
-* Improve display of assumption - show min & max values
-Percent-Based Assumptions
-
 * Once users update, delete Plan.pool and .stream; delete Leia.first and last, make .growth non-nullable
 * Remove Person.death (will be assumption-based)
 Persistence updates
+
+* Do we need to pass people to Amount.value() - since Scenario has it?
+* Make rates respond to slider real-time
+* Make rates use right start date when dates are set
+* Make assumption display half as tall so we can see the impact
+* Improve display of assumption - show min & max values
+Percent-Based Assumptions
+
 
 Date- or Amount-Based Assumptions
 
@@ -62,9 +49,16 @@ Calendar view (with RuleMark)
 Editing
 * Move streams (?)
 
+FI-24-49: 2024-08-21 - Real-Time Updates
+* Verify interest is correct graphically
+
 FI-24-48: 2024-08-20 - Really - Compute Interest!
 * Refactor: Make scenario required for value() in Leia and Amount
 * Let Amount compute interest given the interest rate and the start month
+* Make growth (interest) work!
+* Calculate montly rate as 12th root of (1 + annual %)
+* Calculate per-month by taking starting value * monthly-rate ^ #months
+* See smooth growth curve on a simple annuity
 
 FI-24-47: 2024-08-19 - Compute Interest!
 * Extracted NetWorth class, updated tests to not use now-private methods

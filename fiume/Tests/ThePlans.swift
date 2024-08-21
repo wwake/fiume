@@ -99,24 +99,4 @@ struct ThePlans {
     #expect(plan.leia!.amount.value(monthlyInterest: 0.0, at: 2024.aug, People(), ignoredScenario) == 500)
     #expect(plans.wasChanged)
   }
-
-  @Test
-  func update_updates_children() {
-    let asset = Leia(
-      name: "house",
-      amount: .money(50_000),
-      dates: DateRange.always,
-      type: .asset,
-      growth: Assumption.flatGrowth
-    )
-    let plan = Plan.make(asset)
-    plan.type = .pool
-    let sut = Plans()
-    sut.append(parent: sut.plans, child: plan)
-    #expect(sut.plans.children![0].type == .pool)
-
-    sut.update()
-
-    #expect(sut.plans.children![0].type == .leia)
-  }
 }

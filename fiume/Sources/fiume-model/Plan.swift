@@ -3,7 +3,7 @@ import Foundation
 public enum PlanType: String, CaseIterable, Identifiable, Codable {
   public var id: Self { self }
 
-  case pool, stream, leia, group, scenarios
+  case leia, group, scenarios
 }
 
 @Observable
@@ -60,15 +60,8 @@ public class Plan: Identifiable, Codable {
 
   public func update() {
     switch type {
-    case .pool, .stream, .leia:
-      type = .leia
-      leia = Leia(
-        name: leia!.name,
-        amount: leia!.amount,
-        dates: leia!.dates_,
-        type: leia!.type,
-        growth: leia!.growth ?? Assumption.flatGrowth
-      )
+    case .leia:
+      break
 
     case .group, .scenarios:
       if children != nil {
@@ -101,7 +94,7 @@ public class Plan: Identifiable, Codable {
 
   public func scenarios(_ scenarios: Scenarios) -> Scenarios {
     switch type {
-    case .pool, .stream, .leia:
+    case .leia:
       return scenarios.add(leia!)
 
     case .group:
