@@ -41,8 +41,6 @@ public struct Leia: Identifiable, Codable {
   enum CodingKeys: String, CodingKey {
     case id
     case name
-    case first
-    case last
     case dates
     case amount = "amountSpec"
     case type = "leiaType"
@@ -55,19 +53,13 @@ public struct Leia: Identifiable, Codable {
 
   public var id: UUID
   public var name: String
-  private var first: DateSpecifier
-  private var last: DateSpecifier
 
-  public var dates: DateRange?
+  public private(set) var dates: DateRange
 
   public private(set) var amount: Amount
   public private(set) var type: LeiaType
 
   public var growth: String?
-
-  public var dates_: DateRange {
-    dates ?? DateRange(first, last)
-  }
 
   public init(
     id: UUID = UUID(),
@@ -81,9 +73,6 @@ public struct Leia: Identifiable, Codable {
     self.name = name
     self.amount = amount
 
-    self.first = dates.first
-    self.last = dates.last
-
     self.dates = dates
 
     self.type = type
@@ -96,7 +85,7 @@ public struct Leia: Identifiable, Codable {
     people: People,
     scenario: Scenario
   ) -> Money {
-    guard dates_.includes(month, people) else {
+    guard dates.includes(month, people) else {
       return Money(0)
     }
 

@@ -38,7 +38,7 @@ struct LeiaView: View {
       icons[leia.type]!
 
       Text("\(leia.type.name): \(leia.name)"
-           + "   \(leia.amount)   \(leia.dates_.description(people))"
+           + "   \(leia.amount)   \(leia.dates.description(people))"
            + "    Growth: \(leia.growth!)")
       Spacer()
       Button(action: {

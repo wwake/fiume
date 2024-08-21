@@ -1,4 +1,4 @@
-* Once users update, delete Plan.pool and .stream; delete Leia.first and last, make .growth non-nullable
+* Once users update, delete Leia.first and last, make .growth non-nullable
 * Remove Person.death (will be assumption-based)
 Persistence updates
 
@@ -51,6 +51,12 @@ Editing
 
 FI-24-49: 2024-08-21 - Real-Time Updates
 * Verify interest is correct graphically
+
+Persistence updates
+* Once users update:
+  + delete Plan.pool and .stream
+; delete Leia.first and last, make .growth non-nullable
+* Remove Person.death (will be assumption-based)
 
 FI-24-48: 2024-08-20 - Really - Compute Interest!
 * Refactor: Make scenario required for value() in Leia and Amount

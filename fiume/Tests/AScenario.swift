@@ -4,7 +4,7 @@ import Testing
 
 extension Leia: Equatable {
   public static func == (lhs: Leia, rhs: Leia) -> Bool {
-    lhs.name == rhs.name && lhs.amount == rhs.amount && lhs.dates_ == rhs.dates_ && lhs.type == rhs.type
+    lhs.name == rhs.name && lhs.amount == rhs.amount && lhs.dates == rhs.dates && lhs.type == rhs.type
   }
 }
 
