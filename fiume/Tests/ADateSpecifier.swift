@@ -71,7 +71,6 @@ struct ADateSpecifier {
 
   @Test
   func description_from_person_not_found() {
-    let people = People()
     #expect(DateSpecifier.age(UUID(), 72).description == "<person not found>@72")
   }
 

@@ -10,7 +10,7 @@ public struct DateRange: Equatable, Codable {
   }
 
   public func includes(_ month: MonthYear, _ people: People) -> Bool {
-    first.leq(month, people) && last.geq(month, people)
+    first.leq(month) && last.geq(month)
   }
 
   public func description(_ people: People) -> String {

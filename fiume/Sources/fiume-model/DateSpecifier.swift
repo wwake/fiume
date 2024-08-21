@@ -49,11 +49,11 @@ public enum DateSpecifier: Equatable, Codable {
     }
   }
 
-  public func leq(_ monthYear: MonthYear, _ people: People) -> Bool {
+  public func leq(_ monthYear: MonthYear) -> Bool {
     effectiveStart <= monthYear
   }
 
-  public func geq(_ monthYear: MonthYear, _ people: People) -> Bool {
+  public func geq(_ monthYear: MonthYear) -> Bool {
     switch self {
     case .unchanged:
       return true
