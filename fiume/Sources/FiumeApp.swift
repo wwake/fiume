@@ -9,11 +9,12 @@ enum MainEntryPoint {
 }
 
 struct FiumeApp: App {
-  @State var startDate = MonthYear(date: Date())
+  @State var startDate = MonthYear.start
 
-  @State var people = People()
+  @State var people = People.shared
   @State var plans = Plans()
   @State var assumptions = Assumptions.shared
+
   init() {
     print("Document path: \(URL.documentsDirectory)")
 

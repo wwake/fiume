@@ -74,4 +74,28 @@ struct ADateSpecifier {
     let people = People()
     #expect(DateSpecifier.age(UUID(), 72).description(people) == "<person not found>@72")
   }
+
+  @Test
+  func effective_start_for_unchanged() {
+    #expect(DateSpecifier.unchanged.effectiveStart == MonthYear.start)
+  }
+
+  @Test
+  func effective_start_for_month() {
+    #expect(DateSpecifier.month(2099.mar).effectiveStart == 2099.mar)
+  }
+
+  @Test
+  func effective_start_for_age() {
+    let people = People.shared
+    let person = makePerson() // b. 1970.mar
+    people.add(person)
+
+    #expect(DateSpecifier.age(person.id, 50).effectiveStart == 2020.mar)
+  }
+
+  @Test
+  func effective_start_for_age_when_person_not_found() {
+    #expect(DateSpecifier.age(UUID(), 50).effectiveStart > 2200.jan)
+  }
 }

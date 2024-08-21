@@ -30,20 +30,24 @@ public enum DateSpecifier: Equatable, Codable {
     }
   }
 
-  public func leq(_ monthYear: MonthYear, _ people: People) -> Bool {
+  public var effectiveStart: MonthYear {
     switch self {
     case .unchanged:
-      return true
+      return MonthYear.start
 
-    case let .month(startMonth):
-      return startMonth <= monthYear
+    case .month(let monthYear):
+      return monthYear
 
     case let .age(id, age):
-      guard let person = people.findById(id) else { return false }
+      let people = People.shared
+      guard let person = people.findById(id) else { return 9999.dec }
       let birth = person.birth
-      let effectiveStart = birth.advanced(byYears: age)
-      return effectiveStart <= monthYear
+      return birth.advanced(byYears: age)
     }
+  }
+
+  public func leq(_ monthYear: MonthYear, _ people: People) -> Bool {
+    effectiveStart <= monthYear
   }
 
   public func geq(_ monthYear: MonthYear, _ people: People) -> Bool {

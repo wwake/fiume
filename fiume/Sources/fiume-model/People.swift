@@ -2,6 +2,8 @@ import Foundation
 
 @Observable
 public class People: Codable {
+  public static var shared = People()
+
   enum CodingKeys: String, CodingKey {
     case _wasChanged = "wasChanged"
     case _people = "people"

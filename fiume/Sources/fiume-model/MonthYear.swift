@@ -42,6 +42,8 @@ extension Int {
 }
 
 public struct MonthYear: Equatable, Codable {
+  public static let start = MonthYear(date: Date())
+
   public let month: Month
   public let year: Int
 

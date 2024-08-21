@@ -89,9 +89,11 @@ public struct Leia: Identifiable, Codable {
       return Money(0)
     }
 
+    let effectiveStart = dates.first == DateSpecifier.unchanged ? start : dates.first.effectiveStart
+
     return type.signed(amount.value(
       monthlyInterest: Assumptions.shared.findMonthlyRate(growth),
-      start: start,
+      start: effectiveStart,
       at: month,
       people,
       scenario
