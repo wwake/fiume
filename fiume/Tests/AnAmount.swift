@@ -3,7 +3,7 @@ import fiume_model
 import Testing
 
 struct AnAmount {
-  let ignoredScenario = Scenario("ignored", people: People())
+  let ignoredScenario = Scenario("ignored")
 
   @Test
   func knows_simple_amount_for_positive() {
@@ -29,7 +29,7 @@ struct AnAmount {
 
   @Test
   func knows_relative_amount() {
-    let scenario = Scenario("the scenario", people: People())
+    let scenario = Scenario("the scenario")
     let stream = Leia(
       name: "source stream",
       amount: Amount(100),

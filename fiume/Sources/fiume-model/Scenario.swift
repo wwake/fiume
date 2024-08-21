@@ -3,18 +3,16 @@ import Foundation
 public class Scenario: Identifiable {
   public let id = UUID()
   public let name: String
-  public let people: People
 
   fileprivate typealias NameToLeia = [String: Leia]
   private var leias = NameToLeia()
 
-  public init(_ name: String, people: People) {
+  public init(_ name: String) {
     self.name = name
-    self.people = people
   }
 
   private convenience init(_ other: Scenario, _ newName: String) {
-    self.init(newName, people: other.people)
+    self.init(newName)
     let copy = other.leias
     self.leias = copy
   }

@@ -4,7 +4,7 @@ import Testing
 
 struct APlan {
   let people = People()
-  let ignoredScenario = Scenario("ignored", people: People())
+  let ignoredScenario = Scenario("ignored")
 
   private func makePlanWithAsset(
     _ name: String,
@@ -115,7 +115,7 @@ struct APlan {
 
     let sut = makeGroup("parent", [leaf1, leaf2])
 
-    let result = sut.scenarios(Scenarios([Scenario("", people: people), Scenario("", people: people)]))
+    let result = sut.scenarios(Scenarios([Scenario(""), Scenario("")]))
     let array = Array(result)
 
     #expect(array.count == 2)
@@ -133,7 +133,7 @@ struct APlan {
     let orTree = makeScenarios( "scenarios", [leaf1a, leaf1b])
     let sut = makeGroup("parent", [orTree, leaf2])
 
-    let result = sut.scenarios(Scenarios([Scenario("", people: people)]))
+    let result = sut.scenarios(Scenarios([Scenario("")]))
 
     let resultSet = Set(result.map { netWorth($0, 2024.jan) })
 
@@ -148,7 +148,7 @@ struct APlan {
 
     let sut = makeScenarios("parent", [leaf1, leaf2])
 
-    let result = sut.scenarios(Scenarios([Scenario("", people: people)]))
+    let result = sut.scenarios(Scenarios([Scenario("")]))
     let array = Array(result)
 
     #expect(array.count == 2)
@@ -162,8 +162,8 @@ struct APlan {
 
   @Test
   func multiple_scenarios_for_or_tree() {
-    let scenario1 = Scenario("", people: people)
-    let scenario2 = Scenario("", people: people)
+    let scenario1 = Scenario("")
+    let scenario2 = Scenario("")
     scenario2.add(makeLeia("annuity", 500))
 
     let leaf1 = makeStream("Income1", 1_000, 2020.jan, 2030.jan)
@@ -189,7 +189,7 @@ struct APlan {
 
     let sut = makeScenarios("Job", [leaf1, leaf2])
 
-    let result = sut.scenarios(Scenarios([Scenario("", people: people)]))
+    let result = sut.scenarios(Scenarios([Scenario("")]))
     let array = Array(result)
 
     #expect(array.count == 2)
@@ -206,7 +206,7 @@ struct APlan {
     let or2 = makeScenarios("Salary", [leaf2])
     let sut = makeGroup("And", [or1, or2])
 
-    let result = sut.scenarios(Scenarios([Scenario("Start", people: people)]))
+    let result = sut.scenarios(Scenarios([Scenario("Start")]))
     let array = Array(result)
 
     #expect(array.count == 1)

@@ -4,7 +4,7 @@ import Testing
 
 struct ThePlans {
   let plans = Plans()
-  let ignoredScenario = Scenario("ignored", people: People())
+  let ignoredScenario = Scenario("ignored")
 
   @Test
   func starts_unchanged() {

@@ -4,7 +4,7 @@ import Testing
 
 struct ALeia {
   private let people = People()
-  let ignoredScenario = Scenario("ignored", people: People())
+  let ignoredScenario = Scenario("ignored")
 
   @Test
   func returns_zero_outside_month_year_date_range() throws {

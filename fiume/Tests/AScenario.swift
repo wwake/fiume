@@ -10,10 +10,10 @@ extension Leia: Equatable {
 
 struct AScenario {
   private let people = People()
-  let ignoredScenario = Scenario("ignored", people: People())
+  let ignoredScenario = Scenario("ignored")
 
   static func makeScenario(_ streams: Leia...) -> Scenario {
-    let result = Scenario("Scenario Name", people: People())
+    let result = Scenario("Scenario Name")
     streams.forEach {
       result.add($0)
     }
@@ -65,7 +65,7 @@ struct AScenario {
 
   @Test
   func keeps_pools_and_accumulates_streams() {
-    let scenario = Scenario("pool+stream", people: people)
+    let scenario = Scenario("pool+stream")
     let asset = makeLeia(name: "savings", 1_000, leiaType: .asset)
     let income = makeLeia(name: "job", 1, leiaType: .income)
     scenario.add(asset)
@@ -79,7 +79,7 @@ struct AScenario {
 
   @Test
   func finds_named_stream() {
-    let sut = Scenario("my scenario", people: People())
+    let sut = Scenario("my scenario")
     let income = makeLeia(name: "job", 1000)
     sut.add(income)
 
@@ -88,14 +88,14 @@ struct AScenario {
 
   @Test
   func cant_find_missing_stream() {
-    let sut = Scenario("my scenario", people: People())
+    let sut = Scenario("my scenario")
 
     #expect(sut.find("missing stream") == nil)
   }
 
   @Test
   func calculates_relative_amount_of_a_stream() {
-    let sut = Scenario("My scenario", people: People())
+    let sut = Scenario("My scenario")
     let income = makeLeia(name: "job", 1000)
     sut.add(income)
     let relative = Leia(
@@ -112,7 +112,7 @@ struct AScenario {
 
   @Test
   func calculates_relative_amount_of_a_pool() {
-    let sut = Scenario("My scenario", people: People())
+    let sut = Scenario("My scenario")
     let house = makeLeia(name: "house", 100_000, leiaType: .asset)
     sut.add(house)
     let relative = Leia(

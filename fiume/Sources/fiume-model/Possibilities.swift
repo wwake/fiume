@@ -45,6 +45,6 @@ public class Possibilities {
 	}
 
   public func scenarios() -> Scenarios {
-    plans[0].scenarios(Scenarios([Scenario("Scenario", people: people)]))
+    plans[0].scenarios(Scenarios([Scenario("Scenario")]))
 	}
 }
