@@ -21,7 +21,7 @@ public class Possibilities {
     startMonth.range(numberOfMonths)
   }
 
-  public func netWorth(_ range: ClosedRange<MonthYear>) -> PossibilitiesNetWorth {
+  public func netWorth(_ range: ClosedRange<MonthYear>) -> PossibilitiesSummary {
     scenarios()
       .map {
         $0.netWorth(range)
