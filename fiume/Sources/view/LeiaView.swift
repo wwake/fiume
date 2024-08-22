@@ -2,9 +2,6 @@ import fiume_model
 import SwiftUI
 
 struct LeiaView: View {
-  @Environment(People.self)
-  var people: People
-
   @Environment(Plans.self)
   var plans: Plans
 
