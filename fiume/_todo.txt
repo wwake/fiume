@@ -1,7 +1,6 @@
+* Make rates respond to slider real-time
 
 * Do we need to pass people to Amount.value() - since Scenario has it?
-* Make rates respond to slider real-time
-* Make assumption display half as tall so we can see the impact
 * Improve display of assumption - show min & max values
 Percent-Based Assumptions
 
@@ -48,6 +47,9 @@ Calendar view (with RuleMark)
 
 Editing
 * Move streams (?)
+
+FI-24-50: 2024-08-22 - Real-Time Updates 2
+* Show assumption display inline with chart and plans
 
 FI-24-49: 2024-08-21 - Real-Time Updates
 Assumptions

@@ -29,8 +29,8 @@ struct AssumptionView: View {
       Slider(
         value: $value,
         in: Double(assumption.min)...Double(assumption.max),
-        onEditingChanged: { _ in
-          if assumption.current != Int(value) {
+        onEditingChanged: { stillDragging in
+          if !stillDragging {
             updateAction(Assumption(assumption, Int(value)))
           }
         }

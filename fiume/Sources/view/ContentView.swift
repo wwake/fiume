@@ -64,6 +64,21 @@ struct ContentView: View {
 
         Spacer()
       }
+      Divider()
+
+      if isShowingPeople {
+        PeopleView()
+          .frame(maxHeight: 150)
+        Divider()
+      }
+
+      if isShowingAssumptions {
+        AssumptionsView()
+          .frame(maxHeight: 250)
+          .scrollContentBackground(.hidden)
+
+        Divider()
+      }
 
       PlanListView(possibilities: Possibilities(startDate: startDate, plans: plans, people: people))
     }
@@ -72,12 +87,6 @@ struct ContentView: View {
         Text(saveError.localizedDescription)
       }
       Button("OK", role: .cancel) { }
-    }
-    .sheet(isPresented: $isShowingPeople) {
-      PeopleView()
-    }
-    .sheet(isPresented: $isShowingAssumptions) {
-      AssumptionsView()
     }
     .onChange(of: people.wasChanged) {
       if !people.wasChanged { return }
