@@ -20,6 +20,10 @@ public struct MoneyByType {
     set { typeToMoney[type] = newValue }
   }
 
+  public mutating func accumulate(_ type: LeiaType, _ money: Money) {
+    self[type] += money
+  }
+
   public var netIncome: Money {
     self[.income] + self[.expense]
   }

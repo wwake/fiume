@@ -14,14 +14,17 @@ public struct NetWorth {
     var netIncomeToDate = Money(0)
 
     range.forEach { monthYear in
-      var typeToMoney = MoneyByType()
+      var monthlyTotal = MoneyByType()
 
       leias.forEach { leia in
-        typeToMoney[leia.type] += leia.signedAmount(start: range.lowerBound, at: monthYear, scenario: scenario)
+        monthlyTotal.accumulate(
+          leia.type,
+          leia.signedAmount(start: range.lowerBound, at: monthYear, scenario: scenario)
+        )
       }
 
-      netIncomeToDate += typeToMoney.netIncome
-      let netWorthAtMonth = netIncomeToDate + typeToMoney.netAssets
+      netIncomeToDate += monthlyTotal.netIncome
+      let netWorthAtMonth = netIncomeToDate + monthlyTotal.netAssets
 
       result.append(MonthlySummary(month: monthYear, netWorth: netWorthAtMonth))
     }
