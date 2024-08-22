@@ -1,3 +1,13 @@
+  x
+x x
+-----
+x x
+x
+x
+
+Reports
+* Refactor: split up net worth calculation - produce raw values
+* Report Net Income by Month
 
 * Change DateSpecifier.unchanged to .unspecified
 * Make growth non-nullable
@@ -24,9 +34,6 @@ Flows
 Design
 * Maybe Possibilities should be a struct, regenerated as needed
 
-Reports
-* Refactor: split up net worth calculation - produce raw values
-* Report Net Income by Month
 
 People
 * Require distinct people names ?
