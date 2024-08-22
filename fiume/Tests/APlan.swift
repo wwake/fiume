@@ -121,8 +121,8 @@ struct APlan {
     #expect(array.count == 2)
     let netWorth0 = array[0].netWorth(2024.jan...2025.jun).netWorthByMonth
     let netWorth1 = array[1].netWorth(2024.jan...2025.jun).netWorthByMonth
-    #expect(netWorth0.last!.amount == 12 * 1_000 + 13 * 2_000)
-    #expect(netWorth0.last!.amount == netWorth1.last!.amount)
+    #expect(netWorth0.last!.netWorth == 12 * 1_000 + 13 * 2_000)
+    #expect(netWorth0.last!.netWorth == netWorth1.last!.netWorth)
   }
 
   @Test

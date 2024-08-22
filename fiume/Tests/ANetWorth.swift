@@ -13,8 +13,8 @@ struct ANetWorth {
 
     let result = sut.netWorth(2024.jan...2025.jan)
 
-    #expect(result.netWorthByMonth.first!.amount == Money(1_000))
-    #expect(result.netWorthByMonth.last!.amount == Money(0))
+    #expect(result.netWorthByMonth.first!.netWorth == Money(1_000))
+    #expect(result.netWorthByMonth.last!.netWorth == Money(0))
   }
 
   @Test
@@ -25,8 +25,8 @@ struct ANetWorth {
 
     let result = sut.netWorth(2024.jan...2025.jan)
 
-    #expect(result.netWorthByMonth.first!.amount == Money(1_000))
-    #expect(result.netWorthByMonth.last!.amount == Money(12_000))
+    #expect(result.netWorthByMonth.first!.netWorth == Money(1_000))
+    #expect(result.netWorthByMonth.last!.netWorth == Money(12_000))
   }
 
   @Test
@@ -43,12 +43,12 @@ struct ANetWorth {
     ).compute()
 
     #expect(result.netWorthByMonth[0].month == 2024.jan)
-    #expect(result.netWorthByMonth[0].amount == 1_000)
+    #expect(result.netWorthByMonth[0].netWorth == 1_000)
 
     #expect(result.netWorthByMonth[9].month == 2024.oct)
-    #expect(result.netWorthByMonth[9].amount == 9_000 + 1_500)
+    #expect(result.netWorthByMonth[9].netWorth == 9_000 + 1_500)
 
     #expect(result.netWorthByMonth[12].month == 2025.jan)
-    #expect(result.netWorthByMonth[12].amount == 9_000 + 3 * 1_500 + 500)
+    #expect(result.netWorthByMonth[12].netWorth == 9_000 + 3 * 1_500 + 500)
   }
 }

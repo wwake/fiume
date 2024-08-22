@@ -5,5 +5,5 @@ func netWorth(_ scenario: Scenario, _ monthYear: MonthYear) -> Int {
     .netWorth(monthYear...monthYear)
     .netWorthByMonth
     .first!
-    .amount
+    .netWorth
 }

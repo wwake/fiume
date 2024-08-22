@@ -42,7 +42,7 @@ struct ContentView: View {
         ForEach(dataSeries.netWorthByMonth) {
           LineMark(
             x: .value("Month", $0.month),
-            y: .value("Net Worth", $0.amount)
+            y: .value("Net Worth", $0.netWorth)
           )
         }
         .foregroundStyle(by: .value("Scenario Name", dataSeries.name))

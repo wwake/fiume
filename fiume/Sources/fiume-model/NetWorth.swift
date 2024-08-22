@@ -19,7 +19,7 @@ public struct NetWorth {
       let netAssetsAtMonth = netAssets(at: monthYear)
       let netWorthAtMonth = netIncomeToDate + netAssetsAtMonth
 
-      result.append(MonthlySummary(month: monthYear, amount: netWorthAtMonth))
+      result.append(MonthlySummary(month: monthYear, netWorth: netWorthAtMonth))
     }
     return ScenarioSummary(
       name: scenario.name,

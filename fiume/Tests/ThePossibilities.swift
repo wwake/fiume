@@ -27,7 +27,7 @@ struct ThePossibilities {
 
     let data = sut.netWorth(sut.range(12))
 
-    #expect(data[0].netWorthByMonth.last!.amount == Money(12_000))
+    #expect(data[0].netWorthByMonth.last!.netWorth == Money(12_000))
 	}
 
   @Test
@@ -38,7 +38,7 @@ struct ThePossibilities {
 
 		let data = sut.netWorth(sut.range(12))
 
-    #expect(data[0].netWorthByMonth.last!.amount == Money(1_200))
+    #expect(data[0].netWorthByMonth.last!.netWorth == Money(1_200))
 	}
 
   @Test
@@ -84,8 +84,8 @@ struct ThePossibilities {
 
     let result = sut.netWorth(sut.range(3))
     let resultSet = Set([
-      result[0].netWorthByMonth.last!.amount,
-      result[1].netWorthByMonth.last!.amount,
+      result[0].netWorthByMonth.last!.netWorth,
+      result[1].netWorthByMonth.last!.netWorth,
     ])
     #expect(resultSet == [3_000, 6_000])
   }

@@ -60,7 +60,7 @@ struct AScenario {
     let result = sut.netWorth(2200.jan...2200.dec)
 
     #expect(result.name == "Scenario Name")
-    #expect(result.netWorthByMonth.last!.amount == Money(1_200))
+    #expect(result.netWorthByMonth.last!.netWorth == Money(1_200))
   }
 
   @Test
@@ -73,8 +73,8 @@ struct AScenario {
 
     let result = scenario.netWorth(2025.jan...2025.feb)
 
-    #expect(result.netWorthByMonth[0].amount == 1001)
-    #expect(result.netWorthByMonth[1].amount == 1002)
+    #expect(result.netWorthByMonth[0].netWorth == 1001)
+    #expect(result.netWorthByMonth[1].netWorth == 1002)
   }
 
   @Test
