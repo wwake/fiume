@@ -5,7 +5,7 @@ import Testing
 
 struct ADateSpecifier {
   private func makePerson() -> Person {
-    Person(name: "bub", birth: 1970.mar, death: nil)
+    Person(name: "bub", birth: 1970.mar)
   }
 
   @Test

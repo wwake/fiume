@@ -13,10 +13,10 @@ struct ThePeople {
 
   @Test
   func doesnt_change_when_new_people_loaded() {
-    people.add(Person(name: "initial", birth: 2020.mar, death: nil))
+    people.add(Person(name: "initial", birth: 2020.mar))
     let newPeople = [
-      Person(name: "new1", birth: 2021.may, death: nil),
-      Person(name: "new2", birth: 2021.may, death: nil),
+      Person(name: "new1", birth: 2021.may),
+      Person(name: "new2", birth: 2021.may),
     ]
 
     people.load(newPeople)
@@ -26,7 +26,7 @@ struct ThePeople {
 
   @Test
   func changes_when_person_is_added() {
-    people.add(Person(name: "Buck", birth: 2000.oct, death: nil))
+    people.add(Person(name: "Buck", birth: 2000.oct))
     #expect(people.wasChanged)
   }
 
@@ -37,7 +37,7 @@ struct ThePeople {
 
   @Test
   func returns_person_when_found() {
-    let person = Person(name: "Bob", birth: 2010.apr, death: nil)
+    let person = Person(name: "Bob", birth: 2010.apr)
     people.add(person)
 
     #expect(people.findById(person.id) == person)
@@ -45,9 +45,9 @@ struct ThePeople {
 
   @Test
   func replaces_person() {
-    let bob = Person(name: "Bob", birth: 2000.feb, death: nil)
+    let bob = Person(name: "Bob", birth: 2000.feb)
     people.add(bob)
-    let robert = Person(bob.id, name: "Robert", birth: 2000.feb, death: nil)
+    let robert = Person(bob.id, name: "Robert", birth: 2000.feb)
     people.wasChanged = false
 
     people.replace(robert)
@@ -58,8 +58,8 @@ struct ThePeople {
 
   @Test
   func changes_when_person_is_removed() {
-    let rene = Person(name: "Rene", birth: 2000.oct, death: nil)
-    let sal = Person(name: "Sal", birth: 2000.oct, death: nil)
+    let rene = Person(name: "Rene", birth: 2000.oct)
+    let sal = Person(name: "Sal", birth: 2000.oct)
     people.add(rene)
     people.add(sal)
     people.wasChanged = false
@@ -73,9 +73,9 @@ struct ThePeople {
 
   @Test
   func sorts_in_alphabetical_order() {
-    let bob = Person(name: "Bob", birth: 2000.feb, death: nil)
+    let bob = Person(name: "Bob", birth: 2000.feb)
     people.add(bob)
-    let art = Person(name: "Art", birth: 1990.feb, death: nil)
+    let art = Person(name: "Art", birth: 1990.feb)
     people.add(art)
 
     #expect(people.sorted().map { $0.name } == ["Art", "Bob"])

@@ -2,19 +2,17 @@ import Foundation
 
 public struct Person: Identifiable, Equatable, Codable {
   public static var null: Person {
-    Person(name: "", birth: 2000.jun, death: nil)
+    Person(name: "", birth: 2000.jun)
   }
 
   public var id: UUID
   public let name: String
   public let birth: MonthYear
-  public let death: MonthYear?
 
-  public init(_ id: UUID = UUID(), name: String, birth: MonthYear, death: MonthYear?) {
+  public init(_ id: UUID = UUID(), name: String, birth: MonthYear) {
     self.id = id
     self.name = name
     self.birth = birth
-    self.death = death
   }
 }
 

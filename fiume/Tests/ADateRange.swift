@@ -26,7 +26,7 @@ struct ADateRange {
   @Test
   func can_start_at_an_age() {
     let people = People.shared
-    let bob = Person(name: "Bob", birth: 1970.jan, death: nil)
+    let bob = Person(name: "Bob", birth: 1970.jan)
     people.add(bob)
     let sut = DateRange(.age(bob.id, 40), .unchanged)
     #expect(!sut.includes(2009.dec))
@@ -36,7 +36,7 @@ struct ADateRange {
   @Test
   func can_end_at_an_age() {
     let people = People.shared
-    let bob = Person(name: "Bob", birth: 1970.jan, death: nil)
+    let bob = Person(name: "Bob", birth: 1970.jan)
     people.add(bob)
     let sut = DateRange(.unchanged, .age(bob.id, 80))
     #expect(sut.includes(2049.dec))

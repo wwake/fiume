@@ -36,8 +36,6 @@ struct PeopleView: View {
             Text(person.name)
             Text("  b. \(person.birth)")
 
-            Text("  d. \(person.death == nil ? "?" : "\(person.death!)")")
-
             Spacer()
 
             Button(action: {
@@ -69,8 +67,8 @@ struct PeopleView: View {
 
 #Preview {
   @State var people = People()
-  people.add(Person(name: "Bob", birth: 1970.mar, death: nil))
-  people.add(Person(name: "Chris", birth: 1980.dec, death: 2025.apr))
+  people.add(Person(name: "Bob", birth: 1970.mar))
+  people.add(Person(name: "Chris", birth: 1980.dec))
 
   return PeopleView()
     .environment(people)

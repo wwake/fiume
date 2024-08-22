@@ -44,7 +44,7 @@ struct EditPersonView: View {
       HStack {
         Spacer()
         Button(buttonName) {
-          let person = Person(person.id, name: name, birth: born, death: person.death)
+          let person = Person(person.id, name: name, birth: born)
           action(person)
           dismiss()
         }
