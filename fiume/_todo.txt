@@ -1,6 +1,4 @@
-* Make rates respond to slider real-time
 
-* Do we need to pass people to Amount.value() - since Scenario has it?
 * Improve display of assumption - show min & max values
 Percent-Based Assumptions
 
@@ -50,6 +48,7 @@ Editing
 
 FI-24-50: 2024-08-22 - Real-Time Updates 2
 * Show assumption display inline with chart and plans
+* Gave up on making rates respond to slider real-time
 
 FI-24-49: 2024-08-21 - Real-Time Updates
 Assumptions

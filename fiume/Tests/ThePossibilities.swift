@@ -17,7 +17,7 @@ struct ThePossibilities {
 
   private func makePossibilities() -> Possibilities {
     let plans = Plans()
-    return Possibilities(startDate: 2030.jan, plans: plans, people: people)
+    return Possibilities(startDate: 2030.jan, plans: plans)
   }
 
   @Test

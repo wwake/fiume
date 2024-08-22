@@ -25,12 +25,10 @@ public class Possibilities {
   public let startMonth: MonthYear
 
   public var plans: [Plan]
-  public var people: People
 
-  public init(startDate: MonthYear, plans: Plans, people: People) {
+  public init(startDate: MonthYear, plans: Plans) {
     self.startMonth = startDate
     self.plans = [plans.plans]
-    self.people = people
   }
 
   public func range(_ numberOfMonths: Int) -> ClosedRange<MonthYear> {
