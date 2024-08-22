@@ -1,19 +1,5 @@
 import Foundation
 
-public struct MonthlyNetWorth: Identifiable {
-  public let id = UUID()
-  public let month: MonthYear
-  public let amount: Money
-}
-
-public struct ScenarioNetWorth: Identifiable {
-  public let id = UUID()
-  public let name: String
-  public let netWorthByMonth: [MonthlyNetWorth]
-}
-
-public typealias PossibilitiesNetWorth = [ScenarioNetWorth]
-
 @Observable
 public class Possibilities {
   enum CodingKeys: String, CodingKey {

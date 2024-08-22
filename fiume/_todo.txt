@@ -1,7 +1,6 @@
 
 * Change DateSpecifier.unchanged to .unspecified
 * Make growth non-nullable
-* Remove Person.death (will be assumption-based)
 Persistence updates
 
 Date- or Amount-Based Assumptions
@@ -26,8 +25,8 @@ Design
 * Maybe Possibilities should be a struct, regenerated as needed
 
 Reports
-* Refactor: split up net worth calculation - produce raw values, then the report
-Net Income by Month
+* Refactor: split up net worth calculation - produce raw values
+* Report Net Income by Month
 
 People
 * Require distinct people names ?
@@ -48,6 +47,9 @@ Percent-Based Assumptions
 * Show assumption display inline with chart and plans
 * Gave up on making rates respond to slider real-time
 * Improve display of assumption - show min & max values
+
+Persistence updates
+* Remove Person.death (will be assumption-based)
 
 FI-24-49: 2024-08-21 - Real-Time Updates
 Assumptions
