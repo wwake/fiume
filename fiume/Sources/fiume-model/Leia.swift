@@ -3,7 +3,7 @@ import Foundation
 // Leia = Liability/Expense/Income/Asset (ie Stream or Pool)
 //
 
-public enum LeiaType: Codable {
+public enum LeiaType: Codable, CaseIterable {
   case
     asset,
     liability,

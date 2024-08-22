@@ -12,12 +12,16 @@ public struct NetWorth {
   public func compute() -> ScenarioSummary {
     var result = [MonthlySummary]()
     var netIncomeToDate = Money(0)
-    range.forEach { monthYear in
-      let netIncomeForMonth = netIncome(at: monthYear)
-      netIncomeToDate += netIncomeForMonth
 
-      let netAssetsAtMonth = netAssets(at: monthYear)
-      let netWorthAtMonth = netIncomeToDate + netAssetsAtMonth
+    range.forEach { monthYear in
+      var typeToMoney = MoneyByType()
+
+      leias.forEach { leia in
+        typeToMoney[leia.type] += leia.signedAmount(start: range.lowerBound, at: monthYear, scenario: scenario)
+      }
+
+      netIncomeToDate += typeToMoney.netIncome
+      let netWorthAtMonth = netIncomeToDate + typeToMoney.netAssets
 
       result.append(MonthlySummary(month: monthYear, netWorth: netWorthAtMonth))
     }
@@ -25,25 +29,5 @@ public struct NetWorth {
       name: scenario.name,
       netWorthByMonth: result
     )
-  }
-
-  fileprivate func netIncome(at month: MonthYear) -> Money {
-    net(at: month, in: filterBy(.income, .expense))
-  }
-
-  fileprivate func netAssets(at month: MonthYear) -> Money {
-    net(at: month, in: filterBy(.asset, .liability))
-  }
-
-  fileprivate func filterBy(_ type1: LeiaType, _ type2: LeiaType) -> [Leia] {
-    leias.filter { value in
-      value.type == type1 || value.type == type2
-    }
-  }
-
-  fileprivate func net(at month: MonthYear, in collection: [Leia]) -> Money {
-    collection.reduce(Money(0)) { net, leia in
-      net + leia.signedAmount(start: range.lowerBound, at: month, scenario: scenario)
-    }
   }
 }

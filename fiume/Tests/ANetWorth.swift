@@ -7,7 +7,7 @@ struct ANetWorth {
 
   @Test
   func for_pool_considers_dates() {
-    let leia = makeLeia(name: "stream", 1_000, dates: DateRange(.month(2024.jan), .month(2024.dec)), leiaType: .asset)
+    let leia = makeLeia(name: "asset", 1_000, dates: DateRange(.month(2024.jan), .month(2024.dec)), leiaType: .asset)
     let sut = Scenario("A")
     sut.add(leia)
 
