@@ -1,6 +1,6 @@
-public typealias PossibilitiesNetWorth = [ScenarioNetWorth]
+public typealias PossibilitiesNetWorth = [ScenarioSummary]
 
-public struct ScenarioNetWorth: Identifiable {
+public struct ScenarioSummary: Identifiable {
   public let id = UUID()
   public let name: String
   public let netWorthByMonth: [MonthlySummary]

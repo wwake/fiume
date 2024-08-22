@@ -9,7 +9,7 @@ public struct NetWorth {
     self.range = range
   }
 
-  public func compute() -> ScenarioNetWorth {
+  public func compute() -> ScenarioSummary {
     var result = [MonthlySummary]()
     var netIncomeToDate = Money(0)
     range.forEach { monthYear in
@@ -21,7 +21,7 @@ public struct NetWorth {
 
       result.append(MonthlySummary(month: monthYear, amount: netWorthAtMonth))
     }
-    return ScenarioNetWorth(
+    return ScenarioSummary(
       name: scenario.name,
       netWorthByMonth: result
     )

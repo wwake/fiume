@@ -29,7 +29,7 @@ public class Scenario: Identifiable {
     leias[name]
   }
 
-  public func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioNetWorth {
+  public func netWorth(_ range: ClosedRange<MonthYear>) -> ScenarioSummary {
     NetWorth(
       scenario: self,
       leias: leias.values,
