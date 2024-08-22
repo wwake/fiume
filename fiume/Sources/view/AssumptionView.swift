@@ -24,22 +24,28 @@ struct AssumptionView: View {
   var body: some View {
     HStack {
       Text(assumption.name)
-      Text(": \(Int(value))%")
-      Spacer()
-      Slider(
-        value: $value,
-        in: Double(assumption.min)...Double(assumption.max),
-        onEditingChanged: { stillDragging in
-          if !stillDragging {
-            updateAction(Assumption(assumption, Int(value)))
-          }
-        }
-      )
-      .onChange(of: value) {
-        /* triggers real-time updates */
-      }
 
       Spacer()
+      Text("\(Int(value))%")
+
+      HStack {
+        Text("[ \(assumption.min)")
+        Slider(
+          value: $value,
+          in: Double(assumption.min)...Double(assumption.max),
+          onEditingChanged: { stillDragging in
+            if !stillDragging {
+              updateAction(Assumption(assumption, Int(value)))
+            }
+          }
+        )
+        .onChange(of: value) {
+          /* triggers real-time updates */
+        }
+        Text("\(assumption.max) ]")
+      }
+      .frame(maxWidth: 400)
+
       Button(action: {
         deleteAction(assumption.name)
       }) {
@@ -56,6 +62,7 @@ struct AssumptionView: View {
       }
       .buttonStyle(.plain)
     }
+    .padding([.leading, .trailing])
     .sheet(isPresented: $isEditing) {
       EditAssumptionView(assumption: assumption, buttonName: "Update") { assumption in
         updateAction(assumption)
