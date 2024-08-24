@@ -72,7 +72,7 @@ extension Amount: CustomStringConvertible {
   public var description: String {
     switch self {
     case let .money(amount):
-      return "$\(amount)/mo"
+      return "$\(amount)"
 
     case let .relative(ratio, streamName):
       return "\(ratio.formatted(.percent.precision(.fractionLength(0)))) of \(streamName)"

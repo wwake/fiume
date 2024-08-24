@@ -35,6 +35,16 @@ public enum LeiaType: Codable, CaseIterable {
       return "Expense"
     }
   }
+
+  public var frequency: String {
+    switch self {
+    case .asset, .liability:
+      return ""
+
+    case .income, .expense:
+      return "/mo"
+    }
+  }
 }
 
 public struct Leia: Identifiable, Codable {
