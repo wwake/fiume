@@ -1,3 +1,7 @@
+
+* Report Net Income by Month
+Reports
+
   x
 x x
 -----
@@ -5,9 +9,6 @@ x x
 x
 x
 
-Reports
-* Refactor: split up net worth calculation - produce raw values
-* Report Net Income by Month
 
 * Change DateSpecifier.unchanged to .unspecified
 * Make growth non-nullable
@@ -36,7 +37,7 @@ Design
 
 
 People
-* Require distinct people names ?
+* Require distinct people names?
 * Do better when deleting a person with active Leias - at least strike through
 
 Sections
@@ -57,6 +58,9 @@ Percent-Based Assumptions
 
 Persistence updates
 * Remove Person.death (will be assumption-based)
+
+Reports
+* Refactor: split up net worth calculation - produce raw values
 
 FI-24-49: 2024-08-21 - Real-Time Updates
 Assumptions

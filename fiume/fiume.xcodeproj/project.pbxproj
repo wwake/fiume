@@ -72,6 +72,7 @@
 		91E7BB9A2C502C2E00A328DF /* EditDateRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E7BB982C502C1100A328DF /* EditDateRangeView.swift */; };
 		91F6E05F2C45A29A00E5EB7E /* MonthYear+Plottable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */; };
 		91FA964E2C77CC4E0011BB7F /* PossibilitiesSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA964D2C77CBE20011BB7F /* PossibilitiesSummary.swift */; };
+		91FA96502C79707B0011BB7F /* MoneyByType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA964F2C79707B0011BB7F /* MoneyByType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +194,7 @@
 		91F950822C07B860006822AF /* MonthYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYear.swift; sourceTree = "<group>"; };
 		91F950842C07B8AB006822AF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		91FA964D2C77CBE20011BB7F /* PossibilitiesSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibilitiesSummary.swift; sourceTree = "<group>"; };
+		91FA964F2C79707B0011BB7F /* MoneyByType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyByType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +236,7 @@
 				915226D92C4EDB980001260F /* fiume_model.h */,
 				914FEFA62BF29317003D858E /* Leia.swift */,
 				914FEFA22BF292FE003D858E /* Money.swift */,
+				91FA964F2C79707B0011BB7F /* MoneyByType.swift */,
 				91F950822C07B860006822AF /* MonthYear.swift */,
 				918939552C73C5320058C0DA /* NetWorth.swift */,
 				91C248CC2C24B3CE00A1EEB3 /* People.swift */,
@@ -241,6 +244,7 @@
 				919CED482BF5492800ACCE2E /* Plan.swift */,
 				91C248D32C3337E400A1EEB3 /* Plans.swift */,
 				914FEFA42BF2930E003D858E /* Possibilities.swift */,
+				91FA964D2C77CBE20011BB7F /* PossibilitiesSummary.swift */,
 				914B54C42BFBDB74005A9090 /* Scenario.swift */,
 				91CDFD162BFE6AE700695E65 /* Scenarios.swift */,
 			);
@@ -301,7 +305,6 @@
 		91DA64F02BF291F6004ADB9B = {
 			isa = PBXGroup;
 			children = (
-				91FA964D2C77CBE20011BB7F /* PossibilitiesSummary.swift */,
 				919070D82C4059F50028B5BB /* _todo.txt */,
 				919070D92C4059FD0028B5BB /* fiume.key */,
 				91A8C2982BFD7C5400DF5AC0 /* fiume.xctestplan */,
@@ -551,6 +554,7 @@
 				91753E4D2C6BEEA9001B02F6 /* Assumptions.swift in Sources */,
 				915226E32C4EDBAD0001260F /* Money.swift in Sources */,
 				91E7BB952C4EF2CF00A328DF /* DateRange.swift in Sources */,
+				91FA96502C79707B0011BB7F /* MoneyByType.swift in Sources */,
 				91753E4C2C6BEE9C001B02F6 /* Assumption.swift in Sources */,
 				915226EB2C4EDBAD0001260F /* Plans.swift in Sources */,
 				915226E92C4EDBAD0001260F /* Leia.swift in Sources */,
