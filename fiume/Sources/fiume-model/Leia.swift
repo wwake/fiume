@@ -5,10 +5,10 @@ import Foundation
 
 public enum LeiaType: Codable, CaseIterable {
   case
-    asset,
-    liability,
-    income,
-    expense
+  asset,
+  liability,
+  income,
+  expense
 
   public func signed(_ money: Money) -> Money {
     switch self {

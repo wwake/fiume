@@ -57,6 +57,17 @@ public struct MonthYear: Equatable, Codable {
     self.year = calendar.component(.year, from: date)
     self.month = Month(rawValue: calendar.component(.month, from: date) - 1) ?? .jan
   }
+
+  public var date: Date {
+    var dateComponents = DateComponents()
+    dateComponents.year = year
+    dateComponents.month = month.rawValue + 1
+    dateComponents.day = 1
+
+    let userCalendar = Calendar(identifier: .gregorian) // since the components above (like year 1980) are for Gregorian
+    let someDateTime = userCalendar.date(from: dateComponents)
+    return someDateTime ?? Date()
+  }
 }
 
 extension MonthYear: Comparable {

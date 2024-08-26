@@ -12,6 +12,7 @@ public struct GraphView: View {
   private var numberOfMonths: Int
   private var startDate: MonthYear
   private var plans: Plans
+  private var data: PossibilitiesSummary
 
   @State private var graphType: GraphType = .netWorth
 
@@ -19,6 +20,8 @@ public struct GraphView: View {
     self.numberOfMonths = numberOfMonths
     self.startDate = startDate
     self.plans = plans
+    self.data = Possibilities(startDate: startDate, plans: plans)
+      .summary(startDate.range(numberOfMonths))
   }
 
   public var body: some View {
@@ -32,10 +35,10 @@ public struct GraphView: View {
     Group {
       switch graphType {
       case .netWorth:
-        NetWorthView(numberOfMonths: numberOfMonths, startDate: startDate, plans: plans)
+        NetWorthView(numberOfMonths: numberOfMonths, data: data)
 
       case .netIncome:
-        NetIncomeView(numberOfMonths: numberOfMonths, startDate: startDate, plans: plans)
+        NetIncomeView(numberOfMonths: numberOfMonths, data: data)
       }
     }
   }

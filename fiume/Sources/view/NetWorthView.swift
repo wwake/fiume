@@ -4,25 +4,15 @@ import SwiftUI
 
 public struct NetWorthView: View {
   private var numberOfMonths: Int
-  private var startDate: MonthYear
-  private var plans: Plans
+  private var data: PossibilitiesSummary
 
-  public init(numberOfMonths: Int, startDate: MonthYear, plans: Plans) {
+  public init(numberOfMonths: Int, data: PossibilitiesSummary) {
     self.numberOfMonths = numberOfMonths
-    self.startDate = startDate
-    self.plans = plans
+    self.data = data
   }
 
   public var body: some View {
-    Chart(
-      Possibilities(
-        startDate: startDate,
-        plans: plans
-      )
-      .netWorth(
-        startDate.range(numberOfMonths)
-      )
-    ) { dataSeries in
+    Chart(data) { dataSeries in
       ForEach(dataSeries.netWorthByMonth) {
         LineMark(
           x: .value("Month", $0.month),
@@ -31,6 +21,5 @@ public struct NetWorthView: View {
       }
       .foregroundStyle(by: .value("Scenario Name", dataSeries.name))
     }
-    .chartXScale(domain: startDate.range(numberOfMonths))
   }
 }

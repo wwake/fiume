@@ -25,7 +25,7 @@ struct ThePossibilities {
 		let sut = makePossibilities()
 		sut.add(makeLeia("Salary", Money(1_000)))
 
-    let data = sut.netWorth(sut.range(12))
+    let data = sut.summary(sut.range(12))
 
     #expect(data[0].netWorthByMonth.last!.netWorth == Money(12_000))
 	}
@@ -36,7 +36,7 @@ struct ThePossibilities {
     sut.add(makeLeia("Salary", Money(1_000), .income))
     sut.add(makeLeia("Expenses", Money(900), .expense))
 
-		let data = sut.netWorth(sut.range(12))
+		let data = sut.summary(sut.range(12))
 
     #expect(data[0].netWorthByMonth.last!.netWorth == Money(1_200))
 	}
@@ -82,7 +82,7 @@ struct ThePossibilities {
     orTree.append(Plan.make(makeLeia("Salary2", Money(2_000))))
     sut.add(orTree)
 
-    let result = sut.netWorth(sut.range(3))
+    let result = sut.summary(sut.range(3))
     let resultSet = Set([
       result[0].netWorthByMonth.last!.netWorth,
       result[1].netWorthByMonth.last!.netWorth,

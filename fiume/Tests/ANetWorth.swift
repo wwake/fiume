@@ -72,7 +72,6 @@ struct ANetWorth {
       range: 2024.jan...2024.jan
     ).compute()
 
-    let x = result.netWorthByMonth.first!
     #expect(result.netWorthByMonth.first!.moneyByType[.income] == 1_000)
     #expect(result.netWorthByMonth.first!.moneyByType[.asset] == 2_000)
     #expect(result.netWorthByMonth.first!.moneyByType[.expense] == -500)
