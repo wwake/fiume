@@ -30,8 +30,9 @@ struct ContentView: View {
     NavigationStack {
       Text("Net Worth")
         .font(.title)
-      NetWorthView(numberOfMonths: numberOfMonths, startDate: startDate, plans: plans)
-      .padding()
+
+      GraphView(numberOfMonths: numberOfMonths, startDate: startDate, plans: plans)
+        .padding()
 
       HStack {
         Button("People") {
