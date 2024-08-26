@@ -73,6 +73,7 @@
 		91F6E05F2C45A29A00E5EB7E /* MonthYear+Plottable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */; };
 		91FA964E2C77CC4E0011BB7F /* PossibilitiesSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA964D2C77CBE20011BB7F /* PossibilitiesSummary.swift */; };
 		91FA96502C79707B0011BB7F /* MoneyByType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA964F2C79707B0011BB7F /* MoneyByType.swift */; };
+		91FA96532C7D03940011BB7F /* NetWorthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96512C7D02260011BB7F /* NetWorthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +196,7 @@
 		91F950842C07B8AB006822AF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		91FA964D2C77CBE20011BB7F /* PossibilitiesSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibilitiesSummary.swift; sourceTree = "<group>"; };
 		91FA964F2C79707B0011BB7F /* MoneyByType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyByType.swift; sourceTree = "<group>"; };
+		91FA96512C7D02260011BB7F /* NetWorthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 				91206E322C090B3F00D4C1CB /* PeopleView.swift */,
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
+				91FA96512C7D02260011BB7F /* NetWorthView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				91753E432C6BD9D2001B02F6 /* AssumptionsView.swift in Sources */,
 				914FEFB52BF2AD09003D858E /* FormFields.swift in Sources */,
 				91753E492C6BE04A001B02F6 /* AssumptionView.swift in Sources */,
+				91FA96532C7D03940011BB7F /* NetWorthView.swift in Sources */,
 				91206E2A2C07BE6B00D4C1CB /* MonthYearView.swift in Sources */,
 				91042FE32C51822B00FFC65F /* AmountView.swift in Sources */,
 				919CED4D2BF54D8C00ACCE2E /* PlanView.swift in Sources */,

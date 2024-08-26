@@ -30,24 +30,7 @@ struct ContentView: View {
     NavigationStack {
       Text("Net Worth")
         .font(.title)
-      Chart(
-        Possibilities(
-          startDate: startDate,
-          plans: plans
-        )
-        .netWorth(
-          startDate.range(numberOfMonths)
-        )
-      ) { dataSeries in
-        ForEach(dataSeries.netWorthByMonth) {
-          LineMark(
-            x: .value("Month", $0.month),
-            y: .value("Net Worth", $0.netWorth)
-          )
-        }
-        .foregroundStyle(by: .value("Scenario Name", dataSeries.name))
-      }
-      .chartXScale(domain: startDate.range(numberOfMonths))
+      NetWorthView(numberOfMonths: numberOfMonths, startDate: startDate, plans: plans)
       .padding()
 
       HStack {
