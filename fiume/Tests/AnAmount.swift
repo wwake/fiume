@@ -10,7 +10,7 @@ struct AnAmount {
     let sut = Amount(100)
     #expect(sut.value(monthlyInterest: 0.0, at: 2024.apr, ignoredScenario) == 100)
     #expect(sut.isNonNegative)
-    #expect(sut.description == "$100/mo")
+    #expect(sut.description == "$100")
   }
 
   @Test
@@ -18,7 +18,7 @@ struct AnAmount {
     let sut = Amount(-100)
     #expect(sut.value(monthlyInterest: 0.0, at: 2024.jun, ignoredScenario) == -100)
     #expect(!sut.isNonNegative)
-    #expect(sut.description == "$-100/mo")
+    #expect(sut.description == "$-100")
   }
 
   @Test

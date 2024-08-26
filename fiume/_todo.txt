@@ -76,7 +76,7 @@ FI-24-48: 2024-08-20 - Really - Compute Interest!
 * Refactor: Make scenario required for value() in Leia and Amount
 * Let Amount compute interest given the interest rate and the start month
 * Make growth (interest) work!
-* Calculate montly rate as 12th root of (1 + annual %)
+* Calculate monthly rate as 12th root of (1 + annual %)
 * Calculate per-month by taking starting value * monthly-rate ^ #months
 * See smooth growth curve on a simple annuity
 
