@@ -1,14 +1,4 @@
-* Net Income report view
-* Report Net Income by Month
-Reports
-
-  x
-x x
------
-x x
-x
-x
-
+* Net Income report view, multiple scenarios
 
 * Change DateSpecifier.unchanged to .unspecified
 * Make growth non-nullable
@@ -52,6 +42,7 @@ Editing
 
 FI-24-51: 2024-08-26 - Monthly Net Income
 * Make MonthlySummary know total by Leia type
+* Net Income report view
 
 FI-24-50: 2024-08-22 - Real-Time Updates 2
 Percent-Based Assumptions
