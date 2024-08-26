@@ -9,5 +9,6 @@ public struct ScenarioSummary: Identifiable {
 public struct MonthlySummary: Identifiable {
   public let id = UUID()
   public let month: MonthYear
+  public let moneyByType: MoneyByType
   public let netWorth: Money
 }

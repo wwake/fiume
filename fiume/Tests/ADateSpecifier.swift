@@ -76,7 +76,7 @@ struct ADateSpecifier {
 
   @Test
   func effective_start_for_unchanged() {
-    #expect(DateSpecifier.unchanged.effectiveStart == MonthYear.start)
+    #expect(DateSpecifier.unchanged.effectiveStart == 1900.jan)
   }
 
   @Test

@@ -7,7 +7,7 @@ public struct MoneyByType {
     }
   }
 
-  private subscript(type: LeiaType) -> Money {
+  public private(set) subscript(type: LeiaType) -> Money {
     get { typeToMoney[type]! }
     set { typeToMoney[type] = newValue }
   }

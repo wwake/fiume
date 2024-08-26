@@ -51,4 +51,31 @@ struct ANetWorth {
     #expect(result.netWorthByMonth[12].month == 2025.jan)
     #expect(result.netWorthByMonth[12].netWorth == 9_000 + 3 * 1_500 + 500)
   }
+
+  @Test
+  func knows_money_by_type() {
+    let scenario = AScenario.makeScenario(
+      makeLeia(name: "Income", 1_000, dates: DateRange.always, leiaType: .income),
+      makeLeia(name: "Asset", 2_000, dates: DateRange.always, leiaType: .asset),
+      makeLeia(name: "Expense", 500, dates: DateRange.always, leiaType: .expense),
+      makeLeia(name: "Liability", 750, dates: DateRange.always, leiaType: .liability)
+    )
+
+    let result = NetWorth(
+      scenario: scenario,
+      leias: [
+        scenario.find("Income")!,
+        scenario.find("Asset")!,
+        scenario.find("Expense")!,
+        scenario.find("Liability")!,
+      ],
+      range: 2024.jan...2024.jan
+    ).compute()
+
+    let x = result.netWorthByMonth.first!
+    #expect(result.netWorthByMonth.first!.moneyByType[.income] == 1_000)
+    #expect(result.netWorthByMonth.first!.moneyByType[.asset] == 2_000)
+    #expect(result.netWorthByMonth.first!.moneyByType[.expense] == -500)
+    #expect(result.netWorthByMonth.first!.moneyByType[.liability] == -750)
+  }
 }

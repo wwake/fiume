@@ -37,7 +37,7 @@ public enum DateSpecifier: Equatable, Codable {
   public var effectiveStart: MonthYear {
     switch self {
     case .unchanged:
-      return MonthYear.start
+      return 1900.jan
 
     case .month(let monthYear):
       return monthYear
