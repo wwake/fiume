@@ -76,6 +76,7 @@
 		91FA96532C7D03940011BB7F /* NetWorthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96512C7D02260011BB7F /* NetWorthView.swift */; };
 		91FA96552C7D04CC0011BB7F /* NetIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96542C7D04CC0011BB7F /* NetIncomeView.swift */; };
 		91FA96572C7D05F70011BB7F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96562C7D05F70011BB7F /* GraphView.swift */; };
+		91FA96592C7E4D460011BB7F /* ScenarioNetIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +202,7 @@
 		91FA96512C7D02260011BB7F /* NetWorthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorthView.swift; sourceTree = "<group>"; };
 		91FA96542C7D04CC0011BB7F /* NetIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetIncomeView.swift; sourceTree = "<group>"; };
 		91FA96562C7D05F70011BB7F /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioNetIncomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				91FA96562C7D05F70011BB7F /* GraphView.swift */,
+				91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
 				919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */,
 				91D867892BF3E116001B4A3D /* SpikeView.swift in Sources */,
+				91FA96592C7E4D460011BB7F /* ScenarioNetIncomeView.swift in Sources */,
 				91C248D22C33277100A1EEB3 /* Persistence.swift in Sources */,
 				91DA64FF2BF291F6004ADB9B /* ContentView.swift in Sources */,
 				91DA64FD2BF291F6004ADB9B /* fiumeApp.swift in Sources */,

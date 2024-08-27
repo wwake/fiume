@@ -6,7 +6,7 @@ public struct NetIncomeView: View {
   private var numberOfMonths: Int
   private var data: PossibilitiesSummary
 
-  public init(numberOfMonths: Int, data: PossibilitiesSummary) {
+  public init(numberOfMonths: Int, data: PossibilitiesSummary, scenario: ScenarioSummary) {
     self.numberOfMonths = numberOfMonths
     self.data = data
   }

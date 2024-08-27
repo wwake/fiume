@@ -1,3 +1,4 @@
+* Net Income report for a single scenario
 * Net Income report view, multiple scenarios
 
 * Change DateSpecifier.unchanged to .unspecified
@@ -14,6 +15,8 @@ Date- or Amount-Based Assumptions
 Amount
 
 Error Reporting when Leia name is reused in a given scenario
+
+Enable/disable Leia, Scenario, or Group
 
 Streams
 * Allow dates to depend on death day
