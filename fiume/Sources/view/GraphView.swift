@@ -14,7 +14,8 @@ public struct GraphView: View {
   private var plans: Plans
   private var data: PossibilitiesSummary
 
-  @State private var graphType: GraphType = .netWorth
+  @AppStorage("graphType")
+  private var graphType: GraphType = .netWorth
 
   public init(numberOfMonths: Int, startDate: MonthYear, plans: Plans) {
     self.numberOfMonths = numberOfMonths

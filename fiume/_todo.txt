@@ -1,5 +1,5 @@
-* Net Income report for a single scenario
-* Net Income report view, multiple scenarios
+* Remember which report you're looking at (between runs)
+* Click on scenario to show it full sized
 
 * Change DateSpecifier.unchanged to .unspecified
 * Make growth non-nullable
@@ -42,6 +42,11 @@ Calendar view (with RuleMark)
 
 Editing
 * Move streams (?)
+
+FI-24-52: 2024-08-27 - Net Income in Multiple Scenarios
+* Net Income report for a single scenario
+* Net Income report view, multiple scenarios
+
 
 FI-24-51: 2024-08-26 - Monthly Net Income
 * Make MonthlySummary know total by Leia type
