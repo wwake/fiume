@@ -77,6 +77,7 @@
 		91FA96552C7D04CC0011BB7F /* NetIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96542C7D04CC0011BB7F /* NetIncomeView.swift */; };
 		91FA96572C7D05F70011BB7F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96562C7D05F70011BB7F /* GraphView.swift */; };
 		91FA96592C7E4D460011BB7F /* ScenarioNetIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */; };
+		91FA965B2C7E52230011BB7F /* MultiNetIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +204,7 @@
 		91FA96542C7D04CC0011BB7F /* NetIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetIncomeView.swift; sourceTree = "<group>"; };
 		91FA96562C7D05F70011BB7F /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioNetIncomeView.swift; sourceTree = "<group>"; };
+		91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiNetIncomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +296,7 @@
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				91FA96562C7D05F70011BB7F /* GraphView.swift */,
 				91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */,
+				91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				91042FE32C51822B00FFC65F /* AmountView.swift in Sources */,
 				919CED4D2BF54D8C00ACCE2E /* PlanView.swift in Sources */,
 				91753E412C6BD892001B02F6 /* CapsuleButtonStyle.swift in Sources */,
+				91FA965B2C7E52230011BB7F /* MultiNetIncomeView.swift in Sources */,
 				919CED4F2BF550E300ACCE2E /* PlanListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

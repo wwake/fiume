@@ -38,7 +38,7 @@ public struct GraphView: View {
         NetWorthView(numberOfMonths: numberOfMonths, data: data)
 
       case .netIncome:
-        ScenarioNetIncomeView(numberOfMonths: numberOfMonths, data: data)
+        MultiNetIncomeView(numberOfMonths: numberOfMonths, data: data)
       }
     }
   }
