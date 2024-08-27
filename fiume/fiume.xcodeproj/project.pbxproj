@@ -283,20 +283,20 @@
 				91B7CE542C6D29790000FD7A /* EditAssumptionView.swift */,
 				91E7BB982C502C1100A328DF /* EditDateRangeView.swift */,
 				919CED532BF69C5C00ACCE2E /* EditGroupView.swift */,
-				91206E272C07BD2300D4C1CB /* EditPersonView.swift */,
 				914FEFB62BF2AD6B003D858E /* EditLeiaView.swift */,
+				91206E272C07BD2300D4C1CB /* EditPersonView.swift */,
 				914FEFB42BF2AD09003D858E /* FormFields.swift */,
+				91FA96562C7D05F70011BB7F /* GraphView.swift */,
 				914FEFB82BF2AF08003D858E /* LeiaView.swift */,
 				91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */,
 				91206E292C07BE6B00D4C1CB /* MonthYearView.swift */,
+				91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */,
 				91FA96542C7D04CC0011BB7F /* NetIncomeView.swift */,
 				91FA96512C7D02260011BB7F /* NetWorthView.swift */,
 				91206E322C090B3F00D4C1CB /* PeopleView.swift */,
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
-				91FA96562C7D05F70011BB7F /* GraphView.swift */,
 				91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */,
-				91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";

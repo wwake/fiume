@@ -57,8 +57,8 @@ struct LeiaView: View {
     .padding(4)
     .background(Color(leia.type.name))
     .sheet(isPresented: $isEditPresented) {
-      EditLeiaView(title: "Edit Money Source", leia: leia, buttonName: "Update") { stream in
-        plans.replace(plan, stream)
+      EditLeiaView(title: "Edit Money Source", leia: leia, buttonName: "Update") { leia in
+        plans.replace(plan, leia)
       }
     }
   }
