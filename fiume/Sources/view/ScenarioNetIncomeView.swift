@@ -21,7 +21,7 @@ public struct ScenarioNetIncomeView: View {
         }
       }
 
-      NetIncomeView(numberOfMonths: numberOfMonths, data: data, scenario: data[selectedScenario])
+      NetIncomeView(numberOfMonths: numberOfMonths, scenario: data[selectedScenario])
     }
   }
 }
