@@ -212,4 +212,85 @@ struct APlan {
     #expect(array.count == 1)
     #expect(array.first!.name == "Start • Job (1) - Income1 • Salary (1) - Income2")
   }
+
+  @Test
+  func scenarios_dont_include_inactive_leias() {
+    let sut = makeStream("Income1a", 1_000, 2030.jan, 2040.jan)
+    sut.isActive = false
+
+    let result = sut.scenarios(Scenarios([Scenario("")]))
+
+    let resultSet = Set(result.map { netWorth($0, 2034.jan) })
+
+    #expect(resultSet.count == 1)
+    #expect(resultSet == [0])
+  }
+
+  @Test
+  func scenarios_with_scenarios_dont_include_inactive_leias() {
+    var leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
+    leaf1.isActive = false
+
+    let leaf2 = makeStream("Income2", 2_000, 2030.jan, 2040.jan)
+
+    let sut = makeScenarios("Job", [leaf1, leaf2])
+
+    let result = sut.scenarios(Scenarios([Scenario("")]))
+
+    #expect(Array(result).count == 1)
+
+    let resultSet = Set(result.map { netWorth($0, 2034.jan) })
+    #expect(resultSet == [2_000])
+  }
+
+  @Test
+  func scenarios_dont_include_inactive() {
+    let leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
+
+    let leaf2 = makeStream("Income2", 2_000, 2030.jan, 2040.jan)
+
+    let sut = makeScenarios("Job", [leaf1, leaf2])
+    sut.isActive = false
+
+    let result = sut.scenarios(Scenarios([Scenario("")]))
+
+    #expect(Array(result).count == 1)
+
+    let resultSet = Set(result.map { netWorth($0, 2034.jan) })
+    #expect(resultSet == [0])
+  }
+
+  @Test
+  func scenarios_for_groups_dont_include_deactivated_leias() {
+    var leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
+    leaf1.isActive = false
+
+    let leaf2 = makeStream("Income2", 2_000, 2030.jan, 2040.jan)
+
+    let sut = makeGroup("Incomes", [leaf1, leaf2])
+
+    let result = sut.scenarios(Scenarios([Scenario("")]))
+
+    #expect(Array(result).count == 1)
+
+    let resultSet = Set(result.map { netWorth($0, 2034.jan) })
+    #expect(resultSet == [2_000])
+  }
+
+  @Test
+  func scenarios_with_inactive_groups_are_ignored() {
+    let leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
+
+    let leaf2 = makeStream("Income2", 2_000, 2030.jan, 2040.jan)
+
+    let sut = makeGroup("Two Jobs", [leaf1, leaf2])
+    sut.isActive = false
+
+    let result = sut.scenarios(Scenarios([Scenario("")]))
+
+    #expect(Array(result).count == 1)
+
+    let resultSet = Set(result.map { netWorth($0, 2034.jan) })
+    #expect(resultSet == [0])
+  }
 }

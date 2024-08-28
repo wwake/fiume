@@ -42,7 +42,7 @@ struct PlanScenariosView: View {
   var body: some View {
     PlanCompositeView(
       plan: $plan,
-      icon: "arrow.left.arrow.right",
+      icon: "arrow.triangle.branch",
       label: "Alternatives"
     )
   }

@@ -95,6 +95,10 @@ public class Plan: Identifiable, Codable {
   }
 
   public func scenarios(_ scenarios: Scenarios) -> Scenarios {
+    if !isActive {
+      return scenarios
+    }
+
     switch type {
     case .leia:
       return scenarios.add(leia!)
@@ -117,9 +121,11 @@ public class Plan: Identifiable, Codable {
       let result = Scenarios()
       children.enumerated().forEach { index, child in
         scenarios.forEach { scenario in
-          let childName = scenario.name + uniqueName(name, child, index)
-          let newScenarios = child.scenarios(Scenarios([scenario.copy(childName)]))
-          result.add(newScenarios)
+          if child.isActive {
+            let childName = scenario.name + uniqueName(name, child, index)
+            let newScenarios = child.scenarios(Scenarios([scenario.copy(childName)]))
+            result.add(newScenarios)
+          }
         }
       }
       return result
