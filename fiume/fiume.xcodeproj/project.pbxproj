@@ -78,6 +78,7 @@
 		91FA96572C7D05F70011BB7F /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96562C7D05F70011BB7F /* GraphView.swift */; };
 		91FA96592C7E4D460011BB7F /* ScenarioNetIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */; };
 		91FA965B2C7E52230011BB7F /* MultiNetIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */; };
+		91FA965D2C7FBE360011BB7F /* TheDateAssumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965C2C7FBE360011BB7F /* TheDateAssumptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,6 +206,7 @@
 		91FA96562C7D05F70011BB7F /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioNetIncomeView.swift; sourceTree = "<group>"; };
 		91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiNetIncomeView.swift; sourceTree = "<group>"; };
+		91FA965C2C7FBE360011BB7F /* TheDateAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDateAssumptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +386,7 @@
 				91C248D72C33453E00A1EEB3 /* ThePlans.swift */,
 				914FEFA82BF29399003D858E /* ThePossibilities.swift */,
 				91753E4A2C6BED32001B02F6 /* ThePercentAssumptions.swift */,
+				91FA965C2C7FBE360011BB7F /* TheDateAssumptions.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 				91D5439C2C0523D900AD3592 /* ADateSpecifier.swift in Sources */,
 				914B54C72BFBDF34005A9090 /* AScenario.swift in Sources */,
 				91753E4B2C6BED32001B02F6 /* ThePercentAssumptions.swift in Sources */,
+				91FA965D2C7FBE360011BB7F /* TheDateAssumptions.swift in Sources */,
 				91AC450F2C6F8033001500BA /* Leia+make.swift in Sources */,
 				91042FE02C50496800FFC65F /* AnAmount.swift in Sources */,
 				91C248D92C33456E00A1EEB3 /* ThePlans.swift in Sources */,
