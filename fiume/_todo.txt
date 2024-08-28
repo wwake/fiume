@@ -1,6 +1,9 @@
 
 * Enable/disable Leia, Scenario, or Group
 
+* Legend - https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
+
+
 * Change DateSpecifier.unchanged to .unspecified
 * Make growth non-nullable
 Persistence updates

@@ -22,6 +22,8 @@ public class Plan: Identifiable, Codable {
 
   public private(set) var name: String
 
+  public var isActive: Bool = true
+
   public var leia: Leia?
 
   public var children: [Plan]?

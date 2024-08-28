@@ -32,6 +32,10 @@ struct LeiaView: View {
 
   var body: some View {
     HStack {
+      Toggle("Active", isOn: $plan.isActive)
+        .labelsHidden()
+        .padding([.leading, .trailing], 4)
+
       icons[leia.type]!
 
       Text("\(leia.type.name): \(leia.name)"

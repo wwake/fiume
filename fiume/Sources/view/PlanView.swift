@@ -61,6 +61,10 @@ struct PlanCompositeView: View {
 
   var body: some View {
     HStack {
+      Toggle("Active", isOn: $plan.isActive)
+        .labelsHidden()
+        .padding([.leading, .trailing], 4)
+
       Image(systemName: icon)
         .accessibilityLabel(label)
 
