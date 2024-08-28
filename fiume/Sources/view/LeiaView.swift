@@ -41,7 +41,10 @@ struct LeiaView: View {
       Text("\(leia.type.name): \(leia.name)"
            + "   \(leia.amount)\(leia.type.frequency)   \(leia.dates.description)"
            + "    Growth: \(leia.growth!)")
+      .strikethrough(!plan.isActive)
+
       Spacer()
+
       Button(action: {
         plans.remove(plan)
       }) {

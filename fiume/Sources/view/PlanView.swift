@@ -69,7 +69,10 @@ struct PlanCompositeView: View {
         .accessibilityLabel(label)
 
       Text(plan.name)
+        .strikethrough(!plan.isActive)
+
       Spacer()
+
       Button(action: {
         plans.remove(plan)
       }) {
