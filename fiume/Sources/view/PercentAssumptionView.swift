@@ -1,7 +1,7 @@
 import fiume_model
 import SwiftUI
 
-struct AssumptionView: View {
+struct PercentAssumptionView: View {
   var assumption: PercentAssumption
   var updateAction: (PercentAssumption) -> Void
   var deleteAction: (String) -> Void
@@ -73,5 +73,5 @@ struct AssumptionView: View {
 
 #Preview {
   let assumption = PercentAssumption(type: AssumptionType.percent, name: "ROI", min: 0, max: 20, current: 5)
-  return AssumptionView(assumption: assumption)
+  return PercentAssumptionView(assumption: assumption)
 }

@@ -31,7 +31,7 @@ struct AssumptionsView: View {
     List {
       Section(header: header) {
         ForEach(assumptions.sorted()) { assumption in
-          AssumptionView(
+          PercentAssumptionView(
             assumption: assumption,
             updateAction: { revisedAssumption in
               assumptions.replace(revisedAssumption)
