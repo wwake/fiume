@@ -58,7 +58,14 @@ public struct Leia: Identifiable, Codable {
   }
 
   public static var null: Leia {
-    Leia(id: UUID(), name: "", amount: .money(0), dates: DateRange.always, type: .income, growth: Assumption.flatGrowth)
+    Leia(
+      id: UUID(),
+      name: "",
+      amount: .money(0),
+      dates: DateRange.always,
+      type: .income,
+      growth: PercentAssumption.flatGrowth
+    )
   }
 
   public var id: UUID
@@ -101,7 +108,7 @@ public struct Leia: Identifiable, Codable {
     let effectiveStart = dates.first == DateSpecifier.unchanged ? start : dates.first.effectiveStart
 
     return type.signed(amount.value(
-      monthlyInterest: Assumptions.shared.findMonthlyRate(growth),
+      monthlyInterest: PercentAssumptions.shared.findMonthlyRate(growth),
       start: effectiveStart,
       at: month,
       scenario

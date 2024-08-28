@@ -31,7 +31,7 @@ struct PlanListView: View {
     amount: .money(1_000),
     dates: DateRange(.month(2020.jan), .unchanged),
     type: .income,
-    growth: Assumption.flatGrowth
+    growth: PercentAssumption.flatGrowth
   ))
   possibilities.plans[0].append(stream)
 

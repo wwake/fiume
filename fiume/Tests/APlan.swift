@@ -17,7 +17,7 @@ struct APlan {
       amount: .money(amount),
       dates: DateRange(.month(first), .month(last)),
       type: .asset,
-      growth: Assumption.flatGrowth
+      growth: PercentAssumption.flatGrowth
     )
     return Plan.make(asset)
   }
@@ -49,7 +49,7 @@ struct APlan {
       amount: .money(amount),
       dates: DateRange(.month(first), .month(last)),
       type: .income,
-      growth: Assumption.flatGrowth
+      growth: PercentAssumption.flatGrowth
     )
     return Plan.make(stream)
   }
@@ -228,7 +228,7 @@ struct APlan {
 
   @Test
   func scenarios_with_scenarios_dont_include_inactive_leias() {
-    var leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
+    let leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
     leaf1.isActive = false
 
     let leaf2 = makeStream("Income2", 2_000, 2030.jan, 2040.jan)
@@ -262,7 +262,7 @@ struct APlan {
 
   @Test
   func scenarios_for_groups_dont_include_deactivated_leias() {
-    var leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
+    let leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
     leaf1.isActive = false
 
     let leaf2 = makeStream("Income2", 2_000, 2030.jan, 2040.jan)
@@ -296,7 +296,7 @@ struct APlan {
 
   @Test
   func scenarios_with_effectively_no_children_return_original() {
-    var leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
+    let leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
     leaf1.isActive = false
 
     let leaf2 = makeStream("Income2", 2_000, 2030.jan, 2040.jan)

@@ -19,7 +19,7 @@ struct ThePlans {
       amount: .money(1999),
       dates: DateRange.always,
       type: .income,
-      growth: Assumption.flatGrowth
+      growth: PercentAssumption.flatGrowth
     ))
     plans.wasChanged = true
 
@@ -40,7 +40,7 @@ struct ThePlans {
   @Test
   func changes_when_stream_is_appended() {
     let stream = Plan.make(Leia(
-      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income, growth: Assumption.flatGrowth
+      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income, growth: PercentAssumption.flatGrowth
     ))
 
     plans.append(parent: plans.plans, child: stream)
@@ -52,7 +52,7 @@ struct ThePlans {
   func can_remove_a_plan() {
     let scenario = Plan.makeScenarios("my scenario")
     let stream = Plan.make(Leia(
-      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income, growth: Assumption.flatGrowth
+      name: "2d job", amount: .money(200), dates: DateRange.always, type: .income, growth: PercentAssumption.flatGrowth
     ))
     scenario.append(stream)
     plans.append(parent: plans.plans, child: scenario)
@@ -83,7 +83,7 @@ struct ThePlans {
       amount: .money(200),
       dates: DateRange.always,
       type: .income,
-      growth: Assumption.flatGrowth
+      growth: PercentAssumption.flatGrowth
     ))
     plans.append(parent: plans.plans, child: plan)
 
@@ -92,7 +92,7 @@ struct ThePlans {
       amount: .money(500),
       dates: DateRange.always,
       type: .income,
-      growth: Assumption.flatGrowth
+      growth: PercentAssumption.flatGrowth
     ))
 
     #expect(plan.leia!.name == "revised")

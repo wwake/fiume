@@ -1,8 +1,8 @@
 import Foundation
 
 @Observable
-public class Assumptions: Codable {
-  public static var shared = Assumptions()
+public class PercentAssumptions: Codable {
+  public static var shared = PercentAssumptions()
 
   enum CodingKeys: String, CodingKey {
     case _wasChanged = "wasChanged"
@@ -10,23 +10,23 @@ public class Assumptions: Codable {
   }
 
   public var wasChanged = false
-  public var assumptions: [Assumption]
+  public var assumptions: [PercentAssumption]
 
   public init() {
-    assumptions = [Assumption(type: .percent, name: "(none)", min: 0, max: 0, current: 0)]
+    assumptions = [PercentAssumption(type: .percent, name: "(none)", min: 0, max: 0, current: 0)]
   }
 
-  public func load(_ original: Assumptions) {
+  public func load(_ original: PercentAssumptions) {
     assumptions = original.assumptions
     wasChanged = false
   }
 
-  public func add(_ assumption: Assumption) {
+  public func add(_ assumption: PercentAssumption) {
     assumptions.append(assumption)
     wasChanged = true
   }
 
-  public func find(_ name: String) -> Assumption? {
+  public func find(_ name: String) -> PercentAssumption? {
     assumptions.first { $0.name == name }
   }
 
@@ -42,7 +42,7 @@ public class Assumptions: Codable {
     wasChanged = true
   }
 
-  public func replace(_ assumption: Assumption) {
+  public func replace(_ assumption: PercentAssumption) {
     remove(assumption.name)
     add(assumption)
     wasChanged = true
@@ -50,14 +50,14 @@ public class Assumptions: Codable {
 
   public func verified(_ name: String) -> String {
     guard find(name) != nil else {
-      return Assumption.flatGrowth
+      return PercentAssumption.flatGrowth
     }
     return name
   }
 }
 
-extension Assumptions: Sequence {
-  public func makeIterator() -> some IteratorProtocol<Assumption> {
+extension PercentAssumptions: Sequence {
+  public func makeIterator() -> some IteratorProtocol<PercentAssumption> {
     assumptions
       .sorted(by: { $0.name < $1.name })
       .makeIterator()

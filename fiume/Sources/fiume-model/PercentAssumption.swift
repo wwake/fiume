@@ -4,11 +4,11 @@ public enum AssumptionType: Codable {
   case percent
 }
 
-public struct Assumption: Identifiable, Codable {
+public struct PercentAssumption: Identifiable, Codable {
   public static var flatGrowth = "(none)"
 
-  public static var null: Assumption {
-    Assumption(type: .percent, name: "", min: 1, max: 100, current: 50)
+  public static var null: PercentAssumption {
+    PercentAssumption(type: .percent, name: "", min: 1, max: 100, current: 50)
   }
 
   public var id = UUID()
@@ -27,7 +27,7 @@ public struct Assumption: Identifiable, Codable {
     self.current = current
   }
 
-  public init(_ assumption: Assumption, _ newCurrent: Int) {
+  public init(_ assumption: PercentAssumption, _ newCurrent: Int) {
     self.type = assumption.type
     self.name = assumption.name
     self.min = assumption.min
@@ -37,8 +37,8 @@ public struct Assumption: Identifiable, Codable {
   }
 }
 
-extension Assumption: Comparable {
-  public static func < (lhs: Assumption, rhs: Assumption) -> Bool {
+extension PercentAssumption: Comparable {
+  public static func < (lhs: PercentAssumption, rhs: PercentAssumption) -> Bool {
     lhs.name < rhs.name
   }
 }

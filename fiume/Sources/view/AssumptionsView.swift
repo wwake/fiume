@@ -2,8 +2,8 @@ import fiume_model
 import SwiftUI
 
 struct AssumptionsView: View {
-  @Environment(Assumptions.self)
-  var assumptions: Assumptions
+  @Environment(PercentAssumptions.self)
+  var assumptions: PercentAssumptions
 
   @State var isShowingCreateView = false
 
@@ -21,7 +21,7 @@ struct AssumptionsView: View {
       }
     }
     .sheet(isPresented: $isShowingCreateView) {
-      EditAssumptionView(assumption: Assumption.null, buttonName: "Create") { assumption in
+      EditAssumptionView(assumption: PercentAssumption.null, buttonName: "Create") { assumption in
        assumptions.add(assumption)
       }
     }
@@ -47,8 +47,8 @@ struct AssumptionsView: View {
 }
 
 #Preview {
-  @State var assumptions = Assumptions()
-  assumptions.add(Assumption(type: .percent, name: "ROI", min: 1, max: 20, current: 7))
+  @State var assumptions = PercentAssumptions()
+  assumptions.add(PercentAssumption(type: .percent, name: "ROI", min: 1, max: 20, current: 7))
 
   return AssumptionsView()
     .environment(assumptions)

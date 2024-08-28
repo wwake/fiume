@@ -1,4 +1,7 @@
 
+Date- or Amount-Based Assumptions
+ 
+
 * Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
 
 
@@ -7,9 +10,6 @@
 Persistence updates
 
 * Instead of none=0, provide (default) that you can set globally
-
-Date- or Amount-Based Assumptions
-* Allow dates to depend on death day
 
 Refactoring
 * Make "relative" be on Leia rather than Amount
@@ -25,14 +25,15 @@ Errors
 User Interface
 * What's the best UI for stream name since they might not exist yet but probably do?
 
-Flows
+Flows - Defer
 * Add flows (in/out)
 
-Sections
+Sections - Defer
 * Add multiple sections
-* Move to Plans with group vs [Plan] in various places - tree view requires MutableCollection
 * Move streams (?)
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
+
+
 
 FI-24-53: 2024-08-28 - Toggle Plans
 * Enable/disable Leia, Scenario, or Group

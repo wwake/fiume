@@ -5,8 +5,8 @@ struct EditLeiaView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  @Environment(Assumptions.self)
-  var assumptions: Assumptions
+  @Environment(PercentAssumptions.self)
+  var assumptions: PercentAssumptions
 
   var title: String?
   var leia: Leia
@@ -17,7 +17,7 @@ struct EditLeiaView: View {
   @State private var leiaType = LeiaType.income
 
   @State private var name: String
-  @State private var growth = Assumption.flatGrowth
+  @State private var growth = PercentAssumption.flatGrowth
 
   @State private var amount: Amount
 

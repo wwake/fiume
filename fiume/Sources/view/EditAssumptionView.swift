@@ -5,16 +5,16 @@ struct EditAssumptionView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  var assumption: Assumption
+  var assumption: PercentAssumption
   var buttonName: String
-  var action: (Assumption) -> Void
+  var action: (PercentAssumption) -> Void
 
   @State var name: String
   @State var min: Int
   @State var max: Int
   @State var current: Int
 
-  init(assumption: Assumption, buttonName: String, action: @escaping (Assumption) -> Void) {
+  init(assumption: PercentAssumption, buttonName: String, action: @escaping (PercentAssumption) -> Void) {
     self.assumption = assumption
     self.buttonName = buttonName
     self.action = action
@@ -56,7 +56,7 @@ struct EditAssumptionView: View {
       HStack {
         Spacer()
         Button(buttonName) {
-          let assumption = Assumption(type: .percent, name: name, min: min, max: max, current: current)
+          let assumption = PercentAssumption(type: .percent, name: name, min: min, max: max, current: current)
           action(assumption)
           dismiss()
         }
@@ -68,6 +68,6 @@ struct EditAssumptionView: View {
 }
 
 #Preview {
-  let assumption = Assumption.null
+  let assumption = PercentAssumption.null
   return EditAssumptionView(assumption: assumption, buttonName: "Create") { _ in }
 }

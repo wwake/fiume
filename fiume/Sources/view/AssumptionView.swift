@@ -2,16 +2,16 @@ import fiume_model
 import SwiftUI
 
 struct AssumptionView: View {
-  var assumption: Assumption
-  var updateAction: (Assumption) -> Void
+  var assumption: PercentAssumption
+  var updateAction: (PercentAssumption) -> Void
   var deleteAction: (String) -> Void
 
   @State var value: Double
   @State var isEditing: Bool = false
 
   init(
-    assumption: Assumption,
-    updateAction: @escaping (Assumption) -> Void = { _ in },
+    assumption: PercentAssumption,
+    updateAction: @escaping (PercentAssumption) -> Void = { _ in },
     deleteAction: @escaping (String) -> Void = { _ in }
   ) {
     self.assumption = assumption
@@ -35,7 +35,7 @@ struct AssumptionView: View {
           in: Double(assumption.min)...Double(assumption.max),
           onEditingChanged: { stillDragging in
             if !stillDragging {
-              updateAction(Assumption(assumption, Int(value)))
+              updateAction(PercentAssumption(assumption, Int(value)))
             }
           }
         )
@@ -72,6 +72,6 @@ struct AssumptionView: View {
 }
 
 #Preview {
-  let assumption = Assumption(type: AssumptionType.percent, name: "ROI", min: 0, max: 20, current: 5)
+  let assumption = PercentAssumption(type: AssumptionType.percent, name: "ROI", min: 0, max: 20, current: 5)
   return AssumptionView(assumption: assumption)
 }

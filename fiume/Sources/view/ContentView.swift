@@ -10,7 +10,7 @@ struct ContentView: View {
 
   @Bindable var plans: Plans
 
-  @Bindable var assumptions: Assumptions
+  @Bindable var assumptions: PercentAssumptions
 
   @State var isShowingPeople = false
   @State var isShowingAssumptions = false
@@ -18,7 +18,7 @@ struct ContentView: View {
   @State private var saveError: Error?
   @State private var showSaveAlert = false
 
-  init(startDate: MonthYear, people: People, plans: Plans, assumptions: Assumptions) {
+  init(startDate: MonthYear, people: People, plans: Plans, assumptions: PercentAssumptions) {
     self.startDate = startDate
     self.people = people
     self.plans = plans
@@ -106,7 +106,7 @@ struct ContentView: View {
 #Preview {
   @State var people = People()
   @State var plans = Plans()
-  @State var assumptions = Assumptions()
+  @State var assumptions = PercentAssumptions()
 
   return ContentView(startDate: MonthYear(date: Date()), people: people, plans: plans, assumptions: assumptions)
     .environment(people)
