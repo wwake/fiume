@@ -293,4 +293,19 @@ struct APlan {
     let resultSet = Set(result.map { netWorth($0, 2034.jan) })
     #expect(resultSet == [0])
   }
+
+  @Test
+  func scenarios_with_effectively_no_children_return_original() {
+    var leaf1 = makeStream("Income1", 1_000, 2030.jan, 2040.jan)
+    leaf1.isActive = false
+
+    let leaf2 = makeStream("Income2", 2_000, 2030.jan, 2040.jan)
+    leaf2.isActive = false
+
+    let sut = makeScenarios("Job", [leaf1, leaf2])
+
+    let result = sut.scenarios(Scenarios([Scenario("")]))
+
+    #expect(Array(result).count == 1)
+  }
 }

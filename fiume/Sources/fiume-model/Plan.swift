@@ -128,7 +128,7 @@ public class Plan: Identifiable, Codable {
           }
         }
       }
-      return result
+      return result.count > 0 ? result : scenarios
     }
   }
 }
