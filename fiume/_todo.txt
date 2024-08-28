@@ -1,7 +1,5 @@
 
-* Enable/disable Leia, Scenario, or Group
-
-* Legend - https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
+* Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
 
 
 * Change DateSpecifier.unchanged to .unspecified
@@ -11,41 +9,34 @@ Persistence updates
 * Instead of none=0, provide (default) that you can set globally
 
 Date- or Amount-Based Assumptions
-
-* Make "relative" be on Leia rather than Amount
-
-* What if stream A depends on B and vice versa?
-* Make date and scenario required for value computation
-* What's the best UI for stream name since they might not exist yet but probably do?
-Amount
-
-Error Reporting when Leia name is reused in a given scenario
-
-
-Streams
 * Allow dates to depend on death day
+
+Refactoring
+* Make "relative" be on Leia rather than Amount
+* Maybe Possibilities should be a struct, regenerated as needed
+
+Errors
+* What if stream A depends on B and vice versa?
+* Error Reporting when Leia name is reused in a given scenario
 * Validate month is valid; end-date >= start-date [now we silently use zero for the amount]
+* Require distinct people names?
+* Do better when deleting a person with active Leias - at least strike through
+
+User Interface
+* What's the best UI for stream name since they might not exist yet but probably do?
 
 Flows
 * Add flows (in/out)
 
-Design
-* Maybe Possibilities should be a struct, regenerated as needed
-
-
-People
-* Require distinct people names?
-* Do better when deleting a person with active Leias - at least strike through
-
 Sections
 * Add multiple sections
 * Move to Plans with group vs [Plan] in various places - tree view requires MutableCollection
+* Move streams (?)
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
-Calendar view (with RuleMark)
-
-Editing
-* Move streams (?)
+FI-24-53: 2024-08-28 - Toggle Plans
+* Enable/disable Leia, Scenario, or Group
+* Make empty scenario not cancel out all scenarios
 
 FI-24-52: 2024-08-27 - Net Income in Multiple Scenarios
 * Net Income report for a single scenario
