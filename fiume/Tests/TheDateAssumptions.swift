@@ -42,4 +42,20 @@ struct TheDateAssumptions {
     #expect(sut.wasChanged)
     #expect(sut.find("Holiday")!.current == 2027)
   }
+
+  @Test
+  func knows_current_date_when_found() {
+    let sut = makeAssumptions()
+    let assumption = DateAssumption("Holiday", min: 2020, max: 2030, current: 2025)
+    sut.add(assumption)
+
+    #expect(sut.current("Holiday") == 2025.jan)
+  }
+
+  @Test
+  func defaults_current_date_when_not_found() {
+    let sut = makeAssumptions()
+
+    #expect(sut.current("Missing") == 1900.jan)
+  }
 }

@@ -45,10 +45,7 @@ public enum DateSpecifier: Equatable, Codable {
       return birth.advanced(byYears: age)
 
     case .assumption(let name):
-      guard let assumption = DateAssumptions.shared.find(name) else {
-        return 1900.jan
-      }
-      return MonthYear(.jan, assumption.current)
+      return DateAssumptions.shared.current(name)
     }
   }
 
@@ -71,10 +68,7 @@ public enum DateSpecifier: Equatable, Codable {
       return effectiveEnd > monthYear
 
     case .assumption(let name):
-      guard let assumption = DateAssumptions.shared.find(name) else {
-        return false
-      }
-      let effectiveEnd = MonthYear(.jan, assumption.current)
+      let effectiveEnd = DateAssumptions.shared.current(name)
       return effectiveEnd >= monthYear
     }
   }

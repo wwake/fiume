@@ -105,6 +105,6 @@ struct ADateSpecifier {
 
   @Test
   func geq_for_assumed_date_not_found() {
-    #expect(!DateSpecifier.assumption("Missing").geq(1900.jan))
+    #expect(!DateSpecifier.assumption("Missing").geq(2000.jan))
   }
 }

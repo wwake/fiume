@@ -28,4 +28,11 @@ public class DateAssumptions {
     add(newAssumption)
     wasChanged = true
   }
+
+  public func current(_ name: String) -> MonthYear {
+    guard let assumption = find(name) else {
+      return 1900.jan
+    }
+    return MonthYear(.jan, assumption.current)
+  }
 }
