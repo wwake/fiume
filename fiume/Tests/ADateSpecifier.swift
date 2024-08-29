@@ -90,4 +90,21 @@ struct ADateSpecifier {
   func effective_start_for_assumed_date_not_found() {
     #expect(DateSpecifier.assumption("Missing").effectiveStart == 1900.jan)
   }
+
+  @Test
+  func geq_for_found_assumed_date() {
+    let assumptions = DateAssumptions.shared
+    let assumption = DateAssumption("SS Start", min: 2030, max: 2050, current: 2040)
+    assumptions.add(assumption)
+
+    let sut = DateSpecifier.assumption("SS Start")
+    #expect(sut.geq(2039.dec))
+    #expect(sut.geq(2040.jan))
+    #expect(!sut.geq(2040.feb))
+  }
+
+  @Test
+  func geq_for_assumed_date_not_found() {
+    #expect(!DateSpecifier.assumption("Missing").geq(1900.jan))
+  }
 }

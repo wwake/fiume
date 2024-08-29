@@ -70,8 +70,12 @@ public enum DateSpecifier: Equatable, Codable {
       let effectiveEnd = birth.advanced(byYears: age)
       return effectiveEnd > monthYear
 
-    case .assumption:
-      return false
+    case .assumption(let name):
+      guard let assumption = DateAssumptions.shared.find(name) else {
+        return false
+      }
+      let effectiveEnd = MonthYear(.jan, assumption.current)
+      return effectiveEnd >= monthYear
     }
   }
 }
