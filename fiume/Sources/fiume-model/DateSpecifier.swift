@@ -4,16 +4,7 @@ public enum DateSpecifier: Equatable, Codable {
   case unchanged
   case month(MonthYear)
   case age(UUID, Int)
-
-  public func update(using: DateSpecifier) -> DateSpecifier {
-    switch using {
-    case .unchanged:
-      return self
-
-    case .month, .age:
-      return using
-    }
-  }
+ // case assumption(String)
 
   private var people: People {
     People.shared

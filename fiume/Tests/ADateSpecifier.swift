@@ -19,47 +19,6 @@ struct ADateSpecifier {
   }
 
   @Test
-  func updates_when_month_values_change() {
-    let value1 = DateSpecifier.month(1999.jan)
-    let value2 = DateSpecifier.month(2000.jan)
-    let sut = value1.update(using: value2)
-    #expect(sut == DateSpecifier.month(2000.jan))
-  }
-
-  @Test
-  func updates_retains_original_when_new_month_value_is_unchanged() {
-    let value1 = DateSpecifier.month(2030.dec)
-    let value2 = DateSpecifier.unchanged
-    let sut = value1.update(using: value2)
-    #expect(sut == DateSpecifier.month(2030.dec))
-  }
-
-  @Test
-  func updates_when_values_change() {
-    let value1 = DateSpecifier.month(2024.oct)
-    let value2 = DateSpecifier.month(2024.dec)
-    let sut = value1.update(using: value2)
-    #expect(sut == DateSpecifier.month(2024.dec))
-  }
-
-  @Test
-  func retains_original_when_new_value_is_unchanged() {
-    let value1 = DateSpecifier.month(2024.oct)
-    let value2 = DateSpecifier.unchanged
-    let sut = value1.update(using: value2)
-    #expect(sut == DateSpecifier.month(2024.oct))
-  }
-
-  @Test
-  func updates_age_changes() {
-    let value1 = DateSpecifier.month(2024.oct)
-    let person = makePerson()
-    let value2 = DateSpecifier.age(person.id, 70)
-    let sut = value1.update(using: value2)
-    #expect(sut == DateSpecifier.age(person.id, 70))
-  }
-
-  @Test
   func description_from_found_person() {
     let people = People.shared
     let person = makePerson()
