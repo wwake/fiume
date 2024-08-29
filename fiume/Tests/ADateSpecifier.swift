@@ -74,4 +74,20 @@ struct ADateSpecifier {
   func effective_start_for_age_when_person_not_found() {
     #expect(DateSpecifier.age(UUID(), 50).effectiveStart > 2200.jan)
   }
+
+  @Test
+  func effective_start_for_found_assumed_date() {
+    let assumptions = DateAssumptions.shared
+    let assumption = DateAssumption("SS Start", min: 2030, max: 2050, current: 2040)
+    assumptions.add(assumption)
+
+    let sut = DateSpecifier.assumption("SS Start")
+
+    #expect(sut.effectiveStart == 2040.jan)
+  }
+
+  @Test
+  func effective_start_for_assumed_date_not_found() {
+    #expect(DateSpecifier.assumption("Missing").effectiveStart == 1900.jan)
+  }
 }

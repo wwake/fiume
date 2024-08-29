@@ -24,12 +24,10 @@ public enum DateSpecifier: Equatable, Codable {
       return "\(name)@\(age)"
 
     case .assumption(let name):
-      let assumption = DateAssumptions.shared.find(name)
-      if assumption != nil {
-        return "\(name), currently \(assumption!.current)"
-      } else {
+      guard let assumption = DateAssumptions.shared.find(name) else {
         return "<Assumed date '\(name)' not found>"
       }
+      return "\(name), currently \(assumption.current)"
     }
   }
 
@@ -46,8 +44,11 @@ public enum DateSpecifier: Equatable, Codable {
       let birth = person.birth
       return birth.advanced(byYears: age)
 
-    case .assumption:
-      return 1919.jan
+    case .assumption(let name):
+      guard let assumption = DateAssumptions.shared.find(name) else {
+        return 1900.jan
+      }
+      return MonthYear(.jan, assumption.current)
     }
   }
 
