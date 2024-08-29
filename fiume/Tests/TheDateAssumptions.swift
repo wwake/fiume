@@ -2,51 +2,6 @@
 import fiume_model
 import Testing
 
-@Observable
-public class DateAssumptions {
-  var wasChanged = false
-  var assumptions = [DateAssumption]()
-
-  public func add(_ assumption: DateAssumption) {
-    assumptions.append(assumption)
-    wasChanged = true
-  }
-
-  public func find(_ name: String) -> DateAssumption? {
-    assumptions.first { $0.name == name }
-  }
-
-  public func remove(_ name: String) {
-    assumptions.removeAll { $0.name == name }
-    wasChanged = true
-  }
-
-  public func replace(_ newAssumption: DateAssumption) {
-    remove(newAssumption.name)
-    add(newAssumption)
-    wasChanged = true
-  }
-}
-
-public struct DateAssumption {
-  public var name: String
-  public var min: Int
-  public var max: Int
-  public var current: Int
-
-  init(_ name: String, min: Int, max: Int, current: Int) {
-    self.name = name
-    self.min = min
-    self.max = max
-    self.current = current
-  }
-
-  init(_ base: DateAssumption, _ newCurrent: Int) {
-    self = base
-    self.current = newCurrent
-  }
-}
-
 struct TheDateAssumptions {
   func makeAssumptions() -> DateAssumptions {
     DateAssumptions()
