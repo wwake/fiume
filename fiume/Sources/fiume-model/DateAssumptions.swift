@@ -5,7 +5,11 @@ public class DateAssumptions {
   public static var shared = DateAssumptions()
 
   public var wasChanged = false
-  private var assumptions = [DateAssumption]()
+  private var assumptions = // [DateAssumption]()
+  [
+    DateAssumption("default", min: 1900, max: 2200, current: 2020),
+    DateAssumption.null,
+  ]
 
   public init() { }
 
@@ -34,5 +38,17 @@ public class DateAssumptions {
       return 1900.jan
     }
     return MonthYear(.jan, assumption.current)
+  }
+
+  public var count: Int {
+    assumptions.count
+  }
+}
+
+extension DateAssumptions: Sequence {
+  public func makeIterator() -> some IteratorProtocol<DateAssumption> {
+    assumptions
+      .sorted(by: { $0.name < $1.name })
+      .makeIterator()
   }
 }

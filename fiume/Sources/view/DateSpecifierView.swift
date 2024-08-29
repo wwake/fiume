@@ -6,7 +6,8 @@ enum DateSpecifierType: String, CaseIterable, Identifiable {
 
   case unchanged = "Unspecified",
        monthYear = "Month-Year",
-       age = "Age"
+       age = "Age",
+       assumption = "Assumed Date"
 }
 
 struct DateSpecifierView: View {
@@ -28,12 +29,16 @@ struct DateSpecifierView: View {
       self.dateType = DateSpecifierType.unchanged
 
     case let .month(monthYearIn):
-      self.dateType = DateSpecifierType.monthYear
       self.monthYear = monthYearIn
+      self.dateType = DateSpecifierType.monthYear
 
     case .age:
       self.monthYear = 2020.jan
       self.dateType = DateSpecifierType.age
+
+    case .assumption(let name):
+      self.monthYear = 2020.jan
+      self.dateType = .assumption
 
     default:
       fatalError("Unknown date spec type \(dateSpec.wrappedValue)")
@@ -49,6 +54,9 @@ struct DateSpecifierView: View {
       dateSpec = DateSpecifier.month(monthYear)
 
     case .age:
+      break
+
+    case .assumption:
       break
     }
   }
@@ -83,6 +91,9 @@ struct DateSpecifierView: View {
 
         case .age:
           AgeSelector(dateSpec: $dateSpec)
+
+        case .assumption:
+          AssumedDateView(dateSpec: $dateSpec)
         }
       }.frame(height: 200)
     }

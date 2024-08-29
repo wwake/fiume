@@ -81,6 +81,7 @@
 		91FA965D2C7FBE360011BB7F /* TheDateAssumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965C2C7FBE360011BB7F /* TheDateAssumptions.swift */; };
 		91FA96602C80F4710011BB7F /* DateAssumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965E2C80F44E0011BB7F /* DateAssumptions.swift */; };
 		91FA96632C80F47F0011BB7F /* DateAssumption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96612C80F47A0011BB7F /* DateAssumption.swift */; };
+		91FA96652C8105B50011BB7F /* AssumedDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96642C8105B50011BB7F /* AssumedDateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +212,7 @@
 		91FA965C2C7FBE360011BB7F /* TheDateAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDateAssumptions.swift; sourceTree = "<group>"; };
 		91FA965E2C80F44E0011BB7F /* DateAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAssumptions.swift; sourceTree = "<group>"; };
 		91FA96612C80F47A0011BB7F /* DateAssumption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAssumption.swift; sourceTree = "<group>"; };
+		91FA96642C8105B50011BB7F /* AssumedDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssumedDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */,
+				91FA96642C8105B50011BB7F /* AssumedDateView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91206E332C090B3F00D4C1CB /* PeopleView.swift in Sources */,
+				91FA96652C8105B50011BB7F /* AssumedDateView.swift in Sources */,
 				914FEFB72BF2AD6B003D858E /* EditLeiaView.swift in Sources */,
 				919CED562BF69CB600ACCE2E /* CreateScenariosView.swift in Sources */,
 				91B7CE552C6D29790000FD7A /* EditAssumptionView.swift in Sources */,
