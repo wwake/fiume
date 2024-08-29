@@ -27,12 +27,8 @@ public struct PercentAssumption: Identifiable, Codable {
     self.current = current
   }
 
-  public init(_ assumption: PercentAssumption, _ newCurrent: Int) {
-    self.type = assumption.type
-    self.name = assumption.name
-    self.min = assumption.min
-    self.max = assumption.max
-
+  public init(_ base: PercentAssumption, _ newCurrent: Int) {
+    self = base
     self.current = newCurrent
   }
 }

@@ -1,6 +1,6 @@
 
 Date- or Amount-Based Assumptions
- 
+
 
 * Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
 
