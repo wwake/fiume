@@ -4,7 +4,7 @@ public enum DateSpecifier: Equatable, Codable {
   case unchanged
   case month(MonthYear)
   case age(UUID, Int)
- // case assumption(String)
+  case assumption(String)
 
   private var people: People {
     People.shared
@@ -22,6 +22,14 @@ public enum DateSpecifier: Equatable, Codable {
       let person = people.findById(id)
       let name = person?.name ?? "<person not found>"
       return "\(name)@\(age)"
+
+    case .assumption(let name):
+      let assumption = DateAssumptions.shared.find(name)
+      if assumption != nil {
+        return "\(name), currently \(assumption!.current)"
+      } else {
+        return "<Assumed date '\(name)' not found>"
+      }
     }
   }
 
@@ -37,6 +45,9 @@ public enum DateSpecifier: Equatable, Codable {
       guard let person = people.findById(id) else { return 9999.dec }
       let birth = person.birth
       return birth.advanced(byYears: age)
+
+    case .assumption:
+      return 1919.jan
     }
   }
 
@@ -57,6 +68,9 @@ public enum DateSpecifier: Equatable, Codable {
       let birth = person.birth
       let effectiveEnd = birth.advanced(byYears: age)
       return effectiveEnd > monthYear
+
+    case .assumption:
+      return false
     }
   }
 }

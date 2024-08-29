@@ -16,6 +16,8 @@ struct ADateSpecifier {
     #expect(DateSpecifier.month(2025.jan) != DateSpecifier.month(2025.apr))
     #expect(DateSpecifier.month(2025.jan) != DateSpecifier.age(person.id, 67))
     #expect(DateSpecifier.month(2025.feb) != DateSpecifier.unchanged)
+    #expect((DateSpecifier.assumption("Holiday")) == DateSpecifier.assumption("Holiday"))
+    #expect(DateSpecifier.assumption("Holiday") != DateSpecifier.assumption("SS Starts"))
   }
 
   @Test
@@ -31,6 +33,22 @@ struct ADateSpecifier {
   @Test
   func description_from_person_not_found() {
     #expect(DateSpecifier.age(UUID(), 72).description == "<person not found>@72")
+  }
+
+  @Test
+  func description_from_found_assumption() {
+    let assumptions = DateAssumptions.shared
+    let assumption = DateAssumption("SS Start", min: 2030, max: 2050, current: 2040)
+    assumptions.add(assumption)
+
+    let sut = DateSpecifier.assumption("SS Start")
+
+    #expect(sut.description == "SS Start, currently 2040")
+  }
+
+  @Test
+  func description_from_assumption_not_found() {
+    #expect(DateSpecifier.assumption("Missing").description == "<Assumed date 'Missing' not found>")
   }
 
   @Test

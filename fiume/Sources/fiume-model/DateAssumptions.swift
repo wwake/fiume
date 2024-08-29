@@ -2,6 +2,8 @@ import Foundation
 
 @Observable
 public class DateAssumptions {
+  public static var shared = DateAssumptions()
+
   public var wasChanged = false
   private var assumptions = [DateAssumption]()
 
