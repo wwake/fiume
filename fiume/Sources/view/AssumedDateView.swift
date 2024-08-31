@@ -18,15 +18,18 @@ struct AssumedDateView: View {
         description: Text("Add a date assumption to enable this option")
       )
     } else {
-      Picker("Assumed Date", selection: $selection) {
-        ForEach(Array(DateAssumptions.shared)) {
-          Text($0.name)
-            .tag($0.name)
+      VStack {
+        Text("Select the date to use; adjust it via Assumptions")
+        Picker("Assumed Date", selection: $selection) {
+          ForEach(Array(DateAssumptions.shared)) {
+            Text($0.name)
+              .tag($0.name)
+          }
         }
-      }
-      .labelsHidden()
-      .onChange(of: selection) {
-        updateValues()
+        .labelsHidden()
+        .onChange(of: selection) {
+          updateValues()
+        }
       }
     }
   }

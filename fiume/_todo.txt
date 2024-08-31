@@ -1,4 +1,6 @@
 
+Persistence of toggles
+
 TODO - init for AssumedDateView populated from DateSpec on the way in?
 * Tag with whole item?
 * Check DateSpecifierView.init
