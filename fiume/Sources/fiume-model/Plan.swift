@@ -23,6 +23,7 @@ public class Plan: Identifiable, Codable {
 
   public private(set) var name: String
 
+  // Persistent field is optional as it was added 
   public var isActive: Bool?  // swiftlint:disable:this discouraged_optional_boolean
 
   public var isActiveState: Bool {

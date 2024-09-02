@@ -1,5 +1,3 @@
-Persistence of toggles
-
 TODO - init for AssumedDateView populated from DateSpec on the way in?
 * Tag with whole item?
 * Check DateSpecifierView.init
@@ -39,6 +37,10 @@ Sections - Defer
 * Add multiple sections
 * Move streams (?)
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
+
+FI-24-55: 2024-09-02 - Editing DateSpec with Assumptions
+* Persistence of isActive toggles from Plan
+
 
 FI-24-54: 2024-08-29 - Date-Based Assumptions
 * Added .assumption to DateSpecifier; made all methods work
