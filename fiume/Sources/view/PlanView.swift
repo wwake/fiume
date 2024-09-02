@@ -65,7 +65,7 @@ struct PlanCompositeView: View {
     self._plan = plan
     self.icon = icon
     self.label = label
-    self.isActiveToggle = plan.wrappedValue.isActive!
+    self.isActiveToggle = plan.wrappedValue.isActiveState
   }
 
   var body: some View {

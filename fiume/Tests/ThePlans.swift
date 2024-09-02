@@ -111,11 +111,11 @@ struct ThePlans {
     ))
     plans.append(parent: plans.plans, child: plan)
     plans.wasChanged = false
-    #expect(plan.isActive)
+    #expect(plan.isActiveState)
 
     plans.toggle(plan)
 
     #expect(plans.wasChanged)
-    #expect(!plan.isActive)
+    #expect(!plan.isActiveState)
   }
 }

@@ -43,7 +43,7 @@ public class Plans: Codable {
   }
 
   public func toggle(_ plan: Plan) {
-    plan.isActive!.toggle()
+    plan.toggle()
     wasChanged = true
   }
 }

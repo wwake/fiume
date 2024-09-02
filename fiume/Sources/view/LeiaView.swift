@@ -16,7 +16,7 @@ struct LeiaView: View {
   init(plan: Binding<Plan>) {
     self._plan = plan
     self.leia = plan.wrappedValue.leia!
-    self.isActiveToggle = plan.wrappedValue.isActive!
+    self.isActiveToggle = plan.wrappedValue.isActiveState
   }
 
   let icons = [

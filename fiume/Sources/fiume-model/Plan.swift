@@ -12,6 +12,7 @@ public class Plan: Identifiable, Codable {
     case _id = "id"
     case _type = "type"
     case _name = "name"
+    case _isActive = "isActive"
     case _leia = "leia"
     case _children = "children"
   }
@@ -22,7 +23,11 @@ public class Plan: Identifiable, Codable {
 
   public private(set) var name: String
 
-  public var isActive: Bool? = true
+  public var isActive: Bool?
+
+  public var isActiveState: Bool {
+    get { isActive ?? true }
+  }
 
   public var leia: Leia?
 
@@ -74,6 +79,14 @@ public class Plan: Identifiable, Codable {
     }
   }
 
+  public func toggle() {
+    if isActive == nil {
+      isActive = false
+    } else {
+      isActive?.toggle()
+    }
+  }
+
   public func remove(_ descendant: Plan) {
     guard children != nil else { return }
     children!.removeAll(where: { $0.id == descendant.id })
@@ -95,7 +108,7 @@ public class Plan: Identifiable, Codable {
   }
 
   public func scenarios(_ scenarios: Scenarios) -> Scenarios {
-    if !isActive! {
+    if !isActiveState {
       return scenarios
     }
 
@@ -121,7 +134,7 @@ public class Plan: Identifiable, Codable {
       let result = Scenarios()
       children.enumerated().forEach { index, child in
         scenarios.forEach { scenario in
-          if child.isActive! {
+          if child.isActiveState {
             let childName = scenario.name + uniqueName(name, child, index)
             let newScenarios = child.scenarios(Scenarios([scenario.copy(childName)]))
             result.add(newScenarios)
