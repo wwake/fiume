@@ -16,7 +16,7 @@ struct LeiaView: View {
   init(plan: Binding<Plan>) {
     self._plan = plan
     self.leia = plan.wrappedValue.leia!
-    self.isActiveToggle = plan.wrappedValue.isActive
+    self.isActiveToggle = plan.wrappedValue.isActive!
   }
 
   let icons = [
@@ -44,7 +44,7 @@ struct LeiaView: View {
       Text("\(leia.type.name): \(leia.name)"
            + "   \(leia.amount)\(leia.type.frequency)   \(leia.dates.description)"
            + "    Growth: \(leia.growth!)")
-      .strikethrough(!plan.isActive)
+      .strikethrough(!isActiveToggle)
 
       Spacer()
 

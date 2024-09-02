@@ -22,7 +22,7 @@ public class Plan: Identifiable, Codable {
 
   public private(set) var name: String
 
-  public var isActive: Bool = true
+  public var isActive: Bool? = true
 
   public var leia: Leia?
 
@@ -95,7 +95,7 @@ public class Plan: Identifiable, Codable {
   }
 
   public func scenarios(_ scenarios: Scenarios) -> Scenarios {
-    if !isActive {
+    if !isActive! {
       return scenarios
     }
 
@@ -121,7 +121,7 @@ public class Plan: Identifiable, Codable {
       let result = Scenarios()
       children.enumerated().forEach { index, child in
         scenarios.forEach { scenario in
-          if child.isActive {
+          if child.isActive! {
             let childName = scenario.name + uniqueName(name, child, index)
             let newScenarios = child.scenarios(Scenarios([scenario.copy(childName)]))
             result.add(newScenarios)

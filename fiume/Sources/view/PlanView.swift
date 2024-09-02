@@ -65,7 +65,7 @@ struct PlanCompositeView: View {
     self._plan = plan
     self.icon = icon
     self.label = label
-    self.isActiveToggle = plan.wrappedValue.isActive
+    self.isActiveToggle = plan.wrappedValue.isActive!
   }
 
   var body: some View {
@@ -78,7 +78,7 @@ struct PlanCompositeView: View {
         .accessibilityLabel(label)
 
       Text(plan.name)
-        .strikethrough(!plan.isActive)
+        .strikethrough(!isActiveToggle)
 
       Spacer()
 
