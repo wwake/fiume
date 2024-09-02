@@ -39,7 +39,7 @@ opt_in_rules:
   - discouraged_assert
   - discouraged_none_name
   - discouraged_object_literal
-  - discouraged_optional_boolean
+#  - discouraged_optional_boolean   # House rule - need these for adding new persistent field
 #  - discouraged_optional_collection  # House rule - parser can't necessarily produce empty collections
   - empty_collection_literal
 #  - empty_count   # House rule - it complains about int vs 0

@@ -77,6 +77,36 @@ struct APlan {
   }
 
   @Test
+  func toggles_isActive_from_nil() {
+    let sut = makeStream("Income1", 1, 2020.jan, 2030.jan)
+    sut.isActive = nil
+
+    sut.toggle()
+
+    #expect(!sut.isActiveState)
+  }
+
+  @Test
+  func toggles_isActive_from_false() {
+    let sut = makeStream("Income1", 1, 2020.jan, 2030.jan)
+    sut.isActive = false
+
+    sut.toggle()
+
+    #expect(sut.isActiveState)
+  }
+
+  @Test
+  func toggles_isActive_from_true() {
+    let sut = makeStream("Income1", 1, 2020.jan, 2030.jan)
+    sut.isActive = true
+
+    sut.toggle()
+
+    #expect(!sut.isActiveState)
+  }
+
+  @Test
   func removes_a_descendant() {
     let leaf1 = makeStream("Income1", 1, 2020.jan, 2030.jan)
     let parent = makeGroup("parent", [leaf1])

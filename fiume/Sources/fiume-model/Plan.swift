@@ -26,7 +26,7 @@ public class Plan: Identifiable, Codable {
   public var isActive: Bool?
 
   public var isActiveState: Bool {
-    get { isActive ?? true }
+    isActive ?? true
   }
 
   public var leia: Leia?
