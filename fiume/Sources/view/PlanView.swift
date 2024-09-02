@@ -56,12 +56,21 @@ struct PlanCompositeView: View {
   let icon: String
   let label: String
 
+  @State private var isActiveToggle: Bool
+
   @State private var isAddPresented = false
   @State private var isEditPresented = false
 
+  init(plan: Binding<Plan>, icon: String, label: String) {
+    self._plan = plan
+    self.icon = icon
+    self.label = label
+    self.isActiveToggle = plan.wrappedValue.isActive
+  }
+
   var body: some View {
     HStack {
-      Toggle("Active", isOn: $plan.isActive)
+      Toggle("Active", isOn: $isActiveToggle)
         .labelsHidden()
         .padding([.leading, .trailing], 4)
 
@@ -96,6 +105,9 @@ struct PlanCompositeView: View {
           .accessibilityLabel(Text("Add"))
       }
       .buttonStyle(.plain)
+    }
+    .onChange(of: isActiveToggle) {
+      plans.toggle(plan)
     }
     .sheet(isPresented: $isAddPresented) {
       AddPlanView(plan: $plan)

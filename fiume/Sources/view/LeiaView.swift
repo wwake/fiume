@@ -9,11 +9,14 @@ struct LeiaView: View {
 
   var leia: Leia
 
+  @State private var isActiveToggle: Bool
+
   @State private var isEditPresented = false
 
   init(plan: Binding<Plan>) {
     self._plan = plan
     self.leia = plan.wrappedValue.leia!
+    self.isActiveToggle = plan.wrappedValue.isActive
   }
 
   let icons = [
@@ -32,7 +35,7 @@ struct LeiaView: View {
 
   var body: some View {
     HStack {
-      Toggle("Active", isOn: $plan.isActive)
+      Toggle("Active", isOn: $isActiveToggle)
         .labelsHidden()
         .padding([.leading, .trailing], 4)
 
@@ -60,6 +63,9 @@ struct LeiaView: View {
           .accessibilityLabel(Text("Edit"))
       }
       .buttonStyle(.plain)
+    }
+    .onChange(of: isActiveToggle) {
+      plans.toggle(plan)
     }
     .padding(4)
     .background(Color(leia.type.name))
