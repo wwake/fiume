@@ -1,4 +1,3 @@
-
 Persistence of toggles
 
 TODO - init for AssumedDateView populated from DateSpec on the way in?

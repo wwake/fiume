@@ -99,4 +99,23 @@ struct ThePlans {
     #expect(plan.leia!.amount.value(monthlyInterest: 0.0, at: 2024.aug, ignoredScenario) == 500)
     #expect(plans.wasChanged)
   }
+
+  @Test
+  func toggle_flips_isActive() {
+    let plan = Plan.make(Leia(
+      name: "test",
+      amount: .money(200),
+      dates: DateRange.always,
+      type: .income,
+      growth: PercentAssumption.flatGrowth
+    ))
+    plans.append(parent: plans.plans, child: plan)
+    plans.wasChanged = false
+    #expect(plan.isActive)
+
+    plans.toggle(plan)
+
+    #expect(plans.wasChanged)
+    #expect(!plan.isActive)
+  }
 }

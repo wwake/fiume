@@ -41,4 +41,9 @@ public class Plans: Codable {
     plan.replace(leia: newLeia)
     wasChanged = true
   }
+
+  public func toggle(_ plan: Plan) {
+    plan.isActive.toggle()
+    wasChanged = true
+  }
 }
