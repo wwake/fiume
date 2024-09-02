@@ -23,7 +23,7 @@ public class Plan: Identifiable, Codable {
 
   public private(set) var name: String
 
-  public var isActive: Bool?
+  public var isActive: Bool?  // swiftlint:disable:this discouraged_optional_boolean
 
   public var isActiveState: Bool {
     isActive ?? true
