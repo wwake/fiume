@@ -48,15 +48,19 @@ public class Assumptions: Codable {
     return name
   }
 
-  public var count: Int {
-    assumptions.count
+  public func count(_ type: AssumptionType) -> Int {
+    filter(type).count
   }
 
   public func names(_ type: AssumptionType) -> [String] {
-    assumptions
-      .filter { $0.type == type }
+    filter(type)
       .map { $0.name }
       .sorted()
+  }
+
+  fileprivate func filter(_ type: AssumptionType) -> [Assumption] {
+    assumptions
+      .filter { $0.type == type }
   }
 
   public func asMonthYear(_ name: String) -> MonthYear {

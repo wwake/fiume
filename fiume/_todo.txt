@@ -24,6 +24,7 @@ Errors
 * Validate month is valid; end-date >= start-date [now we silently use zero for the amount]
 * Require distinct people names?
 * Do better when deleting a person with active Leias - at least strike through
+* Error if deleted name is used (assumption or relative)
 
 User Interface
 * What's the best UI for stream name since they might not exist yet but probably do?

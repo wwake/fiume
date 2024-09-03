@@ -124,5 +124,6 @@ struct TheAssumptions {
     sut.add(Assumption(type: .date, name: "A", min: 0, max: 10, current: 9))
 
     #expect(sut.names(.date) == ["A", "Z"])
+    #expect(sut.count(.date) == 2)
   }
 }

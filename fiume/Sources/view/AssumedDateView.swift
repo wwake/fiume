@@ -16,7 +16,7 @@ struct AssumedDateView: View {
 }
 
   var body: some View {
-    if Assumptions.shared.count == 0 {
+    if Assumptions.shared.count(.date) == 0 {
       ContentUnavailableView(
         "Assumed Date Unavailable",
         systemImage: "exclamationmark.triangle",
