@@ -43,6 +43,15 @@ public class DateAssumptions {
   public var count: Int {
     assumptions.count
   }
+
+  public var names: [String] {
+    Array(self)
+      .map { $0.name }
+  }
+
+  public var firstName: String? {
+    names.first
+  }
 }
 
 extension DateAssumptions: Sequence {

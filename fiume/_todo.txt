@@ -1,11 +1,8 @@
-TODO - init for AssumedDateView populated from DateSpec on the way in?
-* Tag with whole item?
-* Check DateSpecifierView.init
-* Edit assumption choice in DateSpecifierView
+* DateSpecifierView - Check DateSpecifierView.init
 * Create date assumption
 * Quickly change date assumptions
+* Improve date description in LeiaView
 Date- or Amount-Based Assumptions
-
 
 * Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
 
@@ -40,7 +37,10 @@ Sections - Defer
 
 FI-24-55: 2024-09-02 - Editing DateSpec with Assumptions
 * Persistence of isActive toggles from Plan
-
+* Convert AssumedDateView to use names, not whole DateAssumptions
+* Make AssumedDateView set initial selection if one is available
+* Init for AssumedDateView populated from DateSpec on the way in
+* Edit assumption choice in DateSpecifierView (persisted automatically)
 
 FI-24-54: 2024-08-29 - Date-Based Assumptions
 * Added .assumption to DateSpecifier; made all methods work

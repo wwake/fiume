@@ -1,5 +1,7 @@
 public struct DateAssumption: Identifiable {
-  public static var null = { DateAssumption("<none>", min: 0, max: 9999, current: 2000) }()
+  public static var null = {
+    DateAssumption("<none>", min: 0, max: 9999, current: 2000)
+  }()
 
   public var id = UUID()
 

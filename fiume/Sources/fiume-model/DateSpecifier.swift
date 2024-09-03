@@ -10,6 +10,16 @@ public enum DateSpecifier: Equatable, Codable {
     People.shared
   }
 
+  public var assumedDateName: String? {
+    switch self {
+    case .assumption(let dateName):
+      return dateName
+
+    default:
+      return nil
+    }
+  }
+
   public var description: String {
     switch self {
     case .unchanged:

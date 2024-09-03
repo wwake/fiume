@@ -4,11 +4,16 @@ import SwiftUI
 struct AssumedDateView: View {
   @Binding var dateSpec: DateSpecifier
 
-  @State private var selection = DateAssumption.null
+  @State private var selection: String
 
   func updateValues() {
-    dateSpec = DateSpecifier.assumption(selection.name)
+    dateSpec = DateSpecifier.assumption(selection)
   }
+
+  init(dateSpec: Binding<DateSpecifier>) {
+    self._dateSpec = dateSpec
+    self.selection = dateSpec.wrappedValue.assumedDateName ?? DateAssumptions.shared.firstName ?? ""
+}
 
   var body: some View {
     if DateAssumptions.shared.count == 0 {
@@ -21,9 +26,9 @@ struct AssumedDateView: View {
       VStack {
         Text("Select the date to use; adjust it via Assumptions")
         Picker("Assumed Date", selection: $selection) {
-          ForEach(Array(DateAssumptions.shared)) {
-            Text($0.name)
-              .tag($0.name)
+          ForEach(Array(DateAssumptions.shared.names), id: \.self) {
+            Text($0)
+              .tag($0)
           }
         }
         .labelsHidden()
