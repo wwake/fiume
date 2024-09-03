@@ -25,23 +25,25 @@ struct AssumptionsView: View {
         assumption: Assumption.null(section.type),
         buttonName: "Create \(section.name)") { assumption in
           assumptions.add(assumption)
-        }
+      }
     }
   }
 
   var body: some View {
     List {
-      Section(header: header(AssumptionsSection(.percent, "percent", "Annual Percentage Rate"))) {
-        ForEach(assumptions.sorted()) { assumption in
-          AssumptionView(
-            assumption: assumption,
-            updateAction: { revisedAssumption in
-              assumptions.replace(revisedAssumption)
-            },
-            deleteAction: { name in
-              assumptions.remove(name)
-            }
-          )
+      ForEach(assumptions.sections) { section in
+        Section(header: header(section)) {
+          ForEach(assumptions.sorted()) { assumption in
+            AssumptionView(
+              assumption: assumption,
+              updateAction: { revisedAssumption in
+                assumptions.replace(revisedAssumption)
+              },
+              deleteAction: { name in
+                assumptions.remove(name)
+              }
+            )
+          }
         }
       }
     }

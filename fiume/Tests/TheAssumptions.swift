@@ -133,8 +133,8 @@ struct TheAssumptions {
 
     let result = sut
       .sections
-      .map { $0.name }
+      .map { $0.type }
 
-    #expect(result == ["Annual Percentage Rate", "Date"])
+    #expect(Set(result) == [.date, .percent])
   }
 }

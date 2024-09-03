@@ -1,6 +1,8 @@
 import Foundation
 
-public struct AssumptionsSection {
+public struct AssumptionsSection: Identifiable {
+  public var id = UUID()
+
   public let type: AssumptionType
   public let iconName: String
   public let name: String
