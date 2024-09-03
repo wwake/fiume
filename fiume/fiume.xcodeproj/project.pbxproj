@@ -80,7 +80,6 @@
 		91FA965B2C7E52230011BB7F /* MultiNetIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */; };
 		91FA965D2C7FBE360011BB7F /* TheDateAssumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965C2C7FBE360011BB7F /* TheDateAssumptions.swift */; };
 		91FA96602C80F4710011BB7F /* DateAssumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965E2C80F44E0011BB7F /* DateAssumptions.swift */; };
-		91FA96632C80F47F0011BB7F /* DateAssumption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96612C80F47A0011BB7F /* DateAssumption.swift */; };
 		91FA96652C8105B50011BB7F /* AssumedDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96642C8105B50011BB7F /* AssumedDateView.swift */; };
 /* End PBXBuildFile section */
 
@@ -211,7 +210,6 @@
 		91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiNetIncomeView.swift; sourceTree = "<group>"; };
 		91FA965C2C7FBE360011BB7F /* TheDateAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDateAssumptions.swift; sourceTree = "<group>"; };
 		91FA965E2C80F44E0011BB7F /* DateAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAssumptions.swift; sourceTree = "<group>"; };
-		91FA96612C80F47A0011BB7F /* DateAssumption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAssumption.swift; sourceTree = "<group>"; };
 		91FA96642C8105B50011BB7F /* AssumedDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssumedDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				91042FDD2C50494E00FFC65F /* Amount.swift */,
-				91FA96612C80F47A0011BB7F /* DateAssumption.swift */,
 				91FA965E2C80F44E0011BB7F /* DateAssumptions.swift */,
 				91E7BB942C4EF2CF00A328DF /* DateRange.swift */,
 				91D543992C051B5700AD3592 /* DateSpecifier.swift */,
@@ -584,7 +581,6 @@
 				91FA96502C79707B0011BB7F /* MoneyByType.swift in Sources */,
 				91753E4C2C6BEE9C001B02F6 /* Assumption.swift in Sources */,
 				915226EB2C4EDBAD0001260F /* Plans.swift in Sources */,
-				91FA96632C80F47F0011BB7F /* DateAssumption.swift in Sources */,
 				91FA96602C80F4710011BB7F /* DateAssumptions.swift in Sources */,
 				915226E92C4EDBAD0001260F /* Leia.swift in Sources */,
 				915226ED2C4EDBAD0001260F /* People.swift in Sources */,
