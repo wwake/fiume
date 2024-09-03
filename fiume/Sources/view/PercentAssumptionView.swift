@@ -21,12 +21,17 @@ struct PercentAssumptionView: View {
     self.value = Double(assumption.current)
   }
 
+  func asString(_ value: Double) -> String {
+    let suffix = assumption.type == .percent ? "%" : ""
+    return "\(Int(value))\(suffix)"
+  }
+
   var body: some View {
     HStack {
       Text(assumption.name)
 
       Spacer()
-      Text("\(Int(value))%")
+      Text(asString(value))
 
       HStack {
         Text("[ \(assumption.min)")

@@ -56,7 +56,7 @@ struct EditAssumptionView: View {
       HStack {
         Spacer()
         Button(buttonName) {
-          let assumption = Assumption(type: .percent, name: name, min: min, max: max, current: current)
+          let assumption = Assumption(type: assumption.type, name: name, min: min, max: max, current: current)
           action(assumption)
           dismiss()
         }

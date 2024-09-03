@@ -5,7 +5,7 @@ public class DateAssumptions {
   public static var shared = DateAssumptions()
 
   public var wasChanged = false
-  private var assumptions = // [DateAssumption]()
+  private var assumptions = // [Assumption]()
   [
     Assumption(type: .date, name: "default", min: 1900, max: 2200, current: 2020),
     Assumption.nullDate,
