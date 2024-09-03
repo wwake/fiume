@@ -30,20 +30,6 @@ public class PercentAssumptions: Codable {
     assumptions.first { $0.name == name }
   }
 
-  public func findMonthlyRate(_ name: String?) -> Double {
-    guard name != nil, let assumption = find(name!) else {
-      return 0.0
-    }
-    return pow(1 + Double(assumption.current) / 100.0, 1.0 / 12.0)
-  }
-
-  public func current(_ name: String) -> MonthYear {
-    guard let assumption = find(name) else {
-      return 1900.jan
-    }
-    return MonthYear(.jan, assumption.current)
-  }
-
   public func remove(_ name: String) {
     assumptions.removeAll { $0.name == name }
     wasChanged = true
@@ -73,6 +59,20 @@ public class PercentAssumptions: Codable {
 
   public var firstName: String? {
     names.first
+  }
+
+  public func current(_ name: String) -> MonthYear {
+    guard let assumption = find(name) else {
+      return 1900.jan
+    }
+    return MonthYear(.jan, assumption.current)
+  }
+
+  public func findMonthlyRate(_ name: String?) -> Double {
+    guard name != nil, let assumption = find(name!) else {
+      return 0.0
+    }
+    return pow(1 + Double(assumption.current) / 100.0, 1.0 / 12.0)
   }
 }
 
