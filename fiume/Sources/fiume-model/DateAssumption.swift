@@ -1,5 +1,5 @@
 public struct DateAssumption: Identifiable {
-  public static var null = {
+  public static var nullDate = {
     DateAssumption("<none>", min: 0, max: 9999, current: 2000)
   }()
 

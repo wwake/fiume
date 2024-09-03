@@ -17,7 +17,7 @@ struct APlan {
       amount: .money(amount),
       dates: DateRange(.month(first), .month(last)),
       type: .asset,
-      growth: PercentAssumption.flatGrowth
+      growth: Assumption.flatGrowth
     )
     return Plan.make(asset)
   }
@@ -49,7 +49,7 @@ struct APlan {
       amount: .money(amount),
       dates: DateRange(.month(first), .month(last)),
       type: .income,
-      growth: PercentAssumption.flatGrowth
+      growth: Assumption.flatGrowth
     )
     return Plan.make(stream)
   }

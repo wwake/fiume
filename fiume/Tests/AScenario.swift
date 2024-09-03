@@ -103,7 +103,7 @@ struct AScenario {
       amount: .relative(0.5, "job"),
       dates: DateRange.always,
       type: .income,
-      growth: PercentAssumption.flatGrowth
+      growth: Assumption.flatGrowth
     )
     sut.add(relative)
 
@@ -120,7 +120,7 @@ struct AScenario {
       amount: .relative(0.5, "house"),
       dates: DateRange.always,
       type: .asset,
-      growth: PercentAssumption.flatGrowth
+      growth: Assumption.flatGrowth
     )
     sut.add(relative)
 

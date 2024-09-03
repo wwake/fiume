@@ -1,5 +1,3 @@
-
-* DateSpecifierView - Check DateSpecifierView.init
 * Create date assumption
 * Quickly change date assumptions
 * Improve date description in LeiaView
@@ -36,6 +34,9 @@ Sections - Defer
 * Add multiple sections
 * Move streams (?)
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
+
+FI-24-56: 2024-09-03 - Create Date Assumptions
+* Simplify DateSpecifierView, how it assigns monthYear
 
 FI-24-55: 2024-09-02 - Editing DateSpec with Assumptions
 * Persistence of isActive toggles from Plan

@@ -28,7 +28,7 @@ struct ALeia {
   @Test
   func applies_growth() {
     PercentAssumptions.shared.add(
-      PercentAssumption(type: .percent, name: "Inflation", min: 0, max: 100, current: 50)
+      Assumption(type: .percent, name: "Inflation", min: 0, max: 100, current: 50)
     )
     // Yearly interest at 50% ~~ monthly interest at 34%
     var sut = makeLeia(name: "income", 1000, dates: DateRange.always, leiaType: .income)
@@ -44,7 +44,7 @@ struct ALeia {
   @Test
   func starts_growing_only_when_it_becomes_active() {
     PercentAssumptions.shared.add(
-      PercentAssumption(type: .percent, name: "Inflation", min: 0, max: 100, current: 50)
+      Assumption(type: .percent, name: "Inflation", min: 0, max: 100, current: 50)
     )
     // Yearly interest at 50% ~~ monthly interest at 34%
     var sut = makeLeia(name: "income", 1000, dates: DateRange(.month(2021.jan), .unchanged), leiaType: .asset)

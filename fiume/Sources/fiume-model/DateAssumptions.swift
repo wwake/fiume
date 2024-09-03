@@ -8,7 +8,7 @@ public class DateAssumptions {
   private var assumptions = // [DateAssumption]()
   [
     DateAssumption("default", min: 1900, max: 2200, current: 2020),
-    DateAssumption.null,
+    DateAssumption.nullDate,
   ]
 
   public init() { }

@@ -21,7 +21,7 @@ struct AssumptionsView: View {
       }
     }
     .sheet(isPresented: $isShowingCreateView) {
-      EditAssumptionView(assumption: PercentAssumption.null, buttonName: "Create") { assumption in
+      EditAssumptionView(assumption: Assumption.null, buttonName: "Create") { assumption in
        assumptions.add(assumption)
       }
     }
@@ -48,7 +48,7 @@ struct AssumptionsView: View {
 
 #Preview {
   @State var assumptions = PercentAssumptions()
-  assumptions.add(PercentAssumption(type: .percent, name: "ROI", min: 1, max: 20, current: 7))
+  assumptions.add(Assumption(type: .percent, name: "ROI", min: 1, max: 20, current: 7))
 
   return AssumptionsView()
     .environment(assumptions)

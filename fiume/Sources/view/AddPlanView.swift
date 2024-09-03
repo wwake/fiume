@@ -50,7 +50,7 @@ struct AddPlanView: View {
     amount: .money(100),
     dates: DateRange(.month(2024.jan), .unchanged),
     type: .income,
-    growth: PercentAssumption.flatGrowth
+    growth: Assumption.flatGrowth
   )
   tree.append(Plan.make(stream))
   return AddPlanView(plan: $tree)

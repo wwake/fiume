@@ -86,7 +86,7 @@ struct LeiaView: View {
       amount: .money(1_000),
       dates: DateRange(.month(2020.jan), .month(2025.dec)),
       type: .income,
-      growth: PercentAssumption.flatGrowth
+      growth: Assumption.flatGrowth
     )
   )
   let stream = Leia(
@@ -94,7 +94,7 @@ struct LeiaView: View {
     amount: .money(300),
     dates: DateRange(.month(2030.mar), .unchanged),
     type: .expense,
-    growth: PercentAssumption.flatGrowth
+    growth: Assumption.flatGrowth
   )
   @State var expense = Plan.make(stream)
   return VStack {

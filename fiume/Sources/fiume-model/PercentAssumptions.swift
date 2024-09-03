@@ -10,10 +10,10 @@ public class PercentAssumptions: Codable {
   }
 
   public var wasChanged = false
-  public var assumptions: [PercentAssumption]
+  public var assumptions: [Assumption]
 
   public init() {
-    assumptions = [PercentAssumption(type: .percent, name: "(none)", min: 0, max: 0, current: 0)]
+    assumptions = [Assumption(type: .percent, name: "(none)", min: 0, max: 0, current: 0)]
   }
 
   public func load(_ original: PercentAssumptions) {
@@ -21,12 +21,12 @@ public class PercentAssumptions: Codable {
     wasChanged = false
   }
 
-  public func add(_ assumption: PercentAssumption) {
+  public func add(_ assumption: Assumption) {
     assumptions.append(assumption)
     wasChanged = true
   }
 
-  public func find(_ name: String) -> PercentAssumption? {
+  public func find(_ name: String) -> Assumption? {
     assumptions.first { $0.name == name }
   }
 
@@ -42,7 +42,7 @@ public class PercentAssumptions: Codable {
     wasChanged = true
   }
 
-  public func replace(_ assumption: PercentAssumption) {
+  public func replace(_ assumption: Assumption) {
     remove(assumption.name)
     add(assumption)
     wasChanged = true
@@ -50,14 +50,14 @@ public class PercentAssumptions: Codable {
 
   public func verified(_ name: String) -> String {
     guard find(name) != nil else {
-      return PercentAssumption.flatGrowth
+      return Assumption.flatGrowth
     }
     return name
   }
 }
 
 extension PercentAssumptions: Sequence {
-  public func makeIterator() -> some IteratorProtocol<PercentAssumption> {
+  public func makeIterator() -> some IteratorProtocol<Assumption> {
     assumptions
       .sorted(by: { $0.name < $1.name })
       .makeIterator()
