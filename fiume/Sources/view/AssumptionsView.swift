@@ -7,11 +7,11 @@ struct AssumptionsView: View {
 
   @State var isShowingCreateView = false
 
-  func header(_ type: AssumptionType, _ iconName: String, _ name: String) -> some View {
+  func header(_ section: AssumptionsSection) -> some View {
     HStack {
-      Image(systemName: iconName)
-        .accessibilityLabel(Text(name))
-      Text(name)
+      Image(systemName: section.iconName)
+        .accessibilityLabel(Text(section.name))
+      Text(section.name)
       Spacer()
       Button {
         isShowingCreateView.toggle()
@@ -29,7 +29,7 @@ struct AssumptionsView: View {
 
   var body: some View {
     List {
-      Section(header: header(.percent, "percent", "Annual Percentage Rate")) {
+      Section(header: header(AssumptionsSection(.percent, "percent", "Annual Percentage Rate"))) {
         ForEach(assumptions.sorted()) { assumption in
           AssumptionView(
             assumption: assumption,

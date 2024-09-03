@@ -1,5 +1,17 @@
 import Foundation
 
+public struct AssumptionsSection {
+  public let type: AssumptionType
+  public let iconName: String
+  public let name: String
+
+  public init(_ type: AssumptionType, _ iconName: String, _ name: String) {
+    self.type = type
+    self.iconName = iconName
+    self.name = name
+  }
+}
+
 @Observable
 public class Assumptions: Codable {
   public static var shared = Assumptions()
