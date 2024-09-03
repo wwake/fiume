@@ -42,7 +42,7 @@
 		91753E492C6BE04A001B02F6 /* AssumptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91753E482C6BE04A001B02F6 /* AssumptionView.swift */; };
 		91753E4B2C6BED32001B02F6 /* ThePercentAssumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91753E4A2C6BED32001B02F6 /* ThePercentAssumptions.swift */; };
 		91753E4C2C6BEE9C001B02F6 /* Assumption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91753E442C6BDBFD001B02F6 /* Assumption.swift */; };
-		91753E4D2C6BEEA9001B02F6 /* PercentAssumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91753E462C6BDC4C001B02F6 /* PercentAssumptions.swift */; };
+		91753E4D2C6BEEA9001B02F6 /* Assumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91753E462C6BDC4C001B02F6 /* Assumptions.swift */; };
 		918907102C3493FC0030918E /* Possibilities+add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189070F2C3493FC0030918E /* Possibilities+add.swift */; };
 		918939562C73C5320058C0DA /* NetWorth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918939552C73C5320058C0DA /* NetWorth.swift */; };
 		918939582C73CF350058C0DA /* ANetWorth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918939572C73CF350058C0DA /* ANetWorth.swift */; };
@@ -79,7 +79,6 @@
 		91FA96592C7E4D460011BB7F /* ScenarioNetIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */; };
 		91FA965B2C7E52230011BB7F /* MultiNetIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */; };
 		91FA965D2C7FBE360011BB7F /* TheDateAssumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965C2C7FBE360011BB7F /* TheDateAssumptions.swift */; };
-		91FA96602C80F4710011BB7F /* DateAssumptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA965E2C80F44E0011BB7F /* DateAssumptions.swift */; };
 		91FA96652C8105B50011BB7F /* AssumedDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA96642C8105B50011BB7F /* AssumedDateView.swift */; };
 /* End PBXBuildFile section */
 
@@ -157,7 +156,7 @@
 		91753E402C6BD892001B02F6 /* CapsuleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButtonStyle.swift; sourceTree = "<group>"; };
 		91753E422C6BD9D2001B02F6 /* AssumptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssumptionsView.swift; sourceTree = "<group>"; };
 		91753E442C6BDBFD001B02F6 /* Assumption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assumption.swift; sourceTree = "<group>"; };
-		91753E462C6BDC4C001B02F6 /* PercentAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentAssumptions.swift; sourceTree = "<group>"; };
+		91753E462C6BDC4C001B02F6 /* Assumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assumptions.swift; sourceTree = "<group>"; };
 		91753E482C6BE04A001B02F6 /* AssumptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssumptionView.swift; sourceTree = "<group>"; };
 		91753E4A2C6BED32001B02F6 /* ThePercentAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThePercentAssumptions.swift; sourceTree = "<group>"; };
 		9189070F2C3493FC0030918E /* Possibilities+add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Possibilities+add.swift"; sourceTree = "<group>"; };
@@ -209,7 +208,6 @@
 		91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioNetIncomeView.swift; sourceTree = "<group>"; };
 		91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiNetIncomeView.swift; sourceTree = "<group>"; };
 		91FA965C2C7FBE360011BB7F /* TheDateAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheDateAssumptions.swift; sourceTree = "<group>"; };
-		91FA965E2C80F44E0011BB7F /* DateAssumptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAssumptions.swift; sourceTree = "<group>"; };
 		91FA96642C8105B50011BB7F /* AssumedDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssumedDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				91042FDD2C50494E00FFC65F /* Amount.swift */,
-				91FA965E2C80F44E0011BB7F /* DateAssumptions.swift */,
 				91E7BB942C4EF2CF00A328DF /* DateRange.swift */,
 				91D543992C051B5700AD3592 /* DateSpecifier.swift */,
 				915226D92C4EDB980001260F /* fiume_model.h */,
@@ -256,7 +253,7 @@
 				918939552C73C5320058C0DA /* NetWorth.swift */,
 				91C248CC2C24B3CE00A1EEB3 /* People.swift */,
 				91753E442C6BDBFD001B02F6 /* Assumption.swift */,
-				91753E462C6BDC4C001B02F6 /* PercentAssumptions.swift */,
+				91753E462C6BDC4C001B02F6 /* Assumptions.swift */,
 				91F950842C07B8AB006822AF /* Person.swift */,
 				919CED482BF5492800ACCE2E /* Plan.swift */,
 				91C248D32C3337E400A1EEB3 /* Plans.swift */,
@@ -575,13 +572,12 @@
 				915226E82C4EDBAD0001260F /* Plan.swift in Sources */,
 				915226EC2C4EDBAD0001260F /* Possibilities.swift in Sources */,
 				918939562C73C5320058C0DA /* NetWorth.swift in Sources */,
-				91753E4D2C6BEEA9001B02F6 /* PercentAssumptions.swift in Sources */,
+				91753E4D2C6BEEA9001B02F6 /* Assumptions.swift in Sources */,
 				915226E32C4EDBAD0001260F /* Money.swift in Sources */,
 				91E7BB952C4EF2CF00A328DF /* DateRange.swift in Sources */,
 				91FA96502C79707B0011BB7F /* MoneyByType.swift in Sources */,
 				91753E4C2C6BEE9C001B02F6 /* Assumption.swift in Sources */,
 				915226EB2C4EDBAD0001260F /* Plans.swift in Sources */,
-				91FA96602C80F4710011BB7F /* DateAssumptions.swift in Sources */,
 				915226E92C4EDBAD0001260F /* Leia.swift in Sources */,
 				915226ED2C4EDBAD0001260F /* People.swift in Sources */,
 				91042FDE2C50494E00FFC65F /* Amount.swift in Sources */,

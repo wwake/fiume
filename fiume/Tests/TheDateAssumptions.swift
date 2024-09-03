@@ -3,11 +3,11 @@ import fiume_model
 import Testing
 
 struct TheDateAssumptions {
-  func makeAssumptions() -> PercentAssumptions {
-    PercentAssumptions()
+  func makeAssumptions() -> Assumptions {
+    Assumptions()
   }
 
-  func makeEmptyAssumptions() -> PercentAssumptions {
+  func makeEmptyAssumptions() -> Assumptions {
     let assumptions = makeAssumptions()
     Array(assumptions).forEach {
       assumptions.remove($0.name)

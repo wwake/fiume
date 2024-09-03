@@ -1,8 +1,8 @@
 import Foundation
 
 @Observable
-public class PercentAssumptions: Codable {
-  public static var shared = PercentAssumptions()
+public class Assumptions: Codable {
+  public static var shared = Assumptions()
 
   enum CodingKeys: String, CodingKey {
     case _wasChanged = "wasChanged"
@@ -16,7 +16,7 @@ public class PercentAssumptions: Codable {
     assumptions = [Assumption(type: .percent, name: "(none)", min: 0, max: 0, current: 0)]
   }
 
-  public func load(_ original: PercentAssumptions) {
+  public func load(_ original: Assumptions) {
     assumptions = original.assumptions
     wasChanged = false
   }
@@ -76,7 +76,7 @@ public class PercentAssumptions: Codable {
   }
 }
 
-extension PercentAssumptions: Sequence {
+extension Assumptions: Sequence {
   public func makeIterator() -> some IteratorProtocol<Assumption> {
     assumptions
       .sorted(by: { $0.name < $1.name })

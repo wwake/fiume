@@ -12,11 +12,11 @@ struct AssumedDateView: View {
 
   init(dateSpec: Binding<DateSpecifier>) {
     self._dateSpec = dateSpec
-    self.selection = dateSpec.wrappedValue.assumedDateName ?? PercentAssumptions.shared.firstName ?? ""
+    self.selection = dateSpec.wrappedValue.assumedDateName ?? Assumptions.shared.firstName ?? ""
 }
 
   var body: some View {
-    if PercentAssumptions.shared.count == 0 {
+    if Assumptions.shared.count == 0 {
       ContentUnavailableView(
         "Assumed Date Unavailable",
         systemImage: "exclamationmark.triangle",
@@ -26,7 +26,7 @@ struct AssumedDateView: View {
       VStack {
         Text("Select the date to use; adjust it via Assumptions")
         Picker("Assumed Date", selection: $selection) {
-          ForEach(Array(PercentAssumptions.shared.names), id: \.self) {
+          ForEach(Array(Assumptions.shared.names), id: \.self) {
             Text($0)
               .tag($0)
           }

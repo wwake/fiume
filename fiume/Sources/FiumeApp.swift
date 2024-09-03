@@ -13,7 +13,7 @@ struct FiumeApp: App {
 
   @State var people = People.shared
   @State var plans = Plans()
-  @State var assumptions = PercentAssumptions.shared
+  @State var assumptions = Assumptions.shared
 
   init() {
     print("Document path: \(URL.documentsDirectory)")
@@ -35,7 +35,7 @@ struct FiumeApp: App {
     do {
       let newAssumptions = try open(
         Persistence.assumptionsFilename,
-        PercentAssumptions.self
+        Assumptions.self
       )
       assumptions.load(newAssumptions)
     } catch {

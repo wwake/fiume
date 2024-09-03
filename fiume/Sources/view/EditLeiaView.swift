@@ -5,8 +5,8 @@ struct EditLeiaView: View {
   @Environment(\.dismiss)
   var dismiss
 
-  @Environment(PercentAssumptions.self)
-  var assumptions: PercentAssumptions
+  @Environment(Assumptions.self)
+  var assumptions: Assumptions
 
   var title: String?
   var leia: Leia
