@@ -37,6 +37,13 @@ public class PercentAssumptions: Codable {
     return pow(1 + Double(assumption.current) / 100.0, 1.0 / 12.0)
   }
 
+  public func current(_ name: String) -> MonthYear {
+    guard let assumption = find(name) else {
+      return 1900.jan
+    }
+    return MonthYear(.jan, assumption.current)
+  }
+
   public func remove(_ name: String) {
     assumptions.removeAll { $0.name == name }
     wasChanged = true
@@ -53,6 +60,19 @@ public class PercentAssumptions: Codable {
       return Assumption.flatGrowth
     }
     return name
+  }
+
+  public var count: Int {
+    assumptions.count
+  }
+
+  public var names: [String] {
+    Array(self)
+      .map { $0.name }
+  }
+
+  public var firstName: String? {
+    names.first
   }
 }
 
