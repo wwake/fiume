@@ -52,16 +52,14 @@ public class Assumptions: Codable {
     assumptions.count
   }
 
-  public var names: [String] {
-    Array(self)
+  public func names(_ type: AssumptionType) -> [String] {
+    assumptions
+      .filter { $0.type == type }
       .map { $0.name }
+      .sorted()
   }
 
-  public var firstName: String? {
-    names.first
-  }
-
-  public func current(_ name: String) -> MonthYear {
+  public func asMonthYear(_ name: String) -> MonthYear {
     guard let assumption = find(name) else {
       return 1900.jan
     }

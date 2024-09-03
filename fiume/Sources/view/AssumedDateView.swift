@@ -12,7 +12,7 @@ struct AssumedDateView: View {
 
   init(dateSpec: Binding<DateSpecifier>) {
     self._dateSpec = dateSpec
-    self.selection = dateSpec.wrappedValue.assumedDateName ?? Assumptions.shared.firstName ?? ""
+    self.selection = dateSpec.wrappedValue.assumedDateName ?? Assumptions.shared.names(.date).first ?? ""
 }
 
   var body: some View {
@@ -26,7 +26,7 @@ struct AssumedDateView: View {
       VStack {
         Text("Select the date to use; adjust it via Assumptions")
         Picker("Assumed Date", selection: $selection) {
-          ForEach(Array(Assumptions.shared.names), id: \.self) {
+          ForEach(Array(Assumptions.shared.names(.date)), id: \.self) {
             Text($0)
               .tag($0)
           }

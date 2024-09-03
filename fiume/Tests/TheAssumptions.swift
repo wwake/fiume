@@ -106,38 +106,23 @@ struct TheAssumptions {
     let assumption = Assumption(type: .date, name: "Holiday", min: 2020, max: 2030, current: 2025)
     sut.add(assumption)
 
-    #expect(sut.current("Holiday") == 2025.jan)
+    #expect(sut.asMonthYear("Holiday") == 2025.jan)
   }
 
   @Test
   func defaults_current_date_when_not_found() {
     let sut = makeAssumptions()
 
-    #expect(sut.current("Missing") == 1900.jan)
+    #expect(sut.asMonthYear("Missing") == 1900.jan)
   }
 
   @Test
-  func first_returns_name_alphabetically_if_non_empty() {
+  func names_returns_alphabetical_list_for_type() {
     let sut = makeEmptyAssumptions()
+    sut.add(Assumption(type: .percent, name: "P", min: 0, max: 10, current: 7))
     sut.add(Assumption(type: .date, name: "Z", min: 0, max: 10, current: 5))
     sut.add(Assumption(type: .date, name: "A", min: 0, max: 10, current: 9))
 
-    #expect(sut.firstName == "A")
-  }
-
-  @Test
-  func first_returns_nil_if_empty() {
-    let sut = makeEmptyAssumptions()
-
-    #expect(sut.firstName == nil)
-  }
-
-  @Test
-  func names_returns_alphabetical_list() {
-    let sut = makeEmptyAssumptions()
-    sut.add(Assumption(type: .date, name: "Z", min: 0, max: 10, current: 5))
-    sut.add(Assumption(type: .date, name: "A", min: 0, max: 10, current: 9))
-
-    #expect(sut.names == ["A", "Z"])
+    #expect(sut.names(.date) == ["A", "Z"])
   }
 }
