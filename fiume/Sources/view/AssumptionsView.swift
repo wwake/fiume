@@ -21,9 +21,11 @@ struct AssumptionsView: View {
       }
     }
     .sheet(isPresented: $isShowingCreateView) {
-      EditAssumptionView(assumption: Assumption.null, buttonName: "Create") { assumption in
-       assumptions.add(assumption)
-      }
+      EditAssumptionView(
+        assumption: Assumption.null(section.type),
+        buttonName: "Create \(section.name)") { assumption in
+          assumptions.add(assumption)
+        }
     }
   }
 

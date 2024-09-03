@@ -28,6 +28,11 @@ public class Assumptions: Codable {
     assumptions = [Assumption(type: .percent, name: "(none)", min: 0, max: 0, current: 0)]
   }
 
+  public var sections: [AssumptionsSection] = [
+    AssumptionsSection(.percent, "percent", "Annual Percentage Rate"),
+    AssumptionsSection(.date, "calendar", "Date"),
+  ]
+
   public func load(_ original: Assumptions) {
     assumptions = original.assumptions
     wasChanged = false

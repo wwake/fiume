@@ -6,6 +6,16 @@ public enum AssumptionType: Codable {
 }
 
 public struct Assumption: Identifiable, Codable {
+  public static func null(_ type: AssumptionType) -> Assumption {
+    switch type {
+    case .percent:
+      return Assumption.null
+
+    case .date:
+      return Assumption.nullDate
+    }
+  }
+
   public static var flatGrowth = "(none)"
 
   public static var null: Assumption {

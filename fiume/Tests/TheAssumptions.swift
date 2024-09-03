@@ -126,4 +126,15 @@ struct TheAssumptions {
     #expect(sut.names(.date) == ["A", "Z"])
     #expect(sut.count(.date) == 2)
   }
+
+  @Test
+  func knows_its_sections() {
+    let sut = makeEmptyAssumptions()
+
+    let result = sut
+      .sections
+      .map { $0.name }
+
+    #expect(result == ["Annual Percentage Rate", "Date"])
+  }
 }
