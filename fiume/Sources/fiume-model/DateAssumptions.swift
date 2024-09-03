@@ -7,18 +7,18 @@ public class DateAssumptions {
   public var wasChanged = false
   private var assumptions = // [DateAssumption]()
   [
-    DateAssumption("default", min: 1900, max: 2200, current: 2020),
-    DateAssumption.nullDate,
+    Assumption(type: .date, name: "default", min: 1900, max: 2200, current: 2020),
+    Assumption.nullDate,
   ]
 
   public init() { }
 
-  public func add(_ assumption: DateAssumption) {
+  public func add(_ assumption: Assumption) {
     assumptions.append(assumption)
     wasChanged = true
   }
 
-  public func find(_ name: String) -> DateAssumption? {
+  public func find(_ name: String) -> Assumption? {
     assumptions.first { $0.name == name }
   }
 
@@ -27,7 +27,7 @@ public class DateAssumptions {
     wasChanged = true
   }
 
-  public func replace(_ newAssumption: DateAssumption) {
+  public func replace(_ newAssumption: Assumption) {
     remove(newAssumption.name)
     add(newAssumption)
     wasChanged = true
@@ -55,7 +55,7 @@ public class DateAssumptions {
 }
 
 extension DateAssumptions: Sequence {
-  public func makeIterator() -> some IteratorProtocol<DateAssumption> {
+  public func makeIterator() -> some IteratorProtocol<Assumption> {
     assumptions
       .sorted(by: { $0.name < $1.name })
       .makeIterator()

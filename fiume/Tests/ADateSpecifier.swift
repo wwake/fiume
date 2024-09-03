@@ -38,7 +38,7 @@ struct ADateSpecifier {
   @Test
   func description_from_found_assumption() {
     let assumptions = DateAssumptions.shared
-    let assumption = DateAssumption("SS Start", min: 2030, max: 2050, current: 2040)
+    let assumption = Assumption(type: .date, name: "SS Start", min: 2030, max: 2050, current: 2040)
     assumptions.add(assumption)
 
     let sut = DateSpecifier.assumption("SS Start")
@@ -78,7 +78,7 @@ struct ADateSpecifier {
   @Test
   func effective_start_for_found_assumed_date() {
     let assumptions = DateAssumptions.shared
-    let assumption = DateAssumption("SS Start", min: 2030, max: 2050, current: 2040)
+    let assumption = Assumption(type: .date, name: "SS Start", min: 2030, max: 2050, current: 2040)
     assumptions.add(assumption)
 
     let sut = DateSpecifier.assumption("SS Start")
@@ -94,7 +94,7 @@ struct ADateSpecifier {
   @Test
   func geq_for_found_assumed_date() {
     let assumptions = DateAssumptions.shared
-    let assumption = DateAssumption("SS Start", min: 2030, max: 2050, current: 2040)
+    let assumption = Assumption(type: .date, name: "SS Start", min: 2030, max: 2050, current: 2040)
     assumptions.add(assumption)
 
     let sut = DateSpecifier.assumption("SS Start")

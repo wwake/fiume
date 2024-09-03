@@ -1,6 +1,6 @@
-public struct DateAssumption: Identifiable {
+public struct Assumption2: Identifiable {
   public static var nullDate = {
-    DateAssumption("<none>", min: 0, max: 9999, current: 2000)
+    Assumption2("<none>", min: 0, max: 9999, current: 2000)
   }()
 
   public var id = UUID()
@@ -17,14 +17,14 @@ public struct DateAssumption: Identifiable {
     self.current = current
   }
 
-  public init(_ base: DateAssumption, _ newCurrent: Int) {
+  public init(_ base: Assumption2, _ newCurrent: Int) {
     self = base
     self.current = newCurrent
   }
 }
 
-extension DateAssumption: Hashable {
-  public static func == (lhs: DateAssumption, rhs: DateAssumption) -> Bool {
+extension Assumption2: Hashable {
+  public static func == (lhs: Assumption2, rhs: Assumption2) -> Bool {
     lhs.id == rhs.id
   }
 
