@@ -37,7 +37,7 @@ public enum DateSpecifier: Equatable, Codable {
       guard let assumption = Assumptions.shared.find(name) else {
         return "<Assumed date '\(name)' not found>"
       }
-      return "\(name), currently \(assumption.current)"
+      return "Jan \(assumption.current) (\(name))"
     }
   }
 

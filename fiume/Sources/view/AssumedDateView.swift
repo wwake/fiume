@@ -12,8 +12,11 @@ struct AssumedDateView: View {
 
   init(dateSpec: Binding<DateSpecifier>) {
     self._dateSpec = dateSpec
-    self.selection = dateSpec.wrappedValue.assumedDateName ?? Assumptions.shared.names(.date).first ?? ""
-}
+    self.selection =
+         dateSpec.wrappedValue.assumedDateName
+      ?? Assumptions.shared.names(.date).first
+      ?? ""
+  }
 
   var body: some View {
     if Assumptions.shared.count(.date) == 0 {
@@ -35,6 +38,9 @@ struct AssumedDateView: View {
         .onChange(of: selection) {
           updateValues()
         }
+      }
+      .onAppear {
+        updateValues()
       }
     }
   }

@@ -23,7 +23,7 @@ public struct Assumption: Identifiable, Codable {
   }
 
   public static var nullDate = {
-    Assumption(type: .date, name: "<none>", min: 0, max: 9999, current: 2000)
+    Assumption(type: .date, name: "", min: 0, max: 9999, current: 2000)
   }()
 
   public var id = UUID()

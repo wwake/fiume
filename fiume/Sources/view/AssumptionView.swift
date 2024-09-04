@@ -22,8 +22,12 @@ struct AssumptionView: View {
   }
 
   func asString(_ value: Double) -> String {
+    asString(Int(value))
+  }
+
+  func asString(_ value: Int) -> String {
     let suffix = assumption.type == .percent ? "%" : ""
-    return "\(Int(value))\(suffix)"
+    return "\(value)\(suffix)"
   }
 
   var body: some View {
@@ -34,7 +38,7 @@ struct AssumptionView: View {
       Text(asString(value))
 
       HStack {
-        Text("[ \(assumption.min)")
+        Text("[ \(asString(assumption.min))")
         Slider(
           value: $value,
           in: Double(assumption.min)...Double(assumption.max),
@@ -47,7 +51,7 @@ struct AssumptionView: View {
         .onChange(of: value) {
           /* triggers real-time updates */
         }
-        Text("\(assumption.max) ]")
+        Text("\(asString(assumption.max)) ]")
       }
       .frame(maxWidth: 400)
 

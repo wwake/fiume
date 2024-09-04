@@ -43,7 +43,7 @@ struct ADateSpecifier {
 
     let sut = DateSpecifier.assumption("SS Start")
 
-    #expect(sut.description == "SS Start, currently 2040")
+    #expect(sut.description == "Jan 2040 (SS Start)")
   }
 
   @Test

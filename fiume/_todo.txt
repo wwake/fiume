@@ -1,8 +1,6 @@
-* Initial value of picker should set the value
-* Improve date description in LeiaView
+* Remove <none> as default name for assumptions
 * Refactor DateSpecifierView so all 4 options use the same approach
 * Disallow duplicate assumption names
-* Show numbers without comma on date-based assumptions
 Date- or Amount-Based Assumptions
 
 * Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
@@ -36,6 +34,11 @@ Sections - Defer
 * Add multiple sections
 * Move streams (?)
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
+
+FI-24-57: 2024-09-04 - Refine Date Assumptions
+* Initial value of picker should set the value on AssumedDateView
+* Show numbers without comma on date-based assumptions
+* Improve date description in LeiaView
 
 FI-24-56: 2024-09-03 - Create Date Assumptions
 * Simplify DateSpecifierView, how it assigns monthYear
