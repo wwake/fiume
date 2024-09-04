@@ -20,6 +20,13 @@ public enum DateSpecifier: Equatable, Codable {
     }
   }
 
+  public var monthYear: MonthYear? {
+    if case let .month(monthYear) = self {
+      return monthYear
+    }
+    return nil
+  }
+
   public var description: String {
     switch self {
     case .unchanged:

@@ -6,16 +6,16 @@ struct AssumedDateView: View {
 
   @State private var selection: String
 
-  func updateValues() {
-    dateSpec = DateSpecifier.assumption(selection)
-  }
-
   init(dateSpec: Binding<DateSpecifier>) {
     self._dateSpec = dateSpec
     self.selection =
          dateSpec.wrappedValue.assumedDateName
       ?? Assumptions.shared.names(.date).first
       ?? ""
+  }
+
+  func updateValues() {
+    dateSpec = DateSpecifier.assumption(selection)
   }
 
   var body: some View {
@@ -35,11 +35,8 @@ struct AssumedDateView: View {
           }
         }
         .labelsHidden()
-        .onChange(of: selection) {
-          updateValues()
-        }
       }
-      .onAppear {
+      .onChange(of: selection, initial: true) {
         updateValues()
       }
     }

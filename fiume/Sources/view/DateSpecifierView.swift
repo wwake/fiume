@@ -48,7 +48,7 @@ struct DateSpecifierView: View {
       dateSpec = DateSpecifier.unchanged
 
     case .monthYear:
-      dateSpec = DateSpecifier.month(monthYear)
+      break
 
     case .age:
       break
@@ -81,10 +81,7 @@ struct DateSpecifierView: View {
           Text("Unbounded start or end date.")
 
         case .monthYear:
-          MonthYearView(monthYear: $monthYear)
-            .onChange(of: monthYear) {
-              updateDateSpec(.monthYear)
-            }
+          MonthYearDateView(dateSpec: $dateSpec)
 
         case .age:
           AgeSelector(dateSpec: $dateSpec)
