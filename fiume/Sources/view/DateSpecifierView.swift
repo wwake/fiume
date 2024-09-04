@@ -83,7 +83,7 @@ struct DateSpecifierView: View {
         case .monthYear:
           MonthYearView(monthYear: $monthYear)
             .onChange(of: monthYear) {
-              dateSpec = DateSpecifier.month(monthYear)
+              updateDateSpec(.monthYear)
             }
 
         case .age:

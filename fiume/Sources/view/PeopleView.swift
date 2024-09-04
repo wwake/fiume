@@ -6,7 +6,6 @@ struct PeopleView: View {
   var people: People
 
   @State var isShowingCreateView = false
-  @State var isEditPresented = false
 
   var header: some View {
     HStack {
@@ -32,33 +31,7 @@ struct PeopleView: View {
     List {
       Section(header: header) {
         ForEach(people.sorted()) { person in
-          HStack {
-            Text(person.name)
-            Text("  b. \(person.birth)")
-
-            Spacer()
-
-            Button(action: {
-              people.remove(person)
-            }) {
-              Image(systemName: "trash")
-                .accessibilityLabel(Text("Delete"))
-            }
-            .buttonStyle(.plain)
-
-            Button(action: {
-              isEditPresented = true
-            }) {
-              Image(systemName: "square.and.pencil")
-                .accessibilityLabel(Text("Edit"))
-            }
-            .buttonStyle(.plain)
-          }
-          .sheet(isPresented: $isEditPresented) {
-            EditPersonView(person: person, buttonName: "Update") { person in
-              people.replace(person)
-            }
-          }
+          PersonView(person: person)
         }
       }
     }
