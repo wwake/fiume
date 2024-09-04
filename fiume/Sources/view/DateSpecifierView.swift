@@ -11,23 +11,7 @@ struct DateSpecifierView: View {
   init(label: String, dateSpec: Binding<DateSpecifier>) {
     self.label = label
     self._dateSpec = dateSpec
-
-    switch dateSpec.wrappedValue {
-    case .unchanged:
-      self.dateType = DateSpecifierType.unchanged
-
-    case .month:
-      self.dateType = DateSpecifierType.monthYear
-
-    case .age:
-      self.dateType = DateSpecifierType.age
-
-    case .assumption:
-      self.dateType = DateSpecifierType.assumption
-
-    default:
-      fatalError("Unknown date spec type \(dateSpec.wrappedValue)")
-    }
+    self.dateType = dateSpec.wrappedValue.type
   }
 
   var body: some View {
@@ -60,6 +44,9 @@ struct DateSpecifierView: View {
 
         case .assumption:
           AssumedDateView(dateSpec: $dateSpec)
+
+        @unknown default:
+          fatalError("Unknown date spec type")
         }
       }.frame(height: 200)
     }
