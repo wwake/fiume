@@ -1,15 +1,6 @@
 import fiume_model
 import SwiftUI
 
-enum DateSpecifierType: String, CaseIterable, Identifiable {
-  var id: Self { self }
-
-  case unchanged = "Unspecified",
-       monthYear = "Month-Year",
-       age = "Age",
-       assumption = "Assumed Date"
-}
-
 struct DateSpecifierView: View {
   var label: String
 
@@ -25,7 +16,7 @@ struct DateSpecifierView: View {
     case .unchanged:
       self.dateType = DateSpecifierType.unchanged
 
-    case let .month(monthYearIn):
+    case .month:
       self.dateType = DateSpecifierType.monthYear
 
     case .age:

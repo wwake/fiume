@@ -1,5 +1,14 @@
 import Foundation
 
+public enum DateSpecifierType: String, CaseIterable, Identifiable {
+  public var id: Self { self }
+
+  case unchanged = "Unspecified",
+       monthYear = "Month-Year",
+       age = "Age",
+       assumption = "Assumed Date"
+}
+
 public enum DateSpecifier: Equatable, Codable {
   case unchanged
   case month(MonthYear)
@@ -8,6 +17,22 @@ public enum DateSpecifier: Equatable, Codable {
 
   private var people: People {
     People.shared
+  }
+
+  public var type: DateSpecifierType {
+    switch self {
+    case .unchanged:
+      return .unchanged
+
+    case .month:
+      return .monthYear
+
+    case .age:
+      return .age
+
+    case .assumption:
+      return .assumption
+    }
   }
 
   public var assumedDateName: String? {
