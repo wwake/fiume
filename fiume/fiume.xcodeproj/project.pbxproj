@@ -296,16 +296,16 @@
 				91FA96562C7D05F70011BB7F /* GraphView.swift */,
 				914FEFB82BF2AF08003D858E /* LeiaView.swift */,
 				91F6E05E2C45A29A00E5EB7E /* MonthYear+Plottable.swift */,
+				912CFEED2C88EEC10074C066 /* MonthYearDateView.swift */,
 				91206E292C07BE6B00D4C1CB /* MonthYearView.swift */,
 				91FA965A2C7E52230011BB7F /* MultiNetIncomeView.swift */,
 				91FA96542C7D04CC0011BB7F /* NetIncomeView.swift */,
 				91FA96512C7D02260011BB7F /* NetWorthView.swift */,
 				91206E322C090B3F00D4C1CB /* PeopleView.swift */,
+				912CFEEB2C88EC1F0074C066 /* PersonView.swift */,
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */,
-				912CFEEB2C88EC1F0074C066 /* PersonView.swift */,
-				912CFEED2C88EEC10074C066 /* MonthYearDateView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";

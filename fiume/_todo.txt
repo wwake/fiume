@@ -1,4 +1,9 @@
-* Refactor DateSpecifierView so all 4 options use the same approach
+Persistence - are we saving everything??
+
+Demo and Code Walkthrough
+
+* Instead of none=0, provide (default) that you can set globally
+
 * Disallow duplicate assumption names
 Date- or Amount-Based Assumptions
 
@@ -9,7 +14,6 @@ Date- or Amount-Based Assumptions
 * Make growth non-nullable
 Persistence updates
 
-* Instead of none=0, provide (default) that you can set globally
 
 Refactoring
 * Make "relative" be on Leia rather than Amount
@@ -40,6 +44,8 @@ FI-24-57: 2024-09-04 - Refine Date Assumptions
 * Improve date description in LeiaView
 * Remove <none> as default name for assumptions
 * Fixed PeopleView - was only opening last entry since we shared the "isEditing" variable across all people - fixed by giving each a separate view + state
+* Refactor DateSpecifierView so all 4 options use the same approach
+
 FI-24-56: 2024-09-03 - Create Date Assumptions
 * Simplify DateSpecifierView, how it assigns monthYear
 * Merge DateAssumption & PercentAssumption into Assumption; merge DateAssumptions and PercentAssumptions into Assumptions
