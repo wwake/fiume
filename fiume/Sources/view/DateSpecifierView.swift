@@ -17,8 +17,6 @@ struct DateSpecifierView: View {
 
   @State private var dateType: DateSpecifierType
 
-  @State var monthYear: MonthYear = 2020.jan
-
   init(label: String, dateSpec: Binding<DateSpecifier>) {
     self.label = label
     self._dateSpec = dateSpec
@@ -28,7 +26,6 @@ struct DateSpecifierView: View {
       self.dateType = DateSpecifierType.unchanged
 
     case let .month(monthYearIn):
-      self.monthYear = monthYearIn
       self.dateType = DateSpecifierType.monthYear
 
     case .age:
@@ -39,22 +36,6 @@ struct DateSpecifierView: View {
 
     default:
       fatalError("Unknown date spec type \(dateSpec.wrappedValue)")
-    }
-  }
-
-  func updateDateSpec(_ dateType: DateSpecifierType) {
-    switch dateType {
-    case .unchanged:
-      dateSpec = DateSpecifier.unchanged
-
-    case .monthYear:
-      break
-
-    case .age:
-      break
-
-    case .assumption:
-      break
     }
   }
 
@@ -71,14 +52,14 @@ struct DateSpecifierView: View {
         }
       }
       .pickerStyle(.segmented)
-      .onChange(of: dateType) { _, newValue in
-        updateDateSpec(newValue)
-      }
 
       Group {
         switch dateType {
         case .unchanged:
           Text("Unbounded start or end date.")
+            .onChange(of: dateType, initial: true) {
+              dateSpec = DateSpecifier.unchanged
+            }
 
         case .monthYear:
           MonthYearDateView(dateSpec: $dateSpec)
