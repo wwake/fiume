@@ -77,7 +77,7 @@ public class Assumptions: Codable {
       .sorted()
   }
 
-  fileprivate func filter(_ type: AssumptionType) -> [Assumption] {
+  public func filter(_ type: AssumptionType) -> [Assumption] {
     assumptions
       .filter { $0.type == type }
   }

@@ -33,7 +33,7 @@ struct AssumptionsView: View {
     List {
       ForEach(assumptions.sections) { section in
         Section(header: header(section)) {
-          ForEach(assumptions.sorted()) { assumption in
+          ForEach(assumptions.filter(section.type).sorted()) { assumption in
             AssumptionView(
               assumption: assumption,
               updateAction: { revisedAssumption in

@@ -1,8 +1,8 @@
-* Create date assumption
-* Quickly change date assumptions
+* Initial value of picker should set the value
 * Improve date description in LeiaView
 * Refactor DateSpecifierView so all 4 options use the same approach
 * Disallow duplicate assumption names
+* Show numbers without comma on date-based assumptions
 Date- or Amount-Based Assumptions
 
 * Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
@@ -39,6 +39,9 @@ Sections - Defer
 
 FI-24-56: 2024-09-03 - Create Date Assumptions
 * Simplify DateSpecifierView, how it assigns monthYear
+* Merge DateAssumption & PercentAssumption into Assumption; merge DateAssumptions and PercentAssumptions into Assumptions
+* Create date assumption
+* Quickly change date assumptions
 
 FI-24-55: 2024-09-02 - Editing DateSpec with Assumptions
 * Persistence of isActive toggles from Plan
