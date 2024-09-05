@@ -3,46 +3,58 @@ import SwiftData
 import SwiftUI
 
 struct AgeSelector: View {
+  static let unknownPersonId = UUID()
+
   @Environment(People.self)
   var people: People
 
   @Binding var dateSpec: DateSpecifier
 
-  @State var person = Person(name: "Unknown", birth: 2000.jan)
-  @State var age = 60
+  @State var selectedId: UUID
+  @State var selectedAge: Int
+
+  init(dateSpec: Binding<DateSpecifier>) {
+    self._dateSpec = dateSpec
+
+    selectedId = dateSpec.wrappedValue.ageId ?? Self.unknownPersonId
+    selectedAge = dateSpec.wrappedValue.ageYears ?? 60
+  }
 
   func updateValues() {
-    dateSpec = DateSpecifier.age(person.id, age)
+    dateSpec = DateSpecifier.age(selectedId, selectedAge)
   }
 
   func personAge() -> some View {
     GeometryReader { geometry in
       HStack {
-        Picker("People", selection: $person) {
+        Picker("People", selection: $selectedId) {
           ForEach(people.sorted()) {
             Text($0.name)
               .tag($0.id)
           }
         }
         .halfSize(geometry.size)
-        .onChange(of: person) {
+        .onChange(of: selectedId, initial: true) {
           updateValues()
         }
 
-        Picker("Age", selection: $age) {
+        Picker("Age", selection: $selectedAge) {
           ForEach(1...100, id: \.self) {
             Text(verbatim: "\($0)")
               .tag($0)
           }
         }
         .halfSize(geometry.size)
-        .onChange(of: age) {
+        .onChange(of: selectedAge, initial: true) {
           updateValues()
         }
       }
     }
     .onAppear {
-      person = people.people.first!
+      if selectedId == Self.unknownPersonId {
+        let person = people.people.sorted().first!
+        selectedId = person.id
+      }
     }
   }
 

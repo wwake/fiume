@@ -52,6 +52,20 @@ public enum DateSpecifier: Equatable, Codable {
     return nil
   }
 
+  public var ageId: UUID? {
+    if case let .age(id, _) = self {
+      return id
+    }
+    return nil
+  }
+
+  public var ageYears: Int? {
+    if case let .age(_, years) = self {
+      return years
+    }
+    return nil
+  }
+
   public var description: String {
     switch self {
     case .unchanged:
