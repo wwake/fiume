@@ -20,7 +20,7 @@ struct FiumeApp: App {
 
     do {
       let newPeople = try open(Persistence.peopleFilename, People.self)
-      people.load(newPeople.people)
+      people.load(newPeople)
     } catch {
       // Fail => no file => first open => everything starts empty
     }

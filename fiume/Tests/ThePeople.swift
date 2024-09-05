@@ -19,7 +19,7 @@ struct ThePeople {
       Person(name: "new2", birth: 2021.may),
     ]
 
-    people.load(newPeople)
+    people.load(People(newPeople))
     #expect(people.count == 2)
     #expect(people.wasChanged == false)
   }

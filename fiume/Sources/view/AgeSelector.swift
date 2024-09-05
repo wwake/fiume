@@ -52,7 +52,7 @@ struct AgeSelector: View {
     }
     .onAppear {
       if selectedId == Self.unknownPersonId {
-        let person = people.people.sorted().first!
+        let person = people.all().first!
         selectedId = person.id
       }
     }

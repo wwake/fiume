@@ -10,7 +10,7 @@ public class People: Codable {
   }
 
   public var wasChanged: Bool
-  public var people: [Person]
+  fileprivate var people: [Person]
 
   public init() {
     people = [Person]()
@@ -22,8 +22,8 @@ public class People: Codable {
     wasChanged = false
   }
 
-  public func load(_ newPeople: [Person]) {
-    people = newPeople
+  public func load(_ newPeople: People) {
+    people = newPeople.people
     self.wasChanged = false
   }
 
@@ -60,7 +60,7 @@ extension People: Sequence {
 }
 
 extension People {
-  func sorted() -> [Person] {
+  public func all() -> [Person] {
     Array(self).sorted(by: { $0.name < $1.name })
   }
 }
