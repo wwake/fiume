@@ -67,34 +67,36 @@ struct EditLeiaView: View {
         }
 
         Picker(selection: $growth, label: Text("Growth:")) {
-          ForEach(Array(assumptions)) {
-            Text($0.name).tag($0.name)
+          ForEach(Array(assumptions.names(.percent)), id: \.self) {
+            Text($0)
+              .tag($0)
           }
         }
 
         AmountView(leiaType: leiaType, amount: $amount)
 
         EditDateRangeView(dates: $dates)
-
-        HStack {
-          Spacer()
-          Button(buttonName) {
-            let leia = Leia(
-              name: name,
-              amount: amount,
-              dates: dates,
-              type: leiaType,
-              growth: growth
-            )
-            action(leia)
-
-            dismiss()
-          }
-          .disabled(!valid())
-          Spacer()
-        }
       }
       .autocorrectionDisabled()
+
+      HStack {
+        Spacer()
+        Button(buttonName) {
+          let leia = Leia(
+            name: name,
+            amount: amount,
+            dates: dates,
+            type: leiaType,
+            growth: growth
+          )
+          action(leia)
+
+          dismiss()
+        }
+        .disabled(!valid())
+        Spacer()
+      }
+      .padding()
     }
     .onAppear {
       growth = assumptions.verified(leia.growth!)

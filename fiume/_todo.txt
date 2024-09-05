@@ -1,10 +1,6 @@
-* Age dropdown returns to first item
-* List of growth values should only have APRs
 
-* Move create/update button out of the scrollview
-
-* Sort by scenario name?
 * Scroll to bottom when adding new leias etc.
+* Sort by scenario name?
 
 * Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
 
@@ -34,6 +30,7 @@ Refactoring
 
 User Interface
 * What's the best UI for stream name since they might not exist yet but probably do?
+* Switch to another OutlineGroup built around DisclosureGroup, so we can force the expanded state (and default hide hidden groups or scenarios)
 
 Flows - Defer
 * Add flows (in/out)
@@ -48,6 +45,9 @@ FI-24-58: 2024-09-05 - Demo, Walkthrough, Wrap-Up Changes
 * "Tap any graph for details" on net income report
 * Persist whether showing people or assumptions
 * Instead of none=0, provide (default) that you can set globally
+* Fix bug where selected person was not retained; and make it so it saves initial value if you come in with none
+* List of growth values should only have APRs
+* Move create/update button out of the scrollview
 
 FI-24-57: 2024-09-04 - Refine Date Assumptions
 * Initial value of picker should set the value on AssumedDateView
