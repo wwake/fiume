@@ -17,7 +17,7 @@ struct EditLeiaView: View {
   @State private var leiaType = LeiaType.income
 
   @State private var name: String
-  @State private var growth = Assumption.flatGrowth
+  @State private var growth = Assumption.defaultGrowth
 
   @State private var amount: Amount
 

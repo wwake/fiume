@@ -35,7 +35,7 @@ struct AnAmount {
       amount: Amount(100),
       dates: DateRange.always,
       type: .income,
-      growth: Assumption.flatGrowth
+      growth: Assumption.defaultGrowth
     )
     scenario.add(stream)
 

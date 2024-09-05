@@ -62,7 +62,7 @@ struct TheAssumptions {
   @Test
   func verified_of_missing_name_yields_flatGrowth() {
     let assumptions = Assumptions()
-    #expect(assumptions.verified("missing") == Assumption.flatGrowth)
+    #expect(assumptions.verified("missing") == Assumption.defaultGrowth)
   }
 
   @Test

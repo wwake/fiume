@@ -16,7 +16,7 @@ public struct Assumption: Identifiable, Codable {
     }
   }
 
-  public static var flatGrowth = "(none)"
+  public static var defaultGrowth = "(default)"
 
   public static var null: Assumption {
     Assumption(type: .percent, name: "", min: 1, max: 100, current: 50)

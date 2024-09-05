@@ -13,7 +13,7 @@ public func makeLeia(
     amount: .money(amount),
     dates: DateRange(.month(first), .month(last)),
     type: leiaType,
-    growth: Assumption.flatGrowth
+    growth: Assumption.defaultGrowth
   )
 }
 
@@ -29,7 +29,7 @@ public func makeLeia(
     amount: .money(amount),
     dates: DateRange(first, last),
     type: leiaType,
-    growth: Assumption.flatGrowth
+    growth: Assumption.defaultGrowth
   )
 }
 
@@ -44,7 +44,7 @@ public func makeLeia(
     amount: .money(amount),
     dates: dates,
     type: leiaType,
-    growth: Assumption.flatGrowth
+    growth: Assumption.defaultGrowth
   )
 }
 
@@ -54,6 +54,6 @@ public func makeLeia(_ name: String, _ amount: Int) -> Leia {
     amount: .money(amount),
     dates: DateRange(.month(2024.jan), .unchanged),
     type: .income,
-    growth: Assumption.flatGrowth
+    growth: Assumption.defaultGrowth
   )
 }

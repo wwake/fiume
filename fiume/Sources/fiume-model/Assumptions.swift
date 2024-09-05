@@ -62,7 +62,7 @@ public class Assumptions: Codable {
 
   public func verified(_ name: String) -> String {
     guard find(name) != nil else {
-      return Assumption.flatGrowth
+      return Assumption.defaultGrowth
     }
     return name
   }

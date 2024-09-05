@@ -1,4 +1,3 @@
-* Remember whether people and/or assumptions are showing
 * Instead of none=0, provide (default) that you can set globally
 
 * Age dropdown returns to first item
@@ -43,6 +42,7 @@ Sections - Defer
 FI-24-58: 2024-09-05 - Demo, Walkthrough, Wrap-Up Changes
 * Demo
 * "Tap any graph for details" on net income report
+* Persist whether showing people or assumptions
 
 FI-24-57: 2024-09-04 - Refine Date Assumptions
 * Initial value of picker should set the value on AssumedDateView

@@ -64,7 +64,7 @@ public struct Leia: Identifiable, Codable {
       amount: .money(0),
       dates: DateRange.always,
       type: .income,
-      growth: Assumption.flatGrowth
+      growth: Assumption.defaultGrowth
     )
   }
 
