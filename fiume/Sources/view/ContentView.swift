@@ -12,8 +12,11 @@ struct ContentView: View {
 
   @Bindable var assumptions: Assumptions
 
-  @State var isShowingPeople = false
-  @State var isShowingAssumptions = false
+  @AppStorage("isShowingPeople")
+  var isShowingPeople = false
+
+  @AppStorage("isShowingAssumptions")
+  var isShowingAssumptions = false
 
   @State private var saveError: Error?
   @State private var showSaveAlert = false
