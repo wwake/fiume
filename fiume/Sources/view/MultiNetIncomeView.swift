@@ -20,6 +20,7 @@ public struct MultiNetIncomeView: View {
 
   public var body: some View {
     NavigationStack {
+      Text("Tap any graph for details")
       ScrollView {
         LazyVGrid(columns: sizes, spacing: 25) {
           ForEach(data) { scenario in

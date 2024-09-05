@@ -1,14 +1,25 @@
-Persistence - are we saving everything??
-
-Demo and Code Walkthrough
-
+* "Tap any graph for details"
+* Remember whether people and/or assumptions are showing
 * Instead of none=0, provide (default) that you can set globally
 
-* Disallow duplicate assumption names
-Date- or Amount-Based Assumptions
+* Age dropdown returns to first item
+* List of growth values should only have APRs
+
+* Move create/update button out of the scrollview
+
+* Sort by scenario name?
+* Scroll to bottom when adding new leias etc.
 
 * Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
 
+Errors
+* Disallow duplicate assumption names
+* Require distinct people names? assumptions?
+* What if stream A depends on B and vice versa?
+* Error Reporting when Leia name is reused in a given scenario
+* Validate month is valid; end-date >= start-date [now we silently use zero for the amount]
+* Do better when deleting a person with active Leias - at least strike through
+* Error if deleted name is used (assumption or relative)
 
 * Change DateSpecifier.unchanged to .unspecified
 * Make growth non-nullable
@@ -18,14 +29,6 @@ Persistence updates
 Refactoring
 * Make "relative" be on Leia rather than Amount
 * Maybe Possibilities should be a struct, regenerated as needed
-
-Errors
-* What if stream A depends on B and vice versa?
-* Error Reporting when Leia name is reused in a given scenario
-* Validate month is valid; end-date >= start-date [now we silently use zero for the amount]
-* Require distinct people names?
-* Do better when deleting a person with active Leias - at least strike through
-* Error if deleted name is used (assumption or relative)
 
 User Interface
 * What's the best UI for stream name since they might not exist yet but probably do?
@@ -37,6 +40,9 @@ Sections - Defer
 * Add multiple sections
 * Move streams (?)
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
+
+FI-24-58: 2024-09-05 - Demo, Walkthrough, Wrap-Up Changes
+* Demo
 
 FI-24-57: 2024-09-04 - Refine Date Assumptions
 * Initial value of picker should set the value on AssumedDateView
