@@ -27,7 +27,10 @@ public class Assumptions: Codable {
   public var assumptions: [Assumption]
 
   public init() {
-    assumptions = [Assumption(type: .percent, name: "(none)", min: 0, max: 0, current: 0)]
+    assumptions = [
+      Assumption(type: .percent, name: "(none)", min: 0, max: 0, current: 0),
+      Assumption(type: .percent, name: Assumption.defaultGrowth, min: 0, max: 25, current: 0),
+    ]
   }
 
   public var sections: [AssumptionsSection] = [
