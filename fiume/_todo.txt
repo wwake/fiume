@@ -1,4 +1,3 @@
-* Disallow duplicate people names
 * Disallow duplicate assumption names
 * Error if referring to deleted people
 * Error if referring to deleted assumptions
@@ -37,7 +36,8 @@ Sections - Defer
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
 
 FI-24-59: 2024-09-08 - Error Handling
-
+* Disallow duplicate people names
+* Add ErrorView to encapsulate a centered red message
 
 FI-24-58: 2024-09-05 - Demo, Walkthrough, Wrap-Up Changes
 * Demo

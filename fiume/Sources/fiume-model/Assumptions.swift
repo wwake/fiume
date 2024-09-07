@@ -52,6 +52,10 @@ public class Assumptions: Codable {
     assumptions.first { $0.name == name }
   }
 
+  public func containsName(_ name: String) -> Bool {
+    find(name) != nil
+  }
+
   public func remove(_ name: String) {
     assumptions.removeAll { $0.name == name }
     wasChanged = true

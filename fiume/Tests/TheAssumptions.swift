@@ -17,7 +17,7 @@ struct TheAssumptions {
 
   @Test
   func adds_an_assumption() {
-    let sut = Assumptions()
+    let sut = makeEmptyAssumptions()
     sut.wasChanged = false
 
     sut.add(Assumption(type: .percent, name: "the one", min: 1, max: 10, current: 5))
@@ -28,7 +28,7 @@ struct TheAssumptions {
 
   @Test
   func remove_removes_assumption() {
-    let sut = Assumptions()
+    let sut = makeEmptyAssumptions()
     sut.add(Assumption(type: .percent, name: "the one", min: 1, max: 10, current: 5))
     sut.wasChanged = false
 
@@ -40,7 +40,7 @@ struct TheAssumptions {
 
   @Test
   func replaces_an_assumption() {
-    let sut = Assumptions()
+    let sut = makeEmptyAssumptions()
     let assumption = Assumption(type: .percent, name: "the one", min: 1, max: 10, current: 5)
     sut.add(assumption)
     sut.wasChanged = false
@@ -53,25 +53,25 @@ struct TheAssumptions {
 
   @Test
   func verified_of_valid_name_yields_name() {
-    let assumptions = Assumptions()
+    let assumptions = makeEmptyAssumptions()
     assumptions.add(Assumption(type: .percent, name: "present", min: 0, max: 0, current: 0))
 
     #expect(assumptions.verified("present") == "present")
   }
 
   @Test
-  func verified_of_missing_name_yields_flatGrowth() {
-    let assumptions = Assumptions()
+  func verified_of_missing_name_yields_default_growth() {
+    let assumptions = makeEmptyAssumptions()
     #expect(assumptions.verified("missing") == Assumption.defaultGrowth)
   }
 
   @Test
   func load_replaces_assumptions() {
-    let assumptions = Assumptions()
+    let assumptions = makeEmptyAssumptions()
     let assumption = Assumption(type: .percent, name: "the one", min: 1, max: 10, current: 5)
     assumptions.add(assumption)
 
-    let sut = Assumptions()
+    let sut = makeEmptyAssumptions()
     sut.wasChanged = true
     sut.load(assumptions)
 
@@ -81,19 +81,19 @@ struct TheAssumptions {
 
   @Test
   func returns_0_percent_if_name_is_null() {
-    let assumptions = Assumptions()
+    let assumptions = makeEmptyAssumptions()
     #expect(assumptions.findMonthlyRate(nil) == 0.0)
   }
 
   @Test
   func returns_0_percent_for_unknown_name() {
-    let assumptions = Assumptions()
+    let assumptions = makeEmptyAssumptions()
     #expect(assumptions.findMonthlyRate("unknown") == 0.0)
   }
 
   @Test
   func returns_percent_for_known_name() {
-    let assumptions = Assumptions()
+    let assumptions = makeEmptyAssumptions()
     assumptions.add(Assumption(type: .percent, name: "ROI", min: 1, max: 100, current: 100))
 
     #expect(assumptions.findMonthlyRate("ROI") >= 1.059463094)
@@ -136,5 +136,18 @@ struct TheAssumptions {
       .map { $0.type }
 
     #expect(Set(result) == [.date, .percent])
+  }
+
+  @Test
+  func containsName_doesnt_find_name_thats_not_there() {
+    let sut = makeEmptyAssumptions()
+    #expect(!sut.containsName("Aloysius"))
+  }
+
+  @Test
+  func containsName_finds_name_thats_there() {
+    let sut = makeEmptyAssumptions()
+    sut.add(Assumption(type: .percent, name: "ROI", min: 1, max: 100, current: 100))
+    #expect(sut.containsName("ROI"))
   }
 }
