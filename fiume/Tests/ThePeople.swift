@@ -80,4 +80,18 @@ struct ThePeople {
 
     #expect(people.sorted().map { $0.name } == ["Art", "Bob"])
   }
+
+  @Test
+  func contains_doesnt_find_missing_person() {
+    #expect(!people.containsName("Herkimer"))
+  }
+
+  @Test
+  func contains_name_thats_there() {
+    let alfred = Person(name: "Alfred", birth: 2000.feb)
+
+    people.add(alfred)
+
+    #expect(people.containsName("Alfred"))
+  }
 }

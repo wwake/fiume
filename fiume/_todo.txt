@@ -1,23 +1,19 @@
+* Disallow duplicate people names
+* Disallow duplicate assumption names
+* Error if referring to deleted people
+* Error if referring to deleted assumptions
+
+* Validate month is valid; end-date >= start-date [now we silently use zero for the amount]
+* Error if relative amounts that depend on each other
+* Error when Leia name is reused in a given scenario
+Errors
+
 
 * Scroll to bottom when adding new leias etc.
 * Sort by scenario name?
 
 * Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
 
-Pickers
-* Create state for each new field
-* Populate state in constructor if object exists, default it otherwise
-* Use .onChange(value, initial: true) to make sure object gets written if nothing is changed
-* Use .onAppear to ensure there's a default value if constructor couldn't create one [needed if you access global state]
-
-Errors
-* Disallow duplicate assumption names
-* Require distinct people names? assumptions?
-* What if stream A depends on B and vice versa?
-* Error Reporting when Leia name is reused in a given scenario
-* Validate month is valid; end-date >= start-date [now we silently use zero for the amount]
-* Do better when deleting a person with active Leias - at least strike through
-* Error if deleted name is used (assumption or relative)
 
 * Change DateSpecifier.unchanged to .unspecified
 * Make growth non-nullable
@@ -39,6 +35,9 @@ Sections - Defer
 * Add multiple sections
 * Move streams (?)
 * Move streams between sections - see https://chriswu.com/posts/swiftui/multiplelistmove/
+
+FI-24-59: 2024-09-08 - Error Handling
+
 
 FI-24-58: 2024-09-05 - Demo, Walkthrough, Wrap-Up Changes
 * Demo

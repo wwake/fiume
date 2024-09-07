@@ -49,6 +49,11 @@ public class People: Codable {
   public func findById(_ id: UUID) -> Person? {
     people.first { $0.id == id }
   }
+
+  public func containsName(_ name: String) -> Bool {
+    let found = people.first { $0.name == name }
+    return found != nil
+  }
 }
 
 extension People: Sequence {
