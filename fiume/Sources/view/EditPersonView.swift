@@ -2,6 +2,9 @@ import fiume_model
 import SwiftUI
 
 struct EditPersonView: View {
+  @Environment(People.self)
+  var people: People
+
   @Environment(\.dismiss)
   var dismiss
 
@@ -22,7 +25,7 @@ struct EditPersonView: View {
   }
 
   func valid() -> Bool {
-    !name.isEmpty
+    !name.isEmpty && !people.containsName(name)
   }
 
   var body: some View {
@@ -32,6 +35,10 @@ struct EditPersonView: View {
         .padding([.bottom], 4)
 
       RequiredTextField(name: "Name", field: $name)
+      ErrorView(
+        people.containsName(name),
+        "The name '\(name)' is already used."
+      )
 
       LabeledContent {
         MonthYearView(monthYear: $born)

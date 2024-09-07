@@ -38,6 +38,7 @@
 		915226ED2C4EDBAD0001260F /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C248CC2C24B3CE00A1EEB3 /* People.swift */; };
 		915226EF2C4EDC060001260F /* fiume_model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 915226D72C4EDB980001260F /* fiume_model.framework */; platformFilter = ios; };
 		915226F02C4EDC060001260F /* fiume_model.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 915226D72C4EDB980001260F /* fiume_model.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		91525DDD2C8C8CA100154B0A /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91525DDC2C8C8CA100154B0A /* ErrorView.swift */; };
 		91690A7F2C12451500A6082D /* AgeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91690A7E2C12451500A6082D /* AgeSelector.swift */; };
 		91753E412C6BD892001B02F6 /* CapsuleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91753E402C6BD892001B02F6 /* CapsuleButtonStyle.swift */; };
 		91753E432C6BD9D2001B02F6 /* AssumptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91753E422C6BD9D2001B02F6 /* AssumptionsView.swift */; };
@@ -154,6 +155,7 @@
 		914FEFB82BF2AF08003D858E /* LeiaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeiaView.swift; sourceTree = "<group>"; };
 		915226D72C4EDB980001260F /* fiume_model.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = fiume_model.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		915226D92C4EDB980001260F /* fiume_model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fiume_model.h; sourceTree = "<group>"; };
+		91525DDC2C8C8CA100154B0A /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		9152FC512C0AB46A000D5001 /* fiume-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "fiume-Info.plist"; sourceTree = "<group>"; };
 		91690A7E2C12451500A6082D /* AgeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelector.swift; sourceTree = "<group>"; };
 		91753E402C6BD892001B02F6 /* CapsuleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButtonStyle.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				919CED4E2BF550E300ACCE2E /* PlanListView.swift */,
 				919CED4C2BF54D8C00ACCE2E /* PlanView.swift */,
 				91FA96582C7E4D460011BB7F /* ScenarioNetIncomeView.swift */,
+				91525DDC2C8C8CA100154B0A /* ErrorView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				91E7BB9A2C502C2E00A328DF /* EditDateRangeView.swift in Sources */,
 				914FEFB92BF2AF08003D858E /* LeiaView.swift in Sources */,
 				91FA96552C7D04CC0011BB7F /* NetIncomeView.swift in Sources */,
+				91525DDD2C8C8CA100154B0A /* ErrorView.swift in Sources */,
 				919CED522BF699E900ACCE2E /* AddPlanView.swift in Sources */,
 				912CFEEC2C88EC1F0074C066 /* PersonView.swift in Sources */,
 				919CED542BF69C5C00ACCE2E /* EditGroupView.swift in Sources */,

@@ -39,10 +39,7 @@ struct RequiredTextField: View {
       } label: {
         Text(name)
       }
-      if field.isEmpty {
-        Text("\(name) is required.")
-          .foregroundStyle(Color("Error"))
-      }
+      ErrorView(field.isEmpty, "\(name) is required.")
     }
   }
 }
