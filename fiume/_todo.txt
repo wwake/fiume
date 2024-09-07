@@ -1,8 +1,7 @@
-* Wrong edit window pops up on assumptions
-* Error if values not set on assumptions
 * Error if referring to deleted people
 * Error if referring to deleted assumptions
 
+* Error if values not set on assumptions
 * Validate month is valid; end-date >= start-date [now we silently use zero for the amount]
 * Error if relative amounts that depend on each other
 * Error when Leia name is reused in a given scenario
@@ -40,6 +39,7 @@ FI-24-59: 2024-09-08 - Error Handling
 * Disallow duplicate people names
 * Add ErrorView to encapsulate a centered red message
 * Disallow duplicate assumption names
+* Fix wrong edit window popping up on assumptions - reused same "isShowingView" across the sections
 
 FI-24-58: 2024-09-05 - Demo, Walkthrough, Wrap-Up Changes
 * Demo
