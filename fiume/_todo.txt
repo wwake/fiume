@@ -1,5 +1,5 @@
-* Error if values not set on assumptions
 * Wrong edit window pops up on assumptions
+* Error if values not set on assumptions
 * Error if referring to deleted people
 * Error if referring to deleted assumptions
 
