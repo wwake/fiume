@@ -69,6 +69,6 @@ struct EditAssumptionView: View {
 }
 
 #Preview {
-  let assumption = Assumption.null
+  let assumption = Assumption.nullPercent
   return EditAssumptionView(assumption: assumption, buttonName: "Create") { _ in }
 }

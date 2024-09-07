@@ -9,7 +9,7 @@ public struct Assumption: Identifiable, Codable {
   public static func null(_ type: AssumptionType) -> Assumption {
     switch type {
     case .percent:
-      return Assumption.null
+      return Assumption.nullPercent
 
     case .date:
       return Assumption.nullDate
@@ -18,12 +18,12 @@ public struct Assumption: Identifiable, Codable {
 
   public static var defaultGrowth = "(default)"
 
-  public static var null: Assumption {
+  public static var nullPercent: Assumption {
     Assumption(type: .percent, name: "", min: 1, max: 100, current: 50)
   }
 
   public static var nullDate = {
-    Assumption(type: .date, name: "", min: 0, max: 9999, current: 2000)
+    Assumption(type: .date, name: "", min: 1900, max: 2200, current: 2000)
   }()
 
   public var id = UUID()

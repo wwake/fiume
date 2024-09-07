@@ -27,7 +27,7 @@ public struct AssumptionHeaderView: View {
         assumption: Assumption.null(section.type),
         buttonName: "Create \(section.name)") { assumption in
           assumptions.add(assumption)
-        }
+      }
     }
   }
 }

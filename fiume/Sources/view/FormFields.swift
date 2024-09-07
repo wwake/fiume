@@ -6,7 +6,7 @@ struct NumberField: View {
 
 	var body: some View {
 		LabeledContent {
-			TextField(label, value: $value, format: .number)
+      TextField(label, value: $value, format: .number.grouping(.never))
 				.keyboardType(.decimalPad)
 		} label: {
 			Text(label)

@@ -1,23 +1,15 @@
+
+Error Handling
 * Error if referring to deleted people
 * Error if referring to deleted assumptions
-
 * Error if values not set on assumptions
 * Validate month is valid; end-date >= start-date [now we silently use zero for the amount]
 * Error if relative amounts that depend on each other
 * Error when Leia name is reused in a given scenario
-Errors
 
-
-* Scroll to bottom when adding new leias etc.
-* Sort by scenario name?
-
-* Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
-
-
+Persistence updates
 * Change DateSpecifier.unchanged to .unspecified
 * Make growth non-nullable
-Persistence updates
-
 
 Refactoring
 * Make "relative" be on Leia rather than Amount
@@ -26,6 +18,10 @@ Refactoring
 User Interface
 * What's the best UI for stream name since they might not exist yet but probably do?
 * Switch to another OutlineGroup built around DisclosureGroup, so we can force the expanded state (and default hide hidden groups or scenarios)
+* Scroll to bottom when adding new leias etc.
+* Sort by scenario name?
+
+* Legend - Can we tap each legend to show/hide it? https://stackoverflow.com/questions/73255252/custom-legends-in-swift-charts-for-ios-16
 
 Flows - Defer
 * Add flows (in/out)
