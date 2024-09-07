@@ -2,6 +2,9 @@ import fiume_model
 import SwiftUI
 
 struct EditAssumptionView: View {
+  @Environment(Assumptions.self)
+  var assumptions: Assumptions
+
   @Environment(\.dismiss)
   var dismiss
 
@@ -30,7 +33,7 @@ struct EditAssumptionView: View {
   }
 
   func valid() -> Bool {
-    !name.isEmpty && rangeOk
+    !name.isEmpty && !assumptions.containsName(name) && rangeOk
   }
 
   var body: some View {
@@ -40,6 +43,11 @@ struct EditAssumptionView: View {
         .padding([.bottom], 4)
 
       RequiredTextField(name: "Name", field: $name)
+      ErrorView(
+        assumptions.containsName(name),
+        "The name '\(name)' is already used."
+        )
+
       NumberField(label: "Min", value: $min)
       NumberField(label: "Current", value: $current)
       NumberField(label: "Max", value: $max)
