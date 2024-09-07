@@ -122,10 +122,7 @@ struct MoneyAmountView: View {
         .onChange(of: dollars) {
           amount = .money(dollars)
         }
-      if dollars < 0 {
-        Text("Amount may not be negative; choose Asset or Liability instead.")
-          .foregroundStyle(Color("Error"))
-      }
+      ErrorView(dollars < 0, "Amount may not be negative; use a positive amount with Expense or Liability instead.")
     }
   }
 }
