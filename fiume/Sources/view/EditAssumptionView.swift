@@ -44,14 +44,7 @@ struct EditAssumptionView: View {
       NumberField(label: "Current", value: $current)
       NumberField(label: "Max", value: $max)
 
-      if !rangeOk {
-        HStack {
-          Spacer()
-          Text("Must have Min <= Current and Current <= Max")
-            .foregroundStyle(Color("Error"))
-          Spacer()
-        }
-      }
+      ErrorView(!rangeOk, "Must have Min <= Current and Current <= Max")
 
       HStack {
         Spacer()
